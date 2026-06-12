@@ -33,7 +33,7 @@ import {
   SceneLayer,
 } from "./types";
 
-type WorkspaceTab = "scenes" | "preview" | "scene" | "frames" | "sheet" | "blueprint";
+type WorkspaceTab = "scenes" | "scene" | "spritesheets" | "preview" | "frames" | "sheet" | "blueprint";
 type BackgroundMode = "checker" | "dark" | "light" | "green";
 type ResizeHandle = "nw" | "ne" | "sw" | "se";
 type ResizeState = {
@@ -46,6 +46,15 @@ type ResizeState = {
 };
 type HeldDirection = "left" | "right" | null;
 type VehiclePhase = "approaching" | "ready" | "boarded";
+type SceneSpritesheetEntry = {
+  key: string;
+  layer: SceneLayer;
+  asset: GameAsset;
+  clip?: AnimationClip;
+  sprite: AnimationSprite;
+  frameWidth: number;
+  frameHeight: number;
+};
 
 const VIEWPORT_WIDTH = 1280;
 const DEFAULT_WALK_SPEED = 120;
@@ -1204,6 +1213,7 @@ export default function App() {
   const [importTagsText, setImportTagsText] = useState("imported, spritesheet");
   const [importLoop, setImportLoop] = useState(true);
   const [draggedLayerId, setDraggedLayerId] = useState<string | null>(null);
+  const [expandedSpritesheetKey, setExpandedSpritesheetKey] = useState<string | null>(null);
   const [interactionToast, setInteractionToast] = useState("");
   const [isBackpackOpen, setIsBackpackOpen] = useState(false);
   const [vehiclePhase, setVehiclePhase] = useState<VehiclePhase>("approaching");
@@ -1245,6 +1255,29 @@ export default function App() {
   const assetById = useMemo(() => {
     return new Map(allAssets.map(asset => [asset.id, asset]));
   }, [allAssets]);
+
+  const sceneSpritesheetEntries = useMemo<SceneSpritesheetEntry[]>(() => {
+    return scene.layers
+      .filter(layer => layer.assetId && isSceneVisualLayer(layer))
+      .flatMap(layer => {
+        const asset = assetById.get(layer.assetId!);
+        if (!asset) return [];
+        const clips = asset.animations?.length ? asset.animations : [undefined];
+        return clips.map(clip => {
+          const sprite = clip?.sprite || asset.sprite;
+          const [frameWidth, frameHeight] = getFrameSize(sprite);
+          return {
+            key: `${layer.id}_${clip?.id || asset.sprite.id}`,
+            layer,
+            asset,
+            clip,
+            sprite,
+            frameWidth,
+            frameHeight,
+          };
+        });
+      });
+  }, [assetById, scene.layers]);
 
   const selectedLayerAsset = selectedLayer?.assetId ? assetById.get(selectedLayer.assetId) : undefined;
   const selectedLayerClip = resolveAssetClip(selectedLayerAsset, selectedLayer);
@@ -1682,6 +1715,80 @@ export default function App() {
     setActiveFrame(0);
     setIsPlaying(true);
     setNotice(`Switched action: ${clip.name}`);
+  };
+
+  const previewSceneSpritesheetEntry = (entry: SceneSpritesheetEntry, openScene = false) => {
+    updateSceneLayer(entry.layer.id, { activeAnimationId: entry.clip?.id || entry.layer.activeAnimationId });
+    setSelectedLayerId(entry.layer.id);
+    setActiveSprite(entry.sprite);
+    setActiveFrame(0);
+    setIsPlaying(true);
+    setExpandedSpritesheetKey(entry.key);
+    if (openScene) setTab("scene");
+    setNotice(`Previewing ${entry.asset.name} on layer ${entry.layer.name}.`);
+  };
+
+  const updateAssetMetadata = (assetId: string, patch: Partial<GameAsset>) => {
+    if (!assets.some(asset => asset.id === assetId)) {
+      setNotice("Built-in scene kit assets can be layered and animated, but save a copy before editing their library metadata.");
+      return;
+    }
+    setAssets(prev => prev.map(asset => asset.id === assetId ? { ...asset, ...patch, updatedTime: new Date().toISOString() } : asset));
+  };
+
+  const updateAssetClipMetadata = (
+    assetId: string,
+    clipId: string,
+    patch: Partial<AnimationClip>,
+    bindingPatch?: Partial<ActionBinding>
+  ) => {
+    if (!assets.some(asset => asset.id === assetId)) {
+      setNotice("Built-in scene kit assets can be previewed here, but their metadata is read-only.");
+      return;
+    }
+    setAssets(prev => prev.map(asset => {
+      if (asset.id !== assetId || !asset.animations?.length) return asset;
+      const animations = asset.animations.map(clip => {
+        if (clip.id !== clipId) return clip;
+        return {
+          ...clip,
+          ...patch,
+          binding: { ...clip.binding, ...bindingPatch },
+        };
+      });
+      const defaultClip =
+        animations.find(clip => clip.id === asset.defaultAnimationId) ||
+        animations[0];
+      return {
+        ...asset,
+        animations,
+        sprite: defaultClip?.sprite || asset.sprite,
+        binding: defaultClip?.binding || asset.binding,
+        updatedTime: new Date().toISOString(),
+      };
+    }));
+  };
+
+  const saveAssetMetadata = async (assetId: string) => {
+    const asset = assets.find(item => item.id === assetId);
+    if (!asset) {
+      setNotice("This asset is built in. Save it as a confirmed asset first if you want persistent metadata edits.");
+      return;
+    }
+    setError(null);
+    try {
+      const response = await fetch("/api/game-library/assets", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ asset }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Failed to save asset metadata");
+      setAssets(data.library.assets);
+      setNotice(`Saved spritesheet metadata: ${asset.name}`);
+    } catch (err: any) {
+      setError(err.message || "Failed to save asset metadata");
+    }
   };
 
   const updateSceneLighting = (patch: Partial<NonNullable<GameScene["lighting"]>>) => {
@@ -2551,11 +2658,12 @@ export default function App() {
             <div className="stage-header">
               <div>
                 <p className="eyebrow">Scene Composer</p>
-                <h2>{tab === "scenes" ? "Scene Library" : scene.name}</h2>
+                <h2>{tab === "scenes" ? "Scene Library" : tab === "spritesheets" ? "Scene Spritesheets" : scene.name}</h2>
               </div>
               <div className="tabs">
                 <button className={tab === "scenes" ? "active" : ""} onClick={() => setTab("scenes")}><MapIcon size={15} /> Scenes</button>
                 <button className={tab === "scene" ? "active" : ""} onClick={() => setTab("scene")}><MapIcon size={15} /> Scene</button>
+                <button className={tab === "spritesheets" ? "active" : ""} onClick={() => setTab("spritesheets")}><Film size={15} /> Spritesheets</button>
                 <button className={tab === "preview" ? "active" : ""} onClick={() => setTab("preview")}><Play size={15} /> Action</button>
                 <button className={tab === "frames" ? "active" : ""} onClick={() => setTab("frames")}>Frames</button>
                 <button className={tab === "sheet" ? "active" : ""} onClick={async () => { setTab("sheet"); if (!activeSprite.spritesheetPng && !sheetDataUrl) await compileSheet(); }}>Sheet</button>
@@ -2889,6 +2997,232 @@ export default function App() {
                     </>
                   )}
                 </div>
+              </div>
+            )}
+
+            {tab === "spritesheets" && (
+              <div className="spritesheet-library-page">
+                <div className="scene-library-header">
+                  <div>
+                    <p className="eyebrow">Scene Spritesheets</p>
+                    <h3>{sceneSpritesheetEntries.length} animation clips in this scene</h3>
+                  </div>
+                  <div className="scene-library-actions">
+                    <button type="button" className="ghost-button" onClick={() => setIsPlaying(value => !value)}>
+                      {isPlaying ? <Pause size={16} /> : <Play size={16} />} {isPlaying ? "Pause All" : "Play All"}
+                    </button>
+                    <button type="button" className="primary-button" onClick={saveScene}><Save size={16} /> Save Scene</button>
+                  </div>
+                </div>
+
+                <div className="spritesheet-library-grid">
+                  {sceneSpritesheetEntries.map(entry => {
+                    const isExpanded = expandedSpritesheetKey === entry.key;
+                    const clipBinding = entry.clip?.binding || entry.asset.binding;
+                    const editableAsset = assets.some(asset => asset.id === entry.asset.id);
+                    const frameCount = entry.sprite.frames.length || 1;
+                    const assetClips = entry.asset.animations || [];
+                    return (
+                      <article key={entry.key} className={isExpanded ? "spritesheet-inspector-card expanded" : "spritesheet-inspector-card"}>
+                        <button
+                          type="button"
+                          className="spritesheet-inspector-preview"
+                          style={checkerStyle}
+                          onClick={() => previewSceneSpritesheetEntry(entry)}
+                        >
+                          <div
+                            style={{ aspectRatio: `${entry.frameWidth} / ${entry.frameHeight}` }}
+                            dangerouslySetInnerHTML={{ __html: spriteFrame(entry.sprite, activeFrame) }}
+                          />
+                        </button>
+                        <div className="spritesheet-inspector-main">
+                          <div className="spritesheet-inspector-title">
+                            <div>
+                              <strong>{entry.clip?.name || entry.asset.name}</strong>
+                              <span>{entry.layer.name} / {roleLabels[entry.asset.role]} / {frameCount} frames / {entry.frameWidth} x {entry.frameHeight}</span>
+                            </div>
+                            <button
+                              type="button"
+                              className={isExpanded ? "active" : ""}
+                              onClick={() => setExpandedSpritesheetKey(isExpanded ? null : entry.key)}
+                            >
+                              Edit
+                            </button>
+                          </div>
+                          <div className="spritesheet-inspector-actions">
+                            <button type="button" onClick={() => previewSceneSpritesheetEntry(entry)}><Play size={13} /> Preview</button>
+                            <button type="button" onClick={() => previewSceneSpritesheetEntry(entry, true)}><MapIcon size={13} /> Locate Layer</button>
+                            <button type="button" onClick={() => downloadUrl(entry.sprite.spritesheetPng || entry.sprite.rawSpritesheetPng || "", `spritesheet_${safeName(entry.sprite.characterName)}.png`)} disabled={!entry.sprite.spritesheetPng && !entry.sprite.rawSpritesheetPng}><Download size={13} /> PNG</button>
+                          </div>
+
+                          {isExpanded && (
+                            <div className="spritesheet-inspector-editor">
+                              {!editableAsset && (
+                                <div className="control-hint">This is a built-in scene kit asset. You can edit layer placement in the Scene tab, but persistent metadata editing is available for confirmed assets.</div>
+                              )}
+                              <div className="two-col">
+                                <div>
+                                  <label>Asset Name</label>
+                                  <input
+                                    value={entry.asset.name}
+                                    disabled={!editableAsset}
+                                    onChange={event => updateAssetMetadata(entry.asset.id, { name: event.target.value })}
+                                  />
+                                </div>
+                                <div>
+                                  <label>Asset Role</label>
+                                  <select
+                                    value={entry.asset.role}
+                                    disabled={!editableAsset}
+                                    onChange={event => updateAssetMetadata(entry.asset.id, { role: event.target.value as AssetRole })}
+                                  >
+                                    {Object.entries(roleLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div className="two-col">
+                                <div>
+                                  <label>Layer Clip</label>
+                                  <select
+                                    value={entry.layer.activeAnimationId || entry.asset.defaultAnimationId || entry.clip?.id || ""}
+                                    onChange={event => {
+                                      const nextClip = entry.asset.animations?.find(clip => clip.id === event.target.value);
+                                      if (nextClip) setLayerAnimation(entry.layer.id, nextClip);
+                                    }}
+                                  >
+                                    {assetClips.length
+                                      ? assetClips.map(clip => <option key={clip.id} value={clip.id}>{clip.name}</option>)
+                                      : <option value="">Single Sprite</option>}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label>Default Clip</label>
+                                  <select
+                                    value={entry.asset.defaultAnimationId || entry.clip?.id || ""}
+                                    disabled={!editableAsset || !entry.asset.animations?.length}
+                                    onChange={event => updateAssetMetadata(entry.asset.id, { defaultAnimationId: event.target.value })}
+                                  >
+                                    {assetClips.length
+                                      ? assetClips.map(clip => <option key={clip.id} value={clip.id}>{clip.name}</option>)
+                                      : <option value="">Single Sprite</option>}
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div className="two-col">
+                                <div>
+                                  <label>Clip Name</label>
+                                  <input
+                                    value={entry.clip?.name || entry.asset.binding.actionName}
+                                    disabled={!editableAsset}
+                                    onChange={event => entry.clip
+                                      ? updateAssetClipMetadata(entry.asset.id, entry.clip.id, { name: event.target.value })
+                                      : updateAssetMetadata(entry.asset.id, { binding: { ...entry.asset.binding, actionName: event.target.value } })
+                                    }
+                                  />
+                                </div>
+                                <div>
+                                  <label>Action Name</label>
+                                  <input
+                                    value={entry.clip?.actionName || entry.asset.binding.actionName}
+                                    disabled={!editableAsset}
+                                    onChange={event => entry.clip
+                                      ? updateAssetClipMetadata(entry.asset.id, entry.clip.id, { actionName: event.target.value }, { actionName: event.target.value })
+                                      : updateAssetMetadata(entry.asset.id, { binding: { ...entry.asset.binding, actionName: event.target.value } })
+                                    }
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="two-col">
+                                <div>
+                                  <label>Trigger Type</label>
+                                  <select
+                                    value={clipBinding.triggerType}
+                                    disabled={!editableAsset}
+                                    onChange={event => entry.clip
+                                      ? updateAssetClipMetadata(entry.asset.id, entry.clip.id, {}, { triggerType: event.target.value as ActionTriggerType })
+                                      : updateAssetMetadata(entry.asset.id, { binding: { ...entry.asset.binding, triggerType: event.target.value as ActionTriggerType } })
+                                    }
+                                  >
+                                    {Object.entries(triggerLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+                                  </select>
+                                </div>
+                                <div>
+                                  <label>Trigger Value</label>
+                                  <input
+                                    value={clipBinding.triggerValue}
+                                    disabled={!editableAsset}
+                                    onChange={event => entry.clip
+                                      ? updateAssetClipMetadata(entry.asset.id, entry.clip.id, {}, { triggerValue: event.target.value })
+                                      : updateAssetMetadata(entry.asset.id, { binding: { ...entry.asset.binding, triggerValue: event.target.value } })
+                                    }
+                                  />
+                                </div>
+                              </div>
+
+                              <label>Game State</label>
+                              <input
+                                value={clipBinding.gameState}
+                                disabled={!editableAsset}
+                                onChange={event => entry.clip
+                                  ? updateAssetClipMetadata(entry.asset.id, entry.clip.id, {}, { gameState: event.target.value })
+                                  : updateAssetMetadata(entry.asset.id, { binding: { ...entry.asset.binding, gameState: event.target.value } })
+                                }
+                              />
+
+                              <div className="two-col">
+                                <div>
+                                  <label>Direction</label>
+                                  <select
+                                    value={entry.clip?.direction || "none"}
+                                    disabled={!editableAsset || !entry.clip}
+                                    onChange={event => entry.clip && updateAssetClipMetadata(entry.asset.id, entry.clip.id, { direction: event.target.value as AnimationClip["direction"] })}
+                                  >
+                                    <option value="none">None</option>
+                                    <option value="left">Left</option>
+                                    <option value="right">Right</option>
+                                  </select>
+                                </div>
+                                <div>
+                                  <label>Loop</label>
+                                  <select
+                                    value={entry.clip?.loop ? "true" : "false"}
+                                    disabled={!editableAsset || !entry.clip}
+                                    onChange={event => entry.clip && updateAssetClipMetadata(entry.asset.id, entry.clip.id, { loop: event.target.value === "true" })}
+                                  >
+                                    <option value="true">Loop</option>
+                                    <option value="false">Play Once</option>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <label>Tags</label>
+                              <input
+                                value={entry.asset.tags.join(", ")}
+                                disabled={!editableAsset}
+                                onChange={event => updateAssetMetadata(entry.asset.id, { tags: splitTags(event.target.value) })}
+                              />
+
+                              <div className="spritesheet-inspector-save-row">
+                                <button type="button" className="ghost-button" onClick={() => saveAssetMetadata(entry.asset.id)} disabled={!editableAsset}><Save size={14} /> Save Asset Metadata</button>
+                                <button type="button" className="ghost-button" onClick={() => updateSceneLayer(entry.layer.id, { visible: !entry.layer.visible })}>{entry.layer.visible ? <EyeOff size={14} /> : <Eye size={14} />} {entry.layer.visible ? "Hide Layer" : "Show Layer"}</button>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+
+                {!sceneSpritesheetEntries.length && (
+                  <div className="scene-library-empty">
+                    <strong>No spritesheets in this scene yet.</strong>
+                    <span>Insert a confirmed asset or import a spritesheet animation to see it here.</span>
+                  </div>
+                )}
               </div>
             )}
 
