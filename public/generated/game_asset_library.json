@@ -1,0 +1,1785 @@
+{
+  "assets": [
+    {
+      "id": "asset_bedroom_old_fan",
+      "name": "Chinese Horror Old Fan",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_old_fan",
+        "characterName": "Chinese Horror Old Fan",
+        "description": "Transparent PNG cutout: Chinese Horror Old Fan, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_old_fan.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_old_fan.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_old_fan.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          317,
+          333
+        ],
+        "sheetSize": [
+          317,
+          333
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_old_fan_idle",
+          "name": "Chinese Horror Old Fan",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_old_fan",
+            "characterName": "Chinese Horror Old Fan",
+            "description": "Transparent PNG cutout: Chinese Horror Old Fan, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_old_fan.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_old_fan.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_old_fan.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              317,
+              333
+            ],
+            "sheetSize": [
+              317,
+              333
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_old_fan_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_old_radio",
+      "name": "Chinese Horror Old Radio",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_old_radio",
+        "characterName": "Chinese Horror Old Radio",
+        "description": "Transparent PNG cutout: Chinese Horror Old Radio, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_old_radio.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_old_radio.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_old_radio.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          272,
+          302
+        ],
+        "sheetSize": [
+          272,
+          302
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_old_radio_idle",
+          "name": "Chinese Horror Old Radio",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_old_radio",
+            "characterName": "Chinese Horror Old Radio",
+            "description": "Transparent PNG cutout: Chinese Horror Old Radio, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_old_radio.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_old_radio.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_old_radio.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              272,
+              302
+            ],
+            "sheetSize": [
+              272,
+              302
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_old_radio_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_clothes_pile",
+      "name": "Chinese Horror Clothes Pile",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_clothes_pile",
+        "characterName": "Chinese Horror Clothes Pile",
+        "description": "Transparent PNG cutout: Chinese Horror Clothes Pile, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_clothes_pile.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_clothes_pile.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_clothes_pile.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          415,
+          333
+        ],
+        "sheetSize": [
+          415,
+          333
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_clothes_pile_idle",
+          "name": "Chinese Horror Clothes Pile",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_clothes_pile",
+            "characterName": "Chinese Horror Clothes Pile",
+            "description": "Transparent PNG cutout: Chinese Horror Clothes Pile, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_clothes_pile.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_clothes_pile.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_clothes_pile.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              415,
+              333
+            ],
+            "sheetSize": [
+              415,
+              333
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_clothes_pile_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_cardboard_boxes",
+      "name": "Chinese Horror Cardboard Boxes",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_cardboard_boxes",
+        "characterName": "Chinese Horror Cardboard Boxes",
+        "description": "Transparent PNG cutout: Chinese Horror Cardboard Boxes, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_cardboard_boxes.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_cardboard_boxes.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_cardboard_boxes.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          371,
+          391
+        ],
+        "sheetSize": [
+          371,
+          391
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_cardboard_boxes_idle",
+          "name": "Chinese Horror Cardboard Boxes",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_cardboard_boxes",
+            "characterName": "Chinese Horror Cardboard Boxes",
+            "description": "Transparent PNG cutout: Chinese Horror Cardboard Boxes, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_cardboard_boxes.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_cardboard_boxes.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_cardboard_boxes.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              371,
+              391
+            ],
+            "sheetSize": [
+              371,
+              391
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_cardboard_boxes_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_hanging_bulb",
+      "name": "Chinese Horror Hanging Bulb",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_hanging_bulb",
+        "characterName": "Chinese Horror Hanging Bulb",
+        "description": "Transparent PNG cutout: Chinese Horror Hanging Bulb, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_hanging_bulb.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_hanging_bulb.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_hanging_bulb.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          111,
+          337
+        ],
+        "sheetSize": [
+          111,
+          337
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_hanging_bulb_idle",
+          "name": "Chinese Horror Hanging Bulb",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_hanging_bulb",
+            "characterName": "Chinese Horror Hanging Bulb",
+            "description": "Transparent PNG cutout: Chinese Horror Hanging Bulb, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_hanging_bulb.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_hanging_bulb.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_hanging_bulb.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              111,
+              337
+            ],
+            "sheetSize": [
+              111,
+              337
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_hanging_bulb_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_faded_calendar",
+      "name": "Chinese Horror Faded Calendar",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_faded_calendar",
+        "characterName": "Chinese Horror Faded Calendar",
+        "description": "Transparent PNG cutout: Chinese Horror Faded Calendar, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_faded_calendar.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_faded_calendar.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_faded_calendar.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          193,
+          372
+        ],
+        "sheetSize": [
+          193,
+          372
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_faded_calendar_idle",
+          "name": "Chinese Horror Faded Calendar",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_faded_calendar",
+            "characterName": "Chinese Horror Faded Calendar",
+            "description": "Transparent PNG cutout: Chinese Horror Faded Calendar, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_faded_calendar.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_faded_calendar.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_faded_calendar.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              193,
+              372
+            ],
+            "sheetSize": [
+              193,
+              372
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_faded_calendar_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_wood_chair",
+      "name": "Chinese Horror Wood Chair",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_wood_chair",
+        "characterName": "Chinese Horror Wood Chair",
+        "description": "Transparent PNG cutout: Chinese Horror Wood Chair, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_wood_chair.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_wood_chair.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_wood_chair.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          241,
+          404
+        ],
+        "sheetSize": [
+          241,
+          404
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_wood_chair_idle",
+          "name": "Chinese Horror Wood Chair",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_wood_chair",
+            "characterName": "Chinese Horror Wood Chair",
+            "description": "Transparent PNG cutout: Chinese Horror Wood Chair, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_wood_chair.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_wood_chair.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_wood_chair.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              241,
+              404
+            ],
+            "sheetSize": [
+              241,
+              404
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_wood_chair_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_bottles_clutter",
+      "name": "Chinese Horror Bottles and Papers",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_bottles_clutter",
+        "characterName": "Chinese Horror Bottles and Papers",
+        "description": "Transparent PNG cutout: Chinese Horror Bottles and Papers, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_bottles_clutter.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_bottles_clutter.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_bottles_clutter.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          346,
+          322
+        ],
+        "sheetSize": [
+          346,
+          322
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_bottles_clutter_idle",
+          "name": "Chinese Horror Bottles and Papers",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_bottles_clutter",
+            "characterName": "Chinese Horror Bottles and Papers",
+            "description": "Transparent PNG cutout: Chinese Horror Bottles and Papers, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_bottles_clutter.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_bottles_clutter.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_bottles_clutter.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              346,
+              322
+            ],
+            "sheetSize": [
+              346,
+              322
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_bottles_clutter_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_suitcase",
+      "name": "Chinese Horror Battered Suitcase",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_suitcase",
+        "characterName": "Chinese Horror Battered Suitcase",
+        "description": "Transparent PNG cutout: Chinese Horror Battered Suitcase, matched to the provided Chinese horror room reference.",
+        "frameCount": 1,
+        "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+        "frames": [
+          "<img src=\"/generated/bedroom_chinese_horror_prop_suitcase.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_prop_suitcase.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_suitcase.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+        "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+        "frameSize": [
+          328,
+          275
+        ],
+        "sheetSize": [
+          328,
+          275
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_suitcase_idle",
+          "name": "Chinese Horror Battered Suitcase",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_suitcase",
+            "characterName": "Chinese Horror Battered Suitcase",
+            "description": "Transparent PNG cutout: Chinese Horror Battered Suitcase, matched to the provided Chinese horror room reference.",
+            "frameCount": 1,
+            "style": "Chinese horror hand-painted raster PNG, dirty old room prop, not vector",
+            "frames": [
+              "<img src=\"/generated/bedroom_chinese_horror_prop_suitcase.png?v=noglow20260611\" alt=\"asset\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_prop_suitcase.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_prop_suitcase.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_cutout",
+            "proportionPolicy": "keep original PNG aspect ratio; editable as draggable/scalable scene layer",
+            "frameSize": [
+              328,
+              275
+            ],
+            "sheetSize": [
+              328,
+              275
+            ]
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.idle",
+            "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_suitcase_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.idle",
+        "notes": "Chinese horror PNG/JPG-style raster asset; draggable, scalable, and layerable in the scene editor."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "not-svg",
+        "reusable",
+        "overlap-layer"
+      ]
+    },
+    {
+      "id": "asset_bedroom_pseudo3d_carousel_spin",
+      "name": "Chinese Horror Rotating Carousel",
+      "role": "effect",
+      "confirmed": true,
+      "savedTime": "2026-06-11T23:11:52Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "sprite": {
+        "id": "sprite_bedroom_chinese_horror_carousel_spin_16f",
+        "characterName": "Chinese Horror Rotating Carousel",
+        "description": "16-frame pseudo-3D rotating carousel spritesheet, transparent PNG, same dirty hand-painted Chinese horror room style.",
+        "frameCount": 16,
+        "style": "Chinese horror raster PNG spritesheet, old haunted toy carousel, pseudo-3D rotation",
+        "prompt": "Reference-style generated raster spritesheet, fixed 4x4 grid, no SVG, no frame crop drift.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-11T23:11:52Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611",
+        "rawSpritesheetPng": "/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611",
+        "generationMode": "imagegen_reference_style_png_chroma_key_spritesheet",
+        "proportionPolicy": "fixed cell size across all 16 frames; center anchor stable",
+        "normalization": "4x4 spritesheet with chroma-key removed to alpha; no per-frame crop",
+        "frameSize": [
+          313,
+          313
+        ],
+        "sheetSize": [
+          1252,
+          1252
+        ],
+        "rootAnchorPolicy": "center base locked by fixed sheet cells"
+      },
+      "animations": [
+        {
+          "id": "clip_bedroom_chinese_horror_carousel_spin_loop",
+          "name": "Carousel spin loop",
+          "actionName": "carousel_spin",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_bedroom_chinese_horror_carousel_spin_16f",
+            "characterName": "Chinese Horror Rotating Carousel",
+            "description": "16-frame pseudo-3D rotating carousel spritesheet, transparent PNG, same dirty hand-painted Chinese horror room style.",
+            "frameCount": 16,
+            "style": "Chinese horror raster PNG spritesheet, old haunted toy carousel, pseudo-3D rotation",
+            "prompt": "Reference-style generated raster spritesheet, fixed 4x4 grid, no SVG, no frame crop drift.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 0 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 313 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 626 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"313 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"626 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"939 939 313 313\" width=\"313\" height=\"313\"><image href=\"/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611\" x=\"0\" y=\"0\" width=\"1252\" height=\"1252\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-11T23:11:52Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611",
+            "rawSpritesheetPng": "/generated/bedroom_chinese_horror_carousel_spin_16f_sheet.png?v=noglow20260611",
+            "generationMode": "imagegen_reference_style_png_chroma_key_spritesheet",
+            "proportionPolicy": "fixed cell size across all 16 frames; center anchor stable",
+            "normalization": "4x4 spritesheet with chroma-key removed to alpha; no per-frame crop",
+            "frameSize": [
+              313,
+              313
+            ],
+            "sheetSize": [
+              1252,
+              1252
+            ],
+            "rootAnchorPolicy": "center base locked by fixed sheet cells"
+          },
+          "binding": {
+            "actionName": "carousel_spin",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "scene.carousel.spin",
+            "notes": "Auto looping Chinese horror raster spritesheet."
+          },
+          "loop": true
+        }
+      ],
+      "defaultAnimationId": "clip_bedroom_chinese_horror_carousel_spin_loop",
+      "binding": {
+        "actionName": "carousel_spin",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "scene.carousel.spin",
+        "notes": "Auto looping Chinese horror raster spritesheet."
+      },
+      "tags": [
+        "bedroom",
+        "chinese-horror",
+        "png",
+        "raster",
+        "spritesheet",
+        "animated",
+        "auto-loop",
+        "not-svg",
+        "carousel"
+      ]
+    },
+    {
+      "id": "asset_wei_yang_walk_small_stride_confirmed",
+      "name": "Wei Yang / multi animation player",
+      "role": "player",
+      "confirmed": true,
+      "savedTime": "2026-06-10T11:33:24",
+      "updatedTime": "2026-06-10T21:20:00Z",
+      "sprite": {
+        "id": "codex_wei_yang_idle_front_breathe_16f_micro_fixedbox",
+        "characterName": "Wei Yang - Front Idle Breathing 16f",
+        "description": "16-frame front-facing idle breathing loop for the player standing still. Micro movement only, fixed 608x1055 frame, bottom anchored.",
+        "frameCount": 16,
+        "style": "HD anime front idle breathing spritesheet, transparent PNG, micro motion, fixed rectangular frames",
+        "prompt": "Use the confirmed standing front pose as the idle state. Generate only subtle breathing: tiny chest/body expansion, no walking, no pose drift, no foot movement, no per-frame crop.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-10T20:50:00Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/wei_yang_idle_front_breathe_16f_sheet.png",
+        "rawSpritesheetPng": "/generated/wei_yang_idle_front_source_clean.png",
+        "generationMode": "codex_local_front_idle_micro_breathing_no_external_model",
+        "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+        "normalization": "fixed_608x1055_frame_box_no_per_frame_crop_no_nonuniform_scale_bottom_alpha_anchor_stable_micro_motion",
+        "inputReferenceInvariant": "static front standing pose is the not-moving player state; preserve character size, proportions, feet position, and center anchor across all 16 frames",
+        "cellSize": 608,
+        "frameSize": [
+          608,
+          1055
+        ],
+        "sheetSize": [
+          2432,
+          4220
+        ],
+        "rootAnchorPolicy": "bottom_alpha_foot_anchor_locked_feet_same_pixel_bottom_in_all_16_frames",
+        "adaptiveFramePolicy": "same 608x1055 animation frame as other Wei Yang clips; do not clamp to per-frame content bbox",
+        "continuityProtocol": "front_idle_breathing_16_frame_micro_loop_near_neighbor_frames_no_large_stride_or_pose_jump",
+        "sourceImage": "C:\\Users\\Zhang\\Downloads\\wei_yang_front_transparent.png",
+        "motionAmplitude": {
+          "horizontalScalePeak": 0.0032,
+          "verticalScalePeak": 0.0016,
+          "estimatedMaxPixelChange": "about 1-2 px; alpha foot bottom remains locked to the same pixel row"
+        }
+      },
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "mouse",
+        "triggerValue": "click",
+        "gameState": "player.idle",
+        "notes": "Click/select the character to preview; A/D switch to left/right walk clips, keyup returns to idle breathing."
+      },
+      "tags": [
+        "16-frame-idle",
+        "confirmed",
+        "fixed-frame-box",
+        "front-idle",
+        "head-locked-walk",
+        "head-scale-stable",
+        "idle",
+        "micro-breathe",
+        "multi-animation",
+        "player",
+        "side-scroller",
+        "small-stride",
+        "walk-left",
+        "walk-right"
+      ],
+      "defaultAnimationId": "clip_wei_yang_idle_breathe",
+      "animations": [
+        {
+          "id": "clip_wei_yang_idle_breathe",
+          "name": "Front idle breathing",
+          "actionName": "idle",
+          "direction": "none",
+          "loop": true,
+          "sprite": {
+            "id": "codex_wei_yang_idle_front_breathe_16f_micro_fixedbox",
+            "characterName": "Wei Yang - Front Idle Breathing 16f",
+            "description": "16-frame front-facing idle breathing loop for the player standing still. Micro movement only, fixed 608x1055 frame, bottom anchored.",
+            "frameCount": 16,
+            "style": "HD anime front idle breathing spritesheet, transparent PNG, micro motion, fixed rectangular frames",
+            "prompt": "Use the confirmed standing front pose as the idle state. Generate only subtle breathing: tiny chest/body expansion, no walking, no pose drift, no foot movement, no per-frame crop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-10T20:50:00Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/wei_yang_idle_front_breathe_16f_sheet.png",
+            "rawSpritesheetPng": "/generated/wei_yang_idle_front_source_clean.png",
+            "generationMode": "codex_local_front_idle_micro_breathing_no_external_model",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "fixed_608x1055_frame_box_no_per_frame_crop_no_nonuniform_scale_bottom_alpha_anchor_stable_micro_motion",
+            "inputReferenceInvariant": "static front standing pose is the not-moving player state; preserve character size, proportions, feet position, and center anchor across all 16 frames",
+            "cellSize": 608,
+            "frameSize": [
+              608,
+              1055
+            ],
+            "sheetSize": [
+              2432,
+              4220
+            ],
+            "rootAnchorPolicy": "bottom_alpha_foot_anchor_locked_feet_same_pixel_bottom_in_all_16_frames",
+            "adaptiveFramePolicy": "same 608x1055 animation frame as other Wei Yang clips; do not clamp to per-frame content bbox",
+            "continuityProtocol": "front_idle_breathing_16_frame_micro_loop_near_neighbor_frames_no_large_stride_or_pose_jump",
+            "sourceImage": "C:\\Users\\Zhang\\Downloads\\wei_yang_front_transparent.png",
+            "motionAmplitude": {
+              "horizontalScalePeak": 0.0032,
+              "verticalScalePeak": 0.0016,
+              "estimatedMaxPixelChange": "about 1-2 px; alpha foot bottom remains locked to the same pixel row"
+            }
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "idle",
+            "gameState": "player.idle",
+            "notes": "Default standing-still state: 16-frame micro breathing, fixed frame box, alpha foot bottom locked."
+          }
+        },
+        {
+          "id": "clip_wei_yang_walk_left",
+          "name": "Walk left head-locked",
+          "actionName": "walk",
+          "direction": "left",
+          "loop": true,
+          "sprite": {
+            "id": "codex_wei_yang_walk_left_one_cycle_8f_headlocked",
+            "characterName": "Wei Yang - Walk Left Head-Locked",
+            "description": "8-frame left walk cycle mirrored from the head-locked right walk.",
+            "frameCount": 8,
+            "style": "HD anime side-scroller walk spritesheet, head scale locked, transparent PNG, fixed rectangular frames",
+            "prompt": "Head-size stabilized Wei Yang walk left; fixed frame box; stable bottom anchor; no per-frame crop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-10T21:20:00Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png",
+            "rawSpritesheetPng": "/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png",
+            "generationMode": "codex_local_walk_head_scale_locked_no_external_model",
+            "proportionPolicy": "preserve frame size and body scale; normalize head width across frames",
+            "normalization": "fixed_608x1055_frame_box_head_width_locked_to_160px_bottom_anchor_stable_no_per_frame_crop",
+            "inputReferenceInvariant": "keep character size and ground anchor stable; remove visible head-size breathing/scale drift in walk frames",
+            "cellSize": 608,
+            "frameSize": [
+              608,
+              1055
+            ],
+            "sheetSize": [
+              2432,
+              2110
+            ],
+            "rootAnchorPolicy": "bottom_ground_anchor_locked_layer_position_should_not_change_between_frames_or_clips",
+            "adaptiveFramePolicy": "do not clamp to content bbox; all clips share 608x1055 frame",
+            "continuityProtocol": "single_walk_cycle_8_frames_head_scale_locked_near_constant_top_silhouette",
+            "headLock": {
+              "targetHeadWidthPx": 160,
+              "targetHeadCenterX": 282.75,
+              "sourceHeadWidthsPx": [
+                158,
+                158,
+                159,
+                158,
+                165,
+                164,
+                164,
+                164
+              ],
+              "normalizedHeadWidthsPx": [
+                160,
+                160,
+                160,
+                160,
+                161,
+                161,
+                160,
+                161
+              ]
+            }
+          },
+          "binding": {
+            "actionName": "walk_left",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyA",
+            "gameState": "player.walk.left",
+            "notes": "Press A: mirrored one-cycle small stride walk; head width is normalized across frames."
+          }
+        },
+        {
+          "id": "clip_wei_yang_walk_right",
+          "name": "Walk right head-locked",
+          "actionName": "walk",
+          "direction": "right",
+          "loop": true,
+          "sprite": {
+            "id": "codex_wei_yang_walk_right_one_cycle_8f_headlocked",
+            "characterName": "Wei Yang - Walk Right Head-Locked",
+            "description": "8-frame right walk cycle with head width normalized across frames.",
+            "frameCount": 8,
+            "style": "HD anime side-scroller walk spritesheet, head scale locked, transparent PNG, fixed rectangular frames",
+            "prompt": "Head-size stabilized Wei Yang walk right; fixed frame box; stable bottom anchor; no per-frame crop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-10T21:20:00Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png",
+            "rawSpritesheetPng": "/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png",
+            "generationMode": "codex_local_walk_head_scale_locked_no_external_model",
+            "proportionPolicy": "preserve frame size and body scale; normalize head width across frames",
+            "normalization": "fixed_608x1055_frame_box_head_width_locked_to_160px_bottom_anchor_stable_no_per_frame_crop",
+            "inputReferenceInvariant": "keep character size and ground anchor stable; remove visible head-size breathing/scale drift in walk frames",
+            "cellSize": 608,
+            "frameSize": [
+              608,
+              1055
+            ],
+            "sheetSize": [
+              2432,
+              2110
+            ],
+            "rootAnchorPolicy": "bottom_ground_anchor_locked_layer_position_should_not_change_between_frames_or_clips",
+            "adaptiveFramePolicy": "do not clamp to content bbox; all clips share 608x1055 frame",
+            "continuityProtocol": "single_walk_cycle_8_frames_head_scale_locked_near_constant_top_silhouette",
+            "headLock": {
+              "targetHeadWidthPx": 160,
+              "targetHeadCenterX": 282.75,
+              "sourceHeadWidthsPx": [
+                158,
+                158,
+                159,
+                158,
+                165,
+                164,
+                164,
+                164
+              ],
+              "normalizedHeadWidthsPx": [
+                160,
+                160,
+                160,
+                160,
+                161,
+                161,
+                160,
+                161
+              ]
+            }
+          },
+          "binding": {
+            "actionName": "walk_right",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyD",
+            "gameState": "player.walk.right",
+            "notes": "Press D: one-cycle small stride walk; head width is normalized across frames."
+          }
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_cluttered_bedroom_horror_codex",
+      "name": "Cluttered Bedroom - Chinese Horror",
+      "width": 3840,
+      "height": 720,
+      "cameraX": 0,
+      "groundY": 575,
+      "background": "chinese_horror_bedroom",
+      "lighting": {
+        "preset": "neon-station",
+        "brightness": 0.86,
+        "contrast": 1.06,
+        "saturate": 0.68,
+        "ambience": 0.2,
+        "vignette": 0.34,
+        "glow": 0.38
+      },
+      "layers": [
+        {
+          "id": "layer_bedroom_background",
+          "name": "Chinese Horror Bedroom Background",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "color": "#12100d",
+          "imageUrl": "/generated/bedroom_chinese_horror_side_scroller_3840x720.png",
+          "fit": "stretch",
+          "position": "left center"
+        },
+        {
+          "id": "layer_bedroom_ground",
+          "name": "Ground Reference",
+          "type": "ground",
+          "visible": false,
+          "locked": true,
+          "x": 0,
+          "y": 575,
+          "scale": 1,
+          "zIndex": 10,
+          "opacity": 0.25,
+          "parallax": 1,
+          "color": "#201914"
+        },
+        {
+          "id": "layer_bedroom_old_fan",
+          "name": "Old Fan",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_old_fan",
+          "activeAnimationId": "clip_bedroom_old_fan_idle",
+          "x": 1160,
+          "y": 535,
+          "scale": 0.42,
+          "zIndex": 24,
+          "opacity": 1,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_bedroom_radio",
+          "name": "Old Radio",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_old_radio",
+          "activeAnimationId": "clip_bedroom_old_radio_idle",
+          "x": 2440,
+          "y": 530,
+          "scale": 0.34,
+          "zIndex": 28,
+          "opacity": 0.98,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": true,
+            "triggerMode": "near-click",
+            "promptKey": "KeyE",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.82,
+            "promptStyle": "horror",
+            "triggerRadius": 210,
+            "offsetX": 0,
+            "offsetY": -82,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": -36,
+            "hideLayerOnPickup": true,
+            "hotspotVisible": true,
+            "preset": "inspect",
+            "actionType": "set-state",
+            "promptText": "Inspect",
+            "subtitle": "The old radio gives a short burst of static, then falls silent.",
+            "failSubtitle": "The radio stays dead.",
+            "setStateKey": "radio_on",
+            "setStateValue": "true",
+            "zoneWidth": 250,
+            "zoneHeight": 150
+          }
+        },
+        {
+          "id": "layer_bedroom_clothes_pile",
+          "name": "Clothes Pile",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_clothes_pile",
+          "activeAnimationId": "clip_bedroom_clothes_pile_idle",
+          "x": 310,
+          "y": 610,
+          "scale": 0.42,
+          "zIndex": 38,
+          "opacity": 1,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": true,
+            "triggerMode": "near-click",
+            "promptKey": "KeyE",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.82,
+            "promptStyle": "horror",
+            "triggerRadius": 210,
+            "offsetX": 0,
+            "offsetY": -72,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": -18,
+            "hideLayerOnPickup": false,
+            "hotspotVisible": true,
+            "preset": "pickup",
+            "actionType": "pickup-item",
+            "promptText": "Search",
+            "subtitle": "You find a small rusted key hidden under the damp clothes.",
+            "itemId": "has_key",
+            "zoneWidth": 330,
+            "zoneHeight": 150
+          }
+        },
+        {
+          "id": "layer_bedroom_boxes",
+          "name": "Cardboard Boxes",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_cardboard_boxes",
+          "activeAnimationId": "clip_bedroom_cardboard_boxes_idle",
+          "x": 3100,
+          "y": 586,
+          "scale": 0.38,
+          "zIndex": 34,
+          "opacity": 0.95,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_bedroom_calendar",
+          "name": "Faded Calendar",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_faded_calendar",
+          "activeAnimationId": "clip_bedroom_faded_calendar_idle",
+          "x": 2140,
+          "y": 330,
+          "scale": 0.38,
+          "zIndex": 18,
+          "opacity": 0.92,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": true,
+            "triggerMode": "near-click",
+            "promptKey": "KeyE",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.82,
+            "promptStyle": "horror",
+            "triggerRadius": 210,
+            "offsetX": 0,
+            "offsetY": -74,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": 0,
+            "hideLayerOnPickup": true,
+            "hotspotVisible": true,
+            "preset": "inspect",
+            "actionType": "subtitle",
+            "promptText": "Look",
+            "subtitle": "Several dates have been circled, but the ink has bled into the paper.",
+            "zoneWidth": 240,
+            "zoneHeight": 200
+          }
+        },
+        {
+          "id": "layer_bedroom_chair",
+          "name": "Wood Chair",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_wood_chair",
+          "activeAnimationId": "clip_bedroom_wood_chair_idle",
+          "x": 2700,
+          "y": 602,
+          "scale": 0.42,
+          "zIndex": 41,
+          "opacity": 0.98,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_bedroom_bottles_clutter",
+          "name": "Bottles and Papers",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_bottles_clutter",
+          "activeAnimationId": "clip_bedroom_bottles_clutter_idle",
+          "x": 2580,
+          "y": 560,
+          "scale": 0.32,
+          "zIndex": 37,
+          "opacity": 0.98,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_bedroom_suitcase",
+          "name": "Battered Suitcase",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_bedroom_suitcase",
+          "activeAnimationId": "clip_bedroom_suitcase_idle",
+          "x": 3320,
+          "y": 606,
+          "scale": 0.4,
+          "zIndex": 36,
+          "opacity": 0.98,
+          "parallax": 1,
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_bedroom_carousel",
+          "name": "Rotating Carousel",
+          "type": "effect",
+          "visible": true,
+          "assetId": "asset_bedroom_pseudo3d_carousel_spin",
+          "activeAnimationId": "clip_bedroom_chinese_horror_carousel_spin_loop",
+          "x": 1830,
+          "y": 594,
+          "scale": 0.34,
+          "zIndex": 42,
+          "opacity": 0.98,
+          "parallax": 1,
+          "shadow": {
+            "enabled": true,
+            "color": "rgba(0,0,0,0.78)",
+            "opacity": 0.42,
+            "blur": 18,
+            "width": 0.72,
+            "height": 0.08,
+            "offsetX": 0,
+            "offsetY": 6
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": true,
+            "triggerMode": "near-click",
+            "promptKey": "KeyE",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.82,
+            "promptStyle": "horror",
+            "triggerRadius": 210,
+            "offsetX": 0,
+            "offsetY": -92,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": -36,
+            "hideLayerOnPickup": true,
+            "hotspotVisible": true,
+            "preset": "animated",
+            "actionType": "play-animation",
+            "promptText": "Wind",
+            "subtitle": "The little carousel turns with a dry mechanical scrape.",
+            "targetAnimationId": "clip_bedroom_chinese_horror_carousel_spin_loop",
+            "zoneWidth": 240,
+            "zoneHeight": 220
+          }
+        },
+        {
+          "id": "layer_bedroom_hanging_bulb",
+          "name": "Hanging Bulb",
+          "type": "foreground",
+          "visible": true,
+          "assetId": "asset_bedroom_hanging_bulb",
+          "activeAnimationId": "clip_bedroom_hanging_bulb_idle",
+          "x": 3110,
+          "y": 155,
+          "scale": 0.36,
+          "zIndex": 76,
+          "opacity": 0.9,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0,0,0,0)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0,
+            "height": 0,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#000000",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#000000",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_bedroom_player",
+          "name": "Wei Yang / multi animation player",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_wei_yang_walk_small_stride_confirmed",
+          "activeAnimationId": "clip_wei_yang_idle_breathe",
+          "x": 1660,
+          "y": 574,
+          "scale": 0.34,
+          "zIndex": 48,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": true,
+            "color": "rgba(0,0,0,0.8)",
+            "opacity": 0.55,
+            "blur": 22,
+            "width": 0.58,
+            "height": 0.065,
+            "offsetX": 0,
+            "offsetY": 6
+          },
+          "lighting": {
+            "preset": "neon-station",
+            "brightness": 0.58,
+            "contrast": 0.94,
+            "saturate": 0.58,
+            "edgeLightColor": "#e3c590",
+            "edgeLightOpacity": 0.18,
+            "rimLightColor": "#1b1711",
+            "rimLightOpacity": 0.18
+          }
+        }
+      ],
+      "savedTime": "2026-06-11T22:45:01Z",
+      "updatedTime": "2026-06-11T23:11:52Z",
+      "viewportWidth": 1280,
+      "viewportHeight": 720,
+      "viewportPreset": "desktop",
+      "state": {
+        "has_key": false,
+        "radio_on": false,
+        "door_open": false,
+        "visited_bedroom": true
+      }
+    },
+    {
+      "id": "scene_side_scroller_demo",
+      "name": "Extended Chinese Station Side-Scroller Scene",
+      "width": 3840,
+      "height": 720,
+      "cameraX": 0,
+      "groundY": 520,
+      "background": "chinese_station_platform",
+      "savedTime": "2026-06-10T11:33:24",
+      "updatedTime": "2026-06-10T21:25:00Z",
+      "layers": [
+        {
+          "id": "layer_sky",
+          "name": "Extended Chinese station background",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "color": "#08070d",
+          "imageUrl": "/generated/chinese_side_scroller_station_extended_3840x720.png",
+          "fit": "stretch",
+          "position": "left center"
+        },
+        {
+          "id": "layer_ground",
+          "name": "Ground guide",
+          "type": "ground",
+          "visible": false,
+          "locked": true,
+          "x": 0,
+          "y": 520,
+          "scale": 1,
+          "zIndex": 10,
+          "opacity": 0.45,
+          "parallax": 1,
+          "color": "#f0b14a"
+        },
+        {
+          "id": "layer_wei_yang_player",
+          "name": "Wei Yang Player",
+          "type": "sprite",
+          "visible": true,
+          "locked": false,
+          "assetId": "asset_wei_yang_walk_small_stride_confirmed",
+          "x": 460,
+          "y": 520,
+          "scale": 0.34,
+          "zIndex": 30,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": true,
+            "color": "rgba(2, 0, 10, 0.88)",
+            "opacity": 0.74,
+            "blur": 24,
+            "width": 0.58,
+            "height": 0.065,
+            "offsetX": 0,
+            "offsetY": 6
+          },
+          "lighting": {
+            "preset": "neon-station",
+            "brightness": 0.64,
+            "contrast": 0.98,
+            "saturate": 0.74,
+            "edgeLightColor": "#ff3e75",
+            "edgeLightOpacity": 0.32,
+            "rimLightColor": "#8e54ff",
+            "rimLightOpacity": 0.24
+          },
+          "activeAnimationId": "clip_wei_yang_idle_breathe"
+        }
+      ],
+      "lighting": {
+        "preset": "neon-station",
+        "brightness": 1,
+        "contrast": 1.04,
+        "saturate": 0.96,
+        "ambience": 0.78,
+        "vignette": 0.28,
+        "glow": 1
+      },
+      "viewportWidth": 1280,
+      "viewportHeight": 720,
+      "viewportPreset": "desktop",
+      "state": {
+        "has_key": false,
+        "radio_on": false,
+        "door_open": false,
+        "visited_bedroom": true
+      }
+    }
+  ],
+  "updatedTime": "2026-06-11T23:11:52Z"
+}

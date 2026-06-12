@@ -1,0 +1,52 @@
+{
+  "id": "codex_wei_yang_idle_front_breathe_16f_micro_fixedbox",
+  "characterName": "Wei Yang - Front Idle Breathing 16f",
+  "description": "16-frame front-facing idle breathing loop for the player standing still. Micro movement only, fixed 608x1055 frame, bottom anchored.",
+  "frameCount": 16,
+  "style": "HD anime front idle breathing spritesheet, transparent PNG, micro motion, fixed rectangular frames",
+  "prompt": "Use the confirmed standing front pose as the idle state. Generate only subtle breathing: tiny chest/body expansion, no walking, no pose drift, no foot movement, no per-frame crop.",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+  ],
+  "createdTime": "2026-06-10T20:50:00Z",
+  "isPreset": false,
+  "spritesheetPng": "/generated/wei_yang_idle_front_breathe_16f_sheet.png",
+  "rawSpritesheetPng": "/generated/wei_yang_idle_front_source_clean.png",
+  "generationMode": "codex_local_front_idle_micro_breathing_no_external_model",
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "normalization": "fixed_608x1055_frame_box_no_per_frame_crop_no_nonuniform_scale_bottom_alpha_anchor_stable_micro_motion",
+  "inputReferenceInvariant": "static front standing pose is the not-moving player state; preserve character size, proportions, feet position, and center anchor across all 16 frames",
+  "cellSize": 608,
+  "frameSize": [
+    608,
+    1055
+  ],
+  "sheetSize": [
+    2432,
+    4220
+  ],
+  "rootAnchorPolicy": "bottom_alpha_foot_anchor_locked_feet_same_pixel_bottom_in_all_16_frames",
+  "adaptiveFramePolicy": "same 608x1055 animation frame as other Wei Yang clips; do not clamp to per-frame content bbox",
+  "continuityProtocol": "front_idle_breathing_16_frame_micro_loop_near_neighbor_frames_no_large_stride_or_pose_jump",
+  "sourceImage": "C:\\Users\\Zhang\\Downloads\\wei_yang_front_transparent.png",
+  "motionAmplitude": {
+    "horizontalScalePeak": 0.0032,
+    "verticalScalePeak": 0.0016,
+    "estimatedMaxPixelChange": "about 1-2 px; alpha foot bottom remains locked to the same pixel row"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "codex_wei_yang_walk_left_one_cycle_8f_headlocked",
+  "characterName": "Wei Yang - Walk Left Head-Locked",
+  "description": "8-frame left walk cycle mirrored from the head-locked right walk.",
+  "frameCount": 8,
+  "style": "HD anime side-scroller walk spritesheet, head scale locked, transparent PNG, fixed rectangular frames",
+  "prompt": "Head-size stabilized Wei Yang walk left; fixed frame box; stable bottom anchor; no per-frame crop.",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>"
+  ],
+  "createdTime": "2026-06-10T21:20:00Z",
+  "isPreset": false,
+  "spritesheetPng": "/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png",
+  "rawSpritesheetPng": "/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png",
+  "generationMode": "codex_local_walk_head_scale_locked_no_external_model",
+  "proportionPolicy": "preserve frame size and body scale; normalize head width across frames",
+  "normalization": "fixed_608x1055_frame_box_head_width_locked_to_160px_bottom_anchor_stable_no_per_frame_crop",
+  "inputReferenceInvariant": "keep character size and ground anchor stable; remove visible head-size breathing/scale drift in walk frames",
+  "cellSize": 608,
+  "frameSize": [
+    608,
+    1055
+  ],
+  "sheetSize": [
+    2432,
+    2110
+  ],
+  "rootAnchorPolicy": "bottom_ground_anchor_locked_layer_position_should_not_change_between_frames_or_clips",
+  "adaptiveFramePolicy": "do not clamp to content bbox; all clips share 608x1055 frame",
+  "continuityProtocol": "single_walk_cycle_8_frames_head_scale_locked_near_constant_top_silhouette",
+  "headLock": {
+    "targetHeadWidthPx": 160,
+    "targetHeadCenterX": 282.75,
+    "sourceHeadWidthsPx": [
+      158,
+      158,
+      159,
+      158,
+      165,
+      164,
+      164,
+      164
+    ],
+    "normalizedHeadWidthsPx": [
+      160,
+      160,
+      160,
+      160,
+      161,
+      161,
+      160,
+      161
+    ]
+  }
+}

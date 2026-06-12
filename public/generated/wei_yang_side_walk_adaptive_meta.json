@@ -1,0 +1,320 @@
+{
+  "frameCount": 16,
+  "cellSize": null,
+  "frameSize": [
+    640,
+    1055
+  ],
+  "sheetSize": [
+    2560,
+    4220
+  ],
+  "sourceSheetSize": [
+    1254,
+    1254
+  ],
+  "sourceCells": [
+    [
+      3,
+      3,
+      311,
+      311
+    ],
+    [
+      317,
+      3,
+      624,
+      311
+    ],
+    [
+      630,
+      3,
+      937,
+      311
+    ],
+    [
+      943,
+      3,
+      1251,
+      311
+    ],
+    [
+      3,
+      317,
+      311,
+      624
+    ],
+    [
+      317,
+      317,
+      624,
+      624
+    ],
+    [
+      630,
+      317,
+      937,
+      624
+    ],
+    [
+      943,
+      317,
+      1251,
+      624
+    ],
+    [
+      3,
+      630,
+      311,
+      937
+    ],
+    [
+      317,
+      630,
+      624,
+      937
+    ],
+    [
+      630,
+      630,
+      937,
+      937
+    ],
+    [
+      943,
+      630,
+      1251,
+      937
+    ],
+    [
+      3,
+      943,
+      311,
+      1251
+    ],
+    [
+      317,
+      943,
+      624,
+      1251
+    ],
+    [
+      630,
+      943,
+      937,
+      1251
+    ],
+    [
+      943,
+      943,
+      1251,
+      1251
+    ]
+  ],
+  "frameBboxes": [
+    [
+      118,
+      4,
+      514,
+      1039
+    ],
+    [
+      62,
+      4,
+      574,
+      1039
+    ],
+    [
+      51,
+      4,
+      585,
+      1043
+    ],
+    [
+      183,
+      4,
+      309,
+      1039
+    ],
+    [
+      120,
+      4,
+      406,
+      1043
+    ],
+    [
+      79,
+      4,
+      454,
+      1043
+    ],
+    [
+      55,
+      4,
+      581,
+      1039
+    ],
+    [
+      182,
+      4,
+      309,
+      1039
+    ],
+    [
+      60,
+      4,
+      510,
+      1036
+    ],
+    [
+      62,
+      4,
+      574,
+      1039
+    ],
+    [
+      106,
+      4,
+      387,
+      1043
+    ],
+    [
+      182,
+      4,
+      313,
+      1039
+    ],
+    [
+      120,
+      4,
+      406,
+      1043
+    ],
+    [
+      79,
+      4,
+      454,
+      1043
+    ],
+    [
+      79,
+      4,
+      451,
+      1036
+    ],
+    [
+      182,
+      4,
+      309,
+      1039
+    ]
+  ],
+  "rootAnchors": [
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "proportional_forced",
+    "xRuns": [],
+    "yRuns": [],
+    "xBounds": [
+      0,
+      314,
+      627,
+      940,
+      1254
+    ],
+    "yBounds": [
+      0,
+      314,
+      627,
+      940,
+      1254
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+  "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-06-08T12:07:38",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

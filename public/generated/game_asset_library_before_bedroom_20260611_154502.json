@@ -1,0 +1,399 @@
+{
+  "assets": [
+    {
+      "id": "asset_wei_yang_walk_small_stride_confirmed",
+      "name": "Wei Yang / multi animation player",
+      "role": "player",
+      "confirmed": true,
+      "savedTime": "2026-06-10T11:33:24",
+      "updatedTime": "2026-06-10T21:20:00Z",
+      "sprite": {
+        "id": "codex_wei_yang_idle_front_breathe_16f_micro_fixedbox",
+        "characterName": "Wei Yang - Front Idle Breathing 16f",
+        "description": "16-frame front-facing idle breathing loop for the player standing still. Micro movement only, fixed 608x1055 frame, bottom anchored.",
+        "frameCount": 16,
+        "style": "HD anime front idle breathing spritesheet, transparent PNG, micro motion, fixed rectangular frames",
+        "prompt": "Use the confirmed standing front pose as the idle state. Generate only subtle breathing: tiny chest/body expansion, no walking, no pose drift, no foot movement, no per-frame crop.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-10T20:50:00Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/wei_yang_idle_front_breathe_16f_sheet.png",
+        "rawSpritesheetPng": "/generated/wei_yang_idle_front_source_clean.png",
+        "generationMode": "codex_local_front_idle_micro_breathing_no_external_model",
+        "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+        "normalization": "fixed_608x1055_frame_box_no_per_frame_crop_no_nonuniform_scale_bottom_alpha_anchor_stable_micro_motion",
+        "inputReferenceInvariant": "static front standing pose is the not-moving player state; preserve character size, proportions, feet position, and center anchor across all 16 frames",
+        "cellSize": 608,
+        "frameSize": [
+          608,
+          1055
+        ],
+        "sheetSize": [
+          2432,
+          4220
+        ],
+        "rootAnchorPolicy": "bottom_alpha_foot_anchor_locked_feet_same_pixel_bottom_in_all_16_frames",
+        "adaptiveFramePolicy": "same 608x1055 animation frame as other Wei Yang clips; do not clamp to per-frame content bbox",
+        "continuityProtocol": "front_idle_breathing_16_frame_micro_loop_near_neighbor_frames_no_large_stride_or_pose_jump",
+        "sourceImage": "C:\\Users\\Zhang\\Downloads\\wei_yang_front_transparent.png",
+        "motionAmplitude": {
+          "horizontalScalePeak": 0.0032,
+          "verticalScalePeak": 0.0016,
+          "estimatedMaxPixelChange": "about 1-2 px; alpha foot bottom remains locked to the same pixel row"
+        }
+      },
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "mouse",
+        "triggerValue": "click",
+        "gameState": "player.idle",
+        "notes": "Click/select the character to preview; A/D switch to left/right walk clips, keyup returns to idle breathing."
+      },
+      "tags": [
+        "16-frame-idle",
+        "confirmed",
+        "fixed-frame-box",
+        "front-idle",
+        "head-locked-walk",
+        "head-scale-stable",
+        "idle",
+        "micro-breathe",
+        "multi-animation",
+        "player",
+        "side-scroller",
+        "small-stride",
+        "walk-left",
+        "walk-right"
+      ],
+      "defaultAnimationId": "clip_wei_yang_idle_breathe",
+      "animations": [
+        {
+          "id": "clip_wei_yang_idle_breathe",
+          "name": "Front idle breathing",
+          "actionName": "idle",
+          "direction": "none",
+          "loop": true,
+          "sprite": {
+            "id": "codex_wei_yang_idle_front_breathe_16f_micro_fixedbox",
+            "characterName": "Wei Yang - Front Idle Breathing 16f",
+            "description": "16-frame front-facing idle breathing loop for the player standing still. Micro movement only, fixed 608x1055 frame, bottom anchored.",
+            "frameCount": 16,
+            "style": "HD anime front idle breathing spritesheet, transparent PNG, micro motion, fixed rectangular frames",
+            "prompt": "Use the confirmed standing front pose as the idle state. Generate only subtle breathing: tiny chest/body expansion, no walking, no pose drift, no foot movement, no per-frame crop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_idle_front_breathe_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-10T20:50:00Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/wei_yang_idle_front_breathe_16f_sheet.png",
+            "rawSpritesheetPng": "/generated/wei_yang_idle_front_source_clean.png",
+            "generationMode": "codex_local_front_idle_micro_breathing_no_external_model",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "fixed_608x1055_frame_box_no_per_frame_crop_no_nonuniform_scale_bottom_alpha_anchor_stable_micro_motion",
+            "inputReferenceInvariant": "static front standing pose is the not-moving player state; preserve character size, proportions, feet position, and center anchor across all 16 frames",
+            "cellSize": 608,
+            "frameSize": [
+              608,
+              1055
+            ],
+            "sheetSize": [
+              2432,
+              4220
+            ],
+            "rootAnchorPolicy": "bottom_alpha_foot_anchor_locked_feet_same_pixel_bottom_in_all_16_frames",
+            "adaptiveFramePolicy": "same 608x1055 animation frame as other Wei Yang clips; do not clamp to per-frame content bbox",
+            "continuityProtocol": "front_idle_breathing_16_frame_micro_loop_near_neighbor_frames_no_large_stride_or_pose_jump",
+            "sourceImage": "C:\\Users\\Zhang\\Downloads\\wei_yang_front_transparent.png",
+            "motionAmplitude": {
+              "horizontalScalePeak": 0.0032,
+              "verticalScalePeak": 0.0016,
+              "estimatedMaxPixelChange": "about 1-2 px; alpha foot bottom remains locked to the same pixel row"
+            }
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "idle",
+            "gameState": "player.idle",
+            "notes": "Default standing-still state: 16-frame micro breathing, fixed frame box, alpha foot bottom locked."
+          }
+        },
+        {
+          "id": "clip_wei_yang_walk_left",
+          "name": "Walk left head-locked",
+          "actionName": "walk",
+          "direction": "left",
+          "loop": true,
+          "sprite": {
+            "id": "codex_wei_yang_walk_left_one_cycle_8f_headlocked",
+            "characterName": "Wei Yang - Walk Left Head-Locked",
+            "description": "8-frame left walk cycle mirrored from the head-locked right walk.",
+            "frameCount": 8,
+            "style": "HD anime side-scroller walk spritesheet, head scale locked, transparent PNG, fixed rectangular frames",
+            "prompt": "Head-size stabilized Wei Yang walk left; fixed frame box; stable bottom anchor; no per-frame crop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-10T21:20:00Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png",
+            "rawSpritesheetPng": "/generated/wei_yang_walk_left_one_cycle_headlocked_sheet.png",
+            "generationMode": "codex_local_walk_head_scale_locked_no_external_model",
+            "proportionPolicy": "preserve frame size and body scale; normalize head width across frames",
+            "normalization": "fixed_608x1055_frame_box_head_width_locked_to_160px_bottom_anchor_stable_no_per_frame_crop",
+            "inputReferenceInvariant": "keep character size and ground anchor stable; remove visible head-size breathing/scale drift in walk frames",
+            "cellSize": 608,
+            "frameSize": [
+              608,
+              1055
+            ],
+            "sheetSize": [
+              2432,
+              2110
+            ],
+            "rootAnchorPolicy": "bottom_ground_anchor_locked_layer_position_should_not_change_between_frames_or_clips",
+            "adaptiveFramePolicy": "do not clamp to content bbox; all clips share 608x1055 frame",
+            "continuityProtocol": "single_walk_cycle_8_frames_head_scale_locked_near_constant_top_silhouette",
+            "headLock": {
+              "targetHeadWidthPx": 160,
+              "targetHeadCenterX": 282.75,
+              "sourceHeadWidthsPx": [
+                158,
+                158,
+                159,
+                158,
+                165,
+                164,
+                164,
+                164
+              ],
+              "normalizedHeadWidthsPx": [
+                160,
+                160,
+                160,
+                160,
+                161,
+                161,
+                160,
+                161
+              ]
+            }
+          },
+          "binding": {
+            "actionName": "walk_left",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyA",
+            "gameState": "player.walk.left",
+            "notes": "Press A: mirrored one-cycle small stride walk; head width is normalized across frames."
+          }
+        },
+        {
+          "id": "clip_wei_yang_walk_right",
+          "name": "Walk right head-locked",
+          "actionName": "walk",
+          "direction": "right",
+          "loop": true,
+          "sprite": {
+            "id": "codex_wei_yang_walk_right_one_cycle_8f_headlocked",
+            "characterName": "Wei Yang - Walk Right Head-Locked",
+            "description": "8-frame right walk cycle with head width normalized across frames.",
+            "frameCount": 8,
+            "style": "HD anime side-scroller walk spritesheet, head scale locked, transparent PNG, fixed rectangular frames",
+            "prompt": "Head-size stabilized Wei Yang walk right; fixed frame box; stable bottom anchor; no per-frame crop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-10T21:20:00Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png",
+            "rawSpritesheetPng": "/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png",
+            "generationMode": "codex_local_walk_head_scale_locked_no_external_model",
+            "proportionPolicy": "preserve frame size and body scale; normalize head width across frames",
+            "normalization": "fixed_608x1055_frame_box_head_width_locked_to_160px_bottom_anchor_stable_no_per_frame_crop",
+            "inputReferenceInvariant": "keep character size and ground anchor stable; remove visible head-size breathing/scale drift in walk frames",
+            "cellSize": 608,
+            "frameSize": [
+              608,
+              1055
+            ],
+            "sheetSize": [
+              2432,
+              2110
+            ],
+            "rootAnchorPolicy": "bottom_ground_anchor_locked_layer_position_should_not_change_between_frames_or_clips",
+            "adaptiveFramePolicy": "do not clamp to content bbox; all clips share 608x1055 frame",
+            "continuityProtocol": "single_walk_cycle_8_frames_head_scale_locked_near_constant_top_silhouette",
+            "headLock": {
+              "targetHeadWidthPx": 160,
+              "targetHeadCenterX": 282.75,
+              "sourceHeadWidthsPx": [
+                158,
+                158,
+                159,
+                158,
+                165,
+                164,
+                164,
+                164
+              ],
+              "normalizedHeadWidthsPx": [
+                160,
+                160,
+                160,
+                160,
+                161,
+                161,
+                160,
+                161
+              ]
+            }
+          },
+          "binding": {
+            "actionName": "walk_right",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyD",
+            "gameState": "player.walk.right",
+            "notes": "Press D: one-cycle small stride walk; head width is normalized across frames."
+          }
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_side_scroller_demo",
+      "name": "Extended Chinese Station Side-Scroller Scene",
+      "width": 3840,
+      "height": 720,
+      "cameraX": 0,
+      "groundY": 520,
+      "background": "chinese_station_platform",
+      "savedTime": "2026-06-10T11:33:24",
+      "updatedTime": "2026-06-10T21:25:00Z",
+      "layers": [
+        {
+          "id": "layer_sky",
+          "name": "Extended Chinese station background",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "color": "#08070d",
+          "imageUrl": "/generated/chinese_side_scroller_station_extended_3840x720.png",
+          "fit": "stretch",
+          "position": "left center"
+        },
+        {
+          "id": "layer_ground",
+          "name": "Ground guide",
+          "type": "ground",
+          "visible": false,
+          "locked": true,
+          "x": 0,
+          "y": 520,
+          "scale": 1,
+          "zIndex": 10,
+          "opacity": 0.45,
+          "parallax": 1,
+          "color": "#f0b14a"
+        },
+        {
+          "id": "layer_wei_yang_player",
+          "name": "Wei Yang Player",
+          "type": "sprite",
+          "visible": true,
+          "locked": false,
+          "assetId": "asset_wei_yang_walk_small_stride_confirmed",
+          "x": 460,
+          "y": 520,
+          "scale": 0.34,
+          "zIndex": 30,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": true,
+            "color": "rgba(2, 0, 10, 0.88)",
+            "opacity": 0.74,
+            "blur": 24,
+            "width": 0.58,
+            "height": 0.065,
+            "offsetX": 0,
+            "offsetY": 6
+          },
+          "lighting": {
+            "preset": "neon-station",
+            "brightness": 0.64,
+            "contrast": 0.98,
+            "saturate": 0.74,
+            "edgeLightColor": "#ff3e75",
+            "edgeLightOpacity": 0.32,
+            "rimLightColor": "#8e54ff",
+            "rimLightOpacity": 0.24
+          },
+          "activeAnimationId": "clip_wei_yang_idle_breathe"
+        }
+      ],
+      "lighting": {
+        "preset": "neon-station",
+        "brightness": 1,
+        "contrast": 1.04,
+        "saturate": 0.96,
+        "ambience": 0.78,
+        "vignette": 0.28,
+        "glow": 1
+      }
+    }
+  ],
+  "updatedTime": "2026-06-11T21:49:53.413Z"
+}

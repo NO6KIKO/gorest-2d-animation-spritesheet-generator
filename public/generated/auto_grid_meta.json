@@ -1,0 +1,350 @@
+{
+  "frameCount": 16,
+  "cellSize": 256,
+  "sheetSize": [
+    1024,
+    1024
+  ],
+  "sourceSheetSize": [
+    1254,
+    1254
+  ],
+  "sourceCells": [
+    [
+      6,
+      5,
+      285,
+      313
+    ],
+    [
+      285,
+      5,
+      565,
+      313
+    ],
+    [
+      565,
+      5,
+      843,
+      313
+    ],
+    [
+      843,
+      5,
+      1120,
+      313
+    ],
+    [
+      6,
+      313,
+      285,
+      621
+    ],
+    [
+      285,
+      313,
+      565,
+      621
+    ],
+    [
+      565,
+      313,
+      843,
+      621
+    ],
+    [
+      843,
+      313,
+      1120,
+      621
+    ],
+    [
+      6,
+      621,
+      285,
+      932
+    ],
+    [
+      285,
+      621,
+      565,
+      932
+    ],
+    [
+      565,
+      621,
+      843,
+      932
+    ],
+    [
+      843,
+      621,
+      1120,
+      932
+    ],
+    [
+      6,
+      932,
+      285,
+      1242
+    ],
+    [
+      285,
+      932,
+      565,
+      1242
+    ],
+    [
+      565,
+      932,
+      843,
+      1242
+    ],
+    [
+      843,
+      932,
+      1120,
+      1242
+    ]
+  ],
+  "frameBboxes": [
+    [
+      87,
+      4,
+      81,
+      240
+    ],
+    [
+      85,
+      4,
+      83,
+      234
+    ],
+    [
+      87,
+      4,
+      81,
+      236
+    ],
+    [
+      89,
+      4,
+      78,
+      233
+    ],
+    [
+      91,
+      4,
+      74,
+      237
+    ],
+    [
+      87,
+      4,
+      76,
+      235
+    ],
+    [
+      83,
+      4,
+      77,
+      234
+    ],
+    [
+      81,
+      4,
+      79,
+      233
+    ],
+    [
+      86,
+      4,
+      74,
+      238
+    ],
+    [
+      93,
+      4,
+      73,
+      237
+    ],
+    [
+      91,
+      4,
+      76,
+      235
+    ],
+    [
+      87,
+      4,
+      81,
+      236
+    ],
+    [
+      96,
+      4,
+      67,
+      239
+    ],
+    [
+      95,
+      4,
+      68,
+      241
+    ],
+    [
+      97,
+      4,
+      65,
+      244
+    ],
+    [
+      93,
+      4,
+      72,
+      240
+    ]
+  ],
+  "rootAnchors": [
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ],
+    [
+      128.0,
+      78.08
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "auto_detected",
+    "xRuns": [
+      [
+        92,
+        199
+      ],
+      [
+        370,
+        478
+      ],
+      [
+        649,
+        762
+      ],
+      [
+        926,
+        1036
+      ]
+    ],
+    "yRuns": [
+      [
+        13,
+        305
+      ],
+      [
+        323,
+        611
+      ],
+      [
+        629,
+        922
+      ],
+      [
+        939,
+        1236
+      ]
+    ],
+    "xBounds": [
+      6,
+      285,
+      565,
+      843,
+      1120
+    ],
+    "yBounds": [
+      5,
+      313,
+      621,
+      932,
+      1242
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+  "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-06-08T11:32:32",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 512 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 512 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 512 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 512 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 768 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 768 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 768 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 768 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/wei_yang_step_walk_redraw_sheet_autogrid.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "id": "codex_redraw_wei_side_walk_small_hd_1780949839",
+  "characterName": "Wei Yang - Side Walk Cycle HD (Small Stride)",
+  "description": "HD 16-frame side-view walk cycle with smaller, subtler stride, re-cut with one global scale and fixed head/torso anchor.",
+  "frameCount": 16,
+  "style": "HD anime side-walk spritesheet, small stride, transparent PNG, stabilized rectangular frames",
+  "prompt": "Reference-locked small-stride side-view walking cycle; compact steps, reduced leg extension, stabilized locally with global head/torso anchor.",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 2110 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 3165 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+  ],
+  "createdTime": "2026-06-08T13:17:19",
+  "isPreset": false,
+  "spritesheetPng": "/generated/wei_yang_side_walk_small_hd_stabilized_sheet.png",
+  "rawSpritesheetPng": "/generated/wei_yang_side_walk_small_hd_strip_1_raw.png",
+  "inputReferenceSize": [
+    276,
+    1055
+  ],
+  "frameSize": [
+    608,
+    1055
+  ],
+  "sheetSize": [
+    2432,
+    4220
+  ],
+  "frameBboxes": [
+    [
+      105,
+      10,
+      411,
+      1011
+    ],
+    [
+      95,
+      10,
+      349,
+      1011
+    ],
+    [
+      101,
+      10,
+      332,
+      1011
+    ],
+    [
+      150,
+      10,
+      295,
+      1009
+    ],
+    [
+      45,
+      11,
+      421,
+      1009
+    ],
+    [
+      103,
+      9,
+      304,
+      1014
+    ],
+    [
+      62,
+      10,
+      437,
+      1011
+    ],
+    [
+      156,
+      10,
+      245,
+      1014
+    ],
+    [
+      70,
+      12,
+      370,
+      992
+    ],
+    [
+      137,
+      11,
+      302,
+      999
+    ],
+    [
+      121,
+      12,
+      301,
+      992
+    ],
+    [
+      138,
+      11,
+      310,
+      999
+    ],
+    [
+      67,
+      8,
+      383,
+      1028
+    ],
+    [
+      116,
+      7,
+      288,
+      1039
+    ],
+    [
+      61,
+      6,
+      502,
+      1043
+    ],
+    [
+      150,
+      7,
+      246,
+      1037
+    ]
+  ],
+  "headAnchors": [
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ]
+  ],
+  "rootAnchors": [
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ],
+    [
+      281.52,
+      114.01
+    ]
+  ],
+  "globalScale": 1.4669479606188467,
+  "generationMode": "codex_image_redraw_side_walk_small_stride_hd_global_head_anchor_stabilized",
+  "continuityProtocol": "small_stride_side_walk_16_frame_loop_fixed_head_torso_anchor",
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "normalization": "single_global_scale_fixed_head_torso_anchor_small_stride_no_per_strip_scale_no_per_frame_clamp",
+  "inputReferenceInvariant": "preserve original character proportions and height scale; adapt frame width to smaller walking stride without clamping or shifting frames",
+  "adaptiveFramePolicy": "reference_height_locked_width_adapts_to_small_stride_fixed_anchor_no_nonuniform_scaling",
+  "rootAnchorPolicy": "fixed_head_torso_anchor_character_position_stable_legs_small_stride",
+  "sourceSheetSize": [
+    [
+      1985,
+      792
+    ],
+    [
+      2046,
+      768
+    ],
+    [
+      1981,
+      794
+    ],
+    [
+      1993,
+      789
+    ]
+  ],
+  "sourceCells": [
+    {
+      "strip": 1,
+      "cell": [
+        5,
+        5,
+        491,
+        787
+      ]
+    },
+    {
+      "strip": 1,
+      "cell": [
+        501,
+        5,
+        987,
+        787
+      ]
+    },
+    {
+      "strip": 1,
+      "cell": [
+        997,
+        5,
+        1484,
+        787
+      ]
+    },
+    {
+      "strip": 1,
+      "cell": [
+        1494,
+        5,
+        1980,
+        787
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        5,
+        5,
+        507,
+        763
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        517,
+        5,
+        1018,
+        763
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        1028,
+        5,
+        1529,
+        763
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        1539,
+        5,
+        2041,
+        763
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        5,
+        5,
+        490,
+        789
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        500,
+        5,
+        985,
+        789
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        995,
+        5,
+        1481,
+        789
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        1491,
+        5,
+        1976,
+        789
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        5,
+        5,
+        493,
+        784
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        503,
+        5,
+        991,
+        784
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        1001,
+        5,
+        1490,
+        784
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        1500,
+        5,
+        1988,
+        784
+      ]
+    }
+  ],
+  "gridPolicy": "four_high_resolution_small_stride_strips_then_global_anchor_stabilized_rectangular_combine",
+  "gridDetection": {
+    "mode": "per_strip_proportional_forced_global_anchor",
+    "stripCount": 4,
+    "targetAnchor": [
+      281.52,
+      114.01
+    ]
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "frameCount": 16,
+  "cellSize": null,
+  "frameSize": [
+    276,
+    1055
+  ],
+  "sheetSize": [
+    1104,
+    4220
+  ],
+  "sourceSheetSize": [
+    1254,
+    1254
+  ],
+  "sourceCells": [
+    [
+      3,
+      3,
+      311,
+      311
+    ],
+    [
+      317,
+      3,
+      624,
+      311
+    ],
+    [
+      630,
+      3,
+      937,
+      311
+    ],
+    [
+      943,
+      3,
+      1251,
+      311
+    ],
+    [
+      3,
+      317,
+      311,
+      624
+    ],
+    [
+      317,
+      317,
+      624,
+      624
+    ],
+    [
+      630,
+      317,
+      937,
+      624
+    ],
+    [
+      943,
+      317,
+      1251,
+      624
+    ],
+    [
+      3,
+      630,
+      311,
+      937
+    ],
+    [
+      317,
+      630,
+      624,
+      937
+    ],
+    [
+      630,
+      630,
+      937,
+      937
+    ],
+    [
+      943,
+      630,
+      1251,
+      937
+    ],
+    [
+      3,
+      943,
+      311,
+      1251
+    ],
+    [
+      317,
+      943,
+      624,
+      1251
+    ],
+    [
+      630,
+      943,
+      937,
+      1251
+    ],
+    [
+      943,
+      943,
+      1251,
+      1251
+    ]
+  ],
+  "frameBboxes": [
+    [
+      40,
+      166,
+      232,
+      471
+    ],
+    [
+      13,
+      169,
+      259,
+      469
+    ],
+    [
+      8,
+      168,
+      264,
+      471
+    ],
+    [
+      76,
+      167,
+      141,
+      471
+    ],
+    [
+      48,
+      167,
+      183,
+      473
+    ],
+    [
+      29,
+      167,
+      205,
+      471
+    ],
+    [
+      10,
+      166,
+      262,
+      471
+    ],
+    [
+      76,
+      168,
+      141,
+      469
+    ],
+    [
+      21,
+      169,
+      232,
+      469
+    ],
+    [
+      13,
+      168,
+      259,
+      471
+    ],
+    [
+      42,
+      169,
+      175,
+      471
+    ],
+    [
+      76,
+      168,
+      141,
+      469
+    ],
+    [
+      48,
+      168,
+      183,
+      473
+    ],
+    [
+      29,
+      168,
+      205,
+      471
+    ],
+    [
+      28,
+      169,
+      205,
+      469
+    ],
+    [
+      76,
+      167,
+      141,
+      471
+    ]
+  ],
+  "rootAnchors": [
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ],
+    [
+      138.0,
+      321.77
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "proportional_fallback",
+    "xRuns": [
+      [
+        73,
+        233
+      ],
+      [
+        400,
+        554
+      ],
+      [
+        705,
+        867
+      ],
+      [
+        925,
+        951
+      ],
+      [
+        1038,
+        1129
+      ]
+    ],
+    "yRuns": [
+      [
+        15,
+        295
+      ],
+      [
+        328,
+        609
+      ],
+      [
+        641,
+        922
+      ],
+      [
+        955,
+        1236
+      ]
+    ],
+    "xBounds": [
+      0,
+      314,
+      627,
+      940,
+      1254
+    ],
+    "yBounds": [
+      0,
+      314,
+      627,
+      940,
+      1254
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+  "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-06-08T11:58:19",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"276 0 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"552 0 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"828 0 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"276 1055 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"552 1055 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"828 1055 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"276 2110 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"552 2110 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"828 2110 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"276 3165 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"552 3165 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"828 3165 276 1055\" width=\"276\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_276x1055_sheet.png\" x=\"0\" y=\"0\" width=\"1104\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

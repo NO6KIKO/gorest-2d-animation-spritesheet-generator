@@ -1,0 +1,38 @@
+{
+  "id": "codex_wei_yang_walk_left_one_cycle_8f_fixedbox",
+  "characterName": "Wei Yang - Walk Left One Cycle",
+  "description": "8-frame left-facing small-stride walk cycle mirrored from the confirmed right walk; same fixed frame box and anchors.",
+  "frameCount": 8,
+  "style": "HD anime side-scroller sprite, transparent PNG, fixed rectangular frame box",
+  "prompt": "Reference-locked Wei Yang walk left; direction=left; fixed frame box; stable bottom anchor; no per-frame crop.",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 0 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"608 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1216 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1824 1055 608 1055\" width=\"608\" height=\"1055\"><image href=\"/generated/wei_yang_walk_left_one_cycle_sheet.png\" x=\"0\" y=\"0\" width=\"2432\" height=\"2110\" preserveAspectRatio=\"none\"/></svg>"
+  ],
+  "createdTime": "2026-06-10T20:10:00Z",
+  "isPreset": false,
+  "spritesheetPng": "/generated/wei_yang_walk_left_one_cycle_sheet.png",
+  "rawSpritesheetPng": "/generated/wei_yang_walk_left_one_cycle_sheet.png",
+  "generationMode": "codex_local_spritesheet_clip_derivative_no_external_model",
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "normalization": "fixed_608x1055_frame_box_no_per_frame_crop_no_nonuniform_scale_bottom_anchor_stable",
+  "inputReferenceInvariant": "preserve character size and proportions across all animation clips; keep same frame size and ground anchor when switching clips",
+  "cellSize": 608,
+  "frameSize": [
+    608,
+    1055
+  ],
+  "sheetSize": [
+    2432,
+    2110
+  ],
+  "rootAnchorPolicy": "bottom_ground_anchor_locked_layer_position_should_not_change_between_frames_or_clips",
+  "adaptiveFramePolicy": "use original reference height and same 608x1055 animation frame; do not clamp to content bbox",
+  "continuityProtocol": "single_walk_cycle_8_frames_no_repeated_stride_groups"
+}

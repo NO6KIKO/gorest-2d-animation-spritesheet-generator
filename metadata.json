@@ -1,0 +1,6 @@
+{
+  "name": "2D Animation Spritesheet Generator",
+  "description": "Generate continuous 2D animation frame sequences (12/16 frames) from text descriptions or uploaded reference images. Customize playback speed, inspect individual frames, and download custom spritesheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

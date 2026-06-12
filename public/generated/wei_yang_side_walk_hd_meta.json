@@ -1,0 +1,382 @@
+{
+  "id": "codex_redraw_wei_side_walk_hd_1780948737",
+  "characterName": "Wei Yang - Side Walk Cycle HD (Adaptive Frame)",
+  "description": "16-frame side-view walking spritesheet generated from four higher-resolution strips, preserving reference height while expanding frame width for stride.",
+  "frameCount": 16,
+  "style": "HD redrawn anime side-walk spritesheet, transparent PNG, adaptive rectangular frames",
+  "prompt": "High-detail reference-locked side-view walking cycle generated in four strips for better per-frame resolution.",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 0 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 1055 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 2110 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"640 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1280 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1920 3165 640 1055\" width=\"640\" height=\"1055\"><image href=\"/generated/wei_yang_side_walk_hd_adaptive_sheet.png\" x=\"0\" y=\"0\" width=\"2560\" height=\"4220\" preserveAspectRatio=\"none\"/></svg>"
+  ],
+  "createdTime": "2026-06-08T12:58:57",
+  "isPreset": false,
+  "spritesheetPng": "/generated/wei_yang_side_walk_hd_adaptive_sheet.png",
+  "rawSpritesheetPng": "/generated/wei_yang_side_walk_hd_strip_1_raw.png",
+  "inputReferenceSize": [
+    276,
+    1055
+  ],
+  "frameSize": [
+    640,
+    1055
+  ],
+  "sheetSize": [
+    2560,
+    4220
+  ],
+  "frameBboxes": [
+    [
+      87,
+      4,
+      533,
+      1037
+    ],
+    [
+      83,
+      4,
+      400,
+      1037
+    ],
+    [
+      38,
+      4,
+      598,
+      1038
+    ],
+    [
+      185,
+      4,
+      288,
+      1043
+    ],
+    [
+      55,
+      4,
+      551,
+      1043
+    ],
+    [
+      4,
+      4,
+      554,
+      1036
+    ],
+    [
+      59,
+      4,
+      577,
+      1040
+    ],
+    [
+      184,
+      4,
+      285,
+      1043
+    ],
+    [
+      60,
+      4,
+      519,
+      1033
+    ],
+    [
+      4,
+      4,
+      523,
+      1043
+    ],
+    [
+      164,
+      4,
+      325,
+      1040
+    ],
+    [
+      48,
+      4,
+      570,
+      1039
+    ],
+    [
+      67,
+      4,
+      569,
+      1033
+    ],
+    [
+      87,
+      4,
+      417,
+      1034
+    ],
+    [
+      56,
+      4,
+      580,
+      1036
+    ],
+    [
+      189,
+      4,
+      283,
+      1043
+    ]
+  ],
+  "rootAnchors": [
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ],
+    [
+      320.0,
+      321.77
+    ]
+  ],
+  "generationMode": "codex_image_redraw_side_walk_spritesheet_hd_four_strip_adaptive_rectangular_frame",
+  "continuityProtocol": "four_strip_side_walk_16_frame_loop_contact_down_passing_up",
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling_hd_strip_source",
+  "inputReferenceInvariant": "preserve original character proportions and height scale; expand frame width for walking stride instead of shrinking or stretching the character",
+  "adaptiveFramePolicy": "reference_height_locked_width_expands_to_motion_extent_no_nonuniform_scaling",
+  "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+  "sourceSheetSize": [
+    [
+      2560,
+      1055
+    ],
+    [
+      2560,
+      1055
+    ],
+    [
+      2560,
+      1055
+    ],
+    [
+      2560,
+      1055
+    ]
+  ],
+  "sourceCells": [
+    {
+      "strip": 1,
+      "cell": [
+        5,
+        5,
+        493,
+        785
+      ]
+    },
+    {
+      "strip": 1,
+      "cell": [
+        503,
+        5,
+        991,
+        785
+      ]
+    },
+    {
+      "strip": 1,
+      "cell": [
+        1001,
+        5,
+        1488,
+        785
+      ]
+    },
+    {
+      "strip": 1,
+      "cell": [
+        1498,
+        5,
+        1986,
+        785
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        5,
+        5,
+        465,
+        831
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        475,
+        5,
+        936,
+        831
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        946,
+        5,
+        1407,
+        831
+      ]
+    },
+    {
+      "strip": 2,
+      "cell": [
+        1417,
+        5,
+        1877,
+        831
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        5,
+        5,
+        465,
+        831
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        475,
+        5,
+        936,
+        831
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        946,
+        5,
+        1407,
+        831
+      ]
+    },
+    {
+      "strip": 3,
+      "cell": [
+        1417,
+        5,
+        1877,
+        831
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        5,
+        5,
+        490,
+        788
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        500,
+        5,
+        985,
+        788
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        995,
+        5,
+        1481,
+        788
+      ]
+    },
+    {
+      "strip": 4,
+      "cell": [
+        1491,
+        5,
+        1976,
+        788
+      ]
+    }
+  ],
+  "gridPolicy": "four_high_resolution_strips_for_hd_frames_then_local_rectangular_combine",
+  "gridDetection": {
+    "mode": "per_strip_proportional_forced",
+    "stripCount": 4
+  }
+}
