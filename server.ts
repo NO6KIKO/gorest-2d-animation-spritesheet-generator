@@ -14,6 +14,23 @@ const PORT = Number(process.env.PORT || 3000);
 let latestGeneratedSprite: any = null;
 const GENERATED_DIR = path.join(PROJECT_ROOT, "public", "generated");
 const GAME_LIBRARY_PATH = path.join(GENERATED_DIR, "game_asset_library.json");
+const EVOLINK_BASE_URL = "https://api.evolink.ai";
+
+type SpritesheetGenerationModel = "local" | "nano-banana-2" | "gpt-image-2";
+type ImageSize = { width: number; height: number };
+
+const EVOLINK_IMAGE_MODELS: Record<Exclude<SpritesheetGenerationModel, "local">, { label: string; model: string; quality: string }> = {
+  "nano-banana-2": {
+    label: "Nano Banana 2",
+    model: "gemini-3.1-flash-image-preview",
+    quality: "2K",
+  },
+  "gpt-image-2": {
+    label: "GPT Image 2",
+    model: "gpt-image-2",
+    quality: "high",
+  },
+};
 
 // Increase payload limits for base64 reference images
 app.use(express.json({ limit: "50mb" }));
@@ -43,6 +60,154 @@ function writeGameLibrary(library: any) {
     JSON.stringify({ ...library, updatedTime: new Date().toISOString() }, null, 2),
     "utf-8"
   );
+}
+
+function isCloudGenerationModel(model: string): model is Exclude<SpritesheetGenerationModel, "local"> {
+  return model === "nano-banana-2" || model === "gpt-image-2";
+}
+
+function cloudSpritesheetPrompt(prompt: string, style: string, frameCount: number, columns: number, rows: number) {
+  const userPrompt = prompt.trim() || "a game-ready 2D idle animation sprite";
+  return [
+    userPrompt,
+    "",
+    `Create one complete transparent-background 2D game spritesheet as a ${columns}x${rows} grid with exactly ${frameCount} animation cells.`,
+    "Every cell must use the same camera, same scale, same character or prop identity, and a fixed rectangular frame box.",
+    "Keep the object centered with stable bottom-center anchoring, visible transparent padding, and smooth adjacent frame-to-frame motion.",
+    "Do not create a collage, contact sheet labels, gutters with text, frame numbers, UI chrome, watermarks, or separate unrelated concepts.",
+    `Visual style: ${style || "clean 2D side-scroller game asset"}.`,
+  ].join("\n");
+}
+
+async function submitEvolinkImageTask(modelKey: Exclude<SpritesheetGenerationModel, "local">, prompt: string, frameCount: number, columns: number, rows: number) {
+  const apiKey = process.env.EVOLINK_API_KEY;
+  if (!apiKey) {
+    throw new Error("EVOLINK_API_KEY is missing. Create .env.local with EVOLINK_API_KEY before using Nano Banana 2 or GPT Image 2.");
+  }
+
+  const model = EVOLINK_IMAGE_MODELS[modelKey];
+  const aspectRatio = columns === rows ? "1:1" : "4:3";
+  const response = await fetch(`${EVOLINK_BASE_URL}/v1/images/generations`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: model.model,
+      prompt,
+      size: aspectRatio,
+      quality: model.quality,
+      n: 1,
+    }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.error?.message || data?.message || `EvoLink image task failed with HTTP ${response.status}`);
+  }
+  if (!data.id) {
+    throw new Error("EvoLink image task response did not include a task id.");
+  }
+  return data.id as string;
+}
+
+async function waitForEvolinkTask(taskId: string, timeoutMs = 240000) {
+  const apiKey = process.env.EVOLINK_API_KEY;
+  const startedAt = Date.now();
+
+  while (Date.now() - startedAt < timeoutMs) {
+    const response = await fetch(`${EVOLINK_BASE_URL}/v1/tasks/${taskId}`, {
+      headers: { Authorization: `Bearer ${apiKey}` },
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(data?.error?.message || data?.message || `EvoLink task polling failed with HTTP ${response.status}`);
+    }
+    if (data.status === "completed") {
+      const resultUrl = Array.isArray(data.results) ? data.results[0] : null;
+      if (!resultUrl) throw new Error("EvoLink task completed without an image result URL.");
+      return { task: data, resultUrl: String(resultUrl) };
+    }
+    if (data.status === "failed") {
+      throw new Error(data?.error?.message || "EvoLink image task failed.");
+    }
+    await new Promise(resolve => setTimeout(resolve, 5000));
+  }
+
+  throw new Error(`EvoLink image task timed out after ${Math.round(timeoutMs / 1000)} seconds.`);
+}
+
+function detectImageSize(buffer: Buffer): ImageSize | null {
+  if (buffer.length >= 24 && buffer.toString("ascii", 1, 4) === "PNG") {
+    return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+  }
+
+  if (buffer.length >= 4 && buffer[0] === 0xff && buffer[1] === 0xd8) {
+    let offset = 2;
+    while (offset < buffer.length) {
+      if (buffer[offset] !== 0xff) break;
+      const marker = buffer[offset + 1];
+      const length = buffer.readUInt16BE(offset + 2);
+      if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+        return { height: buffer.readUInt16BE(offset + 5), width: buffer.readUInt16BE(offset + 7) };
+      }
+      offset += 2 + length;
+    }
+  }
+
+  return null;
+}
+
+async function saveGeneratedImage(imageUrl: string, modelKey: Exclude<SpritesheetGenerationModel, "local">) {
+  const response = await fetch(imageUrl);
+  if (!response.ok) {
+    throw new Error(`Failed to download generated image with HTTP ${response.status}`);
+  }
+  const contentType = response.headers.get("content-type") || "";
+  const ext = contentType.includes("jpeg") || contentType.includes("jpg") ? "jpg" : contentType.includes("webp") ? "webp" : "png";
+  const buffer = Buffer.from(await response.arrayBuffer());
+  const fileName = `cloud_${modelKey.replace(/[^a-z0-9]+/gi, "_")}_${Date.now()}.${ext}`;
+  fs.mkdirSync(GENERATED_DIR, { recursive: true });
+  fs.writeFileSync(path.join(GENERATED_DIR, fileName), buffer);
+  return {
+    href: `/generated/${fileName}`,
+    size: detectImageSize(buffer),
+  };
+}
+
+function splitImageSpritesheet(imageHref: string, sheetSize: ImageSize, frameCount: number, columns: number) {
+  const rows = Math.ceil(frameCount / columns);
+  const frameWidth = Math.max(1, Math.floor(sheetSize.width / columns));
+  const frameHeight = Math.max(1, Math.floor(sheetSize.height / rows));
+  const frames = Array.from({ length: frameCount }, (_, idx) => {
+    const x = (idx % columns) * frameWidth;
+    const y = Math.floor(idx / columns) * frameHeight;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${x} ${y} ${frameWidth} ${frameHeight}" width="${frameWidth}" height="${frameHeight}"><image href="${imageHref}" x="0" y="0" width="${sheetSize.width}" height="${sheetSize.height}" preserveAspectRatio="none"/></svg>`;
+  });
+  return { frames, frameWidth, frameHeight, rows };
+}
+
+async function generateCloudSpritesheet(modelKey: Exclude<SpritesheetGenerationModel, "local">, prompt: string, style: string, frameCount: number, columns: number, rows: number) {
+  const model = EVOLINK_IMAGE_MODELS[modelKey];
+  const fullPrompt = cloudSpritesheetPrompt(prompt, style, frameCount, columns, rows);
+  const taskId = await submitEvolinkImageTask(modelKey, fullPrompt, frameCount, columns, rows);
+  const { resultUrl } = await waitForEvolinkTask(taskId);
+  const saved = await saveGeneratedImage(resultUrl, modelKey);
+  const sheetSize = saved.size || { width: columns * 256, height: rows * 256 };
+  const split = splitImageSpritesheet(saved.href, sheetSize, frameCount, columns);
+
+  return {
+    characterName: `${model.label} Spritesheet`,
+    description: `${model.label} generated a ${columns}x${rows} spritesheet from the prompt.`,
+    spritesheetSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${sheetSize.width} ${sheetSize.height}" width="${sheetSize.width}" height="${sheetSize.height}"><image href="${saved.href}" x="0" y="0" width="${sheetSize.width}" height="${sheetSize.height}" preserveAspectRatio="none"/></svg>`,
+    frames: split.frames,
+    spritesheetPng: saved.href,
+    rawSpritesheetPng: saved.href,
+    generationMode: `evolink_${modelKey}_spritesheet`,
+    frameSize: [split.frameWidth, split.frameHeight],
+    sheetSize: [sheetSize.width, sheetSize.height],
+    taskId,
+  };
 }
 
 // Initialize Gemini API Client
@@ -713,7 +878,7 @@ function bundleFramesToSpritesheet(frames: string[], frameCount: number, columns
 
 // Spritesheet Generator Endpoint
 app.post("/api/spritesheet/generate", async (req, res) => {
-  const { prompt = "", referenceImage, frameCount = 12, style = "Local Sprite" } = req.body;
+  const { prompt = "", referenceImage, frameCount = 12, style = "Local Sprite", model = "local" } = req.body;
   const actualFrameCount = frameCount === 12 || frameCount === 16 ? frameCount : 12;
   const sheetColumns = 4;
   const sheetRows = Math.ceil(actualFrameCount / sheetColumns);
@@ -723,9 +888,22 @@ app.post("/api/spritesheet/generate", async (req, res) => {
       return res.status(400).json({ error: "prompt or referenceImage is required" });
     }
 
-    let result: { characterName: string; description: string; spritesheetSvg: string; frames: string[] };
+    let result: {
+      characterName: string;
+      description: string;
+      spritesheetSvg: string;
+      frames: string[];
+      spritesheetPng?: string;
+      rawSpritesheetPng?: string;
+      generationMode?: string;
+      frameSize?: number[];
+      sheetSize?: number[];
+      taskId?: string;
+    };
 
-    if (referenceImage && typeof referenceImage === "string" && referenceImage.includes(";base64,")) {
+    if (isCloudGenerationModel(model)) {
+      result = await generateCloudSpritesheet(model, prompt, style, actualFrameCount, sheetColumns, sheetRows);
+    } else if (referenceImage && typeof referenceImage === "string" && referenceImage.includes(";base64,")) {
       result = localImageSpritesheet(referenceImage, prompt, style, actualFrameCount, sheetColumns);
     } else {
       const fallbackResult = generateProceduralFallback(prompt || "local idle sprite", style, actualFrameCount);
@@ -751,7 +929,12 @@ app.post("/api/spritesheet/generate", async (req, res) => {
       style,
       frameCount: result.frames.length,
       isFallback: false,
-      generationMode: referenceImage ? "local_reference_image_spritesheet" : "local_procedural_spritesheet"
+      spritesheetPng: result.spritesheetPng,
+      rawSpritesheetPng: result.rawSpritesheetPng,
+      frameSize: result.frameSize,
+      sheetSize: result.sheetSize,
+      taskId: result.taskId,
+      generationMode: result.generationMode || (referenceImage ? "local_reference_image_spritesheet" : "local_procedural_spritesheet")
     };
     latestGeneratedSprite = {
       id: `latest_${Date.now()}`,
@@ -764,13 +947,18 @@ app.post("/api/spritesheet/generate", async (req, res) => {
       createdTime: new Date().toISOString(),
       isPreset: false,
       spritesheetSvg: responsePayload.spritesheetSvg,
+      spritesheetPng: responsePayload.spritesheetPng,
+      rawSpritesheetPng: responsePayload.rawSpritesheetPng,
+      frameSize: responsePayload.frameSize,
+      sheetSize: responsePayload.sheetSize,
+      taskId: responsePayload.taskId,
       generationMode: responsePayload.generationMode
     };
     res.json(responsePayload);
   } catch (error: any) {
-    console.error("Local spritesheet generation failed:", error);
+    console.error("Spritesheet generation failed:", error);
     res.status(500).json({
-      error: "Failed to generate local spritesheet",
+      error: "Failed to generate spritesheet",
       details: error.message || String(error)
     });
   }
@@ -799,8 +987,6 @@ async function startServer() {
 }
 
 startServer();
-
-
 
 
 

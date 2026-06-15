@@ -35,6 +35,7 @@ import {
 
 type WorkspaceTab = "scenes" | "scene" | "spritesheets" | "preview" | "frames" | "sheet" | "blueprint";
 type BackgroundMode = "checker" | "dark" | "light" | "green";
+type SpritesheetGenerationModel = "local" | "nano-banana-2" | "gpt-image-2";
 type ResizeHandle = "nw" | "ne" | "sw" | "se";
 type ResizeState = {
   id: string;
@@ -152,6 +153,12 @@ const VIEWPORT_PRESETS = [
   { id: "ipad", label: "iPad", width: 1024, height: 768 },
   { id: "iphone", label: "iPhone", width: 390, height: 844 },
   { id: "wide", label: "Wide", width: 1440, height: 720 },
+];
+
+const GENERATION_MODEL_OPTIONS: { id: SpritesheetGenerationModel; label: string }[] = [
+  { id: "local", label: "Local procedural" },
+  { id: "nano-banana-2", label: "Nano Banana 2" },
+  { id: "gpt-image-2", label: "GPT Image 2" },
 ];
 
 const checkerStyle = {
@@ -1197,6 +1204,11 @@ export default function App() {
   const [binding, setBinding] = useState<ActionBinding>(defaultBinding);
   const [role, setRole] = useState<AssetRole>("player");
   const [tagsText, setTagsText] = useState("confirmed, side-scroller");
+  const [generationPrompt, setGenerationPrompt] = useState("16-frame idle breathing loop for a side-scroller player character, transparent background");
+  const [generationStyle, setGenerationStyle] = useState("clean 2D side-scroller game asset");
+  const [generationModel, setGenerationModel] = useState<SpritesheetGenerationModel>("local");
+  const [generationFrameCount, setGenerationFrameCount] = useState(16);
+  const [isGenerating, setIsGenerating] = useState(false);
   const [importSheetDataUrl, setImportSheetDataUrl] = useState<string | null>(null);
   const [importSheetSize, setImportSheetSize] = useState<[number, number] | null>(null);
   const [importFileName, setImportFileName] = useState("");
@@ -1818,6 +1830,57 @@ export default function App() {
     updateSceneLayer(selectedLayer.id, {
       interaction: { ...base, ...selectedLayer.interaction, ...patch },
     });
+  };
+
+  const generateSpritesheet = async () => {
+    setError(null);
+    setIsGenerating(true);
+    const frameCount = generationFrameCount === 12 ? 12 : 16;
+    try {
+      const response = await fetch("/api/spritesheet/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          prompt: generationPrompt,
+          style: generationStyle,
+          model: generationModel,
+          frameCount,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.details || data.error || "Failed to generate spritesheet");
+
+      const now = new Date().toISOString();
+      const sprite: AnimationSprite = {
+        id: `sprite_generated_${safeName(data.characterName || generationModel)}_${Date.now()}`,
+        characterName: data.characterName || "Generated Spritesheet",
+        description: data.description || generationPrompt,
+        frameCount: data.frameCount || frameCount,
+        style: data.style || generationStyle,
+        prompt: generationPrompt,
+        frames: Array.isArray(data.frames) ? data.frames : [],
+        createdTime: now,
+        isPreset: false,
+        spritesheetPng: data.spritesheetPng,
+        rawSpritesheetPng: data.rawSpritesheetPng,
+        generationMode: data.generationMode,
+        frameSize: data.frameSize,
+        sheetSize: data.sheetSize,
+        adaptiveFramePolicy: `${data.sheetColumns || 4} columns, ${data.sheetRows || Math.ceil(frameCount / 4)} rows, ${data.frameCount || frameCount} active frames.`,
+      };
+
+      setSprites(prev => [sprite, ...prev.filter(item => item.id !== sprite.id)]);
+      setActiveSprite(sprite);
+      setActiveFrame(0);
+      setSheetColumns(data.sheetColumns || 4);
+      setSheetDataUrl(data.spritesheetPng || null);
+      setTab("frames");
+      setNotice(`Generated spritesheet with ${GENERATION_MODEL_OPTIONS.find(option => option.id === generationModel)?.label || generationModel}.`);
+    } catch (err: any) {
+      setError(err.message || "Failed to generate spritesheet");
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const applyInteractionPreset = (preset: InteractionPreset) => {
@@ -2549,6 +2612,46 @@ export default function App() {
 
             <button className="primary-button full" onClick={saveAsset}><CheckCircle2 size={16} /> Save as Confirmed Asset</button>
             <button className="ghost-button full" onClick={insertActiveSprite}><Plus size={16} /> Insert Current Action into Scene</button>
+          </section>
+
+          <section>
+            <div className="section-title"><Film size={17} /> Generate Spritesheet</div>
+
+            <label>Model</label>
+            <select value={generationModel} onChange={event => setGenerationModel(event.target.value as SpritesheetGenerationModel)} disabled={isGenerating}>
+              {GENERATION_MODEL_OPTIONS.map(option => (
+                <option key={option.id} value={option.id}>{option.label}</option>
+              ))}
+            </select>
+
+            <label>Prompt</label>
+            <textarea
+              rows={4}
+              value={generationPrompt}
+              onChange={event => setGenerationPrompt(event.target.value)}
+              disabled={isGenerating}
+            />
+
+            <label>Style</label>
+            <input value={generationStyle} onChange={event => setGenerationStyle(event.target.value)} disabled={isGenerating} />
+
+            <div className="two-col">
+              <div>
+                <label>Frames</label>
+                <select value={generationFrameCount} onChange={event => setGenerationFrameCount(Number(event.target.value))} disabled={isGenerating}>
+                  <option value={16}>16</option>
+                  <option value={12}>12</option>
+                </select>
+              </div>
+              <div>
+                <label>Grid</label>
+                <input value={`4 x ${Math.ceil(generationFrameCount / 4)}`} disabled />
+              </div>
+            </div>
+
+            <button className="primary-button full" type="button" onClick={generateSpritesheet} disabled={isGenerating || !generationPrompt.trim()}>
+              <Film size={16} /> {isGenerating ? "Generating..." : "Generate Action"}
+            </button>
           </section>
 
           <section>

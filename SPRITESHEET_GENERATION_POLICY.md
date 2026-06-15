@@ -15,6 +15,15 @@ Use Codex image redraw generation to create one complete spritesheet image first
 7. Write `public/generated/latest_sprite.json` with `generationMode: "codex_image_redraw_spritesheet"`.
 8. The browser reads `/api/spritesheet/latest` and only displays/slices/downloads the result.
 
+## Cloud model generation
+
+The app can also request complete spritesheets from server-side image models through the `Generate Spritesheet` panel:
+
+- `Nano Banana 2` uses EvoLink model `gemini-3.1-flash-image-preview`.
+- `GPT Image 2` uses EvoLink model `gpt-image-2`.
+
+Cloud image generation must run from the local server with `EVOLINK_API_KEY`; never expose the key in client-side code. The server submits an async image task to `https://api.evolink.ai/v1/images/generations`, polls `/v1/tasks/{task_id}`, downloads the completed image into `public/generated/`, and then slices that saved file into frames.
+
 ## Forbidden as final output
 
 - Whole-image drifting, floating, bobbing, scaling, or rotation as a walking cycle.

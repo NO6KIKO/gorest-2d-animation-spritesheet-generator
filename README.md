@@ -27,6 +27,7 @@ This is meant to reduce or skip the manual Spine-style workflow for early game p
 - Drag, resize, scale, reorder, hide, and show scene layers.
 - Preview a playable side-scroller scene with character movement.
 - Import or generate 12-frame and 16-frame spritesheets.
+- Generate spritesheets with the local procedural engine, Nano Banana 2, or GPT Image 2.
 - Composite animated sprites directly onto scene backgrounds.
 - Open the `Spritesheets` page to see every animation clip used by the current scene.
 - Edit spritesheet metadata such as asset role, clip name, trigger type, game state, direction, loop mode, and tags.
@@ -55,7 +56,7 @@ npm install
 
 ### 4. Optional Environment File
 
-The current local workflow does not require an API key. If you later enable cloud image generation, copy the example env file and add your own key:
+The local workflow does not require an API key. If you enable cloud image generation, copy the example env file and add your own key:
 
 ```bash
 cp .env.example .env.local
@@ -68,6 +69,20 @@ Copy-Item .env.example .env.local
 ```
 
 Never commit `.env.local`. It is ignored by Git.
+
+Cloud spritesheet generation runs on the local server, so API keys stay out of the browser bundle:
+
+```bash
+EVOLINK_API_KEY="your-evolink-api-key"
+```
+
+The `Generate Spritesheet` panel can use:
+
+- `Local procedural`: no API key required.
+- `Nano Banana 2`: uses EvoLink `gemini-3.1-flash-image-preview`.
+- `GPT Image 2`: uses EvoLink `gpt-image-2`.
+
+Generated cloud images are downloaded into `public/generated/` and then sliced into frames by the app, so saved assets do not depend on temporary provider image URLs.
 
 ### 5. Run the App
 
