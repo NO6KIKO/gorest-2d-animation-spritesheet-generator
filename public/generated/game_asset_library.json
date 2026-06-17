@@ -1,6 +1,142 @@
 {
   "assets": [
     {
+      "id": "asset_fishbowl_swimming_fish",
+      "name": "Realistic Fantail Goldfish Bowl",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-06-17T17:57:21.849Z",
+      "updatedTime": "2026-06-17T18:12:02.128173Z",
+      "sprite": {
+        "id": "sprite_fishbowl_swimming_fish_16f",
+        "characterName": "Realistic Fantail Goldfish Bowl 16f",
+        "description": "Round glass bowl with a more realistic fancy goldfish: egg-shaped body, high dorsal fin, paired flowing tail fins, scale highlights, and a dark Chinese-horror tabletop mood.",
+        "frameCount": 16,
+        "style": "refined Chinese horror tabletop prop, round glass bowl, realistic fantail goldfish, transparent PNG spritesheet",
+        "prompt": "A realistic fancy goldfish in a round glass bowl, dark refined Chinese horror tabletop prop, 16-frame swimming loop.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-17T17:57:21.849Z",
+        "updatedTime": "2026-06-17T18:12:02.128173Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/fishbowl_swimming_fish_sheet.png",
+        "rawSpritesheetPng": "/generated/fishbowl_swimming_fish_sheet.png",
+        "generationMode": "procedural_pillow_transparent_spritesheet",
+        "fps": 8,
+        "gridColumns": 4,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          2048,
+          2048
+        ],
+        "rootAnchorPolicy": "bottom-center tabletop anchor",
+        "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+        "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+      },
+      "animations": [
+        {
+          "id": "clip_fishbowl_swimming_loop",
+          "name": "Chinese Horror Fish Swimming Loop",
+          "actionName": "swim",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_fishbowl_swimming_fish_16f",
+            "characterName": "Realistic Fantail Goldfish Bowl 16f",
+            "description": "Round glass bowl with a more realistic fancy goldfish: egg-shaped body, high dorsal fin, paired flowing tail fins, scale highlights, and a dark Chinese-horror tabletop mood.",
+            "frameCount": 16,
+            "style": "refined Chinese horror tabletop prop, round glass bowl, realistic fantail goldfish, transparent PNG spritesheet",
+            "prompt": "A realistic fancy goldfish in a round glass bowl, dark refined Chinese horror tabletop prop, 16-frame swimming loop.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-17T17:57:21.849Z",
+            "updatedTime": "2026-06-17T18:12:02.128173Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/fishbowl_swimming_fish_sheet.png",
+            "rawSpritesheetPng": "/generated/fishbowl_swimming_fish_sheet.png",
+            "generationMode": "procedural_pillow_transparent_spritesheet",
+            "fps": 8,
+            "gridColumns": 4,
+            "frameSize": [
+              512,
+              512
+            ],
+            "sheetSize": [
+              2048,
+              2048
+            ],
+            "rootAnchorPolicy": "bottom-center tabletop anchor",
+            "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+            "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/fishbowl_swimming_fish_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+          },
+          "binding": {
+            "actionName": "swim",
+            "triggerType": "auto",
+            "triggerValue": "loop",
+            "gameState": "fishbowl.swimming",
+            "notes": "Looping tabletop fishbowl animation for shrine hut scene."
+          },
+          "loop": true,
+          "fps": 8
+        }
+      ],
+      "defaultAnimationId": "clip_fishbowl_swimming_loop",
+      "binding": {
+        "actionName": "swim",
+        "triggerType": "auto",
+        "triggerValue": "loop",
+        "gameState": "fishbowl.swimming",
+        "notes": "Looping tabletop fishbowl animation for shrine hut scene."
+      },
+      "tags": [
+        "animated-prop",
+        "chinese-horror",
+        "dark-glass",
+        "fantail goldfish",
+        "fish",
+        "fishbowl",
+        "realistic fish",
+        "refined-prop",
+        "round glass bowl",
+        "shinto-hut",
+        "tabletop"
+      ]
+    },
+    {
       "id": "asset_wei_yang_talking_to_camera_16f",
       "name": "Wei Yang / Talking to Camera 16f",
       "role": "player",
@@ -1640,6 +1776,102 @@
     }
   ],
   "scenes": [
+    {
+      "id": "scene_shinto_wood_hut_fishbowl",
+      "name": "Shinto Wood Hut - Fishbowl Table",
+      "width": 1920,
+      "height": 1080,
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "viewportPreset": "custom",
+      "cameraX": 0,
+      "groundY": 920,
+      "background": "shinto_wood_hut_table",
+      "lighting": {
+        "preset": "neon-station",
+        "brightness": 0.92,
+        "contrast": 1.08,
+        "saturate": 0.86,
+        "ambience": 0.42,
+        "vignette": 0.26,
+        "glow": 0.2
+      },
+      "state": {
+        "fishbowl_scene": true,
+        "fish_swimming": true
+      },
+      "savedTime": "2026-06-17T17:57:21.849Z",
+      "updatedTime": "2026-06-17T17:57:21.849Z",
+      "layers": [
+        {
+          "id": "layer_shinto_hut_background",
+          "name": "Shinto Wood Hut Interior Background",
+          "type": "background",
+          "visible": true,
+          "locked": false,
+          "imageUrl": "/generated/shinto_wood_hut_table_1920x1080.png",
+          "color": "#0f0b08",
+          "x": 0,
+          "y": 1080,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "fit": "stretch",
+          "position": "center center"
+        },
+        {
+          "id": "layer_shinto_hut_table_ground_reference",
+          "name": "Tabletop / Ground Reference",
+          "type": "ground",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 728,
+          "scale": 1,
+          "zIndex": 8,
+          "opacity": 0.14,
+          "parallax": 1,
+          "color": "#7a4b2e"
+        },
+        {
+          "id": "layer_shinto_hut_fishbowl",
+          "name": "Realistic Fantail Goldfish Bowl on Wooden Table",
+          "type": "sprite",
+          "visible": true,
+          "locked": false,
+          "assetId": "asset_fishbowl_swimming_fish",
+          "activeAnimationId": "clip_fishbowl_swimming_loop",
+          "x": 820,
+          "y": 450,
+          "scale": 0.54,
+          "zIndex": 42,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": true,
+            "color": "rgba(0, 0, 0, 0.5)",
+            "opacity": 0.28,
+            "blur": 18,
+            "width": 0.86,
+            "height": 0.08,
+            "offsetX": 0,
+            "offsetY": 6
+          },
+          "lighting": {
+            "preset": "neon-station",
+            "brightness": 0.98,
+            "contrast": 1.02,
+            "saturate": 0.96,
+            "edgeLightColor": "#f0a04b",
+            "edgeLightOpacity": 0.14,
+            "rimLightColor": "#6ca8d7",
+            "rimLightOpacity": 0.2
+          },
+          "notes": "Round glass fishbowl with realistic fancy goldfish, placed on the shrine hut table."
+        }
+      ]
+    },
     {
       "id": "scene_copy_1781717497888_6hupwo",
       "name": "Cluttered Bedroom - Chinese Horror - Complete Jun 17, 01:39 AM Copy 2",

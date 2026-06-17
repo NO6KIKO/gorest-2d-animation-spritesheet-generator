@@ -127,6 +127,26 @@ This project is organized around a game-scene authoring workflow rather than a s
 8. Save the completed scene.
    Save the scene once the background, character, props, spritesheets, and metadata feel correct.
 
+## Prompt Examples for Codex
+
+These prompts are written for Codex. They describe the scene, the spritesheet, the visual mood, and the exact editor changes Codex should make.
+
+```text
+Create a new side-scroller scene in the asset library. The scene should be a refined Chinese-horror Shinto-style wooden hut interior with a long wooden table in the foreground. Add a separate animated prop layer on the table: a round glass fishbowl spritesheet with a realistic fantail goldfish swimming inside. Use a dark, polished, painterly horror mood, not a simple cartoon style. Save the background PNG, the spritesheet PNG, and wire the new scene into public/generated/game_asset_library.json.
+```
+
+```text
+Generate a 16-frame transparent PNG spritesheet for a tabletop prop. The prop is a round glass fishbowl with murky water, glass highlights, plants, dark sediment, and a realistic fancy goldfish. The fish should have an egg-shaped body, high dorsal fin, orange-white scales, and split flowing tail fins. Keep every frame 512 x 512, arrange it as a 4 x 4 sheet, and make the swim loop subtle and game-ready.
+```
+
+```text
+Revise the current fishbowl spritesheet so it looks less like a simple icon. Research real goldfish references first, then redraw it toward a realistic fantail goldfish direction. Keep the bowl round, preserve transparent background, update frame metadata, and adjust the scene layer position so the fishbowl sits naturally on the wooden table.
+```
+
+```text
+Create a new scene card in the 2D Canvas for a horizontal horror shrine entrance. The background should show a Shinto-style gate entrance with a foreground incense burner. Add a talking character close-up spritesheet as a separate layer, configure the active animation, and make sure the scene appears in the scene flow board with editable metadata.
+```
+
 ## Spritesheet Authoring Rules
 
 For stable 2D game animation, spritesheets should be treated as one complete animation sheet first, then split into frames. This avoids the common problem where individually generated frames change size, drift, or lose visual consistency.
@@ -174,6 +194,8 @@ The editor supports a scene-size mindset instead of only a single image-size min
 ## Included Scene Flow Example
 
 The current sample library includes a horror Shinto shrine entrance scene for a side-scroller prototype. It uses a wide shrine-gate background with a foreground incense burner, a talking Wei Yang close-up spritesheet, and editable layer metadata so the scene can be adjusted directly in the browser.
+
+It also includes a Shinto-style wooden hut interior scene with a refined horror tabletop fishbowl spritesheet. The fishbowl is stored as a reusable animated prop, so it can be inspected from the `Spritesheets` page and reused in other scenes.
 
 ## Spritesheet Page
 
