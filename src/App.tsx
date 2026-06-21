@@ -8,6 +8,27 @@ import {
   SCENE_KIT_ASSETS,
 } from "./domain/scene-kit/sceneKitAssets";
 import {
+  DEFAULT_INTERACTION_SETTINGS,
+  NEON_CONTACT_SHADOW,
+  NEON_LAYER_LIGHTING,
+  NEON_SCENE_LIGHTING,
+  formatViewportRatio,
+  interactionZoneBounds,
+  isSceneVisualLayer,
+  isTransformableSceneLayer,
+  layerInteractionSettings,
+  layerWorldBounds,
+  resolveAssetClip,
+  resolveAssetSprite,
+  sceneFilter,
+  sceneLayerRenderFilter,
+  sceneLighting,
+  sceneViewportHeight,
+  sceneViewportWidth,
+  stateMatches,
+  stateValueFromText,
+} from "./domain/scene/sceneModel";
+import {
   buildSpritesheetFrames,
   getFrameSize,
   spriteFrame,
@@ -95,28 +116,6 @@ const VIEWPORT_WIDTH = 1280;
 const DEFAULT_WALK_SPEED = 120;
 const SHOW_SCENE_KIT_TOOLS = false;
 
-const DEFAULT_INTERACTION_SETTINGS: LayerInteractionSettings = {
-  enabled: true,
-  preset: "inspect",
-  triggerMode: "near-click",
-  actionType: "subtitle",
-  promptKey: "",
-  promptText: "Inspect",
-  subtitle: "There is something worth inspecting here.",
-  failSubtitle: "Nothing happens.",
-  showText: false,
-  fontSize: 11,
-  promptScale: 0.88,
-  promptStyle: "horror",
-  triggerRadius: 180,
-  offsetX: 0,
-  offsetY: -34,
-  zoneOffsetX: 0,
-  zoneOffsetY: 0,
-  hideLayerOnPickup: true,
-  hotspotVisible: true,
-};
-
 const INTERACTION_PRESETS: Record<InteractionPreset, Partial<LayerInteractionSettings> & { label: string }> = {
   inspect: {
     label: "Inspect",
@@ -194,38 +193,6 @@ const checkerStyle = {
   backgroundColor: "#f6f7f9",
 };
 
-const NEON_CONTACT_SHADOW = {
-  enabled: true,
-  color: "rgba(2, 0, 10, 0.88)",
-  opacity: 0.74,
-  blur: 24,
-  width: 0.58,
-  height: 0.065,
-  offsetX: 0,
-  offsetY: 6,
-};
-
-const NEON_LAYER_LIGHTING = {
-  preset: "neon-station" as const,
-  brightness: 0.64,
-  contrast: 0.98,
-  saturate: 0.74,
-  edgeLightColor: "#ff3e75",
-  edgeLightOpacity: 0.32,
-  rimLightColor: "#8e54ff",
-  rimLightOpacity: 0.24,
-};
-
-const NEON_SCENE_LIGHTING = {
-  preset: "neon-station" as const,
-  brightness: 1,
-  contrast: 1.04,
-  saturate: 0.96,
-  ambience: 0.78,
-  vignette: 0.28,
-  glow: 1,
-};
-
 const triggerLabels: Record<ActionTriggerType, string> = {
   mouse: "Mouse",
   keyboard: "Keyboard",
@@ -286,156 +253,6 @@ function clampLayerScale(value: number) {
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
-}
-
-function sceneViewportWidth(scene: GameScene) {
-  return Math.min(scene.viewportWidth || VIEWPORT_WIDTH, scene.width);
-}
-
-function sceneViewportHeight(scene: GameScene) {
-  return scene.viewportHeight || scene.height;
-}
-
-function formatViewportRatio(width: number, height: number) {
-  if (!width || !height) return "custom";
-  const ratio = width / height;
-  return ratio >= 1 ? `${ratio.toFixed(2)}:1` : `1:${(height / width).toFixed(2)}`;
-}
-
-function rgbaColor(hex: string, opacity: number) {
-  const match = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  if (!match) return hex;
-  const [, r, g, b] = match;
-  return `rgba(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)}, ${opacity})`;
-}
-
-function sceneLighting(scene: GameScene) {
-  return scene.lighting || NEON_SCENE_LIGHTING;
-}
-
-function sceneFilter(scene: GameScene) {
-  const lighting = sceneLighting(scene);
-  if (lighting.preset === "none") return "none";
-  return [
-    `brightness(${lighting.brightness})`,
-    `contrast(${lighting.contrast})`,
-    `saturate(${lighting.saturate})`,
-  ].join(" ");
-}
-
-function layerFilter(layer: SceneLayer) {
-  const lighting = layer.lighting || NEON_LAYER_LIGHTING;
-  if (lighting.preset === "none") return "none";
-  return [
-    `brightness(${lighting.brightness})`,
-    `contrast(${lighting.contrast})`,
-    `saturate(${lighting.saturate})`,
-    "sepia(0.08)",
-    `drop-shadow(-5px 0 8px ${rgbaColor(lighting.rimLightColor, lighting.rimLightOpacity)})`,
-    `drop-shadow(7px 0 10px ${rgbaColor(lighting.edgeLightColor, lighting.edgeLightOpacity)})`,
-    "drop-shadow(0 14px 18px rgba(4, 0, 12, 0.5))",
-  ].join(" ");
-}
-
-function characterFilter(scene: GameScene, layer: SceneLayer) {
-  return combineFilters(sceneFilter(scene), layerFilter(layer));
-}
-
-function sceneLayerRenderFilter(scene: GameScene, layer: SceneLayer, asset?: GameAsset) {
-  const explicitLayerFilter = layer.lighting ? layerFilter(layer) : "none";
-  if (asset?.role === "player") return characterFilter(scene, layer);
-  return combineFilters(sceneFilter(scene), explicitLayerFilter);
-}
-
-function combineFilters(...filters: Array<string | undefined>) {
-  const active = filters.filter(filter => filter && filter !== "none");
-  return active.length ? active.join(" ") : "none";
-}
-
-function isSceneVisualLayer(layer: SceneLayer) {
-  return layer.type === "sprite" || layer.type === "effect" || layer.type === "foreground";
-}
-
-function isTransformableSceneLayer(layer: SceneLayer) {
-  return layer.type === "background" || isSceneVisualLayer(layer);
-}
-
-function layerWorldBounds(layer: SceneLayer, asset?: GameAsset) {
-  const sprite = resolveAssetSprite(asset, layer);
-  const [spriteW, spriteH] = sprite ? getFrameSize(sprite) : [0, 0];
-  const width = spriteW * layer.scale;
-  const height = spriteH * layer.scale;
-  return {
-    left: layer.x,
-    right: layer.x + width,
-    top: layer.y - height,
-    bottom: layer.y,
-    width,
-    height,
-    centerX: layer.x + width * 0.5,
-    centerY: layer.y - height * 0.5,
-  };
-}
-
-function interactionZoneBounds(layer: SceneLayer, asset: GameAsset | undefined, interaction: LayerInteractionSettings) {
-  const bounds = layerWorldBounds(layer, asset);
-  const width = Math.max(24, interaction.zoneWidth || bounds.width);
-  const height = Math.max(24, interaction.zoneHeight || bounds.height);
-  const centerX = bounds.centerX + (interaction.zoneOffsetX || 0);
-  const centerY = bounds.centerY + (interaction.zoneOffsetY || 0);
-  return {
-    left: centerX - width / 2,
-    right: centerX + width / 2,
-    top: centerY - height / 2,
-    bottom: centerY + height / 2,
-    width,
-    height,
-    centerX,
-    centerY,
-  };
-}
-
-function stateValueFromText(value?: string) {
-  const text = (value || "").trim();
-  if (!text) return "";
-  if (text === "true") return true;
-  if (text === "false") return false;
-  if (!Number.isNaN(Number(text)) && text !== "") return Number(text);
-  return text;
-}
-
-function stateMatches(actual: unknown, expected?: string) {
-  const text = (expected || "").trim();
-  if (!text) return Boolean(actual);
-  return String(actual) === String(stateValueFromText(text));
-}
-
-function keyLabelFromBinding(triggerValue?: string) {
-  if (!triggerValue) return "E";
-  return triggerValue.replace(/^Key/i, "").replace(/^Digit/i, "") || triggerValue;
-}
-
-function defaultInteractionText(asset?: GameAsset) {
-  if (!asset) return DEFAULT_INTERACTION_SETTINGS.promptText;
-  if (asset.id === BOARDING_TRAIN_ASSET_ID) return "Board";
-  if (asset.id === "asset_scene_ticket_machine") return "Use";
-  if (asset.id === INSPECT_TRIGGER_ASSET_ID) return "Inspect";
-  return asset.binding.actionName === "interact" ? "Interact" : asset.name;
-}
-
-function layerInteractionSettings(layer: SceneLayer, asset?: GameAsset): LayerInteractionSettings | null {
-  const assetIsInteractable = !!asset && (
-    asset.tags.includes("interactable") ||
-    asset.tags.includes("interaction-trigger") ||
-    asset.tags.includes("inspect-hotspot")
-  );
-  if (!assetIsInteractable && !layer.interaction) return null;
-  return {
-    ...DEFAULT_INTERACTION_SETTINGS,
-    promptKey: keyLabelFromBinding(asset?.binding.triggerValue),
-    promptText: defaultInteractionText(asset),
-    ...layer.interaction,
-  };
 }
 
 function createInteractionTriggerLayer(
@@ -785,19 +602,6 @@ function createAsset(sprite: AnimationSprite, role: AssetRole, binding: ActionBi
     binding,
     tags: splitTags(tagsText),
   };
-}
-
-function resolveAssetClip(asset?: GameAsset, layer?: SceneLayer): AnimationClip | undefined {
-  if (!asset?.animations?.length) return undefined;
-  return (
-    asset.animations.find(clip => clip.id === layer?.activeAnimationId) ||
-    asset.animations.find(clip => clip.id === asset.defaultAnimationId) ||
-    asset.animations[0]
-  );
-}
-
-function resolveAssetSprite(asset?: GameAsset, layer?: SceneLayer): AnimationSprite | undefined {
-  return resolveAssetClip(asset, layer)?.sprite || asset?.sprite;
 }
 
 function clipButtonText(clip: AnimationClip) {
