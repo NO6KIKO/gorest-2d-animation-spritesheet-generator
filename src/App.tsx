@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent, type PointerEvent } from "react";
 import { PRESET_SPRITES } from "./presets";
+import { isEditingTextTarget } from "./app/domEvents";
 import { downloadDataUrl, downloadJson, downloadUrl } from "./app/downloads";
 import type { AppMode, BackgroundMode, SheetOnlySelectionKind, WorkspaceTab } from "./app/types";
 import {
@@ -102,6 +103,7 @@ import { TriggerTestPanel, WorkspaceMessages } from "./features/workspace-sideba
 import { WorkspaceTopbar } from "./features/workspace-topbar";
 import { fetchGameLibrary, fetchLatestSprite } from "./services/gameLibraryApi";
 import { fetchGeneratedAssets, type RepositoryGeneratedImage } from "./services/generatedAssetsApi";
+import { clamp, clampLayerScale } from "./shared/math";
 import {
   ActionBinding,
   ActionTriggerType,
@@ -144,14 +146,6 @@ type SceneLayerClipboard = {
 };
 type HeldDirection = "left" | "right" | null;
 type VehiclePhase = "approaching" | "ready" | "boarded";
-
-function clampLayerScale(value: number) {
-  return Math.min(2.5, Math.max(0.05, value));
-}
-
-function clamp(value: number, min: number, max: number) {
-  return Math.min(max, Math.max(min, value));
-}
 
 export default function App() {
   const [sprites, setSprites] = useState<AnimationSprite[]>(PRESET_SPRITES);
@@ -1693,12 +1687,6 @@ export default function App() {
   const removeSelectedLayer = () => {
     if (!selectedLayer) return;
     deleteSceneObject(selectedLayer.id, selectedInteractionZoneLayerId === selectedLayer.id ? "interaction-zone" : "layer");
-  };
-
-  const isEditingTextTarget = (target: EventTarget | null) => {
-    if (!(target instanceof HTMLElement)) return false;
-    const tagName = target.tagName.toLowerCase();
-    return target.isContentEditable || tagName === "input" || tagName === "textarea" || tagName === "select";
   };
 
   const restoreSceneFromHistory = (nextScene: GameScene, message: string) => {
