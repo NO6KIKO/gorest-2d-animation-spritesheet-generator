@@ -1,18 +1,13 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent, type PointerEvent } from "react";
 import {
   Download,
-  Eye,
-  EyeOff,
   Film,
   Lock,
   Map as MapIcon,
   Pause,
   Play,
-  Plus,
   Save,
   Unlock,
-  Upload,
-  X,
 } from "lucide-react";
 import { PRESET_SPRITES } from "./presets";
 import type { AppMode, BackgroundMode, SheetOnlySelectionKind, WorkspaceTab } from "./app/types";
@@ -30,6 +25,7 @@ import { SceneLightingStrip, SceneToolbar } from "./features/scene-editor";
 import {
   BackgroundLayerControls,
   LayerInteractionControls,
+  SceneLayerRail,
   LayerStackList,
   LayerTransformControls,
   LayerVisibilityControls,
@@ -3625,168 +3621,46 @@ export default function App() {
                     gridTemplateColumns: `${sceneLayerPanelWidth}px 8px minmax(${sceneCenterMinWidth}px, 1fr) 8px ${sceneInspectorPanelWidth}px`,
                   }}
                 >
-                  <aside className="scene-mini-panel layer-rail">
-                    <div className="mini-panel-title layer-panel-title">
-                      <b>Layer</b>
-                      <div className="layer-panel-title-actions">
-                        <button
-                          type="button"
-                          className={isLayerLibraryOpen ? "mini-add-layer-button active" : "mini-add-layer-button"}
-                          title="Add layer"
-                          aria-label="Add layer"
-                          onClick={() => setIsLayerLibraryOpen(value => !value)}
-                        >
-                          <Plus size={14} />
-                        </button>
-                      </div>
-                    </div>
-                    {isLayerLibraryOpen && (
-                      <div className="layer-add-popover" role="dialog" aria-label="Add asset">
-                        <div className="layer-add-popover-header">
-                          <strong>Add Asset</strong>
-                          <button
-                            type="button"
-                            className="icon-button"
-                            aria-label="Close add asset"
-                            onClick={() => setIsLayerLibraryOpen(false)}
-                          >
-                            <X size={14} />
-                          </button>
-                        </div>
-                        <div className="layer-add-popover-actions">
-                          <label className="layer-upload-button">
-                            <Upload size={13} />
-                            <span>Upload Image</span>
-                            <input type="file" accept="image/*" onChange={handleLayerImageUpload} />
-                          </label>
-                        </div>
-                        <div className="layer-asset-grid">
-                          {layerLibraryAssets.length ? layerLibraryAssets.map(asset => {
-                            const previewSprite = resolveAssetSprite(asset);
-                            if (!previewSprite) return null;
-                            return (
-                              <button
-                                key={asset.id}
-                                type="button"
-                                className="layer-asset-option"
-                                title={asset.name}
-                                onClick={() => insertAssetLayer(asset)}
-                              >
-                                <span className="layer-asset-thumb">
-                                  <span dangerouslySetInnerHTML={{ __html: spriteFrame(previewSprite, 0) }} />
-                                </span>
-                                <strong>{asset.name}</strong>
-                              </button>
-                            );
-                          }) : (
-                            <div className="layer-add-empty">No assets yet</div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                    <div className="mini-layer-list">
-                      {scene.layers
-                        .slice()
-                        .sort((a, b) => b.zIndex - a.zIndex)
-                        .map(layer => {
-                          const canDragLayer = !layer.locked;
-                          return (
-                            <button
-                              key={layer.id}
-                              type="button"
-                              data-layer-row-id={layer.id}
-                              className={[
-                                layer.id === selectedLayerId ? "active" : "",
-                                draggedLayerId === layer.id ? "dragging" : "",
-                                layerDropTargetId === layer.id ? "drop-target" : "",
-                                !layer.visible ? "not-visible" : "",
-                                !canDragLayer ? "locked" : "",
-                              ].filter(Boolean).join(" ")}
-                              onClick={() => {
-                                setSelectedLayerId(layer.id);
-                                setSelectedInteractionZoneLayerId(null);
-                                const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-                                const layerSprite = resolveAssetSprite(layerAsset, layer);
-                                if (layerSprite) setActiveSprite(layerSprite);
-                              }}
-                              onContextMenu={event => {
-                                openSceneLayerContextMenu(event, layer);
-                              }}
-                              onPointerDown={event => {
-                                if (!canDragLayer || event.button !== 0) return;
-                                setSelectedLayerId(layer.id);
-                                setSelectedInteractionZoneLayerId(null);
-                                const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-                                const layerSprite = resolveAssetSprite(layerAsset, layer);
-                                if (layerSprite) {
-                                  setActiveSprite(layerSprite);
-                                  setActiveFrame(0);
-                                }
-                                layerDragRef.current = layer.id;
-                                setDraggedLayerId(layer.id);
-                              }}
-                              onPointerUp={event => finishLayerPointerReorder(event.clientX, event.clientY)}
-                              onPointerCancel={() => {
-                                layerDragRef.current = null;
-                                setDraggedLayerId(null);
-                                setLayerDropTargetId(null);
-                              }}
-                              title={canDragLayer ? `${layer.name} / drag to reorder depth` : `${layer.name} / locked`}
-                            >
-                              <span className="mini-layer-grip" aria-hidden="true">{canDragLayer ? "::" : "--"}</span>
-                              <span
-                                className="mini-layer-visibility"
-                                role="button"
-                                tabIndex={0}
-                                title={layer.visible ? "Hide layer" : "Show layer"}
-                                onPointerDown={event => {
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                }}
-                                onClick={event => {
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                  updateSceneLayer(layer.id, { visible: !layer.visible });
-                                }}
-                                onKeyDown={event => {
-                                  if (event.key !== "Enter" && event.key !== " ") return;
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                  updateSceneLayer(layer.id, { visible: !layer.visible });
-                                }}
-                              >
-                                {layer.visible ? <Eye size={13} /> : <EyeOff size={13} />}
-                              </span>
-                              <span
-                                className="mini-layer-lock"
-                                role="button"
-                                tabIndex={0}
-                                title={layer.locked ? "Unlock layer" : "Lock layer"}
-                                aria-label={layer.locked ? `Unlock ${layer.name}` : `Lock ${layer.name}`}
-                                onPointerDown={event => {
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                }}
-                                onClick={event => {
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                  updateSceneLayer(layer.id, { locked: !layer.locked });
-                                }}
-                                onKeyDown={event => {
-                                  if (event.key !== "Enter" && event.key !== " ") return;
-                                  event.preventDefault();
-                                  event.stopPropagation();
-                                  updateSceneLayer(layer.id, { locked: !layer.locked });
-                                }}
-                              >
-                                {layer.locked ? <Lock size={13} /> : <Unlock size={13} />}
-                              </span>
-                              <strong>{layer.name}</strong>
-                            </button>
-                          );
-                        })}
-                    </div>
-                  </aside>
+                  <SceneLayerRail
+                    draggedLayerId={draggedLayerId}
+                    isLayerLibraryOpen={isLayerLibraryOpen}
+                    layerDropTargetId={layerDropTargetId}
+                    layerLibraryAssets={layerLibraryAssets}
+                    layers={scene.layers}
+                    selectedLayerId={selectedLayerId}
+                    resolveAssetSprite={resolveAssetSprite}
+                    onBeginLayerDrag={layer => {
+                      setSelectedLayerId(layer.id);
+                      setSelectedInteractionZoneLayerId(null);
+                      const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
+                      const layerSprite = resolveAssetSprite(layerAsset, layer);
+                      if (layerSprite) {
+                        setActiveSprite(layerSprite);
+                        setActiveFrame(0);
+                      }
+                      layerDragRef.current = layer.id;
+                      setDraggedLayerId(layer.id);
+                    }}
+                    onCancelLayerDrag={() => {
+                      layerDragRef.current = null;
+                      setDraggedLayerId(null);
+                      setLayerDropTargetId(null);
+                    }}
+                    onCloseLayerLibrary={() => setIsLayerLibraryOpen(false)}
+                    onFinishLayerReorder={finishLayerPointerReorder}
+                    onInsertAsset={insertAssetLayer}
+                    onOpenLayerContextMenu={openSceneLayerContextMenu}
+                    onSelectLayer={layer => {
+                      setSelectedLayerId(layer.id);
+                      setSelectedInteractionZoneLayerId(null);
+                      const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
+                      const layerSprite = resolveAssetSprite(layerAsset, layer);
+                      if (layerSprite) setActiveSprite(layerSprite);
+                    }}
+                    onToggleLayerLibrary={() => setIsLayerLibraryOpen(value => !value)}
+                    onUpdateLayer={updateSceneLayer}
+                    onUploadImage={handleLayerImageUpload}
+                  />
                   <button
                     type="button"
                     className="scene-resizer left"
