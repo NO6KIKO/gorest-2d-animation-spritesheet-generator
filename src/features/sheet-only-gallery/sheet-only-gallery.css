@@ -125,21 +125,198 @@
   line-height: 1.25;
 }
 
-.sheet-only-canvas {
+.sheet-only-viewer {
   min-height: 100vh;
   display: grid;
-  place-items: center;
-  padding: 86px 34px 34px;
+  grid-template-rows: minmax(0, 1fr) auto;
+  padding: 86px 34px 26px;
+  background: #fff;
 }
 
-.sheet-only-canvas img {
+.sheet-only-preview-stage {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+}
+
+.sheet-only-frame-preview {
+  width: min(70vw, 640px);
+  max-width: calc(100vw - 68px);
+  overflow: hidden;
+  border: 1px solid #8b8b8b;
+  background-color: #fff;
+}
+
+.sheet-only-frame-preview img {
   display: block;
-  max-width: 100%;
-  max-height: calc(100vh - 120px);
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  max-width: none;
+  max-height: none;
+  object-fit: fill;
+  transform-origin: 0 0;
+}
+
+.sheet-only-controls {
+  width: min(100%, 860px);
+  min-height: 58px;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto auto 104px 104px minmax(150px, 240px);
+  align-items: end;
+  gap: 10px;
+  padding-top: 18px;
+}
+
+.sheet-only-preview-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.sheet-only-preview-copy strong,
+.sheet-only-preview-copy span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-only-preview-copy strong {
+  color: #222;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.sheet-only-preview-copy span,
+.sheet-only-controls label {
+  color: #5f6873;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.sheet-only-controls label {
+  display: grid;
+  gap: 5px;
+}
+
+.sheet-only-controls input[type="number"] {
+  width: 100%;
+  min-height: 32px;
+  padding: 0 8px;
+  border: 1px solid #b9c4cf;
+  border-radius: 0;
+  background: #fff;
+  color: #222;
+  font: inherit;
+}
+
+.sheet-only-controls input[type="range"] {
+  width: 100%;
+  accent-color: #222;
+}
+
+.sheet-only-icon-button {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 1px solid #8b8b8b;
+  border-radius: 0;
+  background: #fff;
+  color: #222;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.sheet-only-icon-button:hover {
+  border-color: #222;
+  background: #f8f8f8;
+  transform: none;
+}
+
+.sheet-only-icon-button:disabled {
+  color: #9aa2aa;
+  border-color: #d6dce2;
+  background: #fff;
+}
+
+.sheet-only-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, .74);
+}
+
+.sheet-only-codex-modal {
+  position: relative;
+  width: min(100%, 460px);
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid #222;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 18px 50px rgba(23, 32, 42, .16);
+}
+
+.sheet-only-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
   background: transparent;
+  color: #222;
+}
+
+.sheet-only-modal-close:hover {
+  background: #f1f1f1;
+  transform: none;
+}
+
+.sheet-only-modal-copy {
+  display: grid;
+  gap: 8px;
+  padding-right: 34px;
+}
+
+.sheet-only-modal-copy strong {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.sheet-only-modal-copy span,
+.sheet-only-modal-prompt p {
+  margin: 0;
+  color: #4f5b66;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sheet-only-modal-prompt {
+  display: grid;
+  gap: 7px;
+  padding: 12px;
+  border: 1px solid #c8d0d8;
+  background: #fafafa;
+}
+
+.sheet-only-modal-prompt span {
+  color: #222;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
 .sheet-only-empty {
@@ -149,4 +326,25 @@
   color: #6a7179;
   font-size: 13px;
   transform: translate(-50%, -50%);
+}
+
+@media (max-width: 760px) {
+  .sheet-only-viewer {
+    padding: 76px 18px 22px;
+  }
+
+  .sheet-only-frame-preview {
+    width: min(88vw, 560px);
+    max-width: calc(100vw - 36px);
+  }
+
+  .sheet-only-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .sheet-only-preview-copy,
+  .sheet-only-frame-range {
+    grid-column: 1 / -1;
+  }
 }

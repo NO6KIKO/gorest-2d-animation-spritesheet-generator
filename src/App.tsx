@@ -1881,6 +1881,7 @@ export default function App() {
         entries={sheetOnlyEntries}
         hasSelection={sheetOnlyHasSelection}
         selectionTitle={sheetOnlySelectionTitle}
+        selectedSprite={sheetOnlySelectionKind === "sprite" ? activeSprite : undefined}
         sheetDataUrl={sheetDataUrl}
         onBack={returnToModePicker}
         onGeneratePreview={() => void compileSheet()}

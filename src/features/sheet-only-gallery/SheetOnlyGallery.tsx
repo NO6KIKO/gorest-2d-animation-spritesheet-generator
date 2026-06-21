@@ -1,7 +1,8 @@
-import { ArrowLeft, Layers, Plus } from "lucide-react";
-import type { CSSProperties } from "react";
+import { ArrowLeft, Layers, Plus, X } from "lucide-react";
+import { useState, type CSSProperties } from "react";
 import { spriteFrame } from "../../domain/sprites/spriteUtils";
 import type { AnimationSprite, GameAsset } from "../../types";
+import { SheetOnlySpritesheetPreview } from "./SheetOnlySpritesheetPreview";
 import type { SheetOnlyGalleryEntry } from "./types";
 
 type SheetOnlyGalleryProps = {
@@ -10,6 +11,7 @@ type SheetOnlyGalleryProps = {
   entries: SheetOnlyGalleryEntry[];
   hasSelection: boolean;
   selectionTitle: string;
+  selectedSprite?: AnimationSprite;
   sheetDataUrl: string | null;
   onBack: () => void;
   onGeneratePreview: () => void;
@@ -24,6 +26,7 @@ export function SheetOnlyGallery({
   entries,
   hasSelection,
   selectionTitle,
+  selectedSprite,
   sheetDataUrl,
   onBack,
   onGeneratePreview,
@@ -31,6 +34,8 @@ export function SheetOnlyGallery({
   onSelectSprite,
   onShowAll,
 }: SheetOnlyGalleryProps) {
+  const [isCodexModalOpen, setIsCodexModalOpen] = useState(false);
+
   return (
     <main className="sheet-only-screen">
       <button type="button" className="mode-back-button sheet-only-back" onClick={onBack}>
@@ -43,9 +48,14 @@ export function SheetOnlyGallery({
       )}
       {!hasSelection ? (
         <div className="sheet-only-gallery" aria-label="Repository spritesheet gallery">
-          <div className="sheet-only-tile sheet-only-add-tile" aria-label="Add spritesheet placeholder">
+          <button
+            type="button"
+            className="sheet-only-tile sheet-only-add-tile"
+            aria-label="Open Codex upload request dialog"
+            onClick={() => setIsCodexModalOpen(true)}
+          >
             <Plus size={84} strokeWidth={1.4} />
-          </div>
+          </button>
           {entries.map(entry => (
             <button
               type="button"
@@ -71,19 +81,45 @@ export function SheetOnlyGallery({
           ))}
         </div>
       ) : (
-        <div className="sheet-only-canvas">
-          {sheetDataUrl ? (
-            <img src={sheetDataUrl} alt={`${selectionTitle || activeSpriteName} spritesheet`} />
-          ) : (
-            <button type="button" className="primary-button" onClick={onGeneratePreview}>
-              Generate Sheet Preview
-            </button>
-          )}
-        </div>
+        <SheetOnlySpritesheetPreview
+          checkerStyle={checkerStyle}
+          sheetDataUrl={sheetDataUrl}
+          sprite={selectedSprite}
+          title={selectionTitle || activeSpriteName}
+          onGeneratePreview={onGeneratePreview}
+        />
       )}
       {!entries.length && !hasSelection && (
         <div className="sheet-only-empty">
           No repository images found.
+        </div>
+      )}
+      {isCodexModalOpen && (
+        <div className="sheet-only-modal-backdrop" role="presentation" onMouseDown={() => setIsCodexModalOpen(false)}>
+          <section
+            className="sheet-only-codex-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="sheet-only-codex-title"
+            onMouseDown={event => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="sheet-only-modal-close"
+              aria-label="Close"
+              onClick={() => setIsCodexModalOpen(false)}
+            >
+              <X size={18} />
+            </button>
+            <div className="sheet-only-modal-copy">
+              <strong id="sheet-only-codex-title">Send it to Codex</strong>
+              <span>Attach the source image in the Codex chat, then describe the animation or visual effect you want.</span>
+            </div>
+            <div className="sheet-only-modal-prompt">
+              <span>Example</span>
+              <p>Use this image as a spritesheet source. Create a clean idle animation preview, keep the character proportions, and slice it into even frames.</p>
+            </div>
+          </section>
         </div>
       )}
     </main>
