@@ -20,7 +20,11 @@ import {
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
 import { SceneLightingStrip, SceneToolbar } from "./features/scene-editor";
-import { SceneInspectorHeader, SceneInspectorTransformSection } from "./features/scene-inspector";
+import {
+  SceneInspectorHeader,
+  SceneInspectorInteractionZoneSection,
+  SceneInspectorTransformSection,
+} from "./features/scene-inspector";
 import {
   BackgroundLayerControls,
   LayerInteractionControls,
@@ -4014,24 +4018,13 @@ export default function App() {
                           />
 
                           {selectedInteractionZoneLayer && selectedInteractionZoneSettings && (
-                            <div className="compact-inspector-section interaction-zone-inspector">
-                              <em>Interaction Zone</em>
-                              <label>Zone X {selectedInteractionZoneSettings.zoneOffsetX || 0}px</label>
-                              <input type="range" min="-520" max="520" step="1" value={selectedInteractionZoneSettings.zoneOffsetX || 0} onChange={event => updateLayerInteraction(selectedInteractionZoneLayer.id, { zoneOffsetX: Number(event.target.value) })} disabled={selectedInteractionZoneLayer.locked} />
-                              <label>Zone Y {selectedInteractionZoneSettings.zoneOffsetY || 0}px</label>
-                              <input type="range" min="-360" max="360" step="1" value={selectedInteractionZoneSettings.zoneOffsetY || 0} onChange={event => updateLayerInteraction(selectedInteractionZoneLayer.id, { zoneOffsetY: Number(event.target.value) })} disabled={selectedInteractionZoneLayer.locked} />
-                              <div className="compact-dual-fields">
-                                <label>
-                                  Width
-                                  <input type="number" min="24" value={Math.round(selectedInteractionZoneSettings.zoneWidth || layerWorldBounds(selectedInteractionZoneLayer, selectedInteractionZoneAsset).width || 160)} onChange={event => updateLayerInteraction(selectedInteractionZoneLayer.id, { zoneWidth: Number(event.target.value) })} disabled={selectedInteractionZoneLayer.locked} />
-                                </label>
-                                <label>
-                                  Height
-                                  <input type="number" min="24" value={Math.round(selectedInteractionZoneSettings.zoneHeight || layerWorldBounds(selectedInteractionZoneLayer, selectedInteractionZoneAsset).height || 120)} onChange={event => updateLayerInteraction(selectedInteractionZoneLayer.id, { zoneHeight: Number(event.target.value) })} disabled={selectedInteractionZoneLayer.locked} />
-                                </label>
-                              </div>
-                              <span>Drag the zone directly on the scene to place it independently.</span>
-                            </div>
+                            <SceneInspectorInteractionZoneSection
+                              getLayerWorldBounds={layerWorldBounds}
+                              selectedInteractionZoneAsset={selectedInteractionZoneAsset}
+                              selectedInteractionZoneLayer={selectedInteractionZoneLayer}
+                              selectedInteractionZoneSettings={selectedInteractionZoneSettings}
+                              onUpdateInteraction={updateLayerInteraction}
+                            />
                           )}
 
                           {isSceneVisualLayer(selectedLayer) && selectedLayerIsAvatar && (
