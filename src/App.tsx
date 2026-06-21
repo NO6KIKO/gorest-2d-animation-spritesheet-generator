@@ -30,6 +30,7 @@ import {
 import { CurrentActionPanel } from "./features/current-action";
 import {
   BackgroundLayerControls,
+  LayerInteractionControls,
   LayerStackList,
   LayerTransformControls,
   LayerVisibilityControls,
@@ -64,7 +65,6 @@ import {
   GameLibrary,
   GameScene,
   InteractionPreset,
-  InteractionPromptStyle,
   LayerInteractionSettings,
   SceneLayer,
 } from "./types";
@@ -4904,184 +4904,18 @@ export default function App() {
                 )}
                 {!selectedLayer.locked && <div className="control-hint">You can also drag the selected layer's corner handles on the canvas to resize proportionally.</div>}
                 {isSceneVisualLayer(selectedLayer) && !selectedLayer.locked && (
-                  <div className="interaction-controls">
-                    <div className="section-title compact"><Eye size={15} /> Interaction Preset</div>
-                    <div className="preset-grid">
-                      {Object.entries(INTERACTION_PRESETS).map(([preset, config]) => (
-                        <button
-                          key={preset}
-                          type="button"
-                          className={selectedLayerInteraction?.preset === preset ? "active" : ""}
-                          onClick={() => applyInteractionPreset(preset as InteractionPreset)}
-                        >
-                          {config.label}
-                        </button>
-                      ))}
-                    </div>
-                    {!selectedLayerInteraction ? (
-                      <div className="control-hint">Choose a preset to turn this layer into an interactable object with its own editable trigger zone.</div>
-                    ) : (
-                      <>
-                        <label className="checkbox-row">
-                          <input
-                            type="checkbox"
-                            checked={selectedLayerInteraction.enabled}
-                            onChange={event => updateSelectedLayerInteraction({ enabled: event.target.checked })}
-                          />
-                          Enable interaction
-                        </label>
-                        <div className="two-col">
-                          <div>
-                            <label>Trigger Mode</label>
-                            <select value={selectedLayerInteraction.triggerMode || "near-click"} onChange={event => updateSelectedLayerInteraction({ triggerMode: event.target.value as LayerInteractionSettings["triggerMode"] })}>
-                              <option value="near-click">Near + Click Eye</option>
-                              <option value="near-key">Near + Key</option>
-                              <option value="inventory">Inventory State</option>
-                              <option value="state">Scene State</option>
-                            </select>
-                          </div>
-                          <div>
-                            <label>Action Type</label>
-                            <select value={selectedLayerInteraction.actionType || "subtitle"} onChange={event => updateSelectedLayerInteraction({ actionType: event.target.value as LayerInteractionSettings["actionType"] })}>
-                              <option value="subtitle">Show Subtitle</option>
-                              <option value="play-animation">Play Animation</option>
-                              <option value="toggle-layer">Toggle Layer</option>
-                              <option value="pickup-item">Pickup Item</option>
-                              <option value="scene-link">Door / Scene Link</option>
-                              <option value="set-state">Set State</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div className="two-col">
-                          <div>
-                            <label>Prompt Key</label>
-                            <input value={selectedLayerInteraction.promptKey} onChange={event => updateSelectedLayerInteraction({ promptKey: event.target.value })} placeholder="KeyE" />
-                          </div>
-                          <div>
-                            <label>Prompt Style</label>
-                            <select value={selectedLayerInteraction.promptStyle} onChange={event => updateSelectedLayerInteraction({ promptStyle: event.target.value as InteractionPromptStyle })}>
-                              <option value="horror">Horror Eye</option>
-                              <option value="minimal">Minimal</option>
-                              <option value="caption">Caption</option>
-                            </select>
-                          </div>
-                        </div>
-                        <label>Prompt Text</label>
-                        <input value={selectedLayerInteraction.promptText} onChange={event => updateSelectedLayerInteraction({ promptText: event.target.value })} />
-                        <label>Subtitle Text</label>
-                        <textarea rows={2} value={selectedLayerInteraction.subtitle || ""} onChange={event => updateSelectedLayerInteraction({ subtitle: event.target.value })} />
-                        <label>Failed Condition Subtitle</label>
-                        <textarea rows={2} value={selectedLayerInteraction.failSubtitle || ""} onChange={event => updateSelectedLayerInteraction({ failSubtitle: event.target.value })} />
-                        <div className="two-col">
-                          <div>
-                            <label>Target Layer</label>
-                            <select value={selectedLayerInteraction.targetLayerId || ""} onChange={event => updateSelectedLayerInteraction({ targetLayerId: event.target.value || undefined })}>
-                              <option value="">This layer</option>
-                              {scene.layers.filter(item => isSceneVisualLayer(item)).map(item => (
-                                <option key={item.id} value={item.id}>{item.name}</option>
-                              ))}
-                            </select>
-                          </div>
-                          <div>
-                            <label>Target Scene</label>
-                            <select value={selectedLayerInteraction.targetSceneId || ""} onChange={event => updateSelectedLayerInteraction({ targetSceneId: event.target.value || undefined })}>
-                              <option value="">None</option>
-                              {scenes.map(item => (
-                                <option key={item.id} value={item.id}>{item.name}</option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
-                        {selectedLayerAsset?.animations?.length ? (
-                          <>
-                            <label>Target Animation</label>
-                            <select value={selectedLayerInteraction.targetAnimationId || ""} onChange={event => updateSelectedLayerInteraction({ targetAnimationId: event.target.value || undefined })}>
-                              <option value="">Default animation</option>
-                              {selectedLayerAsset.animations.map(clip => (
-                                <option key={clip.id} value={clip.id}>{clip.name}</option>
-                              ))}
-                            </select>
-                          </>
-                        ) : null}
-                        <div className="two-col">
-                          <div>
-                            <label>Condition Key</label>
-                            <input value={selectedLayerInteraction.conditionStateKey || ""} onChange={event => updateSelectedLayerInteraction({ conditionStateKey: event.target.value })} placeholder="has_key" />
-                          </div>
-                          <div>
-                            <label>Condition Value</label>
-                            <input value={selectedLayerInteraction.conditionStateValue || ""} onChange={event => updateSelectedLayerInteraction({ conditionStateValue: event.target.value })} placeholder="true" />
-                          </div>
-                        </div>
-                        <div className="two-col">
-                          <div>
-                            <label>Item ID</label>
-                            <input value={selectedLayerInteraction.itemId || ""} onChange={event => updateSelectedLayerInteraction({ itemId: event.target.value })} placeholder="old_key" />
-                          </div>
-                          <div>
-                            <label>Set State</label>
-                            <input value={selectedLayerInteraction.setStateKey || ""} onChange={event => updateSelectedLayerInteraction({ setStateKey: event.target.value })} placeholder="door_open" />
-                          </div>
-                        </div>
-                        <label>Set State Value</label>
-                        <input value={selectedLayerInteraction.setStateValue || ""} onChange={event => updateSelectedLayerInteraction({ setStateValue: event.target.value })} placeholder="true / false / text / number" />
-                        <label className="checkbox-row">
-                          <input type="checkbox" checked={selectedLayerInteraction.showText} onChange={event => updateSelectedLayerInteraction({ showText: event.target.checked })} />
-                          Show prompt text beside the eye
-                        </label>
-                        <label className="checkbox-row">
-                          <input type="checkbox" checked={selectedLayerInteraction.hotspotVisible !== false} onChange={event => updateSelectedLayerInteraction({ hotspotVisible: event.target.checked })} />
-                          Show hotspot marker layer
-                        </label>
-                        <label className="checkbox-row">
-                          <input type="checkbox" checked={selectedLayerInteraction.hideLayerOnPickup !== false} onChange={event => updateSelectedLayerInteraction({ hideLayerOnPickup: event.target.checked })} />
-                          Hide this layer after pickup
-                        </label>
-                        <div className="two-col">
-                          <div>
-                            <label>Zone Width</label>
-                            <input type="number" min="24" value={Math.round(selectedLayerInteraction.zoneWidth || layerWorldBounds(selectedLayer, selectedLayerAsset).width || 160)} onChange={event => updateSelectedLayerInteraction({ zoneWidth: Number(event.target.value) })} />
-                          </div>
-                          <div>
-                            <label>Zone Height</label>
-                            <input type="number" min="24" value={Math.round(selectedLayerInteraction.zoneHeight || layerWorldBounds(selectedLayer, selectedLayerAsset).height || 120)} onChange={event => updateSelectedLayerInteraction({ zoneHeight: Number(event.target.value) })} />
-                          </div>
-                        </div>
-                        <div className="two-col">
-                          <div>
-                            <label>Zone X {selectedLayerInteraction.zoneOffsetX || 0}px</label>
-                            <input type="range" min="-420" max="420" step="1" value={selectedLayerInteraction.zoneOffsetX || 0} onChange={event => updateSelectedLayerInteraction({ zoneOffsetX: Number(event.target.value) })} />
-                          </div>
-                          <div>
-                            <label>Zone Y {selectedLayerInteraction.zoneOffsetY || 0}px</label>
-                            <input type="range" min="-260" max="260" step="1" value={selectedLayerInteraction.zoneOffsetY || 0} onChange={event => updateSelectedLayerInteraction({ zoneOffsetY: Number(event.target.value) })} />
-                          </div>
-                        </div>
-                        <label>Text Font Size {selectedLayerInteraction.fontSize}px</label>
-                        <input type="range" min="8" max="24" step="1" value={selectedLayerInteraction.fontSize} onChange={event => updateSelectedLayerInteraction({ fontSize: Number(event.target.value) })} />
-                        <label>Prompt Scale {selectedLayerInteraction.promptScale.toFixed(2)}</label>
-                        <input type="range" min="0.45" max="1.45" step="0.01" value={selectedLayerInteraction.promptScale} onChange={event => updateSelectedLayerInteraction({ promptScale: Number(event.target.value) })} />
-                        <label>Trigger Radius {selectedLayerInteraction.triggerRadius}px</label>
-                        <input type="range" min="60" max="520" step="5" value={selectedLayerInteraction.triggerRadius} onChange={event => updateSelectedLayerInteraction({ triggerRadius: Number(event.target.value) })} />
-                        <div className="two-col">
-                          <div>
-                            <label>Prompt X {selectedLayerInteraction.offsetX}px</label>
-                            <input type="range" min="-220" max="220" step="1" value={selectedLayerInteraction.offsetX} onChange={event => updateSelectedLayerInteraction({ offsetX: Number(event.target.value) })} />
-                          </div>
-                          <div>
-                            <label>Prompt Y {selectedLayerInteraction.offsetY}px</label>
-                            <input type="range" min="-180" max="80" step="1" value={selectedLayerInteraction.offsetY} onChange={event => updateSelectedLayerInteraction({ offsetY: Number(event.target.value) })} />
-                          </div>
-                        </div>
-                        <div className="state-preview">
-                          {Object.entries(scene.state || {}).map(([key, value]) => (
-                            <span key={key}>{key}: {String(value)}</span>
-                          ))}
-                        </div>
-                        <div className="control-hint">Interaction zones are independent from the image. Use them for clickable radios, doors, boxes, and hidden investigation areas.</div>
-                      </>
-                    )}
-                  </div>
+                  <LayerInteractionControls
+                    interaction={selectedLayerInteraction}
+                    interactionPresets={INTERACTION_PRESETS}
+                    sceneState={scene.state || {}}
+                    scenes={scenes}
+                    selectedLayer={selectedLayer}
+                    selectedLayerAsset={selectedLayerAsset}
+                    visualLayers={scene.layers.filter(item => isSceneVisualLayer(item))}
+                    getLayerWorldBounds={layerWorldBounds}
+                    onApplyPreset={applyInteractionPreset}
+                    onUpdateInteraction={updateSelectedLayerInteraction}
+                  />
                 )}
                 {isSceneVisualLayer(selectedLayer) && !selectedLayer.locked && (
                   <VisualLayerAnimationLightingControls
