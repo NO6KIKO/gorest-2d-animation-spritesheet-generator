@@ -1,13 +1,11 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent, type MouseEvent, type PointerEvent } from "react";
 import {
-  CheckCircle2,
   Clipboard,
   Copy,
   Download,
   Eye,
   EyeOff,
   Film,
-  Keyboard,
   Layers,
   Lock,
   Map as MapIcon,
@@ -38,7 +36,13 @@ import { ModePicker } from "./features/mode-picker";
 import { buildSheetOnlyEntries, SheetOnlyGallery } from "./features/sheet-only-gallery";
 import { SpritesheetImporterPanel } from "./features/spritesheet-importer";
 import { WorkspaceStageHeader } from "./features/workspace-stage-header";
-import { GlobalSceneLightingPanel, MotionSpeedPanel, SimulationScreenPanel } from "./features/workspace-right-panel";
+import {
+  AvailableSpritesPanel,
+  ConfirmedAssetsPanel,
+  GlobalSceneLightingPanel,
+  MotionSpeedPanel,
+  SimulationScreenPanel,
+} from "./features/workspace-right-panel";
 import { TriggerTestPanel, WorkspaceMessages } from "./features/workspace-sidebar";
 import { WorkspaceTopbar } from "./features/workspace-topbar";
 import { fetchGameLibrary, fetchLatestSprite } from "./services/gameLibraryApi";
@@ -5245,43 +5249,24 @@ export default function App() {
             )}
           </section>
 
-          <section>
-            <div className="section-title"><CheckCircle2 size={17} /> Confirmed Assets</div>
-            <div className="sprite-list">
-              {assets.map(asset => {
-                const previewSprite = resolveAssetSprite(asset) || asset.sprite;
-                return (
-                  <div key={asset.id} className="sprite-card asset-card">
-                    <button className="mini-preview" style={checkerStyle} onClick={() => setActiveSprite(previewSprite)}>
-                      <div dangerouslySetInnerHTML={{ __html: spriteFrame(previewSprite, activeFrame) }} />
-                    </button>
-                    <div>
-                      <strong>{asset.name}</strong>
-                      <span>{roleLabels[asset.role]} / {asset.animations?.length || 1} clips / {triggerLabels[asset.binding.triggerType]} {asset.binding.triggerValue}</span>
-                      <div className="asset-actions">
-                        <button onClick={() => insertAssetLayer(asset)}><Plus size={13} /> Insert</button>
-                        <button onClick={() => setActiveSprite(previewSprite)}><Play size={13} /> Preview</button>
-                        <button onClick={() => deleteAsset(asset.id)}><Trash2 size={13} /></button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-              {!assets.length && <div className="empty-state">No confirmed assets yet.</div>}
-            </div>
-          </section>
+          <ConfirmedAssetsPanel
+            activeFrame={activeFrame}
+            assets={assets}
+            checkerStyle={checkerStyle}
+            roleLabels={roleLabels}
+            triggerLabels={triggerLabels}
+            getAssetPreviewSprite={asset => resolveAssetSprite(asset) || asset.sprite}
+            onDeleteAsset={deleteAsset}
+            onInsertAsset={insertAssetLayer}
+            onPreviewSprite={setActiveSprite}
+          />
 
-          <section>
-            <div className="section-title"><Keyboard size={17} /> Available Sprites</div>
-            <div className="sprite-list compact">
-              {sprites.map(sprite => (
-                <button key={sprite.id} className={sprite.id === activeSprite.id ? "sprite-card active" : "sprite-card"} onClick={() => setActiveSprite(sprite)}>
-                  <div className="mini-preview" style={checkerStyle}><div dangerouslySetInnerHTML={{ __html: spriteFrame(sprite, 0) }} /></div>
-                  <div><strong>{sprite.characterName}</strong><span>{sprite.frames.length} frames</span></div>
-                </button>
-              ))}
-            </div>
-          </section>
+          <AvailableSpritesPanel
+            activeSpriteId={activeSprite.id}
+            checkerStyle={checkerStyle}
+            sprites={sprites}
+            onSelectSprite={setActiveSprite}
+          />
         </aside>
       </main>
       {sceneContextMenu && (() => {
