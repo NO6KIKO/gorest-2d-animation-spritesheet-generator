@@ -10,7 +10,7 @@ import {
   spriteGridRows,
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
-import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack } from "./features/scene-editor";
+import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack } from "./features/scene-editor";
 import {
   SceneInspectorAvatarSection,
   SceneInspectorHeader,
@@ -3659,33 +3659,36 @@ export default function App() {
                     title="Drag to resize Layers"
                     onPointerDown={event => startScenePanelResize(event, "layers")}
                   />
-                  <div
-                    ref={stageShellRef}
-                    className="scene-stage-shell"
-                    style={{ ["--scene-global-controls-space" as string]: `${sceneControlsHeight ? sceneControlsHeight + 28 : 98}px` }}
+                  <SceneStageCanvas
+                    backgroundLayer={backgroundLayer}
+                    controls={(
+                      <SceneGlobalControls
+                        ref={sceneGlobalControlsRef}
+                        cameraMax={cameraMax}
+                        cameraX={scene.cameraX}
+                        lighting={sceneLight}
+                        onCameraXChange={value => setScene(prev => ({ ...prev, cameraX: value }))}
+                        onLightingChange={updateSceneLighting}
+                      />
+                    )}
+                    controlsSpace={sceneControlsHeight ? sceneControlsHeight + 28 : 98}
+                    hasVisibleBackgroundImage={hasVisibleBackgroundImage}
+                    shellRef={stageShellRef}
+                    stageHeight={stageSize.height}
+                    stageRef={stageRef}
+                    stageWidth={stageSize.width}
+                    viewportHeight={viewportHeight}
+                    viewportWidth={viewportWidth}
+                    onClearSelection={clearSceneSelection}
+                    onOpenBackgroundContextMenu={openSceneLayerContextMenu}
+                    onPointerEnd={() => {
+                      dragRef.current = null;
+                      resizeRef.current = null;
+                      zoneDragRef.current = null;
+                      zoneResizeRef.current = null;
+                    }}
+                    onPointerMove={stagePointerMove}
                   >
-                    <div
-                      ref={stageRef}
-                      className="side-scroller-stage"
-                      style={{
-                        width: stageSize.width,
-                        height: stageSize.height,
-                        aspectRatio: `${viewportWidth} / ${viewportHeight}`,
-                        background: hasVisibleBackgroundImage ? undefined : "#000",
-                      }}
-                      onClick={event => {
-                        const target = event.target as HTMLElement;
-                        if (!target.closest(".scene-sprite") && !target.closest(".scene-background-transform") && !target.closest(".interaction-zone-outline")) clearSceneSelection();
-                      }}
-                      onContextMenu={event => {
-                        const target = event.target as HTMLElement;
-                        if (target.closest(".scene-sprite") || target.closest(".scene-background-transform") || target.closest(".interaction-zone-outline")) return;
-                        if (backgroundLayer) openSceneLayerContextMenu(event, backgroundLayer);
-                      }}
-                      onPointerMove={stagePointerMove}
-                      onPointerUp={() => { dragRef.current = null; resizeRef.current = null; zoneDragRef.current = null; zoneResizeRef.current = null; }}
-                      onPointerLeave={() => { dragRef.current = null; resizeRef.current = null; zoneDragRef.current = null; zoneResizeRef.current = null; }}
-                    >
                   {backgroundLayer?.visible && (
                     <SceneBackgroundLayer
                       backgroundLayer={backgroundLayer}
@@ -3755,16 +3758,7 @@ export default function App() {
                     onCloseBackpack={() => setIsBackpackOpen(false)}
                     onTriggerNearbyInteraction={triggerNearbyInteraction}
                   />
-                    </div>
-                    <SceneGlobalControls
-                      ref={sceneGlobalControlsRef}
-                      cameraMax={cameraMax}
-                      cameraX={scene.cameraX}
-                      lighting={sceneLight}
-                      onCameraXChange={value => setScene(prev => ({ ...prev, cameraX: value }))}
-                      onLightingChange={updateSceneLighting}
-                    />
-                  </div>
+                  </SceneStageCanvas>
                   <button
                     type="button"
                     className="scene-resizer right"
