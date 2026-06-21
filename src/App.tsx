@@ -47,6 +47,12 @@ import {
   sceneTimestampLabel,
 } from "./domain/scene/sceneFactory";
 import {
+  SCENE_HISTORY_LIMIT,
+  cloneSceneForHistory,
+  cloneSceneLayer,
+  sceneHistoryKey,
+} from "./domain/scene/sceneHistory";
+import {
   buildSpritesheetFrames,
   getFrameSize,
   spriteFrame,
@@ -233,22 +239,6 @@ function clampLayerScale(value: number) {
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
-}
-
-const SCENE_HISTORY_LIMIT = 80;
-
-function cloneSceneForHistory(scene: GameScene) {
-  if (typeof structuredClone === "function") return structuredClone(scene);
-  return JSON.parse(JSON.stringify(scene)) as GameScene;
-}
-
-function cloneSceneLayer(layer: SceneLayer) {
-  if (typeof structuredClone === "function") return structuredClone(layer);
-  return JSON.parse(JSON.stringify(layer)) as SceneLayer;
-}
-
-function sceneHistoryKey(scene: GameScene) {
-  return JSON.stringify(scene);
 }
 
 export default function App() {
