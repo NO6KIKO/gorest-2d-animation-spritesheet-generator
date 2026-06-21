@@ -3,6 +3,16 @@ import { PRESET_SPRITES } from "./presets";
 import { downloadDataUrl, downloadJson, downloadUrl } from "./app/downloads";
 import type { AppMode, BackgroundMode, SheetOnlySelectionKind, WorkspaceTab } from "./app/types";
 import {
+  DEFAULT_BINDING as defaultBinding,
+  clipButtonText,
+  createAsset,
+  defaultGameStateForTrigger,
+  defaultTriggerValueForType,
+  escapeHtmlAttribute,
+  safeName,
+  splitTags,
+} from "./domain/assets/assetModel";
+import {
   BOARDING_TRAIN_ASSET_ID,
   BUILT_IN_SCENE_KIT_ASSET_IDS,
   INSPECT_TRIGGER_ASSET_ID,
@@ -217,74 +227,12 @@ const roleLabels: Record<AssetRole, string> = {
   background: "Background",
 };
 
-const defaultBinding: ActionBinding = {
-  actionName: "walk",
-  triggerType: "keyboard",
-  triggerValue: "KeyD",
-  gameState: "player.walk",
-  notes: "Side-scroller character walks right with a compact stride.",
-};
-
-function safeName(name: string) {
-  return name.replace(/[^a-z0-9\u4e00-\u9fa5]+/gi, "_").replace(/^_+|_+$/g, "").toLowerCase() || "sprite";
-}
-
-function escapeHtmlAttribute(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
-
-function splitTags(tagsText: string) {
-  return tagsText.split(/[,\s]+/).map(tag => tag.trim()).filter(Boolean);
-}
-
-function defaultTriggerValueForType(triggerType: ActionTriggerType) {
-  if (triggerType === "auto") return "auto";
-  if (triggerType === "mouse") return "click";
-  if (triggerType === "keyboard") return "KeyF";
-  return "scene.animation.active";
-}
-
-function defaultGameStateForTrigger(triggerType: ActionTriggerType, actionName: string) {
-  const actionKey = safeName(actionName || "animation");
-  if (triggerType === "auto") return `scene.${actionKey}.loop`;
-  if (triggerType === "mouse") return `scene.${actionKey}.clicked`;
-  if (triggerType === "keyboard") return `input.${actionKey}`;
-  return `state.${actionKey}`;
-}
-
 function clampLayerScale(value: number) {
   return Math.min(2.5, Math.max(0.05, value));
 }
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
-}
-
-function createAsset(sprite: AnimationSprite, role: AssetRole, binding: ActionBinding, tagsText: string): GameAsset {
-  const now = new Date().toISOString();
-  const id = `asset_${safeName(sprite.characterName)}_${safeName(binding.actionName)}_${Date.now()}`;
-  return {
-    id,
-    name: `${sprite.characterName} / ${binding.actionName}`,
-    role,
-    confirmed: true,
-    savedTime: now,
-    updatedTime: now,
-    sprite,
-    binding,
-    tags: splitTags(tagsText),
-  };
-}
-
-function clipButtonText(clip: AnimationClip) {
-  const key = clip.binding?.triggerType === "keyboard" ? ` ${clip.binding.triggerValue.replace(/^Key/i, "")}` : "";
-  if (clip.direction === "left") return `Walk Left${key}`;
-  if (clip.direction === "right") return `Walk Right${key}`;
-  return clip.actionName === "idle" ? "Idle" : clip.name;
 }
 
 const SCENE_HISTORY_LIMIT = 80;
