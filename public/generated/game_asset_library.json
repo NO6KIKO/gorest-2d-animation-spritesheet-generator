@@ -1777,102 +1777,6 @@
   ],
   "scenes": [
     {
-      "id": "scene_shinto_wood_hut_fishbowl",
-      "name": "Shinto Wood Hut - Fishbowl Table",
-      "width": 1920,
-      "height": 1080,
-      "viewportWidth": 1920,
-      "viewportHeight": 1080,
-      "viewportPreset": "custom",
-      "cameraX": 0,
-      "groundY": 920,
-      "background": "shinto_wood_hut_table",
-      "lighting": {
-        "preset": "neon-station",
-        "brightness": 0.92,
-        "contrast": 1.08,
-        "saturate": 0.86,
-        "ambience": 0.42,
-        "vignette": 0.26,
-        "glow": 0.2
-      },
-      "state": {
-        "fishbowl_scene": true,
-        "fish_swimming": true
-      },
-      "savedTime": "2026-06-17T17:57:21.849Z",
-      "updatedTime": "2026-06-17T17:57:21.849Z",
-      "layers": [
-        {
-          "id": "layer_shinto_hut_background",
-          "name": "Shinto Wood Hut Interior Background",
-          "type": "background",
-          "visible": true,
-          "locked": false,
-          "imageUrl": "/generated/shinto_wood_hut_table_1920x1080.png",
-          "color": "#0f0b08",
-          "x": 0,
-          "y": 1080,
-          "scale": 1,
-          "zIndex": 0,
-          "opacity": 1,
-          "parallax": 1,
-          "fit": "stretch",
-          "position": "center center"
-        },
-        {
-          "id": "layer_shinto_hut_table_ground_reference",
-          "name": "Tabletop / Ground Reference",
-          "type": "ground",
-          "visible": true,
-          "locked": true,
-          "x": 0,
-          "y": 728,
-          "scale": 1,
-          "zIndex": 8,
-          "opacity": 0.14,
-          "parallax": 1,
-          "color": "#7a4b2e"
-        },
-        {
-          "id": "layer_shinto_hut_fishbowl",
-          "name": "Realistic Fantail Goldfish Bowl on Wooden Table",
-          "type": "sprite",
-          "visible": true,
-          "locked": false,
-          "assetId": "asset_fishbowl_swimming_fish",
-          "activeAnimationId": "clip_fishbowl_swimming_loop",
-          "x": 820,
-          "y": 450,
-          "scale": 0.54,
-          "zIndex": 42,
-          "opacity": 1,
-          "parallax": 1,
-          "shadow": {
-            "enabled": true,
-            "color": "rgba(0, 0, 0, 0.5)",
-            "opacity": 0.28,
-            "blur": 18,
-            "width": 0.86,
-            "height": 0.08,
-            "offsetX": 0,
-            "offsetY": 6
-          },
-          "lighting": {
-            "preset": "neon-station",
-            "brightness": 0.98,
-            "contrast": 1.02,
-            "saturate": 0.96,
-            "edgeLightColor": "#f0a04b",
-            "edgeLightOpacity": 0.14,
-            "rimLightColor": "#6ca8d7",
-            "rimLightOpacity": 0.2
-          },
-          "notes": "Round glass fishbowl with realistic fancy goldfish, placed on the shrine hut table."
-        }
-      ]
-    },
-    {
       "id": "scene_copy_1781717497888_6hupwo",
       "name": "Cluttered Bedroom - Chinese Horror - Complete Jun 17, 01:39 AM Copy 2",
       "width": 3840,
@@ -2003,8 +1907,8 @@
           "visible": true,
           "assetId": "asset_bedroom_clothes_pile",
           "activeAnimationId": "clip_bedroom_clothes_pile_idle",
-          "x": 310,
-          "y": 610,
+          "x": 940,
+          "y": 466,
           "scale": 0.42,
           "zIndex": 38,
           "opacity": 1,
@@ -2021,8 +1925,13 @@
           },
           "interaction": {
             "enabled": true,
+            "preset": "pickup",
             "triggerMode": "near-click",
+            "actionType": "pickup-item",
             "promptKey": "KeyE",
+            "promptText": "Search",
+            "subtitle": "You find a small rusted key hidden under the damp clothes.",
+            "failSubtitle": "Nothing happens.",
             "showText": false,
             "fontSize": 11,
             "promptScale": 0.82,
@@ -2030,14 +1939,10 @@
             "triggerRadius": 210,
             "offsetX": 0,
             "offsetY": -72,
-            "zoneOffsetX": 0,
-            "zoneOffsetY": -18,
+            "zoneOffsetX": 723,
+            "zoneOffsetY": -194,
             "hideLayerOnPickup": false,
             "hotspotVisible": true,
-            "preset": "pickup",
-            "actionType": "pickup-item",
-            "promptText": "Search",
-            "subtitle": "You find a small rusted key hidden under the damp clothes.",
             "itemId": "has_key",
             "zoneWidth": 330,
             "zoneHeight": 150
@@ -2312,7 +2217,7 @@
         }
       ],
       "savedTime": "2026-06-17T17:31:37.888Z",
-      "updatedTime": "2026-06-17T17:31:37.893Z",
+      "updatedTime": "2026-06-21T08:08:24.066Z",
       "viewportWidth": 1280,
       "viewportHeight": 718,
       "viewportPreset": "custom",
@@ -2322,6 +2227,102 @@
         "door_open": false,
         "visited_bedroom": true
       }
+    },
+    {
+      "id": "scene_shinto_wood_hut_fishbowl",
+      "name": "Shinto Wood Hut - Fishbowl Table",
+      "width": 1920,
+      "height": 1080,
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "viewportPreset": "custom",
+      "cameraX": 0,
+      "groundY": 920,
+      "background": "shinto_wood_hut_table",
+      "lighting": {
+        "preset": "neon-station",
+        "brightness": 0.92,
+        "contrast": 1.08,
+        "saturate": 0.86,
+        "ambience": 0.42,
+        "vignette": 0.26,
+        "glow": 0.2
+      },
+      "state": {
+        "fishbowl_scene": true,
+        "fish_swimming": true
+      },
+      "savedTime": "2026-06-17T17:57:21.849Z",
+      "updatedTime": "2026-06-17T17:57:21.849Z",
+      "layers": [
+        {
+          "id": "layer_shinto_hut_background",
+          "name": "Shinto Wood Hut Interior Background",
+          "type": "background",
+          "visible": true,
+          "locked": false,
+          "imageUrl": "/generated/shinto_wood_hut_table_1920x1080.png",
+          "color": "#0f0b08",
+          "x": 0,
+          "y": 1080,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "fit": "stretch",
+          "position": "center center"
+        },
+        {
+          "id": "layer_shinto_hut_table_ground_reference",
+          "name": "Tabletop / Ground Reference",
+          "type": "ground",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 728,
+          "scale": 1,
+          "zIndex": 8,
+          "opacity": 0.14,
+          "parallax": 1,
+          "color": "#7a4b2e"
+        },
+        {
+          "id": "layer_shinto_hut_fishbowl",
+          "name": "Realistic Fantail Goldfish Bowl on Wooden Table",
+          "type": "sprite",
+          "visible": true,
+          "locked": false,
+          "assetId": "asset_fishbowl_swimming_fish",
+          "activeAnimationId": "clip_fishbowl_swimming_loop",
+          "x": 820,
+          "y": 450,
+          "scale": 0.54,
+          "zIndex": 42,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": true,
+            "color": "rgba(0, 0, 0, 0.5)",
+            "opacity": 0.28,
+            "blur": 18,
+            "width": 0.86,
+            "height": 0.08,
+            "offsetX": 0,
+            "offsetY": 6
+          },
+          "lighting": {
+            "preset": "neon-station",
+            "brightness": 0.98,
+            "contrast": 1.02,
+            "saturate": 0.96,
+            "edgeLightColor": "#f0a04b",
+            "edgeLightOpacity": 0.14,
+            "rimLightColor": "#6ca8d7",
+            "rimLightOpacity": 0.2
+          },
+          "notes": "Round glass fishbowl with realistic fancy goldfish, placed on the shrine hut table."
+        }
+      ]
     },
     {
       "id": "scene_torii_gate_head_raise",
@@ -2517,5 +2518,5 @@
       }
     }
   ],
-  "updatedTime": "2026-06-17T17:35:54.762Z"
+  "updatedTime": "2026-06-21T08:08:24.067Z"
 }
