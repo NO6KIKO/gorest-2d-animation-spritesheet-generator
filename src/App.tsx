@@ -37,7 +37,7 @@ import {
 } from "./features/scene-layers";
 import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
-import { SceneSpritesheetsHeader } from "./features/scene-spritesheets";
+import { SceneSpritesheetsEmptyState, SceneSpritesheetsHeader } from "./features/scene-spritesheets";
 import { ModePicker } from "./features/mode-picker";
 import { buildSheetOnlyEntries, SheetOnlyGallery } from "./features/sheet-only-gallery";
 import { SpritesheetImporterPanel } from "./features/spritesheet-importer";
@@ -4759,12 +4759,7 @@ export default function App() {
                   })}
                 </div>
 
-                {!sceneSpritesheetEntries.length && (
-                  <div className="scene-library-empty">
-                    <strong>No spritesheets in this scene yet.</strong>
-                    <span>Insert a confirmed asset or import a spritesheet animation to see it here.</span>
-                  </div>
-                )}
+                {!sceneSpritesheetEntries.length && <SceneSpritesheetsEmptyState />}
               </div>
             )}
 
