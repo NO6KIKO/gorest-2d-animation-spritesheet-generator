@@ -21,8 +21,10 @@ import {
 import { CurrentActionPanel } from "./features/current-action";
 import { SceneLightingStrip, SceneToolbar } from "./features/scene-editor";
 import {
+  SceneInspectorAvatarSection,
   SceneInspectorHeader,
   SceneInspectorInteractionZoneSection,
+  SceneInspectorItemSection,
   SceneInspectorTransformSection,
 } from "./features/scene-inspector";
 import {
@@ -4028,30 +4030,20 @@ export default function App() {
                           )}
 
                           {isSceneVisualLayer(selectedLayer) && selectedLayerIsAvatar && (
-                            <div className="compact-inspector-section avatar-inspector-section">
-                              <em>Avatar</em>
-                              <label>Walk Speed {walkSpeed}px/s</label>
-                              <input type="range" min="40" max="260" step="5" value={walkSpeed} onChange={event => setWalkSpeed(Number(event.target.value))} disabled={selectedLayer.locked} />
-                              <label className="compact-toggle">
-                                <input type="checkbox" checked={isPlaying} onChange={event => setIsPlaying(event.target.checked)} />
-                                Preview animation
-                              </label>
-                            </div>
+                            <SceneInspectorAvatarSection
+                              isPlaying={isPlaying}
+                              selectedLayer={selectedLayer}
+                              walkSpeed={walkSpeed}
+                              onPlayingChange={setIsPlaying}
+                              onWalkSpeedChange={setWalkSpeed}
+                            />
                           )}
 
                           {isSceneVisualLayer(selectedLayer) && !selectedLayerIsAvatar && (
-                            <div className="compact-inspector-section item-inspector-section">
-                              <em>Item</em>
-                              <label>Layer Type</label>
-                              <select value={selectedLayer.type} onChange={event => updateSceneLayer(selectedLayer.id, { type: event.target.value as SceneLayer["type"] })} disabled={selectedLayer.locked}>
-                                <option value="sprite">Sprite</option>
-                                <option value="effect">Effect</option>
-                                <option value="foreground">Foreground</option>
-                                <option value="background">Background</option>
-                              </select>
-                              <label>Parallax {(selectedLayer.parallax ?? 1).toFixed(2)}</label>
-                              <input type="range" min="0" max="1.25" step="0.01" value={selectedLayer.parallax ?? 1} onChange={event => updateSceneLayer(selectedLayer.id, { parallax: Number(event.target.value) })} disabled={selectedLayer.locked} />
-                            </div>
+                            <SceneInspectorItemSection
+                              selectedLayer={selectedLayer}
+                              onUpdateLayer={updateSceneLayer}
+                            />
                           )}
 
                           {isSceneVisualLayer(selectedLayer) && selectedLayerSprite && (
