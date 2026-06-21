@@ -101,7 +101,14 @@ import {
 import { ActionPreviewPanel, BlueprintPanel, FramesGridPanel, SheetPreviewPanel } from "./features/workspace-stage-views";
 import { TriggerTestPanel, WorkspaceMessages } from "./features/workspace-sidebar";
 import { WorkspaceTopbar } from "./features/workspace-topbar";
-import { fetchGameLibrary, fetchLatestSprite } from "./services/gameLibraryApi";
+import {
+  deleteGameAsset,
+  deleteGameScene,
+  fetchGameLibrary,
+  fetchLatestSprite,
+  saveGameAsset,
+  saveGameScene,
+} from "./services/gameLibraryApi";
 import { fetchGeneratedAssets, type RepositoryGeneratedImage } from "./services/generatedAssetsApi";
 import { clamp, clampLayerScale } from "./shared/math";
 import {
@@ -1017,13 +1024,7 @@ export default function App() {
     }
     setError(null);
     try {
-      const response = await fetch("/api/game-library/assets", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ asset }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to save asset metadata");
+      const data = await saveGameAsset(asset, "Failed to save asset metadata");
       setAssets(data.library.assets);
       setNotice(`Saved spritesheet metadata: ${asset.name}`);
     } catch (err: any) {
@@ -1129,13 +1130,7 @@ export default function App() {
     setError(null);
     try {
       const asset = createAsset(activeSprite, role, binding, tagsText);
-      const response = await fetch("/api/game-library/assets", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ asset }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to save asset");
+      const data = await saveGameAsset(asset);
       setAssets(data.library.assets);
       setNotice(`Saved action asset: ${asset.name}`);
     } catch (err: any) {
@@ -1146,9 +1141,7 @@ export default function App() {
   const deleteAsset = async (assetId: string) => {
     setError(null);
     try {
-      const response = await fetch(`/api/game-library/assets/${assetId}`, { method: "DELETE" });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to delete asset");
+      const data = await deleteGameAsset(assetId);
       setAssets(data.library.assets);
       setScenes(data.library.scenes);
       setScene(prev => ({ ...prev, layers: prev.layers.filter(layer => layer.assetId !== assetId) }));
@@ -1246,13 +1239,7 @@ export default function App() {
         };
 
         try {
-          const response = await fetch("/api/game-library/assets", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ asset }),
-          });
-          const data = await response.json();
-          if (!response.ok) throw new Error(data.error || "Failed to save uploaded object");
+          const data = await saveGameAsset(asset, "Failed to save uploaded object");
           const savedAsset = data.library.assets.find((item: GameAsset) => item.id === asset.id) || asset;
           setAssets(data.library.assets);
           setSprites(prev => [sprite, ...prev.filter(item => item.id !== sprite.id)]);
@@ -1492,13 +1479,7 @@ export default function App() {
     };
 
     try {
-      const response = await fetch("/api/game-library/assets", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ asset }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to import spritesheet asset");
+      const data = await saveGameAsset(asset, "Failed to import spritesheet asset");
       const savedAsset = data.library.assets.find((item: GameAsset) => item.id === asset.id) || asset;
       setAssets(data.library.assets);
       setSprites(prev => [sprite, ...prev.filter(item => item.id !== sprite.id)]);
@@ -1803,18 +1784,13 @@ export default function App() {
         savedTime: sceneToSave.savedTime || new Date().toISOString(),
         updatedTime: new Date().toISOString(),
       };
-      const response = await fetch("/api/game-library/scenes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ scene: nextScene }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to save scene");
+      const data = await saveGameScene(nextScene);
+      const savedScene = data.scene || nextScene;
       setScenes(data.library.scenes.map(prepareSceneForEditor));
-      setScene(prepareSceneForEditor(data.scene));
+      setScene(prepareSceneForEditor(savedScene));
       setSelectedLayerId("");
       setTab("scenes");
-      setNotice(successMessage.replace("{name}", data.scene.name));
+      setNotice(successMessage.replace("{name}", savedScene.name));
     } catch (err: any) {
       setError(err.message || "Failed to save scene");
     }
@@ -1839,9 +1815,7 @@ export default function App() {
   const deleteScene = async (sceneId: string) => {
     setError(null);
     try {
-      const response = await fetch(`/api/game-library/scenes/${sceneId}`, { method: "DELETE" });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to delete scene");
+      const data = await deleteGameScene(sceneId);
       const nextScenes = Array.isArray(data.library.scenes)
         ? data.library.scenes.map(prepareSceneForEditor)
         : [];
@@ -1881,16 +1855,11 @@ export default function App() {
         savedTime: now,
         updatedTime: now,
       };
-      const response = await fetch("/api/game-library/scenes", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ scene: sceneCopy }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Failed to save scene copy");
+      const data = await saveGameScene(sceneCopy, "Failed to save scene copy");
+      const savedScene = data.scene || sceneCopy;
       setScenes(data.library.scenes.map(prepareSceneForEditor));
       setTab("scenes");
-      setNotice(`${successPrefix}: ${data.scene.name}`);
+      setNotice(`${successPrefix}: ${savedScene.name}`);
     } catch (err: any) {
       setError(err.message || "Failed to save scene copy");
     }
