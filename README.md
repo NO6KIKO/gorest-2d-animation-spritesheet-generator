@@ -2,17 +2,17 @@
 
 An open-source, no-UI 2D game and animation generative platform for turning concepts, references, and spritesheets into animation-ready scenes, previews, and reusable game assets.
 
-We open-sourced this 2D platform to make game creation simpler, and we will keep improving it in public.
+We open-sourced this 2D platform to make game creation simpler, and we will keep improving it in public. We welcome your support, feedback, and contributions.
 
-Beyond this open-source 2D tool, Gorest is building a 3D engine for accessible AAA-quality game creation. We welcome your support, feedback, and contributions to the 2D platform.
+Official website: [gorest.ai](https://gorest.ai/)
 
 <p align="center">
-  <img src="./public/brand/gorest-logo.jpg" alt="Gorest logo" width="360" />
+  <img src="./public/brand/gorest-logo.png" alt="Gorest logo" width="480" />
 </p>
 
 <div align="center">
   <strong>Do you like us?</strong><br />
-  Join our Discord community to contribute to the open-source 2D platform, share feedback, and follow Gorest's 3D engine work.
+  Join our Discord community to contribute to the open-source 2D platform and share feedback.
   <br /><br />
   <a href="https://gorest.ai/"><strong>Official Website</strong></a>
   &nbsp;|&nbsp;

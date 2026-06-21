@@ -11,7 +11,7 @@ export function ModePicker({ onOpenGame, onOpenSheetOnly }: ModePickerProps) {
     <main className="mode-picker-page">
       <section className="mode-picker-shell" aria-labelledby="mode-picker-title">
         <header className="mode-picker-brand">
-          <img className="mode-picker-logo" src="/brand/gorest-logo.jpg" alt="Gorest" />
+          <img className="mode-picker-logo" src="/brand/gorest-logo.png" alt="Gorest" />
           <div className="mode-picker-actions">
             <a className="mode-picker-link" href={WEBSITE_URL} target="_blank" rel="noreferrer">
               Website

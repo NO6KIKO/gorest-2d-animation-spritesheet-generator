@@ -36,7 +36,7 @@ export function CommunityHelp() {
               <X size={18} />
             </button>
 
-            <img className="community-help-logo" src="/brand/gorest-logo.jpg" alt="Gorest" />
+            <img className="community-help-logo" src="/brand/gorest-logo.png" alt="Gorest" />
 
             <div className="community-help-copy">
               <p>Community</p>

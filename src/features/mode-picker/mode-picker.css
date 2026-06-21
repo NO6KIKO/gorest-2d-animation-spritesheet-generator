@@ -3,7 +3,7 @@
   display: grid;
   place-items: center;
   padding: clamp(18px, 4vw, 48px);
-  background: #fff;
+  background: url("/brand/mode-picker-manga-bg.jpg") center / cover no-repeat;
   color: #151515;
 }
 
@@ -13,7 +13,8 @@
   gap: clamp(26px, 4vw, 44px);
   padding: clamp(24px, 4vw, 48px);
   border: 3px solid #151515;
-  background: #fff;
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: blur(1px);
 }
 
 .mode-picker-brand {
