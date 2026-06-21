@@ -28,10 +28,6 @@ export function ModePicker({ onOpenGame, onOpenSheetOnly }: ModePickerProps) {
           <p>
             Turn ideas, references, and spritesheets into game-ready 2D assets.
           </p>
-          <p className="mode-picker-mission">
-            Beyond this open-source 2D tool, Gorest is building a 3D engine for accessible
-            AAA-quality game creation. We welcome your support.
-          </p>
         </div>
 
         <div className="mode-choice-grid" aria-label="Choose spritesheet workspace mode">
