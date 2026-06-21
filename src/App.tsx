@@ -10,7 +10,7 @@ import {
   spriteGridRows,
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
-import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayer } from "./features/scene-editor";
+import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack } from "./features/scene-editor";
 import {
   SceneInspectorAvatarSection,
   SceneInspectorHeader,
@@ -3711,54 +3711,39 @@ export default function App() {
                     showLightingOverlay={Boolean(backgroundLayer?.visible && sceneLight.preset !== "none")}
                     stageScaleY={stageScaleY}
                   />
-                  {scene.layers
-                    .filter(layer => layer.visible && isSceneVisualLayer(layer))
-                    .sort((a, b) => a.zIndex - b.zIndex)
-                    .map(layer => {
-                      const asset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-                      if (!asset) return null;
-                      const layerSprite = resolveAssetSprite(asset, layer);
-                      if (!layerSprite) return null;
-                      const interaction = layerInteractionSettings(layer, asset);
-                      return (
-                        <Fragment key={layer.id}>
-                          <SceneVisualLayer
-                            activeFrame={activeFrame}
-                            asset={asset}
-                            contactShadow={NEON_CONTACT_SHADOW}
-                            interaction={interaction}
-                            isInteractionTrigger={asset.tags.includes("interaction-trigger")}
-                            layer={layer}
-                            renderFilter={sceneLayerRenderFilter(scene, layer, asset)}
-                            sceneCameraX={scene.cameraX}
-                            selectedInteractionZoneLayerId={selectedInteractionZoneLayerId}
-                            selectedLayerId={selectedLayerId}
-                            sprite={layerSprite}
-                            spriteStageScale={spriteStageScale}
-                            stageScaleX={stageScaleX}
-                            stageScaleY={stageScaleY}
-                            zone={interaction ? interactionZoneBounds(layer, asset, interaction) : null}
-                            onInteractionZoneClick={(targetLayer, sprite) => {
-                              setSelectedLayerId(targetLayer.id);
-                              setSelectedInteractionZoneLayerId(targetLayer.id);
-                              setActiveSprite(sprite);
-                              setActiveFrame(0);
-                            }}
-                            onInteractionZoneDragStart={startInteractionZoneDrag}
-                            onInteractionZoneResizeStart={startInteractionZoneResize}
-                            onLayerContextMenu={openSceneLayerContextMenu}
-                            onLayerPointerDown={stagePointerDown}
-                            onLayerResizeStart={startLayerResize}
-                            onLayerSelect={(targetLayer, sprite) => {
-                              setSelectedLayerId(targetLayer.id);
-                              setActiveSprite(sprite);
-                              setActiveFrame(0);
-                            }}
-                            onZoneContextMenu={(event, targetLayer) => openSceneLayerContextMenu(event, targetLayer, "interaction-zone")}
-                          />
-                        </Fragment>
-                      );
-                    })}
+                  <SceneVisualLayerStack
+                    activeFrame={activeFrame}
+                    assetById={assetById}
+                    contactShadow={NEON_CONTACT_SHADOW}
+                    layers={scene.layers}
+                    sceneCameraX={scene.cameraX}
+                    selectedInteractionZoneLayerId={selectedInteractionZoneLayerId}
+                    selectedLayerId={selectedLayerId}
+                    spriteStageScale={spriteStageScale}
+                    stageScaleX={stageScaleX}
+                    stageScaleY={stageScaleY}
+                    getInteraction={layerInteractionSettings}
+                    getInteractionZoneBounds={interactionZoneBounds}
+                    getRenderFilter={(layer, asset) => sceneLayerRenderFilter(scene, layer, asset)}
+                    resolveAssetSprite={resolveAssetSprite}
+                    onInteractionZoneClick={(targetLayer, sprite) => {
+                      setSelectedLayerId(targetLayer.id);
+                      setSelectedInteractionZoneLayerId(targetLayer.id);
+                      setActiveSprite(sprite);
+                      setActiveFrame(0);
+                    }}
+                    onInteractionZoneDragStart={startInteractionZoneDrag}
+                    onInteractionZoneResizeStart={startInteractionZoneResize}
+                    onLayerContextMenu={openSceneLayerContextMenu}
+                    onLayerPointerDown={stagePointerDown}
+                    onLayerResizeStart={startLayerResize}
+                    onLayerSelect={(targetLayer, sprite) => {
+                      setSelectedLayerId(targetLayer.id);
+                      setActiveSprite(sprite);
+                      setActiveFrame(0);
+                    }}
+                    onZoneContextMenu={(event, targetLayer) => openSceneLayerContextMenu(event, targetLayer, "interaction-zone")}
+                  />
                   <SceneStageOverlays
                     interactionToast={interactionToast}
                     isBackpackOpen={isBackpackOpen}
