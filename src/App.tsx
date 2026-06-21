@@ -28,7 +28,7 @@ import {
   spritesheetFrameThumbStyle,
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
-import { BackgroundLayerControls, LayerStackList } from "./features/scene-layers";
+import { BackgroundLayerControls, LayerStackList, LayerTransformControls, LayerVisibilityControls } from "./features/scene-layers";
 import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { ModePicker } from "./features/mode-picker";
@@ -4887,23 +4887,7 @@ export default function App() {
 
             {selectedLayer && (
               <div className="layer-controls">
-                <label>Layer Name</label>
-                <input value={selectedLayer.name} onChange={event => updateSceneLayer(selectedLayer.id, { name: event.target.value })} disabled={selectedLayer.locked} />
-                <div className="two-col">
-                  <div>
-                    <label>X</label>
-                    <input type="number" value={Math.round(selectedLayer.x)} onChange={event => updateSceneLayer(selectedLayer.id, { x: Number(event.target.value) })} disabled={selectedLayer.locked} />
-                  </div>
-                  <div>
-                    <label>Y</label>
-                    <input type="number" value={Math.round(selectedLayer.y)} onChange={event => updateSceneLayer(selectedLayer.id, { y: Number(event.target.value) })} disabled={selectedLayer.locked} />
-                  </div>
-                </div>
-                <label>Scale {selectedLayer.scale.toFixed(2)}</label>
-                <input type="range" min="0.05" max="2.5" step="0.01" value={selectedLayer.scale} onChange={event => updateSceneLayer(selectedLayer.id, { scale: Number(event.target.value) })} disabled={selectedLayer.locked} />
-                <label>Parallax {(selectedLayer.parallax ?? 1).toFixed(2)}</label>
-                <input type="range" min="0" max="1.25" step="0.01" value={selectedLayer.parallax ?? 1} onChange={event => updateSceneLayer(selectedLayer.id, { parallax: Number(event.target.value) })} disabled={selectedLayer.locked} />
-                <div className="control-hint">Use 1 for normal world objects. Use 0 for fixed HUD/UI layers.</div>
+                <LayerTransformControls selectedLayer={selectedLayer} onUpdateLayer={updateSceneLayer} />
                 {selectedLayer.type === "background" && (
                   <BackgroundLayerControls
                     sceneHeight={scene.height}
@@ -5134,11 +5118,7 @@ export default function App() {
                   </>
                 )}
                 {!selectedLayer.locked && <div className="control-hint">You can also drag the selected layer's blue corner handle on the canvas to resize proportionally.</div>}
-                <label>Opacity {Math.round(selectedLayer.opacity * 100)}%</label>
-                <input type="range" min="0.1" max="1" step="0.01" value={selectedLayer.opacity} onChange={event => updateSceneLayer(selectedLayer.id, { opacity: Number(event.target.value) })} />
-                <label>Layer z-index</label>
-                <input type="number" value={selectedLayer.zIndex} onChange={event => updateSceneLayer(selectedLayer.id, { zIndex: Number(event.target.value) })} disabled={selectedLayer.locked} />
-                <button className="ghost-button full" onClick={() => updateSceneLayer(selectedLayer.id, { visible: !selectedLayer.visible })}>{selectedLayer.visible ? <EyeOff size={16} /> : <Eye size={16} />} {selectedLayer.visible ? "Hide" : "Show"}</button>
+                <LayerVisibilityControls selectedLayer={selectedLayer} onUpdateLayer={updateSceneLayer} />
               </div>
             )}
           </section>
