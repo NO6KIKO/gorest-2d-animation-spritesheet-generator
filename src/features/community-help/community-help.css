@@ -1,0 +1,139 @@
+.community-help-button {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #222;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 12px 32px rgba(23, 32, 42, .18);
+}
+
+.community-help-button:hover {
+  border-color: #000;
+  background: #f7f7f7;
+  transform: none;
+}
+
+.community-help-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(255, 255, 255, .78);
+}
+
+.community-help-modal {
+  position: relative;
+  width: min(100%, 450px);
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+  border: 1px solid #222;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 20px 56px rgba(23, 32, 42, .18);
+}
+
+.community-help-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #222;
+}
+
+.community-help-close:hover {
+  background: #f1f1f1;
+  transform: none;
+}
+
+.community-help-logo {
+  width: 250px;
+  max-width: 76%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.community-help-copy {
+  display: grid;
+  gap: 6px;
+  padding-right: 28px;
+}
+
+.community-help-copy p {
+  margin: 0;
+  color: #6a7179;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.community-help-copy h2 {
+  margin: 0;
+  color: #222;
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1.05;
+}
+
+.community-help-copy span {
+  color: #4f5b66;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.community-help-discord {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  justify-self: start;
+  padding: 0 14px;
+  border: 1px solid #222;
+  background: #222;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.community-help-discord:hover {
+  background: #000;
+}
+
+@media (max-width: 640px) {
+  .community-help-button {
+    right: 16px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .community-help-modal {
+    padding: 22px;
+  }
+
+  .community-help-logo {
+    width: 220px;
+    max-width: 78%;
+  }
+}

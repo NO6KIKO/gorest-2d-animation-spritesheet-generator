@@ -2,6 +2,19 @@
 
 A local browser workspace for building side-scrolling 2D game scenes, importing or generating spritesheets, previewing animation clips, and organizing reusable scene assets.
 
+<p align="center">
+  <img src="./public/brand/gorest-logo.jpg" alt="Gorest logo" width="360" />
+</p>
+
+<div align="center">
+  <strong>Do you like us?</strong><br />
+  If you want to contribute, share feedback, or follow what we are building, join our Discord community.
+  <br /><br />
+  <a href="https://discord.gg/6xjFbau6T"><strong>Join the Gorest Discord</strong></a>
+</div>
+
+---
+
 The app is designed for fast visual iteration: open a scene, place the character and props, inspect every spritesheet used in that scene, tune metadata, preview movement, and save the finished setup.
 
 ## Codex-Assisted Animation Agent

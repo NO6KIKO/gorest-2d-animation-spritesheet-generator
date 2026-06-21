@@ -79,6 +79,7 @@ import {
   spriteGridRows,
 } from "./domain/sprites/spriteUtils";
 import { compileSpritesheetImage } from "./domain/sprites/spriteCanvas";
+import { CommunityHelp } from "./features/community-help";
 import { CurrentActionPanel } from "./features/current-action";
 import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack, useSceneHistory, useSceneStageLayout } from "./features/scene-editor";
 import { SceneInspectorPanel } from "./features/scene-inspector";
@@ -1870,33 +1871,42 @@ export default function App() {
   const bgClass = bgMode === "checker" ? "preview-bg checker" : `preview-bg ${bgMode}`;
 
   if (appMode === "home") {
-    return <ModePicker onOpenGame={openGameMode} onOpenSheetOnly={openSheetOnlyMode} />;
+    return (
+      <Fragment>
+        <ModePicker onOpenGame={openGameMode} onOpenSheetOnly={openSheetOnlyMode} />
+        <CommunityHelp />
+      </Fragment>
+    );
   }
 
   if (appMode === "sheet-only") {
     return (
-      <SheetOnlyGallery
-        activeSpriteName={activeSprite.characterName}
-        checkerStyle={checkerStyle}
-        entries={sheetOnlyEntries}
-        hasSelection={sheetOnlyHasSelection}
-        selectionTitle={sheetOnlySelectionTitle}
-        selectedSprite={sheetOnlySelectionKind === "sprite" ? activeSprite : undefined}
-        sheetDataUrl={sheetDataUrl}
-        onBack={returnToModePicker}
-        onGeneratePreview={() => void compileSheet()}
-        onSelectImage={selectSheetOnlyImage}
-        onSelectSprite={selectSheetOnlySprite}
-        onShowAll={() => {
-          setSheetOnlyHasSelection(false);
-          setSheetOnlySelectionKind(null);
-        }}
-      />
+      <Fragment>
+        <SheetOnlyGallery
+          activeSpriteName={activeSprite.characterName}
+          checkerStyle={checkerStyle}
+          entries={sheetOnlyEntries}
+          hasSelection={sheetOnlyHasSelection}
+          selectionTitle={sheetOnlySelectionTitle}
+          selectedSprite={sheetOnlySelectionKind === "sprite" ? activeSprite : undefined}
+          sheetDataUrl={sheetDataUrl}
+          onBack={returnToModePicker}
+          onGeneratePreview={() => void compileSheet()}
+          onSelectImage={selectSheetOnlyImage}
+          onSelectSprite={selectSheetOnlySprite}
+          onShowAll={() => {
+            setSheetOnlyHasSelection(false);
+            setSheetOnlySelectionKind(null);
+          }}
+        />
+        <CommunityHelp />
+      </Fragment>
     );
   }
 
   return (
-    <div className={`blueprint-app ${tab === "scenes" || tab === "scene" ? "core-mode" : ""}`}>
+    <Fragment>
+      <div className={`blueprint-app ${tab === "scenes" || tab === "scene" ? "core-mode" : ""}`}>
       <WorkspaceTopbar
         isPlaying={isPlaying}
         onBack={returnToModePicker}
@@ -2473,6 +2483,8 @@ export default function App() {
           onPasteLayer={pasteLayerFromSceneClipboard}
         />
       )}
-    </div>
+      </div>
+      <CommunityHelp />
+    </Fragment>
   );
 }
