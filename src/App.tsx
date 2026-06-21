@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent, type MouseEvent, type PointerEvent } from "react";
 import {
-  Clipboard,
   Copy,
   Download,
   Eye,
@@ -13,7 +12,6 @@ import {
   Play,
   Plus,
   Save,
-  Scissors,
   Trash2,
   Unlock,
   Upload,
@@ -32,6 +30,7 @@ import {
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
 import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
+import { SceneContextMenu } from "./features/scene-context-menu";
 import { ModePicker } from "./features/mode-picker";
 import { buildSheetOnlyEntries, SheetOnlyGallery } from "./features/sheet-only-gallery";
 import { SpritesheetImporterPanel } from "./features/spritesheet-importer";
@@ -5253,91 +5252,19 @@ export default function App() {
           />
         </aside>
       </main>
-      {sceneContextMenu && (() => {
-        const menuLayer = scene.layers.find(layer => layer.id === sceneContextMenu.layerId);
-        const isZoneMenu = sceneContextMenu.target === "interaction-zone";
-        const isEditableLayerMenu = Boolean(menuLayer && !isZoneMenu && isTransformableSceneLayer(menuLayer));
-        const isBackgroundMenu = Boolean(menuLayer && !isZoneMenu && menuLayer.type === "background");
-        const currentBackgroundLayer = scene.layers.find(layer => layer.type === "background");
-        const pasteNeedsUnlockedBackground = sceneClipboard?.layer.type === "background" && currentBackgroundLayer?.locked;
-        const copyDisabled = !isEditableLayerMenu;
-        const cutDisabled = !isEditableLayerMenu || Boolean(menuLayer?.locked) || menuLayer?.type === "background";
-        const pasteDisabled = !sceneClipboard || Boolean(pasteNeedsUnlockedBackground);
-        const duplicateDisabled = !isEditableLayerMenu || Boolean(menuLayer?.locked) || menuLayer?.type === "background";
-        const deleteDisabled = !menuLayer || (Boolean(menuLayer.locked) && !isBackgroundMenu);
-        const contextHint = (() => {
-          if (isZoneMenu) return "Select the owner item for copy, cut, paste, and duplicate.";
-          if (!menuLayer) return "No scene object selected.";
-          if (!isTransformableSceneLayer(menuLayer)) return "This layer cannot be copied or duplicated.";
-          if (menuLayer.type === "background") return "Delete clears the image and keeps the default black scene background.";
-          if (menuLayer.locked) return "Unlock before cutting, duplicating, or deleting.";
-          if (!sceneClipboard) return "Copy or cut an item before pasting.";
-          return "";
-        })();
-        return (
-          <div
-            className="scene-context-menu"
-            style={{ left: sceneContextMenu.x, top: sceneContextMenu.y }}
-            role="menu"
-            onPointerDown={event => {
-              event.preventDefault();
-              event.stopPropagation();
-            }}
-            onContextMenu={event => {
-              event.preventDefault();
-              event.stopPropagation();
-            }}
-          >
-            <div className="scene-context-menu-title">
-              {isZoneMenu ? "Interaction Zone" : menuLayer?.name || "Scene Object"}
-            </div>
-            <button
-              type="button"
-              role="menuitem"
-              disabled={copyDisabled}
-              onClick={() => menuLayer && copyLayerToSceneClipboard(menuLayer.id)}
-            >
-              <Copy size={14} /> Copy <kbd>Ctrl C</kbd>
-            </button>
-            <button
-              type="button"
-              role="menuitem"
-              disabled={cutDisabled}
-              onClick={() => menuLayer && cutLayerToSceneClipboard(menuLayer.id)}
-            >
-              <Scissors size={14} /> Cut <kbd>Ctrl X</kbd>
-            </button>
-            <button
-              type="button"
-              role="menuitem"
-              disabled={pasteDisabled}
-              onClick={pasteLayerFromSceneClipboard}
-            >
-              <Clipboard size={14} /> Paste <kbd>Ctrl V</kbd>
-            </button>
-            <button
-              type="button"
-              role="menuitem"
-              disabled={duplicateDisabled}
-              onClick={() => menuLayer && duplicateSceneLayer(menuLayer.id)}
-            >
-              <Copy size={14} /> Duplicate <kbd>Ctrl D</kbd>
-            </button>
-            <div className="scene-context-menu-separator" />
-            <button
-              type="button"
-              role="menuitem"
-              disabled={deleteDisabled}
-              onClick={() => deleteSceneObject(sceneContextMenu.layerId, sceneContextMenu.target)}
-            >
-              <Trash2 size={14} /> {isZoneMenu ? "Delete Interaction Zone" : "Delete"}
-            </button>
-            {contextHint && (
-              <span>{contextHint}</span>
-            )}
-          </div>
-        );
-      })()}
+      {sceneContextMenu && (
+        <SceneContextMenu
+          clipboard={sceneClipboard}
+          layers={scene.layers}
+          menu={sceneContextMenu}
+          isTransformableLayer={isTransformableSceneLayer}
+          onCopyLayer={copyLayerToSceneClipboard}
+          onCutLayer={cutLayerToSceneClipboard}
+          onDeleteObject={deleteSceneObject}
+          onDuplicateLayer={duplicateSceneLayer}
+          onPasteLayer={pasteLayerFromSceneClipboard}
+        />
+      )}
     </div>
   );
 }
