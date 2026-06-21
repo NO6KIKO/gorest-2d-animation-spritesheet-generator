@@ -8,7 +8,6 @@ import {
   INTERACTION_PRESETS,
   SHOW_SCENE_KIT_TOOLS,
   VIEWPORT_PRESETS,
-  VIEWPORT_WIDTH,
   checkerStyle,
   roleLabels,
   triggerLabels,
@@ -57,6 +56,7 @@ import {
   prepareSceneForEditor,
   sceneTimestampLabel,
 } from "./domain/scene/sceneFactory";
+import { resizeSceneFrame, type SceneFramePatch } from "./domain/scene/sceneFrame";
 import {
   SCENE_HISTORY_LIMIT,
   cloneSceneForHistory,
@@ -1095,35 +1095,8 @@ export default function App() {
     setNotice(`Applied interaction preset: ${label}`);
   };
 
-  const updateSceneFrame = (patch: Partial<Pick<GameScene, "viewportWidth" | "viewportHeight" | "viewportPreset">>) => {
-    setScene(prev => {
-      const requestedViewportWidth = patch.viewportWidth || prev.viewportWidth || VIEWPORT_WIDTH;
-      const requestedViewportHeight = patch.viewportHeight || prev.viewportHeight || prev.height;
-      const nextSceneWidth = Math.max(prev.width, requestedViewportWidth);
-      const nextSceneHeight = Math.max(prev.height, requestedViewportHeight);
-      const nextViewportWidth = Math.min(requestedViewportWidth, nextSceneWidth);
-      const nextViewportHeight = requestedViewportHeight;
-      return {
-        ...prev,
-        ...patch,
-        width: nextSceneWidth,
-        height: nextSceneHeight,
-        viewportWidth: nextViewportWidth,
-        viewportHeight: nextViewportHeight,
-        cameraX: clamp(prev.cameraX, 0, Math.max(0, nextSceneWidth - nextViewportWidth)),
-        layers: prev.layers.map(layer => {
-          if (layer.type !== "background") return layer;
-          const followsWorldWidth = !layer.width || Math.abs(layer.width - prev.width) <= 2;
-          const followsWorldHeight = !layer.height || Math.abs(layer.height - prev.height) <= 2;
-          return {
-            ...layer,
-            width: followsWorldWidth ? nextSceneWidth : layer.width,
-            height: followsWorldHeight ? nextSceneHeight : layer.height,
-            y: followsWorldHeight && Math.abs(layer.y - prev.height) <= 2 ? nextSceneHeight : layer.y,
-          };
-        }),
-      };
-    });
+  const updateSceneFrame = (patch: SceneFramePatch) => {
+    setScene(prev => resizeSceneFrame(prev, patch));
   };
 
   const saveAsset = async () => {
