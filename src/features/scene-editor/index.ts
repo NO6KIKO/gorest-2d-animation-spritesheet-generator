@@ -8,3 +8,4 @@ export { SceneStageCanvas } from "./SceneStageCanvas";
 export { SceneToolbar } from "./SceneToolbar";
 export { SceneVisualLayer } from "./SceneVisualLayer";
 export { SceneVisualLayerStack } from "./SceneVisualLayerStack";
+export { useSceneHistory } from "./useSceneHistory";
