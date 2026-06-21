@@ -23,6 +23,12 @@ import {
 } from "./domain/assets/assetModel";
 import { createImportedSpritesheetAsset, createUploadedStaticObjectAsset } from "./domain/assets/assetImportFactory";
 import {
+  applyAssetClipMetadataPatch,
+  rebuildSpritesheetGridSprite,
+  replaceSpriteInAsset,
+  type SpriteGridPatch,
+} from "./domain/assets/assetSpriteOperations";
+import {
   BOARDING_TRAIN_ASSET_ID,
   BUILT_IN_SCENE_KIT_ASSET_IDS,
   INSPECT_TRIGGER_ASSET_ID,
@@ -71,7 +77,6 @@ import {
   type SceneObjectTarget,
 } from "./domain/scene/sceneLayerOperations";
 import {
-  buildSpritesheetFrames,
   getFrameSize,
   spriteFrame,
   spriteFrameTotal,
@@ -914,38 +919,9 @@ export default function App() {
       return;
     }
     setAssets(prev => prev.map(asset => {
-      if (asset.id !== assetId || !asset.animations?.length) return asset;
-      const animations = asset.animations.map(clip => {
-        if (clip.id !== clipId) return clip;
-        return {
-          ...clip,
-          ...patch,
-          binding: { ...clip.binding, ...bindingPatch },
-        };
-      });
-      const defaultClip =
-        animations.find(clip => clip.id === asset.defaultAnimationId) ||
-        animations[0];
-      return {
-        ...asset,
-        animations,
-        sprite: defaultClip?.sprite || asset.sprite,
-        binding: defaultClip?.binding || asset.binding,
-        updatedTime: new Date().toISOString(),
-      };
+      if (asset.id !== assetId) return asset;
+      return applyAssetClipMetadataPatch(asset, clipId, patch, bindingPatch);
     }));
-  };
-
-  const replaceSpriteInAsset = (asset: GameAsset, spriteId: string, nextSprite: AnimationSprite): GameAsset => {
-    const animations = asset.animations?.map(clip => (
-      clip.sprite.id === spriteId ? { ...clip, sprite: nextSprite } : clip
-    ));
-    return {
-      ...asset,
-      sprite: asset.sprite.id === spriteId ? nextSprite : asset.sprite,
-      animations,
-      updatedTime: new Date().toISOString(),
-    };
   };
 
   const updateSelectedSpriteMetadata = (patch: Partial<AnimationSprite>) => {
@@ -972,48 +948,32 @@ export default function App() {
     updateSelectedSpriteMetadata({ fps: nextFps });
   };
 
-  const rebuildSelectedSpritesheetGrid = (patch: {
-    frameWidth?: number;
-    frameHeight?: number;
-    frameCount?: number;
-    columns?: number;
-  }) => {
+  const rebuildSelectedSpritesheetGrid = (patch: SpriteGridPatch) => {
     if (!selectedLayerAsset || !selectedLayerSprite) return;
     if (!selectedLayerSpriteEditableGrid) {
       setNotice("Only imported spritesheet images can rebuild their frame grid here.");
       return;
     }
-    const source = selectedLayerSpriteSource;
-    const [currentFrameWidth, currentFrameHeight] = selectedLayerFrameSize;
-    const [sheetWidth, sheetHeight] = selectedLayerSpriteSheetSize;
-    const frameWidth = Math.max(1, Math.round(patch.frameWidth ?? currentFrameWidth));
-    const frameHeight = Math.max(1, Math.round(patch.frameHeight ?? currentFrameHeight));
-    const frameCount = Math.max(1, Math.round(patch.frameCount ?? selectedLayerSpriteFrameCount));
-    const columns = Math.max(1, Math.round(patch.columns ?? selectedLayerSpriteColumns));
-    const rows = Math.max(1, Math.ceil(frameCount / columns));
-
-    if (columns * frameWidth > sheetWidth + 1 || rows * frameHeight > sheetHeight + 1) {
+    const rebuiltGrid = rebuildSpritesheetGridSprite({
+      sprite: selectedLayerSprite,
+      source: selectedLayerSpriteSource,
+      sheetSize: selectedLayerSpriteSheetSize as [number, number],
+      currentFrameSize: selectedLayerFrameSize as [number, number],
+      currentFrameCount: selectedLayerSpriteFrameCount,
+      currentColumns: selectedLayerSpriteColumns,
+      patch,
+    });
+    if (!rebuiltGrid) {
       setNotice("Frame grid is larger than the spritesheet image. Reduce frame size, frame count, or columns.");
       return;
     }
 
-    const nextSprite: AnimationSprite = {
-      ...selectedLayerSprite,
-      frameCount,
-      frames: buildSpritesheetFrames(source, sheetWidth, sheetHeight, frameWidth, frameHeight, frameCount, columns),
-      frameSize: [frameWidth, frameHeight],
-      sheetSize: [sheetWidth, sheetHeight],
-      gridColumns: columns,
-      adaptiveFramePolicy: `${columns} columns, ${rows} rows, ${frameCount} active frames.`,
-      updatedTime: new Date().toISOString(),
-    } as AnimationSprite;
-
     setAssets(prev => prev.map(asset => (
-      asset.id === selectedLayerAsset.id ? replaceSpriteInAsset(asset, selectedLayerSprite.id, nextSprite) : asset
+      asset.id === selectedLayerAsset.id ? replaceSpriteInAsset(asset, selectedLayerSprite.id, rebuiltGrid.sprite) : asset
     )));
-    if (activeSprite.id === selectedLayerSprite.id) setActiveSprite(nextSprite);
-    setActiveFrame(prev => Math.min(prev, frameCount - 1));
-    setNotice(`Updated spritesheet grid: ${frameCount} frames / ${frameWidth} x ${frameHeight}.`);
+    if (activeSprite.id === selectedLayerSprite.id) setActiveSprite(rebuiltGrid.sprite);
+    setActiveFrame(prev => Math.min(prev, rebuiltGrid.frameCount - 1));
+    setNotice(`Updated spritesheet grid: ${rebuiltGrid.frameCount} frames / ${rebuiltGrid.frameWidth} x ${rebuiltGrid.frameHeight}.`);
   };
 
   const saveAssetMetadata = async (assetId: string) => {
