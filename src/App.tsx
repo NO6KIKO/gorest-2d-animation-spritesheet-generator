@@ -64,15 +64,10 @@ import {
   sceneTimestampLabel,
 } from "./domain/scene/sceneFactory";
 import { resizeSceneFrame, type SceneFramePatch } from "./domain/scene/sceneFrame";
-import {
-  cloneSceneForHistory,
-  cloneSceneLayer,
-} from "./domain/scene/sceneHistory";
+import { cloneSceneForHistory } from "./domain/scene/sceneHistory";
 import {
   clearBackgroundLayerImage,
-  createSceneLayerInstance,
   disableLayerInteraction,
-  replaceBackgroundLayerSettings,
   reorderSceneLayerStack,
   type SceneObjectTarget,
 } from "./domain/scene/sceneLayerOperations";
@@ -87,7 +82,7 @@ import { compileSpritesheetImage } from "./domain/sprites/spriteCanvas";
 import { CurrentActionPanel } from "./features/current-action";
 import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack, useSceneHistory } from "./features/scene-editor";
 import { SceneInspectorPanel } from "./features/scene-inspector";
-import { SceneLayerControlsPanel, SceneLayerRail } from "./features/scene-layers";
+import { SceneLayerControlsPanel, SceneLayerRail, useSceneLayerClipboard } from "./features/scene-layers";
 import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { SceneSpritesheetCard, SceneSpritesheetsEmptyState, SceneSpritesheetsHeader, type SceneSpritesheetEntry } from "./features/scene-spritesheets";
@@ -152,10 +147,6 @@ type SceneContextMenuState = {
   layerId: string;
   target: SceneObjectTarget;
 };
-type SceneLayerClipboard = {
-  layer: SceneLayer;
-  sourceSceneId: string;
-};
 type HeldDirection = "left" | "right" | null;
 type VehiclePhase = "approaching" | "ready" | "boarded";
 
@@ -203,7 +194,6 @@ export default function App() {
   const [stageShellSize, setStageShellSize] = useState({ width: 0, height: 0 });
   const [sceneControlsHeight, setSceneControlsHeight] = useState(0);
   const [sceneContextMenu, setSceneContextMenu] = useState<SceneContextMenuState | null>(null);
-  const [sceneClipboard, setSceneClipboard] = useState<SceneLayerClipboard | null>(null);
   const [isLayerLibraryOpen, setIsLayerLibraryOpen] = useState(false);
   const [sheetOnlyHasSelection, setSheetOnlyHasSelection] = useState(false);
   const [sheetOnlySelectionKind, setSheetOnlySelectionKind] = useState<SheetOnlySelectionKind>(null);
@@ -224,7 +214,6 @@ export default function App() {
   const sceneGlobalControlsRef = useRef<HTMLDivElement | null>(null);
   const sceneStateRef = useRef<GameScene>(scene);
   const selectedLayerIdRef = useRef(selectedLayerId);
-  const scenePasteCountRef = useRef(0);
   const nearbyInteractionRef = useRef<any>(null);
   const triggerNearbyInteractionRef = useRef<(entry?: any) => void>(() => {});
 
@@ -232,6 +221,24 @@ export default function App() {
     enabled: tab === "scene",
     isAutomaticSceneMotion: isPlaying || Boolean(heldDirection),
     scene,
+    sceneStateRef,
+    selectedLayerIdRef,
+    setNotice,
+    setScene,
+    setSceneContextMenu,
+    setSelectedInteractionZoneLayerId,
+    setSelectedLayerId,
+  });
+
+  const {
+    copyLayerToSceneClipboard,
+    cutLayerToSceneClipboard,
+    duplicateSceneLayer,
+    duplicateSelectedLayer,
+    pasteLayerFromSceneClipboard,
+    sceneClipboard,
+  } = useSceneLayerClipboard({
+    enabled: tab === "scene",
     sceneStateRef,
     selectedLayerIdRef,
     setNotice,
@@ -1306,117 +1313,6 @@ export default function App() {
     }
   };
 
-  const copyLayerToSceneClipboard = (layerId = selectedLayerIdRef.current) => {
-    const layer = sceneStateRef.current.layers.find(item => item.id === layerId);
-    if (!layer || !isTransformableSceneLayer(layer)) {
-      setNotice("Select an item or background to copy.");
-      setSceneContextMenu(null);
-      return false;
-    }
-    setSceneClipboard({ layer: cloneSceneLayer(layer), sourceSceneId: sceneStateRef.current.id });
-    scenePasteCountRef.current = 0;
-    setSceneContextMenu(null);
-    setNotice(`Copied: ${layer.name}`);
-    return true;
-  };
-
-  const cutLayerToSceneClipboard = (layerId = selectedLayerIdRef.current) => {
-    const layer = sceneStateRef.current.layers.find(item => item.id === layerId);
-    if (!layer || !isTransformableSceneLayer(layer)) {
-      setNotice("Select an item to cut.");
-      setSceneContextMenu(null);
-      return;
-    }
-    if (layer.locked) {
-      setNotice("Unlock the layer before cutting it.");
-      setSceneContextMenu(null);
-      return;
-    }
-    if (layer.type === "background") {
-      setNotice("Background cannot be cut. Copy it, then paste into another scene to replace background settings.");
-      setSceneContextMenu(null);
-      return;
-    }
-    setSceneClipboard({ layer: cloneSceneLayer(layer), sourceSceneId: sceneStateRef.current.id });
-    scenePasteCountRef.current = 0;
-    setScene(prev => ({ ...prev, layers: prev.layers.filter(item => item.id !== layer.id) }));
-    setSelectedLayerId("");
-    setSelectedInteractionZoneLayerId(null);
-    setSceneContextMenu(null);
-    setNotice(`Cut: ${layer.name}`);
-  };
-
-  const pasteLayerFromSceneClipboard = () => {
-    if (!sceneClipboard) {
-      setNotice("Nothing to paste.");
-      setSceneContextMenu(null);
-      return;
-    }
-
-    const sourceLayer = cloneSceneLayer(sceneClipboard.layer);
-    if (sourceLayer.type === "background") {
-      const targetBackground = sceneStateRef.current.layers.find(layer => layer.type === "background");
-      if (!targetBackground) {
-        setNotice("No background layer is available in this scene.");
-        setSceneContextMenu(null);
-        return;
-      }
-      if (targetBackground.locked) {
-        setNotice("Unlock the background before pasting background settings.");
-        setSceneContextMenu(null);
-        return;
-      }
-      const replacement = replaceBackgroundLayerSettings(targetBackground, sourceLayer);
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(layer => layer.id === targetBackground.id ? replacement : layer),
-      }));
-      setSelectedLayerId(targetBackground.id);
-      setSelectedInteractionZoneLayerId(null);
-      setSceneContextMenu(null);
-      setNotice(`Pasted background settings from ${sourceLayer.name}.`);
-      return;
-    }
-
-    const offsetIndex = scenePasteCountRef.current + 1;
-    const maxZ = Math.max(...sceneStateRef.current.layers.map(layer => layer.zIndex), sourceLayer.zIndex);
-    const pastedLayer = createSceneLayerInstance(sourceLayer, "paste", offsetIndex, maxZ + 1);
-    scenePasteCountRef.current = offsetIndex;
-    setScene(prev => ({ ...prev, layers: [...prev.layers, pastedLayer] }));
-    setSelectedLayerId(pastedLayer.id);
-    setSelectedInteractionZoneLayerId(null);
-    setSceneContextMenu(null);
-    setNotice(`Pasted: ${sourceLayer.name}`);
-  };
-
-  const duplicateSceneLayer = (layerId = selectedLayerIdRef.current) => {
-    const layer = sceneStateRef.current.layers.find(item => item.id === layerId);
-    if (!layer || !isTransformableSceneLayer(layer)) {
-      setNotice("Select an item to duplicate.");
-      setSceneContextMenu(null);
-      return;
-    }
-    if (layer.locked) {
-      setNotice("Unlock the layer before duplicating it.");
-      setSceneContextMenu(null);
-      return;
-    }
-    if (layer.type === "background") {
-      setNotice("Background uses a single editable layer. Copy and paste it into another scene to reuse settings.");
-      setSceneContextMenu(null);
-      return;
-    }
-    const maxZ = Math.max(...sceneStateRef.current.layers.map(item => item.zIndex), layer.zIndex);
-    const copy = createSceneLayerInstance(layer, "copy", 1, maxZ + 1);
-    setScene(prev => ({ ...prev, layers: [...prev.layers, copy] }));
-    setSelectedLayerId(copy.id);
-    setSelectedInteractionZoneLayerId(null);
-    setSceneContextMenu(null);
-    setNotice(`Duplicated: ${layer.name}`);
-  };
-
-  const duplicateSelectedLayer = () => duplicateSceneLayer(selectedLayerId);
-
   const openSceneLayerContextMenu = (
     event: MouseEvent<HTMLElement>,
     layer: SceneLayer,
@@ -1481,35 +1377,6 @@ export default function App() {
     if (!selectedLayer) return;
     deleteSceneObject(selectedLayer.id, selectedInteractionZoneLayerId === selectedLayer.id ? "interaction-zone" : "layer");
   };
-
-  useEffect(() => {
-    const onClipboardKey = (event: KeyboardEvent) => {
-      if (tab !== "scene") return;
-      if (event.repeat || isEditingTextTarget(event.target)) return;
-      if (!(event.ctrlKey || event.metaKey) || event.altKey || event.shiftKey) return;
-      const key = event.key.toLowerCase();
-      if (!["c", "x", "v", "d"].includes(key)) return;
-
-      event.preventDefault();
-      event.stopPropagation();
-      if (key === "c") {
-        copyLayerToSceneClipboard();
-        return;
-      }
-      if (key === "x") {
-        cutLayerToSceneClipboard();
-        return;
-      }
-      if (key === "v") {
-        pasteLayerFromSceneClipboard();
-        return;
-      }
-      duplicateSceneLayer();
-    };
-
-    window.addEventListener("keydown", onClipboardKey, true);
-    return () => window.removeEventListener("keydown", onClipboardKey, true);
-  }, [sceneClipboard, tab]);
 
   useEffect(() => {
     const onDeleteKey = (event: KeyboardEvent) => {
