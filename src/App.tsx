@@ -41,7 +41,7 @@ import { ModePicker } from "./features/mode-picker";
 import { buildSheetOnlyEntries, SheetOnlyGallery } from "./features/sheet-only-gallery";
 import { SpritesheetImporterPanel } from "./features/spritesheet-importer";
 import { WorkspaceStageHeader } from "./features/workspace-stage-header";
-import { MotionSpeedPanel } from "./features/workspace-right-panel";
+import { GlobalSceneLightingPanel, MotionSpeedPanel } from "./features/workspace-right-panel";
 import { TriggerTestPanel, WorkspaceMessages } from "./features/workspace-sidebar";
 import { WorkspaceTopbar } from "./features/workspace-topbar";
 import { fetchGameLibrary, fetchLatestSprite } from "./services/gameLibraryApi";
@@ -4848,29 +4848,15 @@ export default function App() {
             onWalkSpeedChange={setWalkSpeed}
           />
 
-          <section>
-            <div className="section-title"><Eye size={17} /> Global Scene Lighting</div>
-            <div className="layer-controls">
-              <label>Global Brightness {sceneLight.brightness.toFixed(2)}</label>
-              <input type="range" min="0.45" max="1.35" step="0.01" value={sceneLight.brightness} onChange={event => updateSceneLighting({ brightness: Number(event.target.value) })} />
-              <label>Global Contrast {sceneLight.contrast.toFixed(2)}</label>
-              <input type="range" min="0.65" max="1.45" step="0.01" value={sceneLight.contrast} onChange={event => updateSceneLighting({ contrast: Number(event.target.value) })} />
-              <label>Global Saturation {sceneLight.saturate.toFixed(2)}</label>
-              <input type="range" min="0.35" max="1.5" step="0.01" value={sceneLight.saturate} onChange={event => updateSceneLighting({ saturate: Number(event.target.value) })} />
-              <label>Magenta Ambience {Math.round(sceneLight.ambience * 100)}%</label>
-              <input type="range" min="0" max="1" step="0.01" value={sceneLight.ambience} onChange={event => updateSceneLighting({ ambience: Number(event.target.value) })} />
-              <label>Vignette {Math.round(sceneLight.vignette * 100)}%</label>
-              <input type="range" min="0" max="0.75" step="0.01" value={sceneLight.vignette} onChange={event => updateSceneLighting({ vignette: Number(event.target.value) })} />
-              <label>Neon Glow {sceneLight.glow.toFixed(2)}</label>
-              <input type="range" min="0.25" max="1.8" step="0.01" value={sceneLight.glow} onChange={event => updateSceneLighting({ glow: Number(event.target.value) })} />
-              <label>Explore Camera X {Math.round(scene.cameraX)} / {cameraMax}</label>
-              <input type="range" min="0" max={cameraMax} step="1" value={scene.cameraX} onChange={event => setScene(prev => ({ ...prev, cameraX: Number(event.target.value) }))} />
-              <div className="lighting-buttons">
-                <button type="button" onClick={() => updateSceneLighting({ ...NEON_SCENE_LIGHTING })}>Neon Station</button>
-                <button type="button" onClick={() => updateSceneLighting({ ...NEON_SCENE_LIGHTING, preset: "none" as const })}>Disable Global</button>
-              </div>
-            </div>
-          </section>
+          <GlobalSceneLightingPanel
+            cameraMax={cameraMax}
+            cameraX={scene.cameraX}
+            lighting={sceneLight}
+            onApplyNeonStation={() => updateSceneLighting({ ...NEON_SCENE_LIGHTING })}
+            onCameraXChange={value => setScene(prev => ({ ...prev, cameraX: value }))}
+            onDisableGlobalLighting={() => updateSceneLighting({ ...NEON_SCENE_LIGHTING, preset: "none" as const })}
+            onLightingChange={updateSceneLighting}
+          />
 
           {SHOW_SCENE_KIT_TOOLS && (
             <section>
