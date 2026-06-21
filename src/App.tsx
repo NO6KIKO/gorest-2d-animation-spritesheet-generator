@@ -11,15 +11,7 @@ import {
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
 import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack } from "./features/scene-editor";
-import {
-  SceneInspectorAvatarSection,
-  SceneInspectorHeader,
-  SceneInspectorInteractionZoneSection,
-  SceneInspectorItemSection,
-  SceneInspectorLightingSection,
-  SceneInspectorSpritesheetSection,
-  SceneInspectorTransformSection,
-} from "./features/scene-inspector";
+import { SceneInspectorPanel } from "./features/scene-inspector";
 import {
   BackgroundLayerControls,
   LayerInteractionControls,
@@ -3766,113 +3758,73 @@ export default function App() {
                     title="Drag to resize Inspector"
                     onPointerDown={event => startScenePanelResize(event, "inspector")}
                   />
-                  <aside className="scene-mini-panel inspector-rail">
-                    <div className="compact-inspector">
-                      <SceneInspectorHeader
-                        layerCount={scene.layers.length}
-                        roleLabels={roleLabels}
-                        sceneName={scene.name}
-                        selectedInteractionZoneLayer={selectedInteractionZoneLayer}
-                        selectedLayer={selectedLayer}
-                        selectedLayerAsset={selectedLayerAsset}
-                        selectedLayerIsAvatar={selectedLayerIsAvatar}
-                        onDownloadSelectedItem={downloadSelectedSceneItem}
-                        onToggleSelectedLayerLock={() => selectedLayer && updateSceneLayer(selectedLayer.id, { locked: !selectedLayer.locked })}
-                      />
-                      {selectedLayer && (
-                        <>
-                          <SceneInspectorTransformSection
-                            selectedInteractionZoneLayerId={selectedInteractionZoneLayerId}
-                            selectedLayer={selectedLayer}
-                            onUpdateLayer={updateSceneLayer}
-                          />
-
-                          {selectedInteractionZoneLayer && selectedInteractionZoneSettings && (
-                            <SceneInspectorInteractionZoneSection
-                              getLayerWorldBounds={layerWorldBounds}
-                              selectedInteractionZoneAsset={selectedInteractionZoneAsset}
-                              selectedInteractionZoneLayer={selectedInteractionZoneLayer}
-                              selectedInteractionZoneSettings={selectedInteractionZoneSettings}
-                              onUpdateInteraction={updateLayerInteraction}
-                            />
-                          )}
-
-                          {isSceneVisualLayer(selectedLayer) && selectedLayerIsAvatar && (
-                            <SceneInspectorAvatarSection
-                              isPlaying={isPlaying}
-                              selectedLayer={selectedLayer}
-                              walkSpeed={walkSpeed}
-                              onPlayingChange={setIsPlaying}
-                              onWalkSpeedChange={setWalkSpeed}
-                            />
-                          )}
-
-                          {isSceneVisualLayer(selectedLayer) && !selectedLayerIsAvatar && (
-                            <SceneInspectorItemSection
-                              selectedLayer={selectedLayer}
-                              onUpdateLayer={updateSceneLayer}
-                            />
-                          )}
-
-                          {isSceneVisualLayer(selectedLayer) && selectedLayerSprite && (
-                            <SceneInspectorSpritesheetSection
-                              getClipButtonText={clipButtonText}
-                              isPlaying={isPlaying}
-                              roleLabels={roleLabels}
-                              selectedAssetEditable={selectedAssetEditable}
-                              selectedLayer={selectedLayer}
-                              selectedLayerAsset={selectedLayerAsset}
-                              selectedLayerClip={selectedLayerClip}
-                              selectedLayerClipFps={selectedLayerClipFps}
-                              selectedLayerFrameSize={selectedLayerFrameSize}
-                              selectedLayerSprite={selectedLayerSprite}
-                              selectedLayerSpriteColumns={selectedLayerSpriteColumns}
-                              selectedLayerSpriteEditableGrid={selectedLayerSpriteEditableGrid}
-                              selectedLayerSpriteFrameCount={selectedLayerSpriteFrameCount}
-                              selectedLayerSpriteFrameIndex={selectedLayerSpriteFrameIndex}
-                              selectedLayerSpriteRows={selectedLayerSpriteRows}
-                              selectedLayerSpriteSheetSize={selectedLayerSpriteSheetSize}
-                              selectedLayerSpriteSource={selectedLayerSpriteSource}
-                              triggerLabels={triggerLabels}
-                              onDownloadPng={() => selectedLayerSpriteSource && downloadUrl(selectedLayerSpriteSource, `spritesheet_${safeName(selectedLayerSprite.characterName)}.png`)}
-                              onRebuildSpriteGrid={rebuildSelectedSpritesheetGrid}
-                              onRestartPreview={() => {
-                                setActiveSprite(selectedLayerSprite);
-                                setActiveFrame(0);
-                                setIsPlaying(true);
-                              }}
-                              onSaveAssetMetadata={saveAssetMetadata}
-                              onSelectFrame={frameIndex => {
-                                setIsPlaying(false);
-                                setActiveSprite(selectedLayerSprite);
-                                setActiveFrame(frameIndex);
-                              }}
-                              onSetLayerAnimation={setLayerAnimation}
-                              onSpriteMetadataChange={updateSelectedSpriteMetadata}
-                              onTogglePreview={() => {
-                                setIsPlaying(value => !value);
-                                setActiveSprite(selectedLayerSprite);
-                              }}
-                              onUpdateAssetClipMetadata={updateAssetClipMetadata}
-                              onUpdateAssetMetadata={updateAssetMetadata}
-                              onUpdatePreviewFps={updateSelectedSpritesheetFps}
-                            />
-                          )}
-
-                          {isSceneVisualLayer(selectedLayer) && !selectedLayer.locked && (
-                            <SceneInspectorLightingSection
-                              lighting={selectedLayerLight}
-                              shadow={selectedLayerShadow}
-                              onApplyNeonLighting={applyNeonLightingToSelectedLayer}
-                              onClearLighting={clearLightingFromSelectedLayer}
-                              onUpdateLighting={updateSelectedLayerLighting}
-                              onUpdateShadow={updateSelectedLayerShadow}
-                            />
-                          )}
-                        </>
-                      )}
-                    </div>
-                  </aside>
+                  <SceneInspectorPanel
+                    getClipButtonText={clipButtonText}
+                    getLayerWorldBounds={layerWorldBounds}
+                    isPlaying={isPlaying}
+                    layerCount={scene.layers.length}
+                    roleLabels={roleLabels}
+                    sceneName={scene.name}
+                    selectedAssetEditable={selectedAssetEditable}
+                    selectedInteractionZoneAsset={selectedInteractionZoneAsset}
+                    selectedInteractionZoneLayer={selectedInteractionZoneLayer}
+                    selectedInteractionZoneLayerId={selectedInteractionZoneLayerId}
+                    selectedInteractionZoneSettings={selectedInteractionZoneSettings}
+                    selectedLayer={selectedLayer}
+                    selectedLayerAsset={selectedLayerAsset}
+                    selectedLayerClip={selectedLayerClip}
+                    selectedLayerClipFps={selectedLayerClipFps}
+                    selectedLayerFrameSize={selectedLayerFrameSize}
+                    selectedLayerIsAvatar={selectedLayerIsAvatar}
+                    selectedLayerIsVisual={Boolean(selectedLayer && isSceneVisualLayer(selectedLayer))}
+                    selectedLayerLight={selectedLayerLight}
+                    selectedLayerShadow={selectedLayerShadow}
+                    selectedLayerSprite={selectedLayerSprite}
+                    selectedLayerSpriteColumns={selectedLayerSpriteColumns}
+                    selectedLayerSpriteEditableGrid={selectedLayerSpriteEditableGrid}
+                    selectedLayerSpriteFrameCount={selectedLayerSpriteFrameCount}
+                    selectedLayerSpriteFrameIndex={selectedLayerSpriteFrameIndex}
+                    selectedLayerSpriteRows={selectedLayerSpriteRows}
+                    selectedLayerSpriteSheetSize={selectedLayerSpriteSheetSize}
+                    selectedLayerSpriteSource={selectedLayerSpriteSource}
+                    triggerLabels={triggerLabels}
+                    walkSpeed={walkSpeed}
+                    onApplyNeonLighting={applyNeonLightingToSelectedLayer}
+                    onClearLighting={clearLightingFromSelectedLayer}
+                    onDownloadSelectedItem={downloadSelectedSceneItem}
+                    onDownloadSpritePng={() => selectedLayerSpriteSource && selectedLayerSprite && downloadUrl(selectedLayerSpriteSource, `spritesheet_${safeName(selectedLayerSprite.characterName)}.png`)}
+                    onPlayingChange={setIsPlaying}
+                    onRebuildSpriteGrid={rebuildSelectedSpritesheetGrid}
+                    onRestartSpritePreview={() => {
+                      if (!selectedLayerSprite) return;
+                      setActiveSprite(selectedLayerSprite);
+                      setActiveFrame(0);
+                      setIsPlaying(true);
+                    }}
+                    onSaveAssetMetadata={saveAssetMetadata}
+                    onSelectSpriteFrame={frameIndex => {
+                      if (!selectedLayerSprite) return;
+                      setIsPlaying(false);
+                      setActiveSprite(selectedLayerSprite);
+                      setActiveFrame(frameIndex);
+                    }}
+                    onSetLayerAnimation={setLayerAnimation}
+                    onSpriteMetadataChange={updateSelectedSpriteMetadata}
+                    onToggleSelectedLayerLock={() => selectedLayer && updateSceneLayer(selectedLayer.id, { locked: !selectedLayer.locked })}
+                    onToggleSpritePreview={() => {
+                      if (!selectedLayerSprite) return;
+                      setIsPlaying(value => !value);
+                      setActiveSprite(selectedLayerSprite);
+                    }}
+                    onUpdateAssetClipMetadata={updateAssetClipMetadata}
+                    onUpdateAssetMetadata={updateAssetMetadata}
+                    onUpdateInteraction={updateLayerInteraction}
+                    onUpdateLayer={updateSceneLayer}
+                    onUpdateLighting={updateSelectedLayerLighting}
+                    onUpdatePreviewFps={updateSelectedSpritesheetFps}
+                    onUpdateShadow={updateSelectedLayerShadow}
+                    onWalkSpeedChange={setWalkSpeed}
+                  />
                 </div>
                 <SceneToolbar
                   sceneName={scene.name}
