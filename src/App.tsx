@@ -12,15 +12,7 @@ import {
 import { CurrentActionPanel } from "./features/current-action";
 import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack } from "./features/scene-editor";
 import { SceneInspectorPanel } from "./features/scene-inspector";
-import {
-  BackgroundLayerControls,
-  LayerInteractionControls,
-  SceneLayerRail,
-  LayerStackList,
-  LayerTransformControls,
-  LayerVisibilityControls,
-  VisualLayerAnimationLightingControls,
-} from "./features/scene-layers";
+import { SceneLayerControlsPanel, SceneLayerRail } from "./features/scene-layers";
 import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { SceneSpritesheetCard, SceneSpritesheetsEmptyState, SceneSpritesheetsHeader, type SceneSpritesheetEntry } from "./features/scene-spritesheets";
@@ -3984,68 +3976,43 @@ export default function App() {
             onViewportWidthChange={width => updateSceneFrame({ viewportWidth: width, viewportPreset: "custom" })}
           />
 
-          <section>
-            <LayerStackList
-              draggedLayerId={draggedLayerId}
-              layers={scene.layers}
-              selectedLayerId={selectedLayerId}
-              onDragLayerEnd={() => setDraggedLayerId(null)}
-              onDragLayerStart={setDraggedLayerId}
-              onReorderLayer={reorderLayerStack}
-              onSelectLayer={layer => {
-                setSelectedLayerId(layer.id);
-                setSelectedInteractionZoneLayerId(null);
-                const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-                const layerSprite = resolveAssetSprite(layerAsset, layer);
-                if (layerSprite) setActiveSprite(layerSprite);
-              }}
-            />
-
-            {selectedLayer && (
-              <div className="layer-controls">
-                <LayerTransformControls selectedLayer={selectedLayer} onUpdateLayer={updateSceneLayer} />
-                {selectedLayer.type === "background" && (
-                  <BackgroundLayerControls
-                    sceneHeight={scene.height}
-                    sceneWidth={scene.width}
-                    selectedLayer={selectedLayer}
-                    onUpdateLayer={updateSceneLayer}
-                  />
-                )}
-                {!selectedLayer.locked && <div className="control-hint">You can also drag the selected layer's corner handles on the canvas to resize proportionally.</div>}
-                {isSceneVisualLayer(selectedLayer) && !selectedLayer.locked && (
-                  <LayerInteractionControls
-                    interaction={selectedLayerInteraction}
-                    interactionPresets={INTERACTION_PRESETS}
-                    sceneState={scene.state || {}}
-                    scenes={scenes}
-                    selectedLayer={selectedLayer}
-                    selectedLayerAsset={selectedLayerAsset}
-                    visualLayers={scene.layers.filter(item => isSceneVisualLayer(item))}
-                    getLayerWorldBounds={layerWorldBounds}
-                    onApplyPreset={applyInteractionPreset}
-                    onUpdateInteraction={updateSelectedLayerInteraction}
-                  />
-                )}
-                {isSceneVisualLayer(selectedLayer) && !selectedLayer.locked && (
-                  <VisualLayerAnimationLightingControls
-                    asset={selectedLayerAsset}
-                    lighting={selectedLayerLight}
-                    selectedClip={selectedLayerClip}
-                    shadow={selectedLayerShadow}
-                    getClipButtonText={clipButtonText}
-                    onApplyNeonLighting={applyNeonLightingToSelectedLayer}
-                    onClearLighting={clearLightingFromSelectedLayer}
-                    onSetAnimation={clip => setLayerAnimation(selectedLayer.id, clip)}
-                    onUpdateLighting={updateSelectedLayerLighting}
-                    onUpdateShadow={updateSelectedLayerShadow}
-                  />
-                )}
-                {!selectedLayer.locked && <div className="control-hint">You can also drag the selected layer's blue corner handle on the canvas to resize proportionally.</div>}
-                <LayerVisibilityControls selectedLayer={selectedLayer} onUpdateLayer={updateSceneLayer} />
-              </div>
-            )}
-          </section>
+          <SceneLayerControlsPanel
+            draggedLayerId={draggedLayerId}
+            getClipButtonText={clipButtonText}
+            getLayerWorldBounds={layerWorldBounds}
+            interactionPresets={INTERACTION_PRESETS}
+            isVisualLayer={isSceneVisualLayer}
+            layers={scene.layers}
+            sceneHeight={scene.height}
+            sceneState={scene.state || {}}
+            sceneWidth={scene.width}
+            scenes={scenes}
+            selectedLayer={selectedLayer}
+            selectedLayerAsset={selectedLayerAsset}
+            selectedLayerClip={selectedLayerClip}
+            selectedLayerId={selectedLayerId}
+            selectedLayerInteraction={selectedLayerInteraction}
+            selectedLayerLight={selectedLayerLight}
+            selectedLayerShadow={selectedLayerShadow}
+            onApplyInteractionPreset={applyInteractionPreset}
+            onApplyNeonLighting={applyNeonLightingToSelectedLayer}
+            onClearLighting={clearLightingFromSelectedLayer}
+            onDragLayerEnd={() => setDraggedLayerId(null)}
+            onDragLayerStart={setDraggedLayerId}
+            onReorderLayer={reorderLayerStack}
+            onSelectLayer={layer => {
+              setSelectedLayerId(layer.id);
+              setSelectedInteractionZoneLayerId(null);
+              const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
+              const layerSprite = resolveAssetSprite(layerAsset, layer);
+              if (layerSprite) setActiveSprite(layerSprite);
+            }}
+            onSetAnimation={clip => selectedLayer && setLayerAnimation(selectedLayer.id, clip)}
+            onUpdateInteraction={updateSelectedLayerInteraction}
+            onUpdateLayer={updateSceneLayer}
+            onUpdateLighting={updateSelectedLayerLighting}
+            onUpdateShadow={updateSelectedLayerShadow}
+          />
 
           <ConfirmedAssetsPanel
             activeFrame={activeFrame}
