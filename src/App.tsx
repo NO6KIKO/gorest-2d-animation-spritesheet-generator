@@ -28,7 +28,13 @@ import {
   spritesheetFrameThumbStyle,
 } from "./domain/sprites/spriteUtils";
 import { CurrentActionPanel } from "./features/current-action";
-import { BackgroundLayerControls, LayerStackList, LayerTransformControls, LayerVisibilityControls } from "./features/scene-layers";
+import {
+  BackgroundLayerControls,
+  LayerStackList,
+  LayerTransformControls,
+  LayerVisibilityControls,
+  VisualLayerAnimationLightingControls,
+} from "./features/scene-layers";
 import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { ModePicker } from "./features/mode-picker";
@@ -5078,44 +5084,18 @@ export default function App() {
                   </div>
                 )}
                 {isSceneVisualLayer(selectedLayer) && !selectedLayer.locked && (
-                  <>
-                    {selectedLayerAsset?.animations?.length ? (
-                      <div className="clip-switcher">
-                        <label>Animation Clip</label>
-                        <div className="clip-buttons">
-                          {selectedLayerAsset.animations.map(clip => (
-                            <button
-                              key={clip.id}
-                              type="button"
-                              className={clip.id === selectedLayerClip?.id ? "active" : ""}
-                              onClick={() => setLayerAnimation(selectedLayer.id, clip)}
-                            >
-                              {clipButtonText(clip)}
-                            </button>
-                          ))}
-                        </div>
-                        <div className="control-hint">A/D switches between left and right walk. Release the key to return to idle breathing.</div>
-                      </div>
-                    ) : null}
-                    <label>Character Brightness {selectedLayerLight.brightness.toFixed(2)}</label>
-                    <input type="range" min="0.25" max="1.35" step="0.01" value={selectedLayerLight.brightness} onChange={event => updateSelectedLayerLighting({ brightness: Number(event.target.value), preset: "neon-station" })} />
-                    <label>Character Contrast {selectedLayerLight.contrast.toFixed(2)}</label>
-                    <input type="range" min="0.55" max="1.55" step="0.01" value={selectedLayerLight.contrast} onChange={event => updateSelectedLayerLighting({ contrast: Number(event.target.value), preset: "neon-station" })} />
-                    <label>Character Saturation {selectedLayerLight.saturate.toFixed(2)}</label>
-                    <input type="range" min="0.25" max="1.5" step="0.01" value={selectedLayerLight.saturate} onChange={event => updateSelectedLayerLighting({ saturate: Number(event.target.value), preset: "neon-station" })} />
-                    <label>Red Edge Light {Math.round(selectedLayerLight.edgeLightOpacity * 100)}%</label>
-                    <input type="range" min="0" max="0.75" step="0.01" value={selectedLayerLight.edgeLightOpacity} onChange={event => updateSelectedLayerLighting({ edgeLightOpacity: Number(event.target.value), preset: "neon-station" })} />
-                    <label>Purple Rim Light {Math.round(selectedLayerLight.rimLightOpacity * 100)}%</label>
-                    <input type="range" min="0" max="0.75" step="0.01" value={selectedLayerLight.rimLightOpacity} onChange={event => updateSelectedLayerLighting({ rimLightOpacity: Number(event.target.value), preset: "neon-station" })} />
-                    <label>Contact Shadow {Math.round(selectedLayerShadow.opacity * 100)}%</label>
-                    <input type="range" min="0" max="1" step="0.01" value={selectedLayerShadow.opacity} onChange={event => updateSelectedLayerShadow({ opacity: Number(event.target.value), enabled: Number(event.target.value) > 0 })} />
-                    <label>Lighting Preset</label>
-                    <div className="lighting-buttons">
-                      <button type="button" onClick={applyNeonLightingToSelectedLayer}>Neon Station</button>
-                      <button type="button" onClick={clearLightingFromSelectedLayer}>Disable Lighting</button>
-                    </div>
-                    <div className="control-hint">Neon Station adds a soft contact shadow, darker ambient tint, and red/purple edge lighting.</div>
-                  </>
+                  <VisualLayerAnimationLightingControls
+                    asset={selectedLayerAsset}
+                    lighting={selectedLayerLight}
+                    selectedClip={selectedLayerClip}
+                    shadow={selectedLayerShadow}
+                    getClipButtonText={clipButtonText}
+                    onApplyNeonLighting={applyNeonLightingToSelectedLayer}
+                    onClearLighting={clearLightingFromSelectedLayer}
+                    onSetAnimation={clip => setLayerAnimation(selectedLayer.id, clip)}
+                    onUpdateLighting={updateSelectedLayerLighting}
+                    onUpdateShadow={updateSelectedLayerShadow}
+                  />
                 )}
                 {!selectedLayer.locked && <div className="control-hint">You can also drag the selected layer's blue corner handle on the canvas to resize proportionally.</div>}
                 <LayerVisibilityControls selectedLayer={selectedLayer} onUpdateLayer={updateSceneLayer} />
