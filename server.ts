@@ -16,6 +16,7 @@ const PORT_SCAN_LIMIT = parsePort(process.env.PORT_SCAN_LIMIT, 30);
 let latestGeneratedSprite: any = null;
 const GENERATED_DIR = path.join(PROJECT_ROOT, "public", "generated");
 const GAME_LIBRARY_PATH = path.join(GENERATED_DIR, "game_asset_library.json");
+const GENERATED_IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif"]);
 
 function parsePort(value: string | undefined, fallback: number) {
   const port = Number(value ?? fallback);
@@ -512,6 +513,32 @@ app.get("/api/spritesheet/latest", (req, res) => {
 
 app.get("/api/game-library", (req, res) => {
   res.json(readGameLibrary());
+});
+
+app.get("/api/generated-assets", (req, res) => {
+  try {
+    if (!fs.existsSync(GENERATED_DIR)) {
+      return res.json({ files: [] });
+    }
+    const files = fs.readdirSync(GENERATED_DIR, { withFileTypes: true })
+      .filter(entry => entry.isFile() && GENERATED_IMAGE_EXTENSIONS.has(path.extname(entry.name).toLowerCase()))
+      .map(entry => {
+        const filePath = path.join(GENERATED_DIR, entry.name);
+        const stat = fs.statSync(filePath);
+        return {
+          name: entry.name,
+          url: `/generated/${entry.name}`,
+          extension: path.extname(entry.name).slice(1).toLowerCase(),
+          size: stat.size,
+          updatedTime: stat.mtime.toISOString()
+        };
+      })
+      .sort((a, b) => b.updatedTime.localeCompare(a.updatedTime) || a.name.localeCompare(b.name));
+    res.json({ files });
+  } catch (error) {
+    console.warn("Failed to list generated assets:", error);
+    res.status(500).json({ error: "Failed to list generated assets", files: [] });
+  }
 });
 
 app.post("/api/game-library/assets", (req, res) => {

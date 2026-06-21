@@ -1,0 +1,12 @@
+export { SceneBackgroundLayer } from "./SceneBackgroundLayer";
+export { SceneGlobalControls } from "./SceneGlobalControls";
+export { SceneLightingStrip } from "./SceneLightingStrip";
+export { SceneStageEnvironment } from "./SceneStageEnvironment";
+export { SceneStageOverlays } from "./SceneStageOverlays";
+export type { SceneInteractionPromptEntry } from "./SceneStageOverlays";
+export { SceneStageCanvas } from "./SceneStageCanvas";
+export { SceneToolbar } from "./SceneToolbar";
+export { SceneVisualLayer } from "./SceneVisualLayer";
+export { SceneVisualLayerStack } from "./SceneVisualLayerStack";
+export { useSceneHistory } from "./useSceneHistory";
+export { useSceneStageLayout } from "./useSceneStageLayout";

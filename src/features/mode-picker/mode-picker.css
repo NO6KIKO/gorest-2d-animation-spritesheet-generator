@@ -1,0 +1,40 @@
+.mode-picker-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 24px;
+  background: #fff;
+}
+
+.mode-choice-grid {
+  width: min(660px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 10vw, 104px);
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-choice-card {
+  width: 100%;
+  min-height: 222px;
+  padding: 20px;
+  border: 3px solid #222;
+  border-radius: 0;
+  background: #fff;
+  color: #202020;
+  font-size: clamp(23px, 3vw, 30px);
+  font-weight: 450;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.mode-choice-card:hover {
+  border-color: #000;
+  background: #f7f7f7;
+  transform: none;
+}
+
+.mode-choice-card span {
+  display: block;
+}
