@@ -12,7 +12,6 @@ import {
   Lock,
   Monitor,
   Map as MapIcon,
-  MousePointer2,
   Pause,
   Play,
   Plus,
@@ -42,6 +41,7 @@ import { ModePicker } from "./features/mode-picker";
 import { buildSheetOnlyEntries, SheetOnlyGallery } from "./features/sheet-only-gallery";
 import { SpritesheetImporterPanel } from "./features/spritesheet-importer";
 import { WorkspaceStageHeader } from "./features/workspace-stage-header";
+import { TriggerTestPanel, WorkspaceMessages } from "./features/workspace-sidebar";
 import { WorkspaceTopbar } from "./features/workspace-topbar";
 import { fetchGameLibrary, fetchLatestSprite } from "./services/gameLibraryApi";
 import { fetchGeneratedAssets, type RepositoryGeneratedImage } from "./services/generatedAssetsApi";
@@ -3574,16 +3574,8 @@ export default function App() {
             onTriggerValueChange={setImportTriggerValue}
           />
 
-          <section>
-            <div className="section-title"><MousePointer2 size={17} /> Trigger Test</div>
-            <div className="binding-hint">
-              Clicking the scene runs the first mouse-bound action. Keyboard triggers match saved asset `triggerValue` fields, such as `KeyD`.
-            </div>
-            <button className="ghost-button full" onClick={triggerMouseAction}><MousePointer2 size={16} /> Simulate Mouse Trigger</button>
-          </section>
-
-          {notice && <div className="notice">{notice}</div>}
-          {error && <div className="error">{error}</div>}
+          <TriggerTestPanel onTriggerMouseAction={triggerMouseAction} />
+          <WorkspaceMessages error={error} notice={notice} />
         </aside>
 
         <section className="canvas-stage">
