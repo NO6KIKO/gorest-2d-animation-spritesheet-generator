@@ -1,6 +1,976 @@
 {
   "assets": [
     {
+      "id": "asset_silver_bob_schoolgirl_pixel_topdown_wasd",
+      "name": "Silver Bob Schoolgirl Pixel / Top-down WASD",
+      "role": "player",
+      "confirmed": true,
+      "savedTime": "2026-06-23T22:57:49.513Z",
+      "updatedTime": "2026-06-23T22:57:49.513Z",
+      "sprite": {
+        "id": "sprite_silver_bob_schoolgirl_pixel_idle_8f",
+        "characterName": "Silver Bob Schoolgirl Pixel / Idle",
+        "description": "8-frame idle top-down pixel sprite strip for the white-bob schoolgirl character. 8x1 grid, 128x128 transparent frames, shared global scale and root anchor across all WASD clips.",
+        "frameCount": 8,
+        "style": "crisp top-down pixel RPG character sprite, white/silver bob hair, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+        "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-23T22:57:49.513Z",
+        "updatedTime": "2026-06-23T22:57:49.513Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png",
+        "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png",
+        "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_raw_chromakey.png",
+        "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_raw_chromakey.png",
+        "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_strip",
+        "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+        "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+        "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+        "normalization": "Raw generated idle strip -> chroma key removal/despill -> detected 8 cells -> shared global scale 0.2972 -> fixed foot/root anchor y=116 -> 1024x128 transparent strip.",
+        "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+        "fps": 6,
+        "gridColumns": 8,
+        "cellSize": 128,
+        "frameSize": [
+          128,
+          128
+        ],
+        "sheetSize": [
+          1024,
+          128
+        ],
+        "sourceCells": [
+          [
+            106,
+            188,
+            274,
+            526
+          ],
+          [
+            359,
+            188,
+            527,
+            526
+          ],
+          [
+            613,
+            188,
+            781,
+            526
+          ],
+          [
+            869,
+            188,
+            1036,
+            526
+          ],
+          [
+            1123,
+            188,
+            1291,
+            526
+          ],
+          [
+            1378,
+            188,
+            1548,
+            526
+          ],
+          [
+            1635,
+            188,
+            1803,
+            526
+          ],
+          [
+            1890,
+            187,
+            2057,
+            526
+          ]
+        ],
+        "frameBboxes": [
+          [
+            39,
+            16,
+            50,
+            100
+          ],
+          [
+            39,
+            16,
+            50,
+            100
+          ],
+          [
+            39,
+            16,
+            50,
+            100
+          ],
+          [
+            39,
+            16,
+            50,
+            100
+          ],
+          [
+            39,
+            16,
+            50,
+            100
+          ],
+          [
+            38,
+            16,
+            51,
+            100
+          ],
+          [
+            39,
+            16,
+            50,
+            100
+          ],
+          [
+            39,
+            15,
+            50,
+            101
+          ]
+        ],
+        "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+        "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between directions."
+      },
+      "animations": [
+        {
+          "id": "clip_silver_bob_schoolgirl_pixel_idle",
+          "name": "Idle",
+          "actionName": "idle",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_silver_bob_schoolgirl_pixel_idle_8f",
+            "characterName": "Silver Bob Schoolgirl Pixel / Idle",
+            "description": "8-frame idle top-down pixel sprite strip for the white-bob schoolgirl character. 8x1 grid, 128x128 transparent frames, shared global scale and root anchor across all WASD clips.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, white/silver bob hair, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+            "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-23T22:57:49.513Z",
+            "updatedTime": "2026-06-23T22:57:49.513Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png",
+            "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_pixel_idle_8f_raw_chromakey.png",
+            "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_strip",
+            "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+            "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+            "normalization": "Raw generated idle strip -> chroma key removal/despill -> detected 8 cells -> shared global scale 0.2972 -> fixed foot/root anchor y=116 -> 1024x128 transparent strip.",
+            "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+            "fps": 6,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceCells": [
+              [
+                106,
+                188,
+                274,
+                526
+              ],
+              [
+                359,
+                188,
+                527,
+                526
+              ],
+              [
+                613,
+                188,
+                781,
+                526
+              ],
+              [
+                869,
+                188,
+                1036,
+                526
+              ],
+              [
+                1123,
+                188,
+                1291,
+                526
+              ],
+              [
+                1378,
+                188,
+                1548,
+                526
+              ],
+              [
+                1635,
+                188,
+                1803,
+                526
+              ],
+              [
+                1890,
+                187,
+                2057,
+                526
+              ]
+            ],
+            "frameBboxes": [
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                38,
+                16,
+                51,
+                100
+              ],
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                39,
+                15,
+                50,
+                101
+              ]
+            ],
+            "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between directions."
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "player.silver_bob_schoolgirl.idle",
+            "notes": "Default idle loop for the top-down player."
+          },
+          "loop": true,
+          "fps": 6
+        },
+        {
+          "id": "clip_silver_bob_schoolgirl_pixel_walk_down",
+          "name": "Move Down",
+          "actionName": "move_down",
+          "direction": "down",
+          "sprite": {
+            "id": "sprite_silver_bob_schoolgirl_pixel_walk_down_8f",
+            "characterName": "Silver Bob Schoolgirl Pixel / Move Down",
+            "description": "8-frame move down top-down pixel sprite strip for the white-bob schoolgirl character. 8x1 grid, 128x128 transparent frames, shared global scale and root anchor across all WASD clips.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, white/silver bob hair, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+            "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-23T22:57:49.513Z",
+            "updatedTime": "2026-06-23T22:57:49.513Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_down_8f_sheet.png",
+            "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_down_8f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_pixel_walk_down_8f_raw_chromakey.png",
+            "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_strip",
+            "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+            "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+            "normalization": "Raw generated walk_down strip -> chroma key removal/despill -> detected 8 cells -> shared global scale 0.2972 -> fixed foot/root anchor y=116 -> 1024x128 transparent strip.",
+            "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceCells": [
+              [
+                29,
+                401,
+                177,
+                704
+              ],
+              [
+                199,
+                403,
+                347,
+                703
+              ],
+              [
+                368,
+                401,
+                515,
+                704
+              ],
+              [
+                536,
+                402,
+                682,
+                703
+              ],
+              [
+                701,
+                406,
+                847,
+                706
+              ],
+              [
+                869,
+                406,
+                1016,
+                706
+              ],
+              [
+                1038,
+                406,
+                1184,
+                706
+              ],
+              [
+                1206,
+                402,
+                1354,
+                704
+              ]
+            ],
+            "frameBboxes": [
+              [
+                42,
+                26,
+                44,
+                90
+              ],
+              [
+                42,
+                27,
+                44,
+                89
+              ],
+              [
+                42,
+                26,
+                44,
+                90
+              ],
+              [
+                42,
+                27,
+                43,
+                89
+              ],
+              [
+                42,
+                27,
+                43,
+                89
+              ],
+              [
+                42,
+                27,
+                44,
+                89
+              ],
+              [
+                42,
+                27,
+                43,
+                89
+              ],
+              [
+                42,
+                26,
+                44,
+                90
+              ]
+            ],
+            "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between directions."
+          },
+          "binding": {
+            "actionName": "move_down",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyS",
+            "gameState": "player.silver_bob_schoolgirl.move_down",
+            "notes": "Hold S to play move down and move the player."
+          },
+          "loop": true,
+          "fps": 10
+        },
+        {
+          "id": "clip_silver_bob_schoolgirl_pixel_walk_left",
+          "name": "Move Left",
+          "actionName": "move_left",
+          "direction": "left",
+          "sprite": {
+            "id": "sprite_silver_bob_schoolgirl_pixel_walk_left_8f",
+            "characterName": "Silver Bob Schoolgirl Pixel / Move Left",
+            "description": "8-frame move left top-down pixel sprite strip for the white-bob schoolgirl character. 8x1 grid, 128x128 transparent frames, shared global scale and root anchor across all WASD clips.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, white/silver bob hair, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+            "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-23T22:57:49.513Z",
+            "updatedTime": "2026-06-23T22:57:49.513Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_left_8f_sheet.png",
+            "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_left_8f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_pixel_walk_left_8f_raw_chromakey.png",
+            "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_strip",
+            "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+            "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+            "normalization": "Raw generated walk_left strip -> chroma key removal/despill -> detected 8 cells -> shared global scale 0.2972 -> fixed foot/root anchor y=116 -> 1024x128 transparent strip.",
+            "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceCells": [
+              [
+                67,
+                183,
+                229,
+                544
+              ],
+              [
+                329,
+                183,
+                500,
+                540
+              ],
+              [
+                607,
+                181,
+                767,
+                544
+              ],
+              [
+                870,
+                183,
+                1039,
+                544
+              ],
+              [
+                1138,
+                182,
+                1312,
+                540
+              ],
+              [
+                1405,
+                181,
+                1575,
+                544
+              ],
+              [
+                1677,
+                181,
+                1843,
+                539
+              ],
+              [
+                1953,
+                187,
+                2113,
+                544
+              ]
+            ],
+            "frameBboxes": [
+              [
+                40,
+                9,
+                48,
+                107
+              ],
+              [
+                38,
+                10,
+                51,
+                106
+              ],
+              [
+                40,
+                8,
+                48,
+                108
+              ],
+              [
+                39,
+                9,
+                50,
+                107
+              ],
+              [
+                38,
+                10,
+                52,
+                106
+              ],
+              [
+                38,
+                8,
+                51,
+                108
+              ],
+              [
+                40,
+                10,
+                49,
+                106
+              ],
+              [
+                40,
+                10,
+                48,
+                106
+              ]
+            ],
+            "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between directions."
+          },
+          "binding": {
+            "actionName": "move_left",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyA",
+            "gameState": "player.silver_bob_schoolgirl.move_left",
+            "notes": "Hold A to play move left and move the player."
+          },
+          "loop": true,
+          "fps": 10
+        },
+        {
+          "id": "clip_silver_bob_schoolgirl_pixel_walk_right",
+          "name": "Move Right",
+          "actionName": "move_right",
+          "direction": "right",
+          "sprite": {
+            "id": "sprite_silver_bob_schoolgirl_pixel_walk_right_8f",
+            "characterName": "Silver Bob Schoolgirl Pixel / Move Right",
+            "description": "8-frame move right top-down pixel sprite strip for the white-bob schoolgirl character. 8x1 grid, 128x128 transparent frames, shared global scale and root anchor across all WASD clips.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, white/silver bob hair, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+            "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-23T22:57:49.513Z",
+            "updatedTime": "2026-06-23T22:57:49.513Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_right_8f_sheet.png",
+            "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_right_8f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_pixel_walk_right_8f_raw_chromakey.png",
+            "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_strip",
+            "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+            "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+            "normalization": "Raw generated walk_right strip -> chroma key removal/despill -> detected 8 cells -> shared global scale 0.2972 -> fixed foot/root anchor y=116 -> 1024x128 transparent strip.",
+            "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceCells": [
+              [
+                77,
+                186,
+                236,
+                526
+              ],
+              [
+                336,
+                194,
+                492,
+                531
+              ],
+              [
+                604,
+                189,
+                772,
+                527
+              ],
+              [
+                874,
+                188,
+                1031,
+                526
+              ],
+              [
+                1143,
+                190,
+                1306,
+                526
+              ],
+              [
+                1411,
+                194,
+                1579,
+                526
+              ],
+              [
+                1680,
+                196,
+                1839,
+                531
+              ],
+              [
+                1946,
+                189,
+                2106,
+                527
+              ]
+            ],
+            "frameBboxes": [
+              [
+                40,
+                15,
+                47,
+                101
+              ],
+              [
+                41,
+                16,
+                46,
+                100
+              ],
+              [
+                39,
+                16,
+                50,
+                100
+              ],
+              [
+                40,
+                16,
+                47,
+                100
+              ],
+              [
+                40,
+                16,
+                48,
+                100
+              ],
+              [
+                39,
+                17,
+                50,
+                99
+              ],
+              [
+                40,
+                16,
+                47,
+                100
+              ],
+              [
+                40,
+                16,
+                48,
+                100
+              ]
+            ],
+            "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between directions."
+          },
+          "binding": {
+            "actionName": "move_right",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyD",
+            "gameState": "player.silver_bob_schoolgirl.move_right",
+            "notes": "Hold D to play move right and move the player."
+          },
+          "loop": true,
+          "fps": 10
+        },
+        {
+          "id": "clip_silver_bob_schoolgirl_pixel_walk_up",
+          "name": "Move Up",
+          "actionName": "move_up",
+          "direction": "up",
+          "sprite": {
+            "id": "sprite_silver_bob_schoolgirl_pixel_walk_up_8f",
+            "characterName": "Silver Bob Schoolgirl Pixel / Move Up",
+            "description": "8-frame move up top-down pixel sprite strip for the white-bob schoolgirl character. 8x1 grid, 128x128 transparent frames, shared global scale and root anchor across all WASD clips.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, white/silver bob hair, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+            "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-23T22:57:49.513Z",
+            "updatedTime": "2026-06-23T22:57:49.513Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_up_8f_sheet.png",
+            "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_walk_up_8f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_pixel_walk_up_8f_raw_chromakey.png",
+            "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_strip",
+            "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+            "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+            "normalization": "Raw generated walk_up strip -> chroma key removal/despill -> detected 8 cells -> shared global scale 0.2972 -> fixed foot/root anchor y=116 -> 1024x128 transparent strip.",
+            "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceCells": [
+              [
+                58,
+                166,
+                236,
+                553
+              ],
+              [
+                326,
+                166,
+                505,
+                563
+              ],
+              [
+                592,
+                169,
+                771,
+                563
+              ],
+              [
+                862,
+                170,
+                1041,
+                560
+              ],
+              [
+                1128,
+                171,
+                1305,
+                557
+              ],
+              [
+                1394,
+                170,
+                1572,
+                563
+              ],
+              [
+                1662,
+                170,
+                1841,
+                563
+              ],
+              [
+                1932,
+                167,
+                2110,
+                554
+              ]
+            ],
+            "frameBboxes": [
+              [
+                38,
+                1,
+                53,
+                115
+              ],
+              [
+                38,
+                0,
+                53,
+                118
+              ],
+              [
+                38,
+                0,
+                53,
+                117
+              ],
+              [
+                38,
+                0,
+                53,
+                116
+              ],
+              [
+                38,
+                1,
+                53,
+                115
+              ],
+              [
+                38,
+                0,
+                53,
+                117
+              ],
+              [
+                38,
+                0,
+                53,
+                117
+              ],
+              [
+                38,
+                1,
+                53,
+                115
+              ]
+            ],
+            "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between directions."
+          },
+          "binding": {
+            "actionName": "move_up",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyW",
+            "gameState": "player.silver_bob_schoolgirl.move_up",
+            "notes": "Hold W to play move up and move the player."
+          },
+          "loop": true,
+          "fps": 10
+        }
+      ],
+      "defaultAnimationId": "clip_silver_bob_schoolgirl_pixel_idle",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "player.silver_bob_schoolgirl.idle",
+        "notes": "Default idle loop for the top-down player."
+      },
+      "tags": [
+        "generated",
+        "pixel-art",
+        "top-down",
+        "player",
+        "wasd",
+        "spritesheet",
+        "schoolgirl"
+      ],
+      "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_idle_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+      "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1024\" height=\"640\" viewBox=\"0 0 1024 640\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+      "combinedSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png",
+      "description": "Top-down pixel player with separate idle and WASD movement spritesheet strips, placed into a playable pixel library scene."
+    },
+    {
       "id": "asset_silver_bob_schoolgirl_crying_closeup_16f",
       "name": "Silver Bob Schoolgirl / Crying Close-up 16f",
       "role": "npc",
@@ -4586,6 +5556,109 @@
   ],
   "scenes": [
     {
+      "id": "scene_silver_bob_schoolgirl_pixel_library_topdown_wasd",
+      "name": "Pixel Library - Silver Bob Schoolgirl WASD",
+      "width": 1536,
+      "height": 864,
+      "viewportWidth": 1536,
+      "viewportHeight": 864,
+      "viewportPreset": "16:9",
+      "cameraX": 0,
+      "groundY": 864,
+      "background": "#09070d",
+      "lighting": {
+        "preset": "none",
+        "brightness": 1,
+        "contrast": 1,
+        "saturate": 1,
+        "ambience": 1,
+        "vignette": 0,
+        "glow": 0
+      },
+      "savedTime": "2026-06-23T22:57:49.513Z",
+      "updatedTime": "2026-06-23T22:57:49.513Z",
+      "state": {
+        "controls": "WASD"
+      },
+      "layers": [
+        {
+          "id": "layer_pixel_library_background",
+          "name": "Pixel Gothic Library Background",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 864,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 1536,
+          "height": 864,
+          "imageUrl": "/generated/silver_bob_schoolgirl_pixel_library_topdown_scene.png",
+          "fit": "stretch",
+          "position": "center center",
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#ffffff",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#ffffff",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_pixel_library_ground_reference",
+          "name": "Walkable Floor Reference",
+          "type": "ground",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 864,
+          "scale": 1,
+          "zIndex": 1,
+          "opacity": 0,
+          "parallax": 1
+        },
+        {
+          "id": "layer_silver_bob_schoolgirl_pixel_player",
+          "name": "Silver Bob Schoolgirl Pixel Player",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_silver_bob_schoolgirl_pixel_topdown_wasd",
+          "activeAnimationId": "clip_silver_bob_schoolgirl_pixel_idle",
+          "x": 720,
+          "y": 560,
+          "scale": 0.86,
+          "zIndex": 10,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0,0,0,0)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0,
+            "height": 0,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#ffffff",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#ffffff",
+            "rimLightOpacity": 0
+          }
+        }
+      ]
+    },
+    {
       "id": "scene_cluttered_bedroom_wei_yang_crying_closeup",
       "name": "Cluttered Bedroom - Wei Yang Crying Close-up",
       "width": 3840,
@@ -5645,5 +6718,5 @@
       }
     }
   ],
-  "updatedTime": "2026-06-23T22:29:08.582Z"
+  "updatedTime": "2026-06-23T22:57:49.513Z"
 }

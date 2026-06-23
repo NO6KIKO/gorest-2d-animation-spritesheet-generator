@@ -26,7 +26,7 @@
 
 export type ActionTriggerType = "mouse" | "keyboard" | "auto" | "state";
 export type AssetRole = "player" | "npc" | "effect" | "prop" | "background";
-export type AnimationDirection = "left" | "right" | "none";
+export type AnimationDirection = "left" | "right" | "up" | "down" | "none";
 
 export interface ActionBinding {
   actionName: string;

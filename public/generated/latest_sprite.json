@@ -1,361 +1,74 @@
 {
-  "id": "sprite_silver_bob_schoolgirl_crying_closeup_16f",
-  "characterName": "Silver Bob Schoolgirl / Crying Close-up 16f",
-  "description": "Transparent 16-frame close-up crying loop for the supplied white-bob school-uniform girl reference. 4x4 grid, 512x512 frames, stable face/head anchor, watery eyes, blinking, trembling mouth, and tear tracks.",
-  "frameCount": 16,
-  "style": "finely drawn high-detail anime horror-drama close-up portrait, white bob haircut, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
-  "prompt": "Use the supplied anime girl reference as the identity anchor. Create a 16-frame 4x4 close-up crying loop: same pale schoolgirl with short straight white/silver bob hair, blunt bangs, mauve-red eyes, dark green-black blazer, white collar, and pale pink ribbon. Keep the camera, head size, shoulder position, and face anchor stable while tears gather and roll down her cheeks, her mouth quivers, and she blinks/recovers into a seamless loop. Use a flat #00ff00 chroma-key background; no text, watermark, extra characters, book, hands, chibi style, or vector/simple art.",
+  "id": "sprite_silver_bob_schoolgirl_pixel_topdown_all_actions_5x8",
+  "characterName": "Silver Bob Schoolgirl Pixel / Top-down All Actions 5x8",
+  "description": "Combined 5-row by 8-column transparent pixel spritesheet: idle, move down, move left, move right, move up. Each frame is 128x128.",
+  "frameCount": 40,
+  "style": "crisp top-down pixel RPG character spritesheet atlas, transparent PNG",
+  "prompt": "Use the supplied anime schoolgirl reference as identity and palette anchor. Create a small full-body top-down RPG pixel sprite with short white/silver bob hair, mauve-red eyes, dark green-black school blazer, white collar, pale pink ribbon, dark pleated skirt, and black socks. Produce stable registered frames on flat green chroma key for cleanup.",
   "frames": [
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 128 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 256 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 384 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 512 128 128\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"640\" preserveAspectRatio=\"none\"/></svg>"
   ],
-  "createdTime": "2026-06-23T22:29:08.582Z",
-  "updatedTime": "2026-06-23T22:29:08.582Z",
+  "createdTime": "2026-06-23T22:57:49.513Z",
+  "updatedTime": "2026-06-23T22:57:49.513Z",
   "isPreset": false,
-  "spritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png",
-  "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png",
-  "generationMode": "imagegen_reference_chroma_key_alpha_matte_crying_closeup_loop",
-  "artSourcePolicy": "Visible character art was generated/redrawn as one full 4x4 spritesheet from the supplied raster reference. Code only copied the raw sheet, removed chroma key, despilled/cleaned alpha edges, normalized a fixed portrait anchor, packed transparent frames, and wrote metadata.",
-  "qualityPolicy": "High-detail generated bitmap source inspected at 100% on a dark background; no code-drawn tears, eyes, mouth, hair, clothing, or expression changes were added.",
-  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
-  "normalization": "1254x1254 generated green chroma-key sheet -> soft-matte chroma removal with despill and edge contract -> global uniform scale with fixed upper-body/face anchor -> targeted residual key-color alpha cleanup -> 2048x2048 transparent 4x4 sheet.",
-  "inputReferenceInvariant": "Preserve the supplied reference image: pale anime girl, short straight white/silver bob with blunt bangs, mauve-red eyes, dark green-black school blazer, white shirt collar, and pale pink ribbon. Close-up bust framing; no book or hands in the final sprite frames.",
-  "fps": 8,
-  "gridColumns": 4,
+  "spritesheetPng": "/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png",
+  "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_pixel_all_actions_5x8_sheet.png",
+  "generationMode": "imagegen_pixel_reference_chroma_key_topdown_wasd_combined_atlas",
+  "artSourcePolicy": "Visible pixel character art was generated/redrawn as raster spritesheet strips from the supplied reference. Code only removed chroma key, detected cells, applied one shared global scale/root anchor, packed transparent strips, and wrote metadata.",
+  "qualityPolicy": "Pixel-art source inspected after alpha cleanup; no code-drawn eyes, hair, clothes, limbs, or animation frames were added.",
+  "proportionPolicy": "uniform_scale_across_all_pixel_wasd_actions_preserve_generated_character_proportions",
+  "normalization": "Five generated action strips were cleaned, normalized with one shared global scale/root anchor, then packed into a 5x8 transparent atlas. Row order: idle, move down, move left, move right, move up.",
+  "inputReferenceInvariant": "Preserve the supplied girl: pale anime schoolgirl, short white/silver bob with blunt bangs, mauve-red eyes, dark green-black blazer, white collar, pale pink ribbon, dark pleated skirt, black socks. No book or seated pose in the pixel top-down sprite.",
+  "fps": 10,
+  "gridColumns": 8,
+  "cellSize": 128,
   "frameSize": [
-    512,
-    512
+    128,
+    128
   ],
   "sheetSize": [
-    2048,
-    2048
+    1024,
+    640
   ],
-  "sourceSize": [
-    1254,
-    1254
-  ],
-  "sourceCells": [
-    [
-      3,
-      3,
-      311,
-      311
-    ],
-    [
-      317,
-      3,
-      624,
-      311
-    ],
-    [
-      630,
-      3,
-      937,
-      311
-    ],
-    [
-      943,
-      3,
-      1251,
-      311
-    ],
-    [
-      3,
-      317,
-      311,
-      624
-    ],
-    [
-      317,
-      317,
-      624,
-      624
-    ],
-    [
-      630,
-      317,
-      937,
-      624
-    ],
-    [
-      943,
-      317,
-      1251,
-      624
-    ],
-    [
-      3,
-      630,
-      311,
-      937
-    ],
-    [
-      317,
-      630,
-      624,
-      937
-    ],
-    [
-      630,
-      630,
-      937,
-      937
-    ],
-    [
-      943,
-      630,
-      1251,
-      937
-    ],
-    [
-      3,
-      943,
-      311,
-      1251
-    ],
-    [
-      317,
-      943,
-      624,
-      1251
-    ],
-    [
-      630,
-      943,
-      937,
-      1251
-    ],
-    [
-      943,
-      943,
-      1251,
-      1251
-    ]
-  ],
-  "frameBboxes": [
-    [
-      34,
-      4,
-      472,
-      500
-    ],
-    [
-      36,
-      4,
-      472,
-      500
-    ],
-    [
-      35,
-      4,
-      471,
-      500
-    ],
-    [
-      36,
-      4,
-      472,
-      500
-    ],
-    [
-      34,
-      4,
-      472,
-      498
-    ],
-    [
-      36,
-      4,
-      472,
-      498
-    ],
-    [
-      36,
-      4,
-      471,
-      498
-    ],
-    [
-      36,
-      4,
-      472,
-      498
-    ],
-    [
-      36,
-      4,
-      472,
-      498
-    ],
-    [
-      36,
-      4,
-      472,
-      498
-    ],
-    [
-      37,
-      4,
-      471,
-      498
-    ],
-    [
-      36,
-      4,
-      472,
-      498
-    ],
-    [
-      36,
-      4,
-      472,
-      500
-    ],
-    [
-      36,
-      4,
-      472,
-      500
-    ],
-    [
-      37,
-      4,
-      471,
-      500
-    ],
-    [
-      36,
-      4,
-      472,
-      500
-    ]
-  ],
-  "rootAnchors": [
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ],
-    [
-      256,
-      156.16
-    ]
-  ],
-  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
-  "gridDetection": {
-    "mode": "proportional_fallback",
-    "xRuns": [
-      [
-        20,
-        313
-      ],
-      [
-        333,
-        626
-      ],
-      [
-        647,
-        940
-      ],
-      [
-        960,
-        1254
-      ]
-    ],
-    "yRuns": [
-      [
-        0,
-        1254
-      ]
-    ],
-    "xBounds": [
-      0,
-      314,
-      627,
-      940,
-      1254
-    ],
-    "yBounds": [
-      0,
-      314,
-      627,
-      940,
-      1254
-    ]
-  },
-  "rootAnchorPolicy": "fixed portrait face/head anchor from upper-body alpha centroid; stable head size and shoulder placement across all 16 frames",
-  "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use the fixed 512x512 cells for playback so the close-up portrait remains registered.",
-  "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-  "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
-  "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_raw_chromakey.png",
-  "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_raw_chromakey.png"
+  "rootAnchorPolicy": "fixed full-body foot/root anchor shared across idle and WASD movement strips",
+  "adaptiveFramePolicy": "5 rows x 8 columns; use row clips for gameplay animation bindings."
 }

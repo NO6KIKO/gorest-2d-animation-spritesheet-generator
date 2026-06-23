@@ -147,7 +147,7 @@ type SceneContextMenuState = {
   layerId: string;
   target: SceneObjectTarget;
 };
-type HeldDirection = "left" | "right" | null;
+type HeldDirection = "left" | "right" | "up" | "down" | null;
 type VehiclePhase = "approaching" | "ready" | "boarded";
 
 export default function App() {
@@ -696,7 +696,7 @@ export default function App() {
 
       if (matchedLayer) {
         event.preventDefault();
-        if (matchedLayer.clip.direction === "left" || matchedLayer.clip.direction === "right") {
+        if (matchedLayer.clip.direction !== "none") {
           setHeldDirection(matchedLayer.clip.direction);
         }
         if (event.repeat) return;
@@ -773,18 +773,21 @@ export default function App() {
       setScene(prev => {
         const viewportW = sceneViewportWidth(prev);
         const maxCameraX = Math.max(0, prev.width - viewportW);
-        const direction = heldDirection === "left" ? -1 : 1;
+        const dx = heldDirection === "left" ? -1 : heldDirection === "right" ? 1 : 0;
+        const dy = heldDirection === "up" ? -1 : heldDirection === "down" ? 1 : 0;
         let focusX: number | null = null;
         const layers = prev.layers.map(layer => {
           if (!layer.assetId) return layer;
           const asset = assetById.get(layer.assetId);
           if (asset?.role !== "player") return layer;
           const sprite = resolveAssetSprite(asset, layer);
-          const [spriteW] = sprite ? getFrameSize(sprite) : [0, 0];
+          const [spriteW, spriteH] = sprite ? getFrameSize(sprite) : [0, 0];
           const layerWidth = spriteW * layer.scale;
-          const nextX = clamp(layer.x + direction * walkSpeed * delta, 0, Math.max(0, prev.width - layerWidth));
+          const layerHeight = spriteH * layer.scale;
+          const nextX = dx === 0 ? layer.x : clamp(layer.x + dx * walkSpeed * delta, 0, Math.max(0, prev.width - layerWidth));
+          const nextY = dy === 0 ? layer.y : clamp(layer.y + dy * walkSpeed * delta, layerHeight, prev.height);
           focusX = nextX + layerWidth * 0.5;
-          return { ...layer, x: Number(nextX.toFixed(2)) };
+          return { ...layer, x: Number(nextX.toFixed(2)), y: Number(nextY.toFixed(2)) };
         });
         if (focusX === null) return prev;
         const nextCameraX = clamp(focusX - viewportW * 0.42, 0, maxCameraX);
