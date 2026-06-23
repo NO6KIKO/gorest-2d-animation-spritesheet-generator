@@ -1,6 +1,773 @@
 {
   "assets": [
     {
+      "id": "asset_silver_bob_schoolgirl_crying_closeup_16f",
+      "name": "Silver Bob Schoolgirl / Crying Close-up 16f",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-06-23T22:29:08.582Z",
+      "updatedTime": "2026-06-23T22:29:08.582Z",
+      "sprite": {
+        "id": "sprite_silver_bob_schoolgirl_crying_closeup_16f",
+        "characterName": "Silver Bob Schoolgirl / Crying Close-up 16f",
+        "description": "Transparent 16-frame close-up crying loop for the supplied white-bob school-uniform girl reference. 4x4 grid, 512x512 frames, stable face/head anchor, watery eyes, blinking, trembling mouth, and tear tracks.",
+        "frameCount": 16,
+        "style": "finely drawn high-detail anime horror-drama close-up portrait, white bob haircut, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+        "prompt": "Use the supplied anime girl reference as the identity anchor. Create a 16-frame 4x4 close-up crying loop: same pale schoolgirl with short straight white/silver bob hair, blunt bangs, mauve-red eyes, dark green-black blazer, white collar, and pale pink ribbon. Keep the camera, head size, shoulder position, and face anchor stable while tears gather and roll down her cheeks, her mouth quivers, and she blinks/recovers into a seamless loop. Use a flat #00ff00 chroma-key background; no text, watermark, extra characters, book, hands, chibi style, or vector/simple art.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-23T22:29:08.582Z",
+        "updatedTime": "2026-06-23T22:29:08.582Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png",
+        "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png",
+        "generationMode": "imagegen_reference_chroma_key_alpha_matte_crying_closeup_loop",
+        "artSourcePolicy": "Visible character art was generated/redrawn as one full 4x4 spritesheet from the supplied raster reference. Code only copied the raw sheet, removed chroma key, despilled/cleaned alpha edges, normalized a fixed portrait anchor, packed transparent frames, and wrote metadata.",
+        "qualityPolicy": "High-detail generated bitmap source inspected at 100% on a dark background; no code-drawn tears, eyes, mouth, hair, clothing, or expression changes were added.",
+        "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+        "normalization": "1254x1254 generated green chroma-key sheet -> soft-matte chroma removal with despill and edge contract -> global uniform scale with fixed upper-body/face anchor -> targeted residual key-color alpha cleanup -> 2048x2048 transparent 4x4 sheet.",
+        "inputReferenceInvariant": "Preserve the supplied reference image: pale anime girl, short straight white/silver bob with blunt bangs, mauve-red eyes, dark green-black school blazer, white shirt collar, and pale pink ribbon. Close-up bust framing; no book or hands in the final sprite frames.",
+        "fps": 8,
+        "gridColumns": 4,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          2048,
+          2048
+        ],
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "sourceCells": [
+          [
+            3,
+            3,
+            311,
+            311
+          ],
+          [
+            317,
+            3,
+            624,
+            311
+          ],
+          [
+            630,
+            3,
+            937,
+            311
+          ],
+          [
+            943,
+            3,
+            1251,
+            311
+          ],
+          [
+            3,
+            317,
+            311,
+            624
+          ],
+          [
+            317,
+            317,
+            624,
+            624
+          ],
+          [
+            630,
+            317,
+            937,
+            624
+          ],
+          [
+            943,
+            317,
+            1251,
+            624
+          ],
+          [
+            3,
+            630,
+            311,
+            937
+          ],
+          [
+            317,
+            630,
+            624,
+            937
+          ],
+          [
+            630,
+            630,
+            937,
+            937
+          ],
+          [
+            943,
+            630,
+            1251,
+            937
+          ],
+          [
+            3,
+            943,
+            311,
+            1251
+          ],
+          [
+            317,
+            943,
+            624,
+            1251
+          ],
+          [
+            630,
+            943,
+            937,
+            1251
+          ],
+          [
+            943,
+            943,
+            1251,
+            1251
+          ]
+        ],
+        "frameBboxes": [
+          [
+            34,
+            4,
+            472,
+            500
+          ],
+          [
+            36,
+            4,
+            472,
+            500
+          ],
+          [
+            35,
+            4,
+            471,
+            500
+          ],
+          [
+            36,
+            4,
+            472,
+            500
+          ],
+          [
+            34,
+            4,
+            472,
+            498
+          ],
+          [
+            36,
+            4,
+            472,
+            498
+          ],
+          [
+            36,
+            4,
+            471,
+            498
+          ],
+          [
+            36,
+            4,
+            472,
+            498
+          ],
+          [
+            36,
+            4,
+            472,
+            498
+          ],
+          [
+            36,
+            4,
+            472,
+            498
+          ],
+          [
+            37,
+            4,
+            471,
+            498
+          ],
+          [
+            36,
+            4,
+            472,
+            498
+          ],
+          [
+            36,
+            4,
+            472,
+            500
+          ],
+          [
+            36,
+            4,
+            472,
+            500
+          ],
+          [
+            37,
+            4,
+            471,
+            500
+          ],
+          [
+            36,
+            4,
+            472,
+            500
+          ]
+        ],
+        "rootAnchors": [
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ],
+          [
+            256,
+            156.16
+          ]
+        ],
+        "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+        "gridDetection": {
+          "mode": "proportional_fallback",
+          "xRuns": [
+            [
+              20,
+              313
+            ],
+            [
+              333,
+              626
+            ],
+            [
+              647,
+              940
+            ],
+            [
+              960,
+              1254
+            ]
+          ],
+          "yRuns": [
+            [
+              0,
+              1254
+            ]
+          ],
+          "xBounds": [
+            0,
+            314,
+            627,
+            940,
+            1254
+          ],
+          "yBounds": [
+            0,
+            314,
+            627,
+            940,
+            1254
+          ]
+        },
+        "rootAnchorPolicy": "fixed portrait face/head anchor from upper-body alpha centroid; stable head size and shoulder placement across all 16 frames",
+        "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use the fixed 512x512 cells for playback so the close-up portrait remains registered.",
+        "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+        "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+        "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_raw_chromakey.png",
+        "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_raw_chromakey.png"
+      },
+      "animations": [
+        {
+          "id": "clip_silver_bob_schoolgirl_crying_closeup_loop",
+          "name": "Crying close-up loop",
+          "actionName": "cry",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_silver_bob_schoolgirl_crying_closeup_16f",
+            "characterName": "Silver Bob Schoolgirl / Crying Close-up 16f",
+            "description": "Transparent 16-frame close-up crying loop for the supplied white-bob school-uniform girl reference. 4x4 grid, 512x512 frames, stable face/head anchor, watery eyes, blinking, trembling mouth, and tear tracks.",
+            "frameCount": 16,
+            "style": "finely drawn high-detail anime horror-drama close-up portrait, white bob haircut, mauve-red eyes, dark school blazer, pink ribbon, transparent PNG spritesheet",
+            "prompt": "Use the supplied anime girl reference as the identity anchor. Create a 16-frame 4x4 close-up crying loop: same pale schoolgirl with short straight white/silver bob hair, blunt bangs, mauve-red eyes, dark green-black blazer, white collar, and pale pink ribbon. Keep the camera, head size, shoulder position, and face anchor stable while tears gather and roll down her cheeks, her mouth quivers, and she blinks/recovers into a seamless loop. Use a flat #00ff00 chroma-key background; no text, watermark, extra characters, book, hands, chibi style, or vector/simple art.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-23T22:29:08.582Z",
+            "updatedTime": "2026-06-23T22:29:08.582Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png",
+            "rawSpritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png",
+            "generationMode": "imagegen_reference_chroma_key_alpha_matte_crying_closeup_loop",
+            "artSourcePolicy": "Visible character art was generated/redrawn as one full 4x4 spritesheet from the supplied raster reference. Code only copied the raw sheet, removed chroma key, despilled/cleaned alpha edges, normalized a fixed portrait anchor, packed transparent frames, and wrote metadata.",
+            "qualityPolicy": "High-detail generated bitmap source inspected at 100% on a dark background; no code-drawn tears, eyes, mouth, hair, clothing, or expression changes were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "1254x1254 generated green chroma-key sheet -> soft-matte chroma removal with despill and edge contract -> global uniform scale with fixed upper-body/face anchor -> targeted residual key-color alpha cleanup -> 2048x2048 transparent 4x4 sheet.",
+            "inputReferenceInvariant": "Preserve the supplied reference image: pale anime girl, short straight white/silver bob with blunt bangs, mauve-red eyes, dark green-black school blazer, white shirt collar, and pale pink ribbon. Close-up bust framing; no book or hands in the final sprite frames.",
+            "fps": 8,
+            "gridColumns": 4,
+            "frameSize": [
+              512,
+              512
+            ],
+            "sheetSize": [
+              2048,
+              2048
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                3,
+                3,
+                311,
+                311
+              ],
+              [
+                317,
+                3,
+                624,
+                311
+              ],
+              [
+                630,
+                3,
+                937,
+                311
+              ],
+              [
+                943,
+                3,
+                1251,
+                311
+              ],
+              [
+                3,
+                317,
+                311,
+                624
+              ],
+              [
+                317,
+                317,
+                624,
+                624
+              ],
+              [
+                630,
+                317,
+                937,
+                624
+              ],
+              [
+                943,
+                317,
+                1251,
+                624
+              ],
+              [
+                3,
+                630,
+                311,
+                937
+              ],
+              [
+                317,
+                630,
+                624,
+                937
+              ],
+              [
+                630,
+                630,
+                937,
+                937
+              ],
+              [
+                943,
+                630,
+                1251,
+                937
+              ],
+              [
+                3,
+                943,
+                311,
+                1251
+              ],
+              [
+                317,
+                943,
+                624,
+                1251
+              ],
+              [
+                630,
+                943,
+                937,
+                1251
+              ],
+              [
+                943,
+                943,
+                1251,
+                1251
+              ]
+            ],
+            "frameBboxes": [
+              [
+                34,
+                4,
+                472,
+                500
+              ],
+              [
+                36,
+                4,
+                472,
+                500
+              ],
+              [
+                35,
+                4,
+                471,
+                500
+              ],
+              [
+                36,
+                4,
+                472,
+                500
+              ],
+              [
+                34,
+                4,
+                472,
+                498
+              ],
+              [
+                36,
+                4,
+                472,
+                498
+              ],
+              [
+                36,
+                4,
+                471,
+                498
+              ],
+              [
+                36,
+                4,
+                472,
+                498
+              ],
+              [
+                36,
+                4,
+                472,
+                498
+              ],
+              [
+                36,
+                4,
+                472,
+                498
+              ],
+              [
+                37,
+                4,
+                471,
+                498
+              ],
+              [
+                36,
+                4,
+                472,
+                498
+              ],
+              [
+                36,
+                4,
+                472,
+                500
+              ],
+              [
+                36,
+                4,
+                472,
+                500
+              ],
+              [
+                37,
+                4,
+                471,
+                500
+              ],
+              [
+                36,
+                4,
+                472,
+                500
+              ]
+            ],
+            "rootAnchors": [
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ],
+              [
+                256,
+                156.16
+              ]
+            ],
+            "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+            "gridDetection": {
+              "mode": "proportional_fallback",
+              "xRuns": [
+                [
+                  20,
+                  313
+                ],
+                [
+                  333,
+                  626
+                ],
+                [
+                  647,
+                  940
+                ],
+                [
+                  960,
+                  1254
+                ]
+              ],
+              "yRuns": [
+                [
+                  0,
+                  1254
+                ]
+              ],
+              "xBounds": [
+                0,
+                314,
+                627,
+                940,
+                1254
+              ],
+              "yBounds": [
+                0,
+                314,
+                627,
+                940,
+                1254
+              ]
+            },
+            "rootAnchorPolicy": "fixed portrait face/head anchor from upper-body alpha centroid; stable head size and shoulder placement across all 16 frames",
+            "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use the fixed 512x512 cells for playback so the close-up portrait remains registered.",
+            "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+            "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+            "rawGeneratedSpritesheetPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/silver_bob_schoolgirl_crying_closeup_16f_raw_chromakey.png"
+          },
+          "binding": {
+            "actionName": "cry",
+            "triggerType": "auto",
+            "triggerValue": "preview-loop",
+            "gameState": "dialogue.silver_bob_schoolgirl_crying",
+            "notes": "Auto preview loop for the supplied white-bob schoolgirl crying close-up portrait."
+          },
+          "loop": true,
+          "fps": 8
+        }
+      ],
+      "defaultAnimationId": "clip_silver_bob_schoolgirl_crying_closeup_loop",
+      "binding": {
+        "actionName": "cry",
+        "triggerType": "auto",
+        "triggerValue": "preview-loop",
+        "gameState": "dialogue.silver_bob_schoolgirl_crying",
+        "notes": "Auto preview loop for the supplied white-bob schoolgirl crying close-up portrait."
+      },
+      "tags": [
+        "generated",
+        "spritesheet",
+        "anime",
+        "crying",
+        "close-up",
+        "portrait",
+        "silver-bob-schoolgirl"
+      ],
+      "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+      "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/silver_bob_schoolgirl_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+      "description": "Transparent 16-frame close-up crying loop for the supplied white-bob school-uniform girl reference. 4x4 grid, 512x512 frames, stable face/head anchor, watery eyes, blinking, trembling mouth, and tear tracks."
+    },
+    {
       "id": "asset_tree_dog_guardian_weapon_swing_pseudo3d_16f",
       "name": "Tree-Dog Guardian / Pseudo-3D Weapon Swing",
       "role": "player",
@@ -4878,5 +5645,5 @@
       }
     }
   ],
-  "updatedTime": "2026-06-23T01:25:56.259Z"
+  "updatedTime": "2026-06-23T22:29:08.582Z"
 }
