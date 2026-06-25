@@ -14,6 +14,7 @@ type SheetOnlyGalleryProps = {
   selectedSprite?: AnimationSprite;
   sheetDataUrl: string | null;
   onBack: () => void;
+  onDeleteSpriteFrame: (frameIndex: number) => void;
   onGeneratePreview: () => void;
   onSelectImage: (imageUrl: string, title: string) => void;
   onSelectSprite: (sprite: AnimationSprite, title: string, asset?: GameAsset) => void;
@@ -29,6 +30,7 @@ export function SheetOnlyGallery({
   selectedSprite,
   sheetDataUrl,
   onBack,
+  onDeleteSpriteFrame,
   onGeneratePreview,
   onSelectImage,
   onSelectSprite,
@@ -86,6 +88,7 @@ export function SheetOnlyGallery({
           sheetDataUrl={sheetDataUrl}
           sprite={selectedSprite}
           title={selectionTitle || activeSpriteName}
+          onDeleteFrame={onDeleteSpriteFrame}
           onGeneratePreview={onGeneratePreview}
         />
       )}

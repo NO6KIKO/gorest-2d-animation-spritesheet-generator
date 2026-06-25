@@ -1,7 +1,14 @@
-import { ChevronDown, Download, FileImage, Film, Pause, Play, RotateCcw, Video } from "lucide-react";
+import { ChevronDown, Download, FileImage, Film, Pause, Play, RotateCcw, Trash2, Video } from "lucide-react";
 import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { downloadUrl } from "../../app/downloads";
-import { getFrameSize, spriteFrameTotal, spriteGridColumns, spriteGridRows } from "../../domain/sprites/spriteUtils";
+import {
+  getFrameSize,
+  spriteFrame,
+  spriteFrameTotal,
+  spriteGridColumns,
+  spriteGridRows,
+  spritesheetFrameThumbStyle,
+} from "../../domain/sprites/spriteUtils";
 import type { AnimationSprite } from "../../types";
 import { exportSpriteGif, exportSpriteVideo, type SpriteMediaExportSettings } from "./exportSpriteMedia";
 
@@ -20,6 +27,7 @@ type SheetOnlySpritesheetPreviewProps = {
   sheetDataUrl: string | null;
   sprite?: AnimationSprite;
   title: string;
+  onDeleteFrame?: (frameIndex: number) => void;
   onGeneratePreview: () => void;
 };
 
@@ -85,11 +93,66 @@ function previewBoxSize(frameWidth: number, frameHeight: number, viewport: Viewp
   };
 }
 
+function sourceFrameThumbStyle(sourceUrl: string, columns: number, rows: number, frameIndex: number): CSSProperties {
+  const column = frameIndex % columns;
+  const row = Math.floor(frameIndex / columns);
+  const x = columns <= 1 ? 0 : (column / (columns - 1)) * 100;
+  const y = rows <= 1 ? 0 : (row / (rows - 1)) * 100;
+  return {
+    backgroundImage: `url("${sourceUrl.replace(/["\\]/g, "\\$&")}")`,
+    backgroundPosition: `${x}% ${y}%`,
+    backgroundSize: `${columns * 100}% ${rows * 100}%`,
+  };
+}
+
+function frameSvgThumbStyle(frameSvg: string): CSSProperties | undefined {
+  const viewBoxMatch = frameSvg.match(/viewBox="([\d.\-\s]+)"/);
+  const imageMatch = frameSvg.match(/<image[^>]+href="([^"]+)"[^>]*>/);
+  if (!viewBoxMatch || !imageMatch) return undefined;
+
+  const [x, y, frameWidth, frameHeight] = viewBoxMatch[1].trim().split(/\s+/).map(Number);
+  if (![x, y, frameWidth, frameHeight].every(Number.isFinite) || frameWidth <= 0 || frameHeight <= 0) return undefined;
+
+  const imageTag = imageMatch[0];
+  const widthMatch = imageTag.match(/\bwidth="([\d.]+)"/);
+  const heightMatch = imageTag.match(/\bheight="([\d.]+)"/);
+  const sheetWidth = Number(widthMatch?.[1]);
+  const sheetHeight = Number(heightMatch?.[1]);
+  if (!Number.isFinite(sheetWidth) || !Number.isFinite(sheetHeight) || sheetWidth <= 0 || sheetHeight <= 0) return undefined;
+
+  const positionX = sheetWidth <= frameWidth ? 0 : (x / (sheetWidth - frameWidth)) * 100;
+  const positionY = sheetHeight <= frameHeight ? 0 : (y / (sheetHeight - frameHeight)) * 100;
+  return {
+    backgroundImage: `url("${imageMatch[1].replace(/["\\]/g, "\\$&")}")`,
+    backgroundPosition: `${positionX}% ${positionY}%`,
+    backgroundSize: `${sheetWidth / frameWidth * 100}% ${sheetHeight / frameHeight * 100}%`,
+  };
+}
+
+function sourceActiveFrameBoxStyle(
+  frameSvg: string,
+  sheetSize: SheetSize | null,
+  fallback: CSSProperties | undefined
+): CSSProperties | undefined {
+  if (!frameSvg || !sheetSize) return fallback;
+  const match = frameSvg.match(/viewBox="([\d.\-\s]+)"/);
+  if (!match) return fallback;
+  const [x, y, width, height] = match[1].trim().split(/\s+/).map(Number);
+  if (![x, y, width, height].every(Number.isFinite) || width <= 0 || height <= 0) return fallback;
+  return {
+    height: `${height / sheetSize.height * 100}%`,
+    left: `${x / sheetSize.width * 100}%`,
+    top: `${y / sheetSize.height * 100}%`,
+    width: `${width / sheetSize.width * 100}%`,
+  };
+}
+
 export function SheetOnlySpritesheetPreview({
   checkerStyle,
   sheetDataUrl,
   sprite,
   title,
+  onDeleteFrame,
   onGeneratePreview,
 }: SheetOnlySpritesheetPreviewProps) {
   const initialFrameSize = useMemo(() => sprite ? getFrameSize(sprite) : [256, 256], [sprite]);
@@ -177,6 +240,8 @@ export function SheetOnlySpritesheetPreview({
     : null;
   const downloadSourceUrl = sheetDataUrl || sprite?.rawSpritesheetPng || sprite?.spritesheetPng || "";
   const downloadBaseName = safeFilename(title || sprite?.characterName || "spritesheet");
+  const activeSpriteFrame = sprite ? spriteFrame(sprite, activeFrameIndex) : "";
+  const canDeleteFrame = Boolean(sprite && onDeleteFrame && frameTotal > 1);
 
   useEffect(() => {
     setFrameIndex(value => Math.min(value, Math.max(0, frameTotal - 1)));
@@ -195,6 +260,13 @@ export function SheetOnlySpritesheetPreview({
     transform: `translate(${-frameColumn * safeFrameWidth / sheetSize.width * 100}%, ${-frameRow * safeFrameHeight / sheetSize.height * 100}%)`,
     width: `${(sheetSize.width / safeFrameWidth) * 100}%`,
   } : undefined;
+  const sourceActiveFrameFallbackStyle: CSSProperties | undefined = sheetSize ? {
+    height: `${safeFrameHeight / sheetSize.height * 100}%`,
+    left: `${frameColumn * safeFrameWidth / sheetSize.width * 100}%`,
+    top: `${frameRow * safeFrameHeight / sheetSize.height * 100}%`,
+    width: `${safeFrameWidth / sheetSize.width * 100}%`,
+  } : undefined;
+  const sourceActiveFrameStyle = sourceActiveFrameBoxStyle(activeSpriteFrame, sheetSize, sourceActiveFrameFallbackStyle);
 
   const handleAutoSize = () => {
     if (!sheetSize) return;
@@ -252,7 +324,9 @@ export function SheetOnlySpritesheetPreview({
               width: previewSize ? `${previewSize.width}px` : undefined,
             }}
           >
-            {previewImageStyle ? (
+            {activeSpriteFrame ? (
+              <div className="sheet-only-frame-svg" dangerouslySetInnerHTML={{ __html: activeSpriteFrame }} />
+            ) : previewImageStyle ? (
               <img src={sheetDataUrl} alt={`${title} frame ${activeFrameIndex + 1}`} style={previewImageStyle} />
             ) : (
               <img src={sheetDataUrl} alt={`${title} spritesheet`} />
@@ -264,6 +338,69 @@ export function SheetOnlySpritesheetPreview({
           </button>
         )}
       </section>
+
+      {sheetDataUrl && (
+        <aside className="sheet-only-slice-panel" aria-label="Spritesheet frame tools">
+          <div className="sheet-only-source-header">
+            <strong>P1 / Source</strong>
+            <span>{sheetSize ? `${sheetSize.width} x ${sheetSize.height}` : ""}</span>
+          </div>
+          <div
+            className="sheet-only-source-preview"
+            style={{
+              ...checkerStyle,
+              aspectRatio: sheetSize ? `${sheetSize.width} / ${sheetSize.height}` : undefined,
+            }}
+          >
+            <img src={sheetDataUrl} alt={`${title} source spritesheet`} />
+            {sourceActiveFrameStyle && <span className="sheet-only-source-active-frame" style={sourceActiveFrameStyle} />}
+          </div>
+
+          <div className="sheet-only-frames-header">
+            <strong>Frames</strong>
+            <span>{frameTotal} / {frameTotal}</span>
+          </div>
+          <div className="sheet-only-frames-grid">
+            {Array.from({ length: frameTotal }, (_, frameListIndex) => {
+              const frameSvg = sprite ? spriteFrame(sprite, frameListIndex) : "";
+              const svgThumbStyle = frameSvg ? frameSvgThumbStyle(frameSvg) : undefined;
+              const spriteThumbStyle = sprite ? spritesheetFrameThumbStyle(sprite, frameListIndex) : undefined;
+              const sourceThumbStyle = !frameSvg && downloadSourceUrl
+                ? sourceFrameThumbStyle(downloadSourceUrl, columns, rows, frameListIndex)
+                : undefined;
+              const thumbStyle = svgThumbStyle || spriteThumbStyle || sourceThumbStyle;
+              return (
+                <div
+                  key={`${sprite?.id || downloadSourceUrl}_${frameListIndex}`}
+                  className={`sheet-only-frame-tile ${frameListIndex === activeFrameIndex ? "active" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="sheet-only-frame-select"
+                    style={{ aspectRatio: `${safeFrameWidth} / ${safeFrameHeight}` }}
+                    onClick={() => setFrameIndex(frameListIndex)}
+                    title={`Frame ${frameListIndex + 1}`}
+                  >
+                    <span className="sheet-only-frame-thumb" style={thumbStyle} />
+                  </button>
+                  <div className="sheet-only-frame-meta">
+                    <span>Frame {frameListIndex + 1}</span>
+                    <button
+                      type="button"
+                      aria-label={`Delete frame ${frameListIndex + 1}`}
+                      title="Delete frame"
+                      disabled={!canDeleteFrame}
+                      onClick={() => onDeleteFrame?.(frameListIndex)}
+                    >
+                      <Trash2 size={13} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </aside>
+      )}
 
       {sheetDataUrl && (
         <section className="sheet-only-controls" aria-label="Spritesheet slicing controls">

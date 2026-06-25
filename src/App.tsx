@@ -25,6 +25,7 @@ import {
 import { createImportedSpritesheetAsset, createUploadedStaticObjectAsset } from "./domain/assets/assetImportFactory";
 import {
   applyAssetClipMetadataPatch,
+  deleteFrameFromSprite,
   rebuildSpritesheetGridSprite,
   replaceSpriteInAsset,
   type SpriteGridPatch,
@@ -196,6 +197,7 @@ export default function App() {
   const [sheetOnlyHasSelection, setSheetOnlyHasSelection] = useState(false);
   const [sheetOnlySelectionKind, setSheetOnlySelectionKind] = useState<SheetOnlySelectionKind>(null);
   const [sheetOnlySelectionTitle, setSheetOnlySelectionTitle] = useState("");
+  const [sheetOnlySelectedAssetId, setSheetOnlySelectedAssetId] = useState<string | null>(null);
   const [interactionToast, setInteractionToast] = useState("");
   const [isBackpackOpen, setIsBackpackOpen] = useState(false);
   const [vehiclePhase, setVehiclePhase] = useState<VehiclePhase>("approaching");
@@ -943,6 +945,42 @@ export default function App() {
     setNotice(`Updated spritesheet grid: ${rebuiltGrid.frameCount} frames / ${rebuiltGrid.frameWidth} x ${rebuiltGrid.frameHeight}.`);
   };
 
+  const deleteSheetOnlySpriteFrame = async (frameIndex: number) => {
+    if (sheetOnlySelectionKind !== "sprite") return;
+    if (activeSprite.frames.length <= 1) {
+      setNotice("A spritesheet needs at least one frame.");
+      return;
+    }
+
+    const asset = sheetOnlySelectedAssetId
+      ? assets.find(item => item.id === sheetOnlySelectedAssetId)
+      : assets.find(item =>
+          item.sprite.id === activeSprite.id ||
+          item.animations?.some(clip => clip.sprite.id === activeSprite.id)
+        );
+    if (!asset) {
+      setNotice("This preview is not a saved asset, so frames cannot be deleted persistently.");
+      return;
+    }
+
+    const nextSprite = deleteFrameFromSprite(activeSprite, frameIndex);
+    if (!nextSprite) return;
+    const nextAsset = replaceSpriteInAsset(asset, activeSprite.id, nextSprite);
+
+    setActiveSprite(nextSprite);
+    setActiveFrame(prev => Math.min(prev, nextSprite.frames.length - 1));
+    setAssets(prev => prev.map(item => item.id === nextAsset.id ? nextAsset : item));
+    setError(null);
+
+    try {
+      const data = await saveGameAsset(nextAsset, "Failed to save frame deletion");
+      setAssets(data.library.assets);
+      setNotice(`Deleted frame ${frameIndex + 1} and saved ${nextAsset.name}.`);
+    } catch (err: any) {
+      setError(err.message || "Failed to save frame deletion");
+    }
+  };
+
   const saveAssetMetadata = async (assetId: string) => {
     const asset = assets.find(item => item.id === assetId);
     if (!asset) {
@@ -1135,6 +1173,7 @@ export default function App() {
     setSheetOnlyHasSelection(true);
     setSheetOnlySelectionKind("sprite");
     setSheetOnlySelectionTitle(title);
+    setSheetOnlySelectedAssetId(asset?.id || null);
     setSheetColumns(previewSprite.gridColumns || Math.min(4, previewSprite.frames.length || 4));
     setSheetDataUrl(previewSprite.spritesheetPng || previewSprite.rawSpritesheetPng || null);
     if (asset) {
@@ -1151,6 +1190,7 @@ export default function App() {
     setSheetOnlyHasSelection(true);
     setSheetOnlySelectionKind("image");
     setSheetOnlySelectionTitle(title);
+    setSheetOnlySelectedAssetId(null);
     setSheetDataUrl(imageUrl);
     setNotice(`Loaded image: ${title}`);
   };
@@ -1567,6 +1607,7 @@ export default function App() {
     setSheetOnlyHasSelection(false);
     setSheetOnlySelectionKind(null);
     setSheetOnlySelectionTitle("");
+    setSheetOnlySelectedAssetId(null);
   };
 
   const returnToModePicker = () => {
@@ -1893,6 +1934,7 @@ export default function App() {
           selectionTitle={sheetOnlySelectionTitle}
           selectedSprite={sheetOnlySelectionKind === "sprite" ? activeSprite : undefined}
           sheetDataUrl={sheetDataUrl}
+          onDeleteSpriteFrame={deleteSheetOnlySpriteFrame}
           onBack={returnToModePicker}
           onGeneratePreview={() => void compileSheet()}
           onSelectImage={selectSheetOnlyImage}
@@ -1900,6 +1942,7 @@ export default function App() {
           onShowAll={() => {
             setSheetOnlyHasSelection(false);
             setSheetOnlySelectionKind(null);
+            setSheetOnlySelectedAssetId(null);
           }}
         />
         <CommunityHelp />

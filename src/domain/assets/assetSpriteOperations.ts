@@ -64,6 +64,33 @@ export function replaceSpriteInAsset(asset: GameAsset, spriteId: string, nextSpr
   };
 }
 
+type SpriteWithFrameMetadata = AnimationSprite & { frameBboxes?: number[][] };
+
+export function deleteFrameFromSprite(sprite: AnimationSprite, frameIndex: number): AnimationSprite | null {
+  if (sprite.frames.length <= 1 || frameIndex < 0 || frameIndex >= sprite.frames.length) return null;
+
+  const nextFrameCount = sprite.frames.length - 1;
+  const metadata = sprite as SpriteWithFrameMetadata;
+  const nextColumns = sprite.gridColumns
+    ? Math.min(Math.max(1, sprite.gridColumns), nextFrameCount)
+    : sprite.gridColumns;
+  const nextSprite: SpriteWithFrameMetadata = {
+    ...sprite,
+    frameCount: nextFrameCount,
+    frames: sprite.frames.filter((_, index) => index !== frameIndex),
+    gridColumns: nextColumns,
+    updatedTime: new Date().toISOString(),
+  };
+
+  if (Array.isArray(metadata.frameBboxes)) {
+    nextSprite.frameBboxes = metadata.frameBboxes.filter((_, index) => index !== frameIndex);
+  }
+
+  const policyColumns = nextColumns || Math.min(4, nextFrameCount);
+  nextSprite.adaptiveFramePolicy = `${policyColumns} columns, ${Math.ceil(nextFrameCount / Math.max(1, policyColumns))} rows, ${nextFrameCount} active frames after deleting frame ${frameIndex + 1}.`;
+  return nextSprite;
+}
+
 export function rebuildSpritesheetGridSprite({
   sprite,
   source,

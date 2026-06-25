@@ -1,6 +1,571 @@
 {
   "assets": [
     {
+      "id": "asset_red_haired_drummer_pixel_drumming_front_16f",
+      "name": "Red-haired Drummer Pixel / Front Drumming 16f",
+      "role": "character",
+      "confirmed": true,
+      "savedTime": "2026-06-25T18:48:35.274Z",
+      "updatedTime": "2026-06-25T19:06:12Z",
+      "sprite": {
+        "id": "sprite_red_haired_drummer_pixel_drumming_front_16f",
+        "characterName": "Red-haired Drummer Pixel / Front 16f",
+        "description": "16-frame front-facing pixel-art drumming loop of the referenced red-haired male character with snare drum and drumsticks.",
+        "frameCount": 16,
+        "style": "crisp front-facing pixel art character sprite, burgundy red hair, green eyes, black outfit, red cross necklace, waist chain, snare drum, transparent PNG spritesheet",
+        "prompt": "Generated with built-in image_gen from the supplied anime male turnaround reference. Request: 4x4 16-frame front-facing pixel-art sprite of the same red-haired black-clothed character drumming in place on flat #ff00ff chroma-key background; no text, no grid, no shadows.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-06-25T18:48:35.274Z",
+        "updatedTime": "2026-06-25T19:06:12Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png",
+        "rawSpritesheetPng": "/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png",
+        "rawGeneratedSpritesheetPng": "/generated/red_haired_drummer_pixel_drumming_16f_raw_chromakey.png",
+        "sourceChromaKeyPng": "/generated/red_haired_drummer_pixel_drumming_16f_raw_chromakey.png",
+        "alphaSourcePng": "/generated/red_haired_drummer_pixel_drumming_16f_alpha_source.png",
+        "generationMode": "built_in_imagegen_reference_pixel_chroma_key_4x4_drumming",
+        "artSourcePolicy": "Visible character, drum, hands, hair, outfit, and animation poses were generated as raster pixel-art spritesheet frames. Code only copied the raw image, removed chroma key, normalized cell registration, packed transparent frames, generated preview media, and wrote metadata.",
+        "qualityPolicy": "Pixel source inspected after alpha cleanup; no code-drawn facial features, clothing, hands, drum, sticks, or animation poses were added.",
+        "proportionPolicy": "One global uniform scale is used across all 16 frames; fixed front-facing camera and consistent body size are preserved.",
+        "rootAnchorPolicy": "All 16 frames are horizontally root-registered from the lower feet area; feet centroid anchored to x=128, baseline kept at y=236.",
+        "normalization": "Raw 4x4 imagegen sheet 1254x1254 -> chroma-key alpha source -> equal 4x4 cell split -> global nearest-neighbor scale 0.8153 -> fixed baseline y=236 -> feet-root horizontal centering -> 1024x1024 transparent sheet.",
+        "inputReferenceInvariant": "Preserve the supplied male character: burgundy red shaggy hair, green eyes, slim build, black button-up shirt, subtle dark red details, black pants, black belt, silver waist chain, black boots, and small red cross necklace.",
+        "fps": 8,
+        "gridColumns": 4,
+        "cellSize": 256,
+        "frameSize": [
+          256,
+          256
+        ],
+        "sheetSize": [
+          1024,
+          1024
+        ],
+        "sourceCells": [
+          [
+            0,
+            0,
+            314,
+            314
+          ],
+          [
+            314,
+            0,
+            627,
+            314
+          ],
+          [
+            627,
+            0,
+            940,
+            314
+          ],
+          [
+            940,
+            0,
+            1254,
+            314
+          ],
+          [
+            0,
+            314,
+            314,
+            627
+          ],
+          [
+            314,
+            314,
+            627,
+            627
+          ],
+          [
+            627,
+            314,
+            940,
+            627
+          ],
+          [
+            940,
+            314,
+            1254,
+            627
+          ],
+          [
+            0,
+            627,
+            314,
+            940
+          ],
+          [
+            314,
+            627,
+            627,
+            940
+          ],
+          [
+            627,
+            627,
+            940,
+            940
+          ],
+          [
+            940,
+            627,
+            1254,
+            940
+          ],
+          [
+            0,
+            940,
+            314,
+            1254
+          ],
+          [
+            314,
+            940,
+            627,
+            1254
+          ],
+          [
+            627,
+            940,
+            940,
+            1254
+          ],
+          [
+            940,
+            940,
+            1254,
+            1254
+          ]
+        ],
+        "frameBboxes": [
+          [
+            84,
+            29,
+            172,
+            236
+          ],
+          [
+            58,
+            29,
+            177,
+            236
+          ],
+          [
+            76,
+            29,
+            176,
+            236
+          ],
+          [
+            55,
+            29,
+            173,
+            236
+          ],
+          [
+            58,
+            28,
+            172,
+            236
+          ],
+          [
+            58,
+            22,
+            196,
+            236
+          ],
+          [
+            82,
+            30,
+            196,
+            236
+          ],
+          [
+            76,
+            30,
+            181,
+            236
+          ],
+          [
+            16,
+            30,
+            174,
+            236
+          ],
+          [
+            59,
+            31,
+            172,
+            236
+          ],
+          [
+            58,
+            32,
+            175,
+            236
+          ],
+          [
+            84,
+            32,
+            240,
+            236
+          ],
+          [
+            58,
+            30,
+            171,
+            236
+          ],
+          [
+            77,
+            30,
+            178,
+            236
+          ],
+          [
+            84,
+            29,
+            197,
+            236
+          ],
+          [
+            68,
+            30,
+            187,
+            236
+          ]
+        ],
+        "alignmentFix": {
+          "appliedTime": "2026-06-25T19:06:12Z",
+          "method": "per-frame horizontal shift using alpha-weighted feet/root centroid in y=190..240, target x=127.5",
+          "shiftsPx": [
+            -5,
+            -4,
+            5,
+            13,
+            -5,
+            -4,
+            5,
+            13,
+            -4,
+            -4,
+            5,
+            13,
+            -4,
+            -4,
+            4,
+            13
+          ]
+        }
+      },
+      "animations": [
+        {
+          "id": "clip_red_haired_drummer_pixel_drumming_front_loop",
+          "name": "Front Drumming 16f",
+          "actionName": "front-drumming",
+          "direction": "front",
+          "sprite": {
+            "id": "sprite_red_haired_drummer_pixel_drumming_front_16f",
+            "characterName": "Red-haired Drummer Pixel / Front 16f",
+            "description": "16-frame front-facing pixel-art drumming loop of the referenced red-haired male character with snare drum and drumsticks.",
+            "frameCount": 16,
+            "style": "crisp front-facing pixel art character sprite, burgundy red hair, green eyes, black outfit, red cross necklace, waist chain, snare drum, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen from the supplied anime male turnaround reference. Request: 4x4 16-frame front-facing pixel-art sprite of the same red-haired black-clothed character drumming in place on flat #ff00ff chroma-key background; no text, no grid, no shadows.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 0 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 256 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 512 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"256 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"512 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"768 768 256 256\" overflow=\"hidden\"><image href=\"/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-06-25T18:48:35.274Z",
+            "updatedTime": "2026-06-25T19:06:12Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png",
+            "rawSpritesheetPng": "/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png",
+            "rawGeneratedSpritesheetPng": "/generated/red_haired_drummer_pixel_drumming_16f_raw_chromakey.png",
+            "sourceChromaKeyPng": "/generated/red_haired_drummer_pixel_drumming_16f_raw_chromakey.png",
+            "alphaSourcePng": "/generated/red_haired_drummer_pixel_drumming_16f_alpha_source.png",
+            "generationMode": "built_in_imagegen_reference_pixel_chroma_key_4x4_drumming",
+            "artSourcePolicy": "Visible character, drum, hands, hair, outfit, and animation poses were generated as raster pixel-art spritesheet frames. Code only copied the raw image, removed chroma key, normalized cell registration, packed transparent frames, generated preview media, and wrote metadata.",
+            "qualityPolicy": "Pixel source inspected after alpha cleanup; no code-drawn facial features, clothing, hands, drum, sticks, or animation poses were added.",
+            "proportionPolicy": "One global uniform scale is used across all 16 frames; fixed front-facing camera and consistent body size are preserved.",
+            "rootAnchorPolicy": "All 16 frames are horizontally root-registered from the lower feet area; feet centroid anchored to x=128, baseline kept at y=236.",
+            "normalization": "Raw 4x4 imagegen sheet 1254x1254 -> chroma-key alpha source -> equal 4x4 cell split -> global nearest-neighbor scale 0.8153 -> fixed baseline y=236 -> feet-root horizontal centering -> 1024x1024 transparent sheet.",
+            "inputReferenceInvariant": "Preserve the supplied male character: burgundy red shaggy hair, green eyes, slim build, black button-up shirt, subtle dark red details, black pants, black belt, silver waist chain, black boots, and small red cross necklace.",
+            "fps": 8,
+            "gridColumns": 4,
+            "cellSize": 256,
+            "frameSize": [
+              256,
+              256
+            ],
+            "sheetSize": [
+              1024,
+              1024
+            ],
+            "sourceCells": [
+              [
+                0,
+                0,
+                314,
+                314
+              ],
+              [
+                314,
+                0,
+                627,
+                314
+              ],
+              [
+                627,
+                0,
+                940,
+                314
+              ],
+              [
+                940,
+                0,
+                1254,
+                314
+              ],
+              [
+                0,
+                314,
+                314,
+                627
+              ],
+              [
+                314,
+                314,
+                627,
+                627
+              ],
+              [
+                627,
+                314,
+                940,
+                627
+              ],
+              [
+                940,
+                314,
+                1254,
+                627
+              ],
+              [
+                0,
+                627,
+                314,
+                940
+              ],
+              [
+                314,
+                627,
+                627,
+                940
+              ],
+              [
+                627,
+                627,
+                940,
+                940
+              ],
+              [
+                940,
+                627,
+                1254,
+                940
+              ],
+              [
+                0,
+                940,
+                314,
+                1254
+              ],
+              [
+                314,
+                940,
+                627,
+                1254
+              ],
+              [
+                627,
+                940,
+                940,
+                1254
+              ],
+              [
+                940,
+                940,
+                1254,
+                1254
+              ]
+            ],
+            "frameBboxes": [
+              [
+                84,
+                29,
+                172,
+                236
+              ],
+              [
+                58,
+                29,
+                177,
+                236
+              ],
+              [
+                76,
+                29,
+                176,
+                236
+              ],
+              [
+                55,
+                29,
+                173,
+                236
+              ],
+              [
+                58,
+                28,
+                172,
+                236
+              ],
+              [
+                58,
+                22,
+                196,
+                236
+              ],
+              [
+                82,
+                30,
+                196,
+                236
+              ],
+              [
+                76,
+                30,
+                181,
+                236
+              ],
+              [
+                16,
+                30,
+                174,
+                236
+              ],
+              [
+                59,
+                31,
+                172,
+                236
+              ],
+              [
+                58,
+                32,
+                175,
+                236
+              ],
+              [
+                84,
+                32,
+                240,
+                236
+              ],
+              [
+                58,
+                30,
+                171,
+                236
+              ],
+              [
+                77,
+                30,
+                178,
+                236
+              ],
+              [
+                84,
+                29,
+                197,
+                236
+              ],
+              [
+                68,
+                30,
+                187,
+                236
+              ]
+            ],
+            "alignmentFix": {
+              "appliedTime": "2026-06-25T19:06:12Z",
+              "method": "per-frame horizontal shift using alpha-weighted feet/root centroid in y=190..240, target x=127.5",
+              "shiftsPx": [
+                -5,
+                -4,
+                5,
+                13,
+                -5,
+                -4,
+                5,
+                13,
+                -4,
+                -4,
+                5,
+                13,
+                -4,
+                -4,
+                4,
+                13
+              ]
+            }
+          },
+          "frameCount": 16,
+          "fps": 8,
+          "loop": true,
+          "spritesheetPng": "/generated/red_haired_drummer_pixel_drumming_front_16f_sheet.png",
+          "gridColumns": 4,
+          "frameSize": [
+            256,
+            256
+          ]
+        }
+      ]
+    },
+    {
       "id": "asset_silver_bob_schoolgirl_pixel_topdown_wasd",
       "name": "Silver Bob Schoolgirl Pixel / Top-down WASD",
       "role": "player",
@@ -6718,5 +7283,5 @@
       }
     }
   ],
-  "updatedTime": "2026-06-23T22:57:49.513Z"
+  "updatedTime": "2026-06-25T18:48:35.274Z"
 }

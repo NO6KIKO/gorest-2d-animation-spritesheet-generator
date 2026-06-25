@@ -128,7 +128,9 @@
 .sheet-only-viewer {
   min-height: 100vh;
   display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 500px);
   grid-template-rows: minmax(0, 1fr) auto;
+  gap: 22px 46px;
   padding: 86px 34px 26px;
   background: #fff;
 }
@@ -155,7 +157,178 @@
   transform-origin: 0 0;
 }
 
+.sheet-only-frame-svg {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.sheet-only-frame-svg svg,
+.sheet-only-frame-svg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.sheet-only-slice-panel {
+  min-width: 0;
+  align-self: center;
+  display: grid;
+  gap: 10px;
+}
+
+.sheet-only-source-header,
+.sheet-only-frames-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #202020;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.sheet-only-source-header span,
+.sheet-only-frames-header span {
+  color: #6a7179;
+  font-size: 11px;
+}
+
+.sheet-only-source-preview {
+  position: relative;
+  width: 100%;
+  max-height: 296px;
+  overflow: hidden;
+  border: 1px solid #c8d0d8;
+  background-color: #fff;
+}
+
+.sheet-only-source-preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.sheet-only-source-active-frame {
+  position: absolute;
+  border: 2px solid #202020;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .8);
+  pointer-events: none;
+}
+
+.sheet-only-frames-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  max-height: min(340px, 38vh);
+  overflow-y: auto;
+  padding-right: 3px;
+}
+
+.sheet-only-frame-tile {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: minmax(0, auto) 28px;
+  border: 1px solid #d3d9df;
+  background: #fff;
+}
+
+.sheet-only-frame-tile.active {
+  border-color: #202020;
+  box-shadow: inset 0 0 0 1px #202020;
+}
+
+.sheet-only-frame-select {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 4px;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(45deg, rgba(208, 218, 228, .52) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(208, 218, 228, .52) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(208, 218, 228, .52) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(208, 218, 228, .52) 75%);
+  background-color: #fff;
+  background-position: 0 0, 0 6px, 6px -6px, -6px 0;
+  background-size: 12px 12px;
+}
+
+.sheet-only-frame-select:hover {
+  transform: none;
+}
+
+.sheet-only-frame-select > span {
+  position: absolute;
+  inset: 4px;
+  display: block;
+}
+
+.sheet-only-frame-select svg,
+.sheet-only-frame-select img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.sheet-only-frame-thumb {
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: auto;
+}
+
+.sheet-only-frame-meta {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 4px;
+  padding: 0 5px 0 8px;
+  border-top: 1px solid #e1e5ea;
+}
+
+.sheet-only-frame-meta span {
+  min-width: 0;
+  overflow: hidden;
+  color: #5f6873;
+  font-size: 11px;
+  font-weight: 850;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-only-frame-meta button {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #202020;
+}
+
+.sheet-only-frame-meta button:hover {
+  background: #f0f2f5;
+  transform: none;
+}
+
+.sheet-only-frame-meta button:disabled {
+  color: #b8c0c8;
+  cursor: not-allowed;
+}
+
 .sheet-only-controls {
+  grid-column: 1 / -1;
   width: min(100%, 1040px);
   min-height: 58px;
   justify-self: center;
@@ -388,6 +561,8 @@
 
 @media (max-width: 760px) {
   .sheet-only-viewer {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
     padding: 76px 18px 22px;
   }
 
@@ -399,6 +574,15 @@
   .sheet-only-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
+  }
+
+  .sheet-only-slice-panel {
+    align-self: stretch;
+  }
+
+  .sheet-only-frames-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 360px;
   }
 
   .sheet-only-preview-copy,
