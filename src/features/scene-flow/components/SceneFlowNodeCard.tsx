@@ -1,4 +1,4 @@
-import { type Key, type MouseEvent, type PointerEvent } from "react";
+import { type CSSProperties, type Key, type MouseEvent, type PointerEvent } from "react";
 import type { SceneFlowNode } from "../types";
 
 type SceneFlowNodeCardProps = {
@@ -14,6 +14,19 @@ type SceneFlowNodeCardProps = {
   onStartNodeDrag: (event: PointerEvent<HTMLElement>, node: SceneFlowNode) => void;
   onStartResize: (event: PointerEvent<HTMLButtonElement>, node: SceneFlowNode, edge: "left" | "right") => void;
 };
+
+function previewLayerStyle(node: SceneFlowNode, layer: NonNullable<SceneFlowNode["previewLayers"]>[number]): CSSProperties {
+  const previewWidth = Math.max(1, node.previewWidth || 1);
+  const previewHeight = Math.max(1, node.previewHeight || 1);
+  return {
+    height: `${layer.height / previewHeight * 100}%`,
+    left: `${layer.x / previewWidth * 100}%`,
+    opacity: layer.opacity,
+    top: `${layer.y / previewHeight * 100}%`,
+    width: `${layer.width / previewWidth * 100}%`,
+    zIndex: layer.zIndex,
+  };
+}
 
 export function SceneFlowNodeCard({
   isMoving,
@@ -31,6 +44,7 @@ export function SceneFlowNodeCard({
     <article
       className={[
         "scene-flow-node",
+        node.kind === "start-ui" ? "start-ui" : "",
         isSelected ? "selected" : "",
         node.isCurrent ? "current" : "",
         node.isPlaceholder ? "placeholder" : "",
@@ -60,12 +74,27 @@ export function SceneFlowNodeCard({
         }}
       >
         <span
-          className="scene-node-preview"
+          className={`scene-node-preview ${node.previewLayers?.length ? "layered" : ""}`}
           style={{
-            backgroundImage: node.thumbnail ? `url("${node.thumbnail}")` : undefined,
+            backgroundImage: !node.previewLayers?.length && node.thumbnail ? `url("${node.thumbnail}")` : undefined,
             backgroundColor: node.backgroundColor,
           }}
-        />
+        >
+          {Boolean(node.previewLayers?.length) && (
+            <span className="scene-node-preview-layer-stage">
+              {node.previewLayers?.map(layer => (
+                <img
+                  key={layer.id}
+                  alt=""
+                  className="scene-node-preview-layer"
+                  draggable={false}
+                  src={layer.imageUrl}
+                  style={previewLayerStyle(node, layer)}
+                />
+              ))}
+            </span>
+          )}
+        </span>
         <strong>{node.title}</strong>
         <span>{node.subtitle}</span>
       </button>

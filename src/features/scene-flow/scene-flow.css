@@ -61,6 +61,13 @@
 .scene-flow-node.current:not(.selected) {
   border-color: #222;
 }
+.scene-flow-node.start-ui {
+  border-color: #16202a;
+  background: #fdfdfb;
+}
+.scene-flow-node.start-ui:not(.selected) {
+  box-shadow: inset 0 0 0 1px rgba(22, 32, 42, .14);
+}
 .scene-flow-node.moving {
   box-shadow: inset 0 0 0 1px #2f2bb8, 0 14px 28px rgba(23, 32, 42, .18);
   cursor: grabbing;
@@ -99,12 +106,29 @@
 }
 .scene-node-preview {
   display: block;
+  position: relative;
   width: 100%;
   height: 82px;
   border: 1px solid #333;
   background-size: cover;
   background-position: center;
   filter: saturate(.82) contrast(.95);
+  overflow: hidden;
+}
+.scene-node-preview.layered {
+  background: #10151a;
+  filter: saturate(.9) contrast(1);
+}
+.scene-node-preview-layer-stage {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.scene-node-preview-layer {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
 }
 .scene-flow-node strong,
 .scene-flow-node span {

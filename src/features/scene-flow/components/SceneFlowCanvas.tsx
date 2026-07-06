@@ -10,10 +10,12 @@ type SceneFlowCanvasProps = {
   isSavingStartUi?: boolean;
   nodes: SceneFlowNode[];
   scenes: GameScene[];
-  startUiSettings: GameStartUiSettings;
   onCreateScene: () => void | Promise<void>;
+  onCreateStartUi: () => void | Promise<void>;
   onDeleteScene: (node: SceneFlowNode) => void | Promise<void>;
+  onDeleteStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
   onDuplicateScene: (node: SceneFlowNode) => void | Promise<void>;
+  onDuplicateStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
   onOpenScene: (node: SceneFlowNode) => void;
   onPasteScene: (scene: GameScene) => void | Promise<void>;
   onSaveCurrent: () => void;
@@ -41,10 +43,12 @@ export function SceneFlowCanvas({
   isSavingStartUi = false,
   nodes,
   scenes,
-  startUiSettings,
   onCreateScene,
+  onCreateStartUi,
   onDeleteScene,
+  onDeleteStartUi,
   onDuplicateScene,
+  onDuplicateStartUi,
   onOpenScene,
   onPasteScene,
   onSaveCurrent,
@@ -53,7 +57,7 @@ export function SceneFlowCanvas({
 }: SceneFlowCanvasProps) {
   const [sceneClipboard, setSceneClipboard] = useState<GameScene | null>(null);
   const [contextMenu, setContextMenu] = useState<SceneFlowContextMenu | null>(null);
-  const [isStartUiPanelOpen, setIsStartUiPanelOpen] = useState(false);
+  const [editingStartUi, setEditingStartUi] = useState<GameStartUiSettings | null>(null);
   const {
     activeSelectedNodeId,
     consumeSuppressedClick,
@@ -107,6 +111,10 @@ export function SceneFlowCanvas({
   };
 
   const duplicateNode = async (node = selectedNode) => {
+    if (node?.startUi) {
+      await onDuplicateStartUi(node.startUi);
+      return;
+    }
     if (!node?.scene || node.isPlaceholder) {
       onStatus("Select a scene to duplicate.");
       return;
@@ -115,6 +123,10 @@ export function SceneFlowCanvas({
   };
 
   const deleteNode = async (node = selectedNode) => {
+    if (node?.startUi) {
+      await onDeleteStartUi(node.startUi);
+      return;
+    }
     if (!node?.scene || node.isPlaceholder) {
       onStatus("Select a scene to delete.");
       return;
@@ -127,6 +139,14 @@ export function SceneFlowCanvas({
     event.stopPropagation();
     setSelectedNodeId(node.id);
     setContextMenu({ x: event.clientX, y: event.clientY, nodeId: node.id });
+  };
+
+  const openNode = (node: SceneFlowNode) => {
+    if (node.startUi) {
+      setEditingStartUi(node.startUi);
+      return;
+    }
+    onOpenScene(node);
   };
 
   useEffect(() => {
@@ -156,6 +176,13 @@ export function SceneFlowCanvas({
       }
 
       if ((event.key === "Backspace" || event.key === "Delete") && selectedNode?.scene && !selectedNode.isPlaceholder) {
+        event.preventDefault();
+        event.stopPropagation();
+        void deleteNode();
+        return;
+      }
+
+      if ((event.key === "Backspace" || event.key === "Delete") && selectedNode?.startUi) {
         event.preventDefault();
         event.stopPropagation();
         void deleteNode();
@@ -191,7 +218,7 @@ export function SceneFlowCanvas({
         <button type="button" className="ghost-button" onClick={() => void onCreateScene()}>
           <Plus size={16} /> New Scene
         </button>
-        <button type="button" className="ghost-button" onClick={() => setIsStartUiPanelOpen(true)}>
+        <button type="button" className="ghost-button" onClick={() => void onCreateStartUi()}>
           <Monitor size={16} /> Start UI
         </button>
       </div>
@@ -217,7 +244,7 @@ export function SceneFlowCanvas({
               node={node}
               onConsumeSuppressedClick={consumeSuppressedClick}
               onContextMenu={openNodeMenu}
-              onOpen={onOpenScene}
+              onOpen={openNode}
               onSelect={setSelectedNodeId}
               onStartNodeDrag={startNodeDrag}
               onStartResize={startNodeResize}
@@ -266,7 +293,7 @@ export function SceneFlowCanvas({
             </button>
             <button
               type="button"
-              disabled={!contextNode?.scene || contextNode.isPlaceholder}
+              disabled={!contextNode || contextNode.isPlaceholder || (!contextNode.scene && !contextNode.startUi)}
               onClick={() => {
                 void duplicateNode(contextNode);
                 setContextMenu(null);
@@ -278,7 +305,7 @@ export function SceneFlowCanvas({
             <button
               type="button"
               className="danger"
-              disabled={!contextNode?.scene || contextNode.isPlaceholder}
+              disabled={!contextNode || contextNode.isPlaceholder || (!contextNode.scene && !contextNode.startUi)}
               onClick={() => {
                 void deleteNode(contextNode);
                 setContextMenu(null);
@@ -290,20 +317,20 @@ export function SceneFlowCanvas({
         )}
 
         <div className="scene-flow-empty-note">
-          {`${nodes.length} scenes in this canvas`}
+          {`${nodes.length} cards in this canvas`}
         </div>
       </div>
 
-      {isStartUiPanelOpen && (
+      {editingStartUi && (
         <SceneStartUiPanel
           isSaving={isSavingStartUi}
           scenes={scenes}
-          settings={startUiSettings}
-          onClose={() => setIsStartUiPanelOpen(false)}
+          settings={editingStartUi}
+          onClose={() => setEditingStartUi(null)}
           onSave={async settings => {
             try {
               await onSaveStartUi(settings);
-              setIsStartUiPanelOpen(false);
+              setEditingStartUi(null);
             } catch {
               // App-level error state owns the visible failure message.
             }

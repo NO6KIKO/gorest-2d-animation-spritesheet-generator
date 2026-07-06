@@ -8,6 +8,7 @@ type GameLibraryMutationResponse = {
   asset?: GameAsset;
   scene?: GameScene;
   startUi?: GameStartUiSettings;
+  startUis?: GameStartUiSettings[];
   library?: Partial<GameLibrary>;
   error?: string;
 };
@@ -15,13 +16,20 @@ type GameLibraryMutationResponse = {
 const EMPTY_LIBRARY: GameLibrary = {
   assets: [],
   scenes: [],
+  startUis: [],
 };
 
 function normalizeGameLibrary(data?: Partial<GameLibrary>): GameLibrary {
+  const startUis = Array.isArray(data?.startUis)
+    ? data.startUis.filter((item): item is GameStartUiSettings => Boolean(item && typeof item === "object"))
+    : data?.startUi && typeof data.startUi === "object"
+      ? [data.startUi]
+      : [];
   return {
     assets: Array.isArray(data?.assets) ? data.assets : [],
     scenes: Array.isArray(data?.scenes) ? data.scenes : [],
-    startUi: data?.startUi && typeof data.startUi === "object" ? data.startUi : undefined,
+    startUi: data?.startUi && typeof data.startUi === "object" ? data.startUi : startUis[0],
+    startUis,
   };
 }
 
@@ -29,6 +37,7 @@ async function parseGameLibraryMutation(response: Response, fallbackError: strin
   asset?: GameAsset;
   scene?: GameScene;
   startUi?: GameStartUiSettings;
+  startUis?: GameStartUiSettings[];
   library: GameLibrary;
 }> {
   const data = await response.json().catch(() => ({})) as GameLibraryMutationResponse;
@@ -37,6 +46,7 @@ async function parseGameLibraryMutation(response: Response, fallbackError: strin
     asset: data.asset,
     scene: data.scene,
     startUi: data.startUi,
+    startUis: data.startUis,
     library: normalizeGameLibrary(data.library),
   };
 }
@@ -82,6 +92,11 @@ export async function saveGameStartUi(startUi: GameStartUiSettings, fallbackErro
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ startUi }),
   });
+  return parseGameLibraryMutation(response, fallbackError);
+}
+
+export async function deleteGameStartUi(startUiId: string, fallbackError = "Failed to delete Start UI") {
+  const response = await fetch(`/api/game-library/start-ui/${encodeURIComponent(startUiId)}`, { method: "DELETE" });
   return parseGameLibraryMutation(response, fallbackError);
 }
 

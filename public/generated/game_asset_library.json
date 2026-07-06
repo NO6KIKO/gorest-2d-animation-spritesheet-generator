@@ -8519,7 +8519,6 @@
       }
     }
   ],
-  "updatedTime": "2026-07-06T07:02:25.212Z",
   "startUi": {
     "id": "start_ui_smile_for_graduates",
     "enabled": true,
@@ -8528,7 +8527,6 @@
     "theme": "horror",
     "designWidth": 1672,
     "designHeight": 941,
-    "initialSceneId": "scene_dark_classroom_psych_ward_topdown",
     "backgroundImageUrl": "/generated/start_ui_smile_graduates_background.png",
     "layers": [
       {
@@ -8614,6 +8612,106 @@
     "sfxVolume": 80,
     "fullscreenToggle": true,
     "languageSelector": false,
-    "updatedTime": "2026-07-06T07:02:25.212Z"
-  }
+    "initialSceneId": "scene_dark_classroom_psych_ward_topdown",
+    "updatedTime": "2026-07-06T14:58:59.762Z"
+  },
+  "startUis": [
+    {
+      "id": "start_ui_smile_for_graduates",
+      "enabled": true,
+      "title": "Smile for graduates",
+      "subtitle": "",
+      "theme": "horror",
+      "designWidth": 1672,
+      "designHeight": 941,
+      "backgroundImageUrl": "/generated/start_ui_smile_graduates_background.png",
+      "layers": [
+        {
+          "id": "start_ui_layer_background",
+          "name": "Background",
+          "kind": "background",
+          "imageUrl": "/generated/start_ui_smile_graduates_background.png",
+          "visible": true,
+          "x": 0,
+          "y": 0,
+          "width": 1672,
+          "height": 941,
+          "opacity": 1,
+          "zIndex": 0,
+          "locked": true
+        },
+        {
+          "id": "start_ui_layer_title",
+          "name": "Title",
+          "kind": "title",
+          "imageUrl": "/generated/start_ui_smile_graduates_title_layer.png",
+          "visible": true,
+          "x": 402,
+          "y": 52,
+          "width": 796,
+          "height": 396,
+          "opacity": 1,
+          "zIndex": 10
+        },
+        {
+          "id": "start_ui_layer_new_game",
+          "name": "New Game",
+          "kind": "menu",
+          "imageUrl": "/generated/start_ui_smile_graduates_new_game_layer.png",
+          "visible": true,
+          "x": 542,
+          "y": 427,
+          "width": 581,
+          "height": 142,
+          "opacity": 1,
+          "zIndex": 20
+        },
+        {
+          "id": "start_ui_layer_load_game",
+          "name": "Load Game",
+          "kind": "menu",
+          "imageUrl": "/generated/start_ui_smile_graduates_load_game_layer.png",
+          "visible": true,
+          "x": 542,
+          "y": 570,
+          "width": 581,
+          "height": 142,
+          "opacity": 1,
+          "zIndex": 30
+        },
+        {
+          "id": "start_ui_layer_option",
+          "name": "Option",
+          "kind": "menu",
+          "imageUrl": "/generated/start_ui_smile_graduates_option_layer.png",
+          "visible": true,
+          "x": 542,
+          "y": 715,
+          "width": 581,
+          "height": 148,
+          "opacity": 1,
+          "zIndex": 40
+        }
+      ],
+      "primaryActionLabel": "New Game",
+      "continueActionLabel": "Continue",
+      "loadActionLabel": "Load Game",
+      "settingsActionLabel": "Option",
+      "quitActionLabel": "Quit",
+      "showContinue": false,
+      "showLoadGame": true,
+      "showSettings": true,
+      "showQuit": false,
+      "saveSlots": 3,
+      "autosave": true,
+      "confirmNewGame": true,
+      "musicVolume": 70,
+      "sfxVolume": 80,
+      "fullscreenToggle": true,
+      "languageSelector": false,
+      "initialSceneId": "scene_dark_classroom_psych_ward_topdown",
+      "updatedTime": "2026-07-06T14:58:59.762Z"
+    }
+  ],
+  "updatedTime": "2026-07-06T15:29:32.496Z"
 }

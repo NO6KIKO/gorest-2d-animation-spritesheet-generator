@@ -155,7 +155,7 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
     setNodeDrag(currentDrag => {
       if (currentDrag?.moved) {
         pushLayoutHistory(currentDrag.startLayouts);
-        onStatus("Scene moved.");
+        onStatus("Card moved.");
       }
       return null;
     });
@@ -229,7 +229,7 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
     setNodeResize(currentResize => {
       if (currentResize?.moved) {
         pushLayoutHistory(currentResize.startLayouts);
-        onStatus("Scene width adjusted.");
+        onStatus("Card width adjusted.");
       }
       return null;
     });

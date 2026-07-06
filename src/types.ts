@@ -255,6 +255,7 @@ export interface GameLibrary {
   assets: GameAsset[];
   scenes: GameScene[];
   startUi?: GameStartUiSettings;
+  startUis?: GameStartUiSettings[];
   updatedTime?: string;
 }
 

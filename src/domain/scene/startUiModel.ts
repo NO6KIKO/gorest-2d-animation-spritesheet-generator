@@ -154,3 +154,16 @@ export function normalizeStartUiSettings(
     sfxVolume: Math.max(0, Math.min(100, Math.round(settings?.sfxVolume ?? DEFAULT_START_UI_SETTINGS.sfxVolume))),
   };
 }
+
+export function normalizeStartUiCollection(
+  startUis?: Partial<GameStartUiSettings>[],
+  fallbackStartUi?: Partial<GameStartUiSettings>,
+  scenes: GameScene[] = []
+): GameStartUiSettings[] {
+  const source = Array.isArray(startUis) && startUis.length
+    ? startUis
+    : fallbackStartUi
+      ? [fallbackStartUi]
+      : [];
+  return source.map(settings => normalizeStartUiSettings(settings, scenes));
+}

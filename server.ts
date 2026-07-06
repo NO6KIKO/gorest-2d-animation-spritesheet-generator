@@ -98,7 +98,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use("/generated", express.static(GENERATED_DIR));
 
 function readGameLibrary() {
-  const empty = { assets: [], scenes: [], startUi: undefined, updatedTime: new Date().toISOString() };
+  const empty = { assets: [], scenes: [], startUi: undefined, startUis: [], updatedTime: new Date().toISOString() };
   try {
     if (!fs.existsSync(GAME_LIBRARY_PATH)) {
   console.warn('Game asset library not found, returning empty library.');
@@ -106,10 +106,17 @@ function readGameLibrary() {
 }
     const raw = fs.readFileSync(GAME_LIBRARY_PATH, "utf-8").replace(/^\uFEFF/, "");
     const parsed = JSON.parse(raw);
+    const startUi = parsed.startUi && typeof parsed.startUi === "object" ? parsed.startUi : undefined;
+    const startUis = Array.isArray(parsed.startUis)
+      ? parsed.startUis.filter((item: any) => item && typeof item === "object")
+      : startUi
+        ? [startUi]
+        : [];
     return {
       assets: Array.isArray(parsed.assets) ? parsed.assets : [],
       scenes: Array.isArray(parsed.scenes) ? parsed.scenes : [],
-      startUi: parsed.startUi && typeof parsed.startUi === "object" ? parsed.startUi : undefined,
+      startUi: startUi || startUis[0],
+      startUis,
       updatedTime: parsed.updatedTime || empty.updatedTime
     };
   } catch (error) {
@@ -835,9 +842,23 @@ app.post("/api/game-library/start-ui", (req, res) => {
     id: typeof startUi.id === "string" && startUi.id ? startUi.id : "start_ui_main",
     updatedTime: new Date().toISOString()
   };
-  library.startUi = normalizedStartUi;
+  const existingStartUis = Array.isArray(library.startUis) ? library.startUis : [];
+  const existingIndex = existingStartUis.findIndex((item: any) => item?.id === normalizedStartUi.id);
+  library.startUis = existingIndex >= 0
+    ? existingStartUis.map((item: any, index: number) => index === existingIndex ? normalizedStartUi : item)
+    : [...existingStartUis, normalizedStartUi];
+  library.startUi = library.startUis[0] || normalizedStartUi;
   writeGameLibrary(library);
-  res.json({ startUi: normalizedStartUi, library });
+  res.json({ startUi: normalizedStartUi, startUis: library.startUis, library });
+});
+
+app.delete("/api/game-library/start-ui/:id", (req, res) => {
+  const library = readGameLibrary();
+  const existingStartUis = Array.isArray(library.startUis) ? library.startUis : [];
+  library.startUis = existingStartUis.filter((item: any) => item?.id !== req.params.id);
+  library.startUi = library.startUis[0];
+  writeGameLibrary(library);
+  res.json({ startUi: library.startUi, startUis: library.startUis, library });
 });
 
 app.delete("/api/game-library/assets/:id", (req, res) => {
