@@ -3,23 +3,41 @@ import type { SceneLightingSettings } from "../../types";
 
 type SceneGlobalControlsProps = {
   cameraMax: number;
+  cameraMaxY: number;
   cameraX: number;
+  cameraY: number;
   lighting: SceneLightingSettings;
+  sceneHeight: number;
+  sceneWidth: number;
+  viewportHeight: number;
+  viewportWidth: number;
   onCameraXChange: (cameraX: number) => void;
+  onCameraYChange: (cameraY: number) => void;
+  onEnableFollowView: () => void;
   onLightingChange: (patch: Partial<SceneLightingSettings>) => void;
 };
 
 export const SceneGlobalControls = forwardRef<HTMLDivElement, SceneGlobalControlsProps>(function SceneGlobalControls({
   cameraMax,
+  cameraMaxY,
   cameraX,
+  cameraY,
   lighting,
+  sceneHeight,
+  sceneWidth,
+  viewportHeight,
+  viewportWidth,
   onCameraXChange,
+  onCameraYChange,
+  onEnableFollowView,
   onLightingChange,
 }, ref) {
+  const hasFollowScrollRoom = cameraMax > 0 || cameraMaxY > 0;
+
   return (
     <div ref={ref} className="scene-global-controls" aria-label="Scene global controls">
-      <label>
-        <span>Camera X {Math.round(cameraX)} / {cameraMax}</span>
+      <label className={hasFollowScrollRoom ? "" : "camera-follow-locked"}>
+        <span>{hasFollowScrollRoom ? `Camera X ${Math.round(cameraX)} / ${cameraMax}` : `Follow locked: view ${Math.round(viewportWidth)}x${Math.round(viewportHeight)} / world ${Math.round(sceneWidth)}x${Math.round(sceneHeight)}`}</span>
         <input
           type="range"
           min="0"
@@ -28,7 +46,25 @@ export const SceneGlobalControls = forwardRef<HTMLDivElement, SceneGlobalControl
           value={cameraX}
           onChange={event => onCameraXChange(Number(event.target.value))}
         />
+        {!hasFollowScrollRoom && (sceneWidth > viewportWidth - 1 || sceneHeight > viewportHeight - 1) && (
+          <button type="button" className="camera-follow-button" onClick={onEnableFollowView}>
+            Enable Follow View
+          </button>
+        )}
       </label>
+      {hasFollowScrollRoom && (
+        <label>
+          <span>Camera Y {Math.round(cameraY)} / {cameraMaxY}</span>
+          <input
+            type="range"
+            min="0"
+            max={cameraMaxY}
+            step="1"
+            value={cameraY}
+            onChange={event => onCameraYChange(Number(event.target.value))}
+          />
+        </label>
+      )}
       <label>
         <span>Global Brightness {lighting.brightness.toFixed(2)}</span>
         <input

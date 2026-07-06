@@ -1,9 +1,13 @@
 import { Eye } from "lucide-react";
+import { isAudioZoneInteraction, isCameraZoneInteraction, isDialogueZoneInteraction, isLightZoneInteraction } from "../../domain/scene/sceneModel";
 import type {
   GameAsset,
   GameScene,
+  InteractionCameraMode,
   InteractionPreset,
+  InteractionLightBlendMode,
   InteractionPromptStyle,
+  InteractionZoneShape,
   LayerInteractionSettings,
   SceneLayer,
 } from "../../types";
@@ -37,6 +41,12 @@ export function LayerInteractionControls({
   onApplyPreset,
   onUpdateInteraction,
 }: LayerInteractionControlsProps) {
+  const isLightZone = isLightZoneInteraction(interaction);
+  const isAudioZone = isAudioZoneInteraction(interaction);
+  const isCameraZone = isCameraZoneInteraction(interaction);
+  const isDialogueZone = isDialogueZoneInteraction(interaction);
+  const cameraMode = interaction?.cameraMode || "room-lock";
+
   return (
     <div className="interaction-controls">
       <div className="section-title compact"><Eye size={15} /> Interaction Preset</div>
@@ -70,6 +80,7 @@ export function LayerInteractionControls({
               <select value={interaction.triggerMode || "near-click"} onChange={event => onUpdateInteraction({ triggerMode: event.target.value as LayerInteractionSettings["triggerMode"] })}>
                 <option value="near-click">Near + Click Eye</option>
                 <option value="near-key">Near + Key</option>
+                <option value="auto">Always Active</option>
                 <option value="inventory">Inventory State</option>
                 <option value="state">Scene State</option>
               </select>
@@ -83,9 +94,137 @@ export function LayerInteractionControls({
                 <option value="pickup-item">Pickup Item</option>
                 <option value="scene-link">Door / Scene Link</option>
                 <option value="set-state">Set State</option>
+                <option value="light-zone">Light Zone</option>
+                <option value="play-audio">Play Audio</option>
+                <option value="camera-focus">Camera Zone</option>
+                <option value="dialogue">Dialogue</option>
               </select>
             </div>
           </div>
+          {isLightZone && (
+            <>
+              <div className="section-title compact">Light Zone</div>
+              <div className="two-col">
+                <div>
+                  <label>Light Color</label>
+                  <input type="color" value={interaction.lightColor || "#f4d38a"} onChange={event => onUpdateInteraction({ lightColor: event.target.value })} />
+                </div>
+                <div>
+                  <label>Zone Shape</label>
+                  <select value={interaction.zoneShape || "circle"} onChange={event => onUpdateInteraction({ zoneShape: event.target.value as InteractionZoneShape })}>
+                    <option value="circle">Circle / Ellipse</option>
+                    <option value="rect">Soft Rect</option>
+                  </select>
+                </div>
+              </div>
+              <label>Light Intensity {(interaction.lightIntensity ?? 0.65).toFixed(2)}</label>
+              <input type="range" min="0" max="1.4" step="0.01" value={interaction.lightIntensity ?? 0.65} onChange={event => onUpdateInteraction({ lightIntensity: Number(event.target.value) })} />
+              <label>Light Falloff {(interaction.lightFalloff ?? 0.75).toFixed(2)}</label>
+              <input type="range" min="0.35" max="0.95" step="0.01" value={interaction.lightFalloff ?? 0.75} onChange={event => onUpdateInteraction({ lightFalloff: Number(event.target.value) })} />
+              <div className="two-col">
+                <div>
+                  <label>Blend Mode</label>
+                  <select value={interaction.lightBlendMode || "screen"} onChange={event => onUpdateInteraction({ lightBlendMode: event.target.value as InteractionLightBlendMode })}>
+                    <option value="screen">Screen</option>
+                    <option value="plus-lighter">Plus Lighter</option>
+                    <option value="normal">Normal</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Attach To Layer</label>
+                  <select value={interaction.lightAttachToLayerId || ""} onChange={event => onUpdateInteraction({ lightAttachToLayerId: event.target.value || undefined })}>
+                    <option value="">Zone position</option>
+                    {visualLayers.map(item => (
+                      <option key={item.id} value={item.id}>{item.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <label>Flicker {(interaction.lightFlicker || 0).toFixed(2)}</label>
+              <input type="range" min="0" max="1" step="0.01" value={interaction.lightFlicker || 0} onChange={event => onUpdateInteraction({ lightFlicker: Number(event.target.value) })} />
+            </>
+          )}
+          {isAudioZone && (
+            <>
+              <div className="section-title compact">Audio Zone</div>
+              <label>Audio Label</label>
+              <input value={interaction.audioLabel || ""} onChange={event => onUpdateInteraction({ audioLabel: event.target.value })} placeholder="Hallway hum" />
+              <label>Audio URL</label>
+              <input value={interaction.audioUrl || ""} onChange={event => onUpdateInteraction({ audioUrl: event.target.value })} placeholder="/generated/audio/hallway-hum.mp3" />
+              <label>Volume {(interaction.audioVolume ?? 0.7).toFixed(2)}</label>
+              <input type="range" min="0" max="1" step="0.01" value={interaction.audioVolume ?? 0.7} onChange={event => onUpdateInteraction({ audioVolume: Number(event.target.value) })} />
+              <label className="checkbox-row">
+                <input type="checkbox" checked={Boolean(interaction.audioLoop)} onChange={event => onUpdateInteraction({ audioLoop: event.target.checked })} />
+                Loop audio
+              </label>
+            </>
+          )}
+          {isCameraZone && (
+            <>
+              <div className="section-title compact">Camera Zone</div>
+              <label>Camera Mode</label>
+              <select value={cameraMode} onChange={event => onUpdateInteraction({ cameraMode: event.target.value as InteractionCameraMode })}>
+                <option value="room-lock">Room Lock</option>
+                <option value="focus">Focus</option>
+                <option value="pan">Pan</option>
+                <option value="zoom">Zoom</option>
+                <option value="shake">Shake</option>
+                <option value="return-player">Return To Player</option>
+              </select>
+              <div className="two-col">
+                <div>
+                  <label>Target Camera X</label>
+                  <input type="number" value={Math.round(interaction.cameraTargetX ?? selectedLayer.x)} onChange={event => onUpdateInteraction({ cameraTargetX: Number(event.target.value) })} />
+                </div>
+                <div>
+                  <label>Target Camera Y</label>
+                  <input type="number" value={Math.round(interaction.cameraTargetY ?? selectedLayer.y)} onChange={event => onUpdateInteraction({ cameraTargetY: Number(event.target.value) })} />
+                </div>
+              </div>
+              <div className="two-col">
+                <div>
+                  <label>Duration MS</label>
+                  <input type="number" min="0" step="50" value={interaction.cameraDurationMs || 450} onChange={event => onUpdateInteraction({ cameraDurationMs: Number(event.target.value) })} />
+                </div>
+              </div>
+              {cameraMode === "zoom" && (
+                <>
+                  <label>Zoom Scale {(interaction.cameraZoom ?? 1.12).toFixed(2)}</label>
+                  <input type="range" min="1" max="1.6" step="0.01" value={interaction.cameraZoom ?? 1.12} onChange={event => onUpdateInteraction({ cameraZoom: Number(event.target.value) })} />
+                </>
+              )}
+              {cameraMode === "shake" && (
+                <>
+                  <label>Shake Intensity {interaction.cameraShakeIntensity ?? 8}px</label>
+                  <input type="range" min="1" max="28" step="1" value={interaction.cameraShakeIntensity ?? 8} onChange={event => onUpdateInteraction({ cameraShakeIntensity: Number(event.target.value) })} />
+                </>
+              )}
+            </>
+          )}
+          {isDialogueZone && (
+            <>
+              <div className="section-title compact">Dialogue Zone</div>
+              <div className="two-col">
+                <div>
+                  <label>Speaker</label>
+                  <input value={interaction.dialogueSpeaker || ""} onChange={event => onUpdateInteraction({ dialogueSpeaker: event.target.value })} placeholder="Unknown" />
+                </div>
+                <div>
+                  <label>Continue Key</label>
+                  <input value={interaction.promptKey || "KeyE"} onChange={event => onUpdateInteraction({ promptKey: event.target.value })} placeholder="KeyE" />
+                </div>
+              </div>
+              <label>Dialogue Lines</label>
+              <textarea
+                rows={5}
+                value={interaction.dialogueText || interaction.subtitle || ""}
+                onChange={event => onUpdateInteraction({ dialogueText: event.target.value })}
+                placeholder={"Who are you?\nWhy is this classroom connected to the ward?"}
+              />
+              <label>Portrait URL</label>
+              <input value={interaction.dialoguePortraitUrl || ""} onChange={event => onUpdateInteraction({ dialoguePortraitUrl: event.target.value })} placeholder="/generated/portrait.png" />
+            </>
+          )}
           <div className="two-col">
             <div>
               <label>Prompt Key</label>

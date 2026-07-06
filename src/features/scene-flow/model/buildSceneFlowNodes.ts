@@ -48,8 +48,8 @@ export function buildSceneFlowNodes({
   const nodes: SceneFlowNode[] = [
     {
       id: currentScene.id,
-      title: "Scene1",
-      subtitle: currentScene.name || "Current scene",
+      title: currentScene.name || "Current Scene",
+      subtitle: "Current scene",
       scene: currentScene,
       isCurrent: true,
       x: SCENE_NODE_POSITIONS[0].x,

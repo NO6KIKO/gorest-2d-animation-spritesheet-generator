@@ -2,7 +2,7 @@ import { ArrowLeft, Layers, Plus, X } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { spriteFrame } from "../../domain/sprites/spriteUtils";
 import type { AnimationSprite, GameAsset } from "../../types";
-import { SheetOnlySpritesheetPreview } from "./SheetOnlySpritesheetPreview";
+import { SheetOnlySpritesheetPreview, type SheetOnlyRecolorSaveRequest } from "./SheetOnlySpritesheetPreview";
 import type { SheetOnlyGalleryEntry } from "./types";
 
 type SheetOnlyGalleryProps = {
@@ -13,9 +13,11 @@ type SheetOnlyGalleryProps = {
   selectionTitle: string;
   selectedSprite?: AnimationSprite;
   sheetDataUrl: string | null;
+  isSavingRecolorVariant?: boolean;
   onBack: () => void;
   onDeleteSpriteFrame: (frameIndex: number) => void;
   onGeneratePreview: () => void;
+  onSaveRecolorVariant: (request: SheetOnlyRecolorSaveRequest) => void;
   onSelectImage: (imageUrl: string, title: string) => void;
   onSelectSprite: (sprite: AnimationSprite, title: string, asset?: GameAsset) => void;
   onShowAll: () => void;
@@ -29,9 +31,11 @@ export function SheetOnlyGallery({
   selectionTitle,
   selectedSprite,
   sheetDataUrl,
+  isSavingRecolorVariant = false,
   onBack,
   onDeleteSpriteFrame,
   onGeneratePreview,
+  onSaveRecolorVariant,
   onSelectImage,
   onSelectSprite,
   onShowAll,
@@ -88,8 +92,10 @@ export function SheetOnlyGallery({
           sheetDataUrl={sheetDataUrl}
           sprite={selectedSprite}
           title={selectionTitle || activeSpriteName}
+          isSavingRecolorVariant={isSavingRecolorVariant}
           onDeleteFrame={onDeleteSpriteFrame}
           onGeneratePreview={onGeneratePreview}
+          onSaveRecolorVariant={onSaveRecolorVariant}
         />
       )}
       {!entries.length && !hasSelection && (

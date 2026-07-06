@@ -11,6 +11,7 @@ import type {
   SceneLayer,
 } from "../../types";
 import { SceneInspectorAvatarSection } from "./SceneInspectorAvatarSection";
+import { SceneInspectorBackgroundSection } from "./SceneInspectorBackgroundSection";
 import { SceneInspectorHeader } from "./SceneInspectorHeader";
 import { SceneInspectorInteractionZoneSection } from "./SceneInspectorInteractionZoneSection";
 import { SceneInspectorItemSection } from "./SceneInspectorItemSection";
@@ -163,6 +164,13 @@ export function SceneInspectorPanel({
               selectedLayer={selectedLayer}
               onUpdateLayer={onUpdateLayer}
             />
+
+            {selectedLayer.type === "background" && (
+              <SceneInspectorBackgroundSection
+                selectedLayer={selectedLayer}
+                onUpdateLayer={onUpdateLayer}
+              />
+            )}
 
             {selectedInteractionZoneLayer && selectedInteractionZoneSettings && (
               <SceneInspectorInteractionZoneSection

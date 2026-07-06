@@ -75,7 +75,7 @@ export interface LayerShadowSettings {
 }
 
 export interface LayerLightingSettings {
-  preset: "none" | "neon-station";
+  preset: "none" | "neon-station" | "background-adjust";
   brightness: number;
   contrast: number;
   saturate: number;
@@ -96,9 +96,13 @@ export interface SceneLightingSettings {
 }
 
 export type InteractionPromptStyle = "horror" | "minimal" | "caption";
-export type InteractionPreset = "inspect" | "pickup" | "toggle" | "scene-link" | "animated" | "conditional";
-export type InteractionTriggerMode = "near-click" | "near-key" | "inventory" | "state";
-export type InteractionActionType = "subtitle" | "play-animation" | "toggle-layer" | "pickup-item" | "scene-link" | "set-state";
+export type InteractionPreset = "inspect" | "pickup" | "toggle" | "scene-link" | "animated" | "conditional" | "light-zone" | "audio-zone" | "camera-zone" | "dialogue-zone";
+export type InteractionTriggerMode = "near-click" | "near-key" | "inventory" | "state" | "auto";
+export type InteractionActionType = "subtitle" | "play-animation" | "toggle-layer" | "pickup-item" | "scene-link" | "set-state" | "light-zone" | "play-audio" | "camera-focus" | "dialogue";
+export type InteractionZoneShape = "rect" | "circle";
+export type InteractionRepeatMode = "once" | "repeatable" | "cooldown";
+export type InteractionLightBlendMode = "screen" | "plus-lighter" | "normal";
+export type InteractionCameraMode = "room-lock" | "focus" | "pan" | "zoom" | "shake" | "return-player";
 
 export interface LayerInteractionSettings {
   enabled: boolean;
@@ -116,10 +120,14 @@ export interface LayerInteractionSettings {
   triggerRadius: number;
   offsetX: number;
   offsetY: number;
+  zoneShape?: InteractionZoneShape;
   zoneWidth?: number;
   zoneHeight?: number;
   zoneOffsetX?: number;
   zoneOffsetY?: number;
+  repeatMode?: InteractionRepeatMode;
+  cooldownMs?: number;
+  debugVisible?: boolean;
   conditionStateKey?: string;
   conditionStateValue?: string;
   targetLayerId?: string;
@@ -130,6 +138,25 @@ export interface LayerInteractionSettings {
   setStateValue?: string;
   hideLayerOnPickup?: boolean;
   hotspotVisible?: boolean;
+  lightColor?: string;
+  lightIntensity?: number;
+  lightFalloff?: number;
+  lightBlendMode?: InteractionLightBlendMode;
+  lightFlicker?: number;
+  lightAttachToLayerId?: string;
+  audioLabel?: string;
+  audioUrl?: string;
+  audioVolume?: number;
+  audioLoop?: boolean;
+  cameraMode?: InteractionCameraMode;
+  cameraTargetX?: number;
+  cameraTargetY?: number;
+  cameraDurationMs?: number;
+  cameraZoom?: number;
+  cameraShakeIntensity?: number;
+  dialogueSpeaker?: string;
+  dialogueText?: string;
+  dialoguePortraitUrl?: string;
 }
 
 export interface SceneLayer {
@@ -166,6 +193,7 @@ export interface GameScene {
   viewportHeight?: number;
   viewportPreset?: string;
   cameraX: number;
+  cameraY: number;
   groundY: number;
   background: string;
   layers: SceneLayer[];
@@ -175,9 +203,39 @@ export interface GameScene {
   updatedTime?: string;
 }
 
+export type StartUiTheme = "dark" | "light" | "horror";
+
+export interface GameStartUiSettings {
+  id: string;
+  enabled: boolean;
+  title: string;
+  subtitle: string;
+  theme: StartUiTheme;
+  initialSceneId?: string;
+  backgroundImageUrl?: string;
+  primaryActionLabel: string;
+  continueActionLabel: string;
+  loadActionLabel: string;
+  settingsActionLabel: string;
+  quitActionLabel: string;
+  showContinue: boolean;
+  showLoadGame: boolean;
+  showSettings: boolean;
+  showQuit: boolean;
+  saveSlots: number;
+  autosave: boolean;
+  confirmNewGame: boolean;
+  musicVolume: number;
+  sfxVolume: number;
+  fullscreenToggle: boolean;
+  languageSelector: boolean;
+  updatedTime?: string;
+}
+
 export interface GameLibrary {
   assets: GameAsset[];
   scenes: GameScene[];
+  startUi?: GameStartUiSettings;
   updatedTime?: string;
 }
 

@@ -23,6 +23,7 @@ type SceneVisualLayerStackProps = {
   contactShadow: LayerShadowSettings;
   layers: SceneLayer[];
   sceneCameraX: number;
+  sceneCameraY: number;
   selectedInteractionZoneLayerId: string | null;
   selectedLayerId: string;
   spriteStageScale: number;
@@ -72,6 +73,7 @@ export function SceneVisualLayerStack({
   contactShadow,
   layers,
   sceneCameraX,
+  sceneCameraY,
   selectedInteractionZoneLayerId,
   selectedLayerId,
   spriteStageScale,
@@ -112,6 +114,7 @@ export function SceneVisualLayerStack({
                 layer={layer}
                 renderFilter={getRenderFilter(layer, asset)}
                 sceneCameraX={sceneCameraX}
+                sceneCameraY={sceneCameraY}
                 selectedInteractionZoneLayerId={selectedInteractionZoneLayerId}
                 selectedLayerId={selectedLayerId}
                 sprite={layerSprite}

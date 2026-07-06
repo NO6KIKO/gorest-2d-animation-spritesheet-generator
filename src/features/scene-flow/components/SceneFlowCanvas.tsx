@@ -1,18 +1,23 @@
-import { CheckCircle2, Clipboard, Copy, Plus, Scissors, Trash2 } from "lucide-react";
+import { CheckCircle2, Clipboard, Copy, Monitor, Plus, Scissors, Trash2 } from "lucide-react";
 import { useEffect, useMemo, useState, type MouseEvent } from "react";
-import type { GameScene } from "../../../types";
+import type { GameScene, GameStartUiSettings } from "../../../types";
 import { useSceneFlowLayout } from "../hooks/useSceneFlowLayout";
 import type { SceneFlowNode } from "../types";
 import { SceneFlowNodeCard } from "./SceneFlowNodeCard";
+import { SceneStartUiPanel } from "./SceneStartUiPanel";
 
 type SceneFlowCanvasProps = {
+  isSavingStartUi?: boolean;
   nodes: SceneFlowNode[];
-  onCreateScene: () => void;
+  scenes: GameScene[];
+  startUiSettings: GameStartUiSettings;
+  onCreateScene: () => void | Promise<void>;
   onDeleteScene: (node: SceneFlowNode) => void | Promise<void>;
   onDuplicateScene: (node: SceneFlowNode) => void | Promise<void>;
   onOpenScene: (node: SceneFlowNode) => void;
   onPasteScene: (scene: GameScene) => void | Promise<void>;
   onSaveCurrent: () => void;
+  onSaveStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
   onStatus: (message: string) => void;
 };
 
@@ -33,17 +38,22 @@ function isEditingTarget(target: EventTarget | null) {
 }
 
 export function SceneFlowCanvas({
+  isSavingStartUi = false,
   nodes,
+  scenes,
+  startUiSettings,
   onCreateScene,
   onDeleteScene,
   onDuplicateScene,
   onOpenScene,
   onPasteScene,
   onSaveCurrent,
+  onSaveStartUi,
   onStatus,
 }: SceneFlowCanvasProps) {
   const [sceneClipboard, setSceneClipboard] = useState<GameScene | null>(null);
   const [contextMenu, setContextMenu] = useState<SceneFlowContextMenu | null>(null);
+  const [isStartUiPanelOpen, setIsStartUiPanelOpen] = useState(false);
   const {
     activeSelectedNodeId,
     consumeSuppressedClick,
@@ -178,8 +188,11 @@ export function SceneFlowCanvas({
         <button type="button" className="primary-button" onClick={onSaveCurrent}>
           <CheckCircle2 size={16} /> Save Current
         </button>
-        <button type="button" className="ghost-button" onClick={onCreateScene}>
+        <button type="button" className="ghost-button" onClick={() => void onCreateScene()}>
           <Plus size={16} /> New Scene
+        </button>
+        <button type="button" className="ghost-button" onClick={() => setIsStartUiPanelOpen(true)}>
+          <Monitor size={16} /> Start UI
         </button>
       </div>
 
@@ -280,6 +293,23 @@ export function SceneFlowCanvas({
           {`${nodes.length} scenes in this canvas`}
         </div>
       </div>
+
+      {isStartUiPanelOpen && (
+        <SceneStartUiPanel
+          isSaving={isSavingStartUi}
+          scenes={scenes}
+          settings={startUiSettings}
+          onClose={() => setIsStartUiPanelOpen(false)}
+          onSave={async settings => {
+            try {
+              await onSaveStartUi(settings);
+              setIsStartUiPanelOpen(false);
+            } catch {
+              // App-level error state owns the visible failure message.
+            }
+          }}
+        />
+      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import type { AnimationSprite, GameAsset, GameLibrary, GameScene } from "../types";
+import type { AnimationSprite, GameAsset, GameLibrary, GameScene, GameStartUiSettings } from "../types";
 
 type LatestSpriteResponse = {
   sprite?: AnimationSprite | null;
@@ -7,6 +7,7 @@ type LatestSpriteResponse = {
 type GameLibraryMutationResponse = {
   asset?: GameAsset;
   scene?: GameScene;
+  startUi?: GameStartUiSettings;
   library?: Partial<GameLibrary>;
   error?: string;
 };
@@ -20,12 +21,14 @@ function normalizeGameLibrary(data?: Partial<GameLibrary>): GameLibrary {
   return {
     assets: Array.isArray(data?.assets) ? data.assets : [],
     scenes: Array.isArray(data?.scenes) ? data.scenes : [],
+    startUi: data?.startUi && typeof data.startUi === "object" ? data.startUi : undefined,
   };
 }
 
 async function parseGameLibraryMutation(response: Response, fallbackError: string): Promise<{
   asset?: GameAsset;
   scene?: GameScene;
+  startUi?: GameStartUiSettings;
   library: GameLibrary;
 }> {
   const data = await response.json().catch(() => ({})) as GameLibraryMutationResponse;
@@ -33,6 +36,7 @@ async function parseGameLibraryMutation(response: Response, fallbackError: strin
   return {
     asset: data.asset,
     scene: data.scene,
+    startUi: data.startUi,
     library: normalizeGameLibrary(data.library),
   };
 }
@@ -68,6 +72,15 @@ export async function saveGameScene(scene: GameScene, fallbackError = "Failed to
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ scene }),
+  });
+  return parseGameLibraryMutation(response, fallbackError);
+}
+
+export async function saveGameStartUi(startUi: GameStartUiSettings, fallbackError = "Failed to save Start UI") {
+  const response = await fetch("/api/game-library/start-ui", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ startUi }),
   });
   return parseGameLibraryMutation(response, fallbackError);
 }

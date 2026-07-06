@@ -19,6 +19,7 @@ export function resizeSceneFrame(scene: GameScene, patch: SceneFramePatch, fallb
     viewportWidth: nextViewportWidth,
     viewportHeight: nextViewportHeight,
     cameraX: clamp(scene.cameraX, 0, Math.max(0, nextSceneWidth - nextViewportWidth)),
+    cameraY: clamp(scene.cameraY || 0, 0, Math.max(0, nextSceneHeight - nextViewportHeight)),
     layers: scene.layers.map(layer => {
       if (layer.type !== "background") return layer;
       const followsWorldWidth = !layer.width || Math.abs(layer.width - scene.width) <= 2;

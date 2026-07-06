@@ -1,4 +1,5 @@
 import type { SceneLayer } from "../../types";
+import { backgroundLightingForLayer, DEFAULT_BACKGROUND_LIGHTING } from "../../domain/scene/sceneModel";
 
 type BackgroundLayerControlsProps = {
   sceneHeight: number;
@@ -8,6 +9,18 @@ type BackgroundLayerControlsProps = {
 };
 
 export function BackgroundLayerControls({ sceneHeight, sceneWidth, selectedLayer, onUpdateLayer }: BackgroundLayerControlsProps) {
+  const backgroundLighting = backgroundLightingForLayer(selectedLayer);
+
+  const updateBackgroundLighting = (brightness: number) => {
+    onUpdateLayer(selectedLayer.id, {
+      lighting: {
+        ...backgroundLighting,
+        preset: "background-adjust",
+        brightness,
+      },
+    });
+  };
+
   return (
     <>
       <div className="two-col">
@@ -50,6 +63,24 @@ export function BackgroundLayerControls({ sceneHeight, sceneWidth, selectedLayer
         placeholder="left center / center center / 40% 50%"
         disabled={selectedLayer.locked}
       />
+      <label>Background Brightness {Math.round(backgroundLighting.brightness * 100)}%</label>
+      <input
+        type="range"
+        min="0.15"
+        max="1.6"
+        step="0.01"
+        value={backgroundLighting.brightness}
+        onChange={event => updateBackgroundLighting(Number(event.target.value))}
+        disabled={selectedLayer.locked}
+      />
+      <button
+        type="button"
+        className="ghost-button full"
+        onClick={() => onUpdateLayer(selectedLayer.id, { lighting: { ...DEFAULT_BACKGROUND_LIGHTING } })}
+        disabled={selectedLayer.locked}
+      >
+        Reset Background Brightness
+      </button>
       <button
         type="button"
         className="ghost-button full"

@@ -25,7 +25,7 @@ export function ReusableSceneKitPanel({
         <button type="button" onClick={() => onInsertSceneKitAsset(boardingTrainAssetId)}>Boarding Train</button>
         <button type="button" onClick={() => onInsertSceneKitAsset("asset_scene_backpack_panel")}>Open Backpack Panel</button>
       </div>
-      <div className="control-hint">These are reusable assets with saved trigger metadata. Eye Inspect Hotspot can be dragged anywhere and customized per layer.</div>
+      <div className="control-hint">These are reusable assets with saved trigger metadata. Eye Inspect Hotspot can be customized per layer.</div>
     </section>
   );
 }

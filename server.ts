@@ -19,6 +19,7 @@ let latestGeneratedSprite: any = null;
 const GENERATED_DIR = path.join(PROJECT_ROOT, "public", "generated");
 const GAME_LIBRARY_PATH = path.join(GENERATED_DIR, "game_asset_library.json");
 const GENERATED_IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif"]);
+const RUNTIME_GENERATED_WATCH_IGNORES = ["**/public/generated/**"];
 
 function parsePort(value: string | undefined, fallback: number) {
   const port = Number(value ?? fallback);
@@ -94,9 +95,10 @@ async function listenWithPortFallback(startPort: number) {
 // Increase payload limits for base64 reference images
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use("/generated", express.static(GENERATED_DIR));
 
 function readGameLibrary() {
-  const empty = { assets: [], scenes: [], updatedTime: new Date().toISOString() };
+  const empty = { assets: [], scenes: [], startUi: undefined, updatedTime: new Date().toISOString() };
   try {
     if (!fs.existsSync(GAME_LIBRARY_PATH)) {
   console.warn('Game asset library not found, returning empty library.');
@@ -107,6 +109,7 @@ function readGameLibrary() {
     return {
       assets: Array.isArray(parsed.assets) ? parsed.assets : [],
       scenes: Array.isArray(parsed.scenes) ? parsed.scenes : [],
+      startUi: parsed.startUi && typeof parsed.startUi === "object" ? parsed.startUi : undefined,
       updatedTime: parsed.updatedTime || empty.updatedTime
     };
   } catch (error) {
@@ -152,6 +155,29 @@ function sanitizeDownloadFilename(filename: unknown, extension: string) {
   return safe.toLowerCase().endsWith(`.${extension}`)
     ? safe
     : `${safe.replace(/\.[^.]+$/, "")}.${extension}`;
+}
+
+function sanitizeGeneratedImageFilename(filename: unknown, fallbackBase = "spritesheet_recolor") {
+  const raw = typeof filename === "string" && filename.trim() ? path.basename(filename.trim()) : `${fallbackBase}.png`;
+  const normalized = raw
+    .replace(/[<>:"/\\|?*\u0000-\u001f]+/g, "_")
+    .replace(/\s+/g, "_")
+    .replace(/_+/g, "_")
+    .replace(/^_+|_+$/g, "");
+  const withoutExtension = (normalized || fallbackBase).replace(/\.[^.]+$/, "") || fallbackBase;
+  return `${withoutExtension}.png`;
+}
+
+function generatedImageMetadata(filename: string) {
+  const filePath = path.join(GENERATED_DIR, filename);
+  const stat = fs.statSync(filePath);
+  return {
+    name: filename,
+    url: `/generated/${filename}`,
+    extension: "png",
+    size: stat.size,
+    updatedTime: stat.mtime.toISOString()
+  };
 }
 
 function cleanupTempDir(tempDir: string | null) {
@@ -750,6 +776,34 @@ app.get("/api/generated-assets", (req, res) => {
   }
 });
 
+app.post("/api/generated-assets/image", (req, res) => {
+  try {
+    const dataUrl = typeof req.body?.dataUrl === "string" ? req.body.dataUrl : "";
+    const match = dataUrl.match(/^data:image\/png;base64,([a-z0-9+/=\r\n]+)$/i);
+    if (!match) {
+      return res.status(400).json({ error: "PNG dataUrl is required" });
+    }
+
+    fs.mkdirSync(GENERATED_DIR, { recursive: true });
+    const requestedName = sanitizeGeneratedImageFilename(req.body?.filename);
+    const baseName = requestedName.replace(/\.png$/i, "");
+    let filename = requestedName;
+    let outputPath = path.join(GENERATED_DIR, filename);
+    let suffix = 2;
+    while (fs.existsSync(outputPath)) {
+      filename = `${baseName}_${suffix}.png`;
+      outputPath = path.join(GENERATED_DIR, filename);
+      suffix += 1;
+    }
+
+    fs.writeFileSync(outputPath, Buffer.from(match[1].replace(/\s+/g, ""), "base64"));
+    res.json({ file: generatedImageMetadata(filename) });
+  } catch (error: any) {
+    console.warn("Failed to save generated image:", error);
+    res.status(500).json({ error: error?.message || "Failed to save generated image" });
+  }
+});
+
 app.post("/api/game-library/assets", (req, res) => {
   const asset = req.body?.asset;
   if (!asset || !asset.id || !asset.sprite || !Array.isArray(asset.sprite.frames)) {
@@ -768,6 +822,22 @@ app.post("/api/game-library/assets", (req, res) => {
   ];
   writeGameLibrary(library);
   res.json({ asset: normalizedAsset, library });
+});
+
+app.post("/api/game-library/start-ui", (req, res) => {
+  const startUi = req.body?.startUi;
+  if (!startUi || typeof startUi !== "object") {
+    return res.status(400).json({ error: "startUi settings are required" });
+  }
+  const library = readGameLibrary();
+  const normalizedStartUi = {
+    ...startUi,
+    id: typeof startUi.id === "string" && startUi.id ? startUi.id : "start_ui_main",
+    updatedTime: new Date().toISOString()
+  };
+  library.startUi = normalizedStartUi;
+  writeGameLibrary(library);
+  res.json({ startUi: normalizedStartUi, library });
 });
 
 app.delete("/api/game-library/assets/:id", (req, res) => {
@@ -1098,7 +1168,8 @@ async function startServer() {
     const vite = await createViteServer({
       server: {
         hmr: { port: hmrPort },
-        middlewareMode: true
+        middlewareMode: true,
+        watch: { ignored: RUNTIME_GENERATED_WATCH_IGNORES }
       },
       appType: "spa",
     });

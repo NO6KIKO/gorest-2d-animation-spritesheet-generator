@@ -188,7 +188,15 @@ export function ensureSceneKitLayers(scene: GameScene): GameScene {
 export function removeBuiltInSceneKitLayers(scene: GameScene): GameScene {
   return {
     ...scene,
-    layers: scene.layers.filter(layer => !layer.assetId || !BUILT_IN_SCENE_KIT_ASSET_IDS.has(layer.assetId)),
+    layers: scene.layers.filter(layer => (
+      !layer.assetId ||
+      !BUILT_IN_SCENE_KIT_ASSET_IDS.has(layer.assetId) ||
+      layer.interaction?.preset === "light-zone" ||
+      layer.interaction?.preset === "audio-zone" ||
+      layer.interaction?.preset === "camera-zone" ||
+      layer.interaction?.preset === "dialogue-zone" ||
+      layer.id.startsWith("layer_reusable_zone_")
+    )),
   };
 }
 
@@ -219,7 +227,10 @@ export function normalizeEditableScene(scene: GameScene): GameScene {
 }
 
 export function prepareSceneForEditor(scene: GameScene): GameScene {
-  return normalizeEditableScene(removeBuiltInSceneKitLayers(scene));
+  return normalizeEditableScene(removeBuiltInSceneKitLayers({
+    ...scene,
+    cameraY: scene.cameraY || 0,
+  }));
 }
 
 export function sceneTimestampLabel(date = new Date()) {
@@ -241,6 +252,7 @@ export function createDefaultScene(): GameScene {
     viewportHeight: 720,
     viewportPreset: "desktop",
     cameraX: 0,
+    cameraY: 0,
     groundY: 520,
     background: "chinese_station_platform",
     state: {

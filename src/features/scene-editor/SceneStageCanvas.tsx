@@ -1,8 +1,17 @@
 import type { MouseEvent, PointerEvent, ReactNode, Ref } from "react";
 import type { SceneLayer } from "../../types";
 
+export type SceneCameraVisualEffect = {
+  durationMs: number;
+  id: number;
+  shakeIntensity?: number;
+  type: "shake" | "zoom";
+  zoom?: number;
+};
+
 type SceneStageCanvasProps = {
   backgroundLayer?: SceneLayer;
+  cameraEffect?: SceneCameraVisualEffect | null;
   children: ReactNode;
   controls: ReactNode;
   controlsSpace: number;
@@ -21,6 +30,7 @@ type SceneStageCanvasProps = {
 
 export function SceneStageCanvas({
   backgroundLayer,
+  cameraEffect,
   children,
   controls,
   controlsSpace,
@@ -44,12 +54,15 @@ export function SceneStageCanvas({
     >
       <div
         ref={stageRef}
-        className="side-scroller-stage"
+        className={`side-scroller-stage ${cameraEffect ? `camera-effect ${cameraEffect.type} camera-effect-${cameraEffect.id}` : ""}`}
         style={{
           width: stageWidth,
           height: stageHeight,
           aspectRatio: `${viewportWidth} / ${viewportHeight}`,
           background: hasVisibleBackgroundImage ? undefined : "#000",
+          ["--camera-effect-duration" as string]: `${cameraEffect?.durationMs ?? 0}ms`,
+          ["--camera-effect-zoom" as string]: cameraEffect?.zoom ?? 1.12,
+          ["--camera-shake-distance" as string]: `${cameraEffect?.shakeIntensity ?? 8}px`,
         }}
         onClick={event => {
           const target = event.target as HTMLElement;

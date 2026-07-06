@@ -1,5 +1,5 @@
 import { ChevronDown, Download, FileImage, Film, Pause, Play, RotateCcw, Trash2, Video } from "lucide-react";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
 import { downloadUrl } from "../../app/downloads";
 import {
   getFrameSize,
@@ -9,8 +9,10 @@ import {
   spriteGridRows,
   spritesheetFrameThumbStyle,
 } from "../../domain/sprites/spriteUtils";
+import type { SpritePaletteChange } from "../../domain/sprites/spriteRecolor";
 import type { AnimationSprite } from "../../types";
 import { exportSpriteGif, exportSpriteVideo, type SpriteMediaExportSettings } from "./exportSpriteMedia";
+import { SheetOnlyRecolorPanel } from "./SheetOnlyRecolorPanel";
 
 type SheetSize = {
   width: number;
@@ -27,8 +29,23 @@ type SheetOnlySpritesheetPreviewProps = {
   sheetDataUrl: string | null;
   sprite?: AnimationSprite;
   title: string;
+  isSavingRecolorVariant?: boolean;
   onDeleteFrame?: (frameIndex: number) => void;
   onGeneratePreview: () => void;
+  onSaveRecolorVariant?: (request: SheetOnlyRecolorSaveRequest) => void;
+};
+
+export type SheetOnlyRecolorSaveRequest = {
+  dataUrl: string;
+  sourceUrl: string;
+  title: string;
+  frameWidth: number;
+  frameHeight: number;
+  frameCount: number;
+  columns: number;
+  sheetWidth: number;
+  sheetHeight: number;
+  paletteChanges: SpritePaletteChange[];
 };
 
 const SOURCE_PREVIEW_MAX_HEIGHT = 296;
@@ -164,8 +181,10 @@ export function SheetOnlySpritesheetPreview({
   sheetDataUrl,
   sprite,
   title,
+  isSavingRecolorVariant = false,
   onDeleteFrame,
   onGeneratePreview,
+  onSaveRecolorVariant,
 }: SheetOnlySpritesheetPreviewProps) {
   const initialFrameSize = useMemo(() => sprite ? getFrameSize(sprite) : [256, 256], [sprite]);
   const [sheetSize, setSheetSize] = useState<SheetSize | null>(() => spriteSheetSize(sprite));
@@ -177,6 +196,8 @@ export function SheetOnlySpritesheetPreview({
   const [exportStatus, setExportStatus] = useState<"" | "gif" | "video">("");
   const [downloadError, setDownloadError] = useState("");
   const [viewportSize, setViewportSize] = useState<ViewportSize>({ width: 0, height: 0 });
+  const [recolorPreviewUrl, setRecolorPreviewUrl] = useState<string | null>(null);
+  const [recolorChanges, setRecolorChanges] = useState<SpritePaletteChange[]>([]);
 
   useEffect(() => {
     const nextSheetSize = spriteSheetSize(sprite);
@@ -188,6 +209,8 @@ export function SheetOnlySpritesheetPreview({
     setIsPlaying(true);
     setIsDownloadMenuOpen(false);
     setDownloadError("");
+    setRecolorPreviewUrl(null);
+    setRecolorChanges([]);
   }, [sheetDataUrl, sprite]);
 
   useEffect(() => {
@@ -250,9 +273,10 @@ export function SheetOnlySpritesheetPreview({
   const previewSize = viewportSize.width && viewportSize.height
     ? previewBoxSize(safeFrameWidth, safeFrameHeight, viewportSize)
     : null;
-  const downloadSourceUrl = sheetDataUrl || sprite?.rawSpritesheetPng || sprite?.spritesheetPng || "";
+  const displayedSheetDataUrl = recolorPreviewUrl || sheetDataUrl;
+  const downloadSourceUrl = displayedSheetDataUrl || sprite?.rawSpritesheetPng || sprite?.spritesheetPng || "";
   const downloadBaseName = safeFilename(title || sprite?.characterName || "spritesheet");
-  const activeSpriteFrame = sprite ? spriteFrame(sprite, activeFrameIndex) : "";
+  const activeSpriteFrame = !recolorPreviewUrl && sprite ? spriteFrame(sprite, activeFrameIndex) : "";
   const canDeleteFrame = Boolean(sprite && onDeleteFrame && frameTotal > 1);
 
   useEffect(() => {
@@ -260,14 +284,14 @@ export function SheetOnlySpritesheetPreview({
   }, [frameTotal]);
 
   useEffect(() => {
-    if (!isPlaying || frameTotal <= 1 || !sheetDataUrl) return;
+    if (!isPlaying || frameTotal <= 1 || !displayedSheetDataUrl) return;
     const id = window.setInterval(() => {
       setFrameIndex(value => (value + 1) % frameTotal);
     }, Math.max(80, Math.round(1000 / Math.max(1, sprite?.fps || 8))));
     return () => window.clearInterval(id);
-  }, [frameTotal, isPlaying, sheetDataUrl, sprite?.fps]);
+  }, [displayedSheetDataUrl, frameTotal, isPlaying, sprite?.fps]);
 
-  const previewImageStyle: CSSProperties | undefined = sheetDataUrl && sheetSize ? {
+  const previewImageStyle: CSSProperties | undefined = displayedSheetDataUrl && sheetSize ? {
     height: `${(sheetSize.height / safeFrameHeight) * 100}%`,
     transform: `translate(${-frameColumn * safeFrameWidth / sheetSize.width * 100}%, ${-frameRow * safeFrameHeight / sheetSize.height * 100}%)`,
     width: `${(sheetSize.width / safeFrameWidth) * 100}%`,
@@ -298,6 +322,27 @@ export function SheetOnlySpritesheetPreview({
     sourceUrl: downloadSourceUrl,
   });
 
+  const handleRecolorPreviewChange = useCallback((dataUrl: string | null, changes: SpritePaletteChange[]) => {
+    setRecolorPreviewUrl(dataUrl);
+    setRecolorChanges(changes);
+  }, []);
+
+  const handleSaveRecolorVariant = () => {
+    if (!onSaveRecolorVariant || !recolorPreviewUrl || !sheetSize) return;
+    onSaveRecolorVariant({
+      dataUrl: recolorPreviewUrl,
+      sourceUrl: sheetDataUrl || "",
+      title,
+      frameWidth: safeFrameWidth,
+      frameHeight: safeFrameHeight,
+      frameCount: frameTotal,
+      columns,
+      sheetWidth: sheetSize.width,
+      sheetHeight: sheetSize.height,
+      paletteChanges: recolorChanges,
+    });
+  };
+
   const handleDownloadSheet = () => {
     if (!downloadSourceUrl) return;
     setDownloadError("");
@@ -326,7 +371,7 @@ export function SheetOnlySpritesheetPreview({
   return (
     <div className="sheet-only-viewer">
       <section className="sheet-only-preview-stage" aria-label="Spritesheet frame preview">
-        {sheetDataUrl ? (
+        {displayedSheetDataUrl ? (
           <div
             className="sheet-only-frame-preview"
             style={{
@@ -339,9 +384,9 @@ export function SheetOnlySpritesheetPreview({
             {activeSpriteFrame ? (
               <div className="sheet-only-frame-svg" dangerouslySetInnerHTML={{ __html: activeSpriteFrame }} />
             ) : previewImageStyle ? (
-              <img src={sheetDataUrl} alt={`${title} frame ${activeFrameIndex + 1}`} style={previewImageStyle} />
+              <img src={displayedSheetDataUrl} alt={`${title} frame ${activeFrameIndex + 1}`} style={previewImageStyle} />
             ) : (
-              <img src={sheetDataUrl} alt={`${title} spritesheet`} />
+              <img src={displayedSheetDataUrl} alt={`${title} spritesheet`} />
             )}
           </div>
         ) : (
@@ -352,10 +397,19 @@ export function SheetOnlySpritesheetPreview({
       </section>
 
       {sheetDataUrl && (
+        <SheetOnlyRecolorPanel
+          sourceUrl={sheetDataUrl}
+          isSaving={isSavingRecolorVariant}
+          onPreviewChange={handleRecolorPreviewChange}
+          onSaveVariant={handleSaveRecolorVariant}
+        />
+      )}
+
+      {displayedSheetDataUrl && (
         <aside className="sheet-only-slice-panel" aria-label="Spritesheet frame tools">
           <div className="sheet-only-source-header">
             <strong>P1 / Source</strong>
-            <span>{sheetSize ? `${sheetSize.width} x ${sheetSize.height}` : ""}</span>
+            <span>{recolorPreviewUrl ? "Recolor" : sheetSize ? `${sheetSize.width} x ${sheetSize.height}` : ""}</span>
           </div>
           <div
             className="sheet-only-source-preview"
@@ -364,7 +418,7 @@ export function SheetOnlySpritesheetPreview({
               ...sourcePreviewSizeStyle(sheetSize),
             }}
           >
-            <img src={sheetDataUrl} alt={`${title} source spritesheet`} />
+            <img src={displayedSheetDataUrl} alt={`${title} source spritesheet`} />
             {sourceActiveFrameStyle && <span className="sheet-only-source-active-frame" style={sourceActiveFrameStyle} />}
           </div>
 
@@ -374,10 +428,10 @@ export function SheetOnlySpritesheetPreview({
           </div>
           <div className="sheet-only-frames-grid">
             {Array.from({ length: frameTotal }, (_, frameListIndex) => {
-              const frameSvg = sprite ? spriteFrame(sprite, frameListIndex) : "";
+              const frameSvg = !recolorPreviewUrl && sprite ? spriteFrame(sprite, frameListIndex) : "";
               const svgThumbStyle = frameSvg ? frameSvgThumbStyle(frameSvg) : undefined;
-              const spriteThumbStyle = sprite ? spritesheetFrameThumbStyle(sprite, frameListIndex) : undefined;
-              const sourceThumbStyle = !frameSvg && downloadSourceUrl
+              const spriteThumbStyle = !recolorPreviewUrl && sprite ? spritesheetFrameThumbStyle(sprite, frameListIndex) : undefined;
+              const sourceThumbStyle = !frameSvg && displayedSheetDataUrl
                 ? sourceFrameThumbStyle(downloadSourceUrl, columns, rows, frameListIndex)
                 : undefined;
               const thumbStyle = svgThumbStyle || spriteThumbStyle || sourceThumbStyle;
@@ -414,7 +468,7 @@ export function SheetOnlySpritesheetPreview({
         </aside>
       )}
 
-      {sheetDataUrl && (
+      {displayedSheetDataUrl && (
         <section className="sheet-only-controls" aria-label="Spritesheet slicing controls">
           <div className="sheet-only-preview-copy">
             <strong>{title}</strong>

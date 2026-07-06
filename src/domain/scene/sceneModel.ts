@@ -36,6 +36,17 @@ export const NEON_LAYER_LIGHTING: LayerLightingSettings = {
   rimLightOpacity: 0.24,
 };
 
+export const DEFAULT_BACKGROUND_LIGHTING: LayerLightingSettings = {
+  preset: "background-adjust",
+  brightness: 1,
+  contrast: 1,
+  saturate: 1,
+  edgeLightColor: "#ffffff",
+  edgeLightOpacity: 0,
+  rimLightColor: "#ffffff",
+  rimLightOpacity: 0,
+};
+
 export const NEON_SCENE_LIGHTING: SceneLightingSettings = {
   preset: "neon-station",
   brightness: 1,
@@ -62,10 +73,28 @@ export const DEFAULT_INTERACTION_SETTINGS: LayerInteractionSettings = {
   triggerRadius: 180,
   offsetX: 0,
   offsetY: -34,
+  zoneShape: "rect",
   zoneOffsetX: 0,
   zoneOffsetY: 0,
+  repeatMode: "repeatable",
+  cooldownMs: 0,
+  debugVisible: true,
   hideLayerOnPickup: true,
   hotspotVisible: true,
+  lightColor: "#f4d38a",
+  lightIntensity: 0.65,
+  lightFalloff: 0.78,
+  lightBlendMode: "screen",
+  lightFlicker: 0,
+  audioLabel: "Ambient sound",
+  audioVolume: 0.7,
+  audioLoop: false,
+  cameraMode: "room-lock",
+  cameraDurationMs: 450,
+  cameraZoom: 1.12,
+  cameraShakeIntensity: 8,
+  dialogueSpeaker: "Unknown",
+  dialogueText: "Who are you?\nWhy is this classroom connected to the ward?",
 };
 
 export function sceneViewportWidth(scene: GameScene) {
@@ -103,13 +132,38 @@ export function sceneFilter(scene: GameScene) {
   ].join(" ");
 }
 
-export function layerFilter(layer: SceneLayer) {
-  const lighting = layer.lighting || NEON_LAYER_LIGHTING;
-  if (lighting.preset === "none") return "none";
+function colorAdjustmentFilter(lighting: LayerLightingSettings) {
   return [
     `brightness(${lighting.brightness})`,
     `contrast(${lighting.contrast})`,
     `saturate(${lighting.saturate})`,
+  ].join(" ");
+}
+
+function isIdentityColorAdjustment(lighting: LayerLightingSettings) {
+  return lighting.brightness === 1 && lighting.contrast === 1 && lighting.saturate === 1;
+}
+
+export function backgroundLightingForLayer(layer: SceneLayer) {
+  return layer.lighting?.preset === "background-adjust"
+    ? { ...DEFAULT_BACKGROUND_LIGHTING, ...layer.lighting }
+    : DEFAULT_BACKGROUND_LIGHTING;
+}
+
+export function backgroundLayerFilter(layer: SceneLayer) {
+  if (!layer.lighting || layer.lighting.preset === "none") return "none";
+  const lighting = backgroundLightingForLayer(layer);
+  return isIdentityColorAdjustment(lighting) ? "none" : colorAdjustmentFilter(lighting);
+}
+
+export function layerFilter(layer: SceneLayer) {
+  const lighting = layer.lighting || NEON_LAYER_LIGHTING;
+  if (lighting.preset === "none") return "none";
+  if (lighting.preset === "background-adjust") {
+    return isIdentityColorAdjustment(lighting) ? "none" : colorAdjustmentFilter(lighting);
+  }
+  return [
+    colorAdjustmentFilter(lighting),
     "sepia(0.08)",
     `drop-shadow(-5px 0 8px ${rgbaColor(lighting.rimLightColor, lighting.rimLightOpacity)})`,
     `drop-shadow(7px 0 10px ${rgbaColor(lighting.edgeLightColor, lighting.edgeLightOpacity)})`,
@@ -186,6 +240,36 @@ export function interactionZoneBounds(layer: SceneLayer, asset: GameAsset | unde
     centerX,
     centerY,
   };
+}
+
+export function isLightZoneInteraction(interaction?: LayerInteractionSettings | null) {
+  return interaction?.preset === "light-zone" || interaction?.actionType === "light-zone";
+}
+
+export function isAudioZoneInteraction(interaction?: LayerInteractionSettings | null) {
+  return interaction?.preset === "audio-zone" || interaction?.actionType === "play-audio";
+}
+
+export function isCameraZoneInteraction(interaction?: LayerInteractionSettings | null) {
+  return interaction?.preset === "camera-zone" || interaction?.actionType === "camera-focus";
+}
+
+export function isDialogueZoneInteraction(interaction?: LayerInteractionSettings | null) {
+  return interaction?.preset === "dialogue-zone" || interaction?.actionType === "dialogue";
+}
+
+export function interactionZoneLabel(interaction?: LayerInteractionSettings | null) {
+  if (!interaction) return "Interaction Zone";
+  if (isLightZoneInteraction(interaction)) return "Light Zone";
+  if (isAudioZoneInteraction(interaction)) return "Audio Zone";
+  if (isCameraZoneInteraction(interaction)) return "Camera Zone";
+  if (isDialogueZoneInteraction(interaction)) return "Dialogue Zone";
+  if (interaction.preset === "scene-link" || interaction.actionType === "scene-link") return "Door Zone";
+  if (interaction.preset === "pickup" || interaction.actionType === "pickup-item") return "Pickup Zone";
+  if (interaction.preset === "toggle" || interaction.actionType === "toggle-layer") return "Switch Zone";
+  if (interaction.preset === "animated" || interaction.actionType === "play-animation") return "Animation Zone";
+  if (interaction.preset === "conditional" || interaction.actionType === "set-state") return "State Zone";
+  return "Inspect Zone";
 }
 
 export function stateValueFromText(value?: string) {

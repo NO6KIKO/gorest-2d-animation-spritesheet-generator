@@ -3,20 +3,26 @@ import type { SceneLightingSettings } from "../../types";
 
 type GlobalSceneLightingPanelProps = {
   cameraMax: number;
+  cameraMaxY: number;
   cameraX: number;
+  cameraY: number;
   lighting: SceneLightingSettings;
   onApplyNeonStation: () => void;
   onCameraXChange: (value: number) => void;
+  onCameraYChange: (value: number) => void;
   onDisableGlobalLighting: () => void;
   onLightingChange: (patch: Partial<SceneLightingSettings>) => void;
 };
 
 export function GlobalSceneLightingPanel({
   cameraMax,
+  cameraMaxY,
   cameraX,
+  cameraY,
   lighting,
   onApplyNeonStation,
   onCameraXChange,
+  onCameraYChange,
   onDisableGlobalLighting,
   onLightingChange,
 }: GlobalSceneLightingPanelProps) {
@@ -38,6 +44,8 @@ export function GlobalSceneLightingPanel({
         <input type="range" min="0.25" max="1.8" step="0.01" value={lighting.glow} onChange={event => onLightingChange({ glow: Number(event.target.value) })} />
         <label>Explore Camera X {Math.round(cameraX)} / {cameraMax}</label>
         <input type="range" min="0" max={cameraMax} step="1" value={cameraX} onChange={event => onCameraXChange(Number(event.target.value))} />
+        <label>Explore Camera Y {Math.round(cameraY)} / {cameraMaxY}</label>
+        <input type="range" min="0" max={cameraMaxY} step="1" value={cameraY} onChange={event => onCameraYChange(Number(event.target.value))} />
         <div className="lighting-buttons">
           <button type="button" onClick={onApplyNeonStation}>Neon Station</button>
           <button type="button" onClick={onDisableGlobalLighting}>Disable Global</button>

@@ -1,4 +1,5 @@
 import type { MouseEvent, PointerEvent } from "react";
+import { interactionZoneLabel } from "../../domain/scene/sceneModel";
 import { getFrameSize, spriteFrame } from "../../domain/sprites/spriteUtils";
 import type {
   AnimationSprite,
@@ -28,6 +29,7 @@ type SceneVisualLayerProps = {
   selectedInteractionZoneLayerId: string | null;
   selectedLayerId: string;
   sceneCameraX: number;
+  sceneCameraY: number;
   sprite: AnimationSprite;
   spriteStageScale: number;
   stageScaleX: number;
@@ -70,6 +72,7 @@ export function SceneVisualLayer({
   selectedInteractionZoneLayerId,
   selectedLayerId,
   sceneCameraX,
+  sceneCameraY,
   sprite,
   spriteStageScale,
   stageScaleX,
@@ -93,9 +96,12 @@ export function SceneVisualLayer({
   const shadowWidth = width * shadow.width;
   const shadowHeight = Math.max(8, height * shadow.height);
   const stageX = (layer.x - sceneCameraX * (layer.parallax ?? 1)) * stageScaleX;
+  const stageY = (layer.y - sceneCameraY * (layer.parallax ?? 1)) * stageScaleY;
   const hotspotOpacity = isInteractionTrigger && interaction?.hotspotVisible === false && !isSelected
     ? 0.08
     : layer.opacity;
+  const isLightZone = interaction?.preset === "light-zone" || interaction?.actionType === "light-zone";
+  const zonePresetClass = interaction?.preset ? `zone-preset-${interaction.preset}` : "";
 
   return (
     <>
@@ -104,7 +110,7 @@ export function SceneVisualLayer({
           className="scene-contact-shadow"
           style={{
             left: stageX + width / 2 - shadowWidth / 2 + shadow.offsetX * spriteStageScale,
-            top: layer.y * stageScaleY - shadowHeight / 2 + shadow.offsetY * spriteStageScale,
+            top: stageY - shadowHeight / 2 + shadow.offsetY * spriteStageScale,
             width: shadowWidth,
             height: shadowHeight,
             zIndex: layer.zIndex - 1,
@@ -118,7 +124,7 @@ export function SceneVisualLayer({
         className={`${isSelected ? "scene-sprite selected" : "scene-sprite"} ${isInteractionTrigger ? "interaction-hotspot-layer" : ""}`}
         style={{
           left: stageX,
-          top: layer.y * stageScaleY - height,
+          top: stageY - height,
           width,
           height,
           zIndex: layer.zIndex,
@@ -169,10 +175,10 @@ export function SceneVisualLayer({
       </div>
       {zone && interaction?.enabled && (
         <div
-          className={`interaction-zone-outline ${selectedInteractionZoneLayerId === layer.id ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}
+          className={`interaction-zone-outline ${zonePresetClass} ${isLightZone ? "light-zone" : ""} ${interaction.zoneShape === "circle" ? "circle-zone" : ""} ${selectedInteractionZoneLayerId === layer.id ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}
           style={{
             left: (zone.left - sceneCameraX * (layer.parallax ?? 1)) * stageScaleX,
-            top: zone.top * stageScaleY,
+            top: (zone.top - sceneCameraY * (layer.parallax ?? 1)) * stageScaleY,
             width: zone.width * stageScaleX,
             height: zone.height * stageScaleY,
             zIndex: layer.zIndex + 5,
@@ -188,7 +194,7 @@ export function SceneVisualLayer({
         >
           {selectedInteractionZoneLayerId === layer.id && (
             <>
-              <span>Interaction Zone</span>
+              <span>{interactionZoneLabel(interaction)}</span>
               <i
                 className="interaction-zone-handle nw"
                 onPointerDown={event => onInteractionZoneResizeStart(event, layer, asset, interaction, "nw")}
