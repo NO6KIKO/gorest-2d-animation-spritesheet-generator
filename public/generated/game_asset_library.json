@@ -1,6 +1,1904 @@
 {
   "assets": [
     {
+      "id": "asset_black_hair_psych_patient_pixel_topdown_wasd",
+      "name": "Black-haired Psych Patient Pixel / Shirt Pants Directional WASD Gait Fix v2",
+      "role": "player",
+      "confirmed": true,
+      "savedTime": "2026-07-03T19:28:08.848Z",
+      "updatedTime": "2026-07-03T20:00:45.151Z",
+      "sprite": {
+        "id": "sprite_black_hair_psych_patient_pixel_idle_down_8f",
+        "characterName": "Black-haired Psych Patient Pixel / Idle Down",
+        "description": "8-frame idle down top-down pixel sprite strip for a black-haired female psychiatric patient in a pale hospital shirt and long pants. Directional breathing idle from the same gait-fix raster sheet. Transparent 128x128 frames, normalized scale, and stable root anchor.",
+        "frameCount": 8,
+        "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+        "prompt": "Generated with built-in image_gen as an 8x8 raster pixel-art contact sheet on #ff00ff chroma key, after user feedback that the previous WASD walking legs did not cross/alternate correctly. Rows: idle down/front breathing, idle left breathing, idle right breathing, idle up/back breathing, corrected walk down, corrected walk left, corrected walk right, corrected walk up. Walk rows requested contact/down/passing/up/opposite contact rhythm. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-07-03T19:28:08.848Z",
+        "updatedTime": "2026-07-03T19:50:39.743Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png",
+        "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png",
+        "generationMode": "built_in_imagegen_pixel_chroma_key_topdown_wasd_8x8_directional_idle_gaitfix_contact_sheet",
+        "artSourcePolicy": "Visible character, neat hair, feminine facial features, shirt, pants, hands, feet, idle breathing poses, and corrected walking gait poses were generated as raster pixel-art spritesheet cells. Code only performed chroma-key alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+        "qualityPolicy": "Pixel-art source inspected after alpha cleanup; walk rows checked for clearer alternating feet, passing poses, and reduced sliding. No code-drawn facial features, hair, clothing, limbs, or animation poses were added.",
+        "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+        "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; action row 0 (idle_down) sliced from the normalized 8x8 gait-fix sheet into an 8x1 strip.",
+        "inputReferenceInvariant": "One generated identity across all 64 cells: young female patient, neat straight black hair with tidy bangs, feminine brows/eyes, pale face, slim build, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown, no accessories.",
+        "fps": 6,
+        "gridColumns": 8,
+        "cellSize": 128,
+        "frameSize": [
+          128,
+          128
+        ],
+        "sheetSize": [
+          1024,
+          128
+        ],
+        "sourceSheetSize": [
+          1254,
+          1254
+        ],
+        "sourceCells": [
+          [
+            5,
+            18,
+            157,
+            172
+          ],
+          [
+            161,
+            18,
+            314,
+            172
+          ],
+          [
+            318,
+            18,
+            470,
+            172
+          ],
+          [
+            474,
+            18,
+            626,
+            172
+          ],
+          [
+            630,
+            18,
+            783,
+            172
+          ],
+          [
+            787,
+            18,
+            939,
+            172
+          ],
+          [
+            943,
+            18,
+            1096,
+            172
+          ],
+          [
+            1100,
+            18,
+            1252,
+            172
+          ]
+        ],
+        "frameBboxes": [
+          [
+            38,
+            5,
+            53,
+            112
+          ],
+          [
+            39,
+            5,
+            52,
+            112
+          ],
+          [
+            38,
+            5,
+            52,
+            112
+          ],
+          [
+            38,
+            5,
+            53,
+            112
+          ],
+          [
+            38,
+            5,
+            53,
+            112
+          ],
+          [
+            38,
+            5,
+            53,
+            112
+          ],
+          [
+            39,
+            5,
+            52,
+            112
+          ],
+          [
+            38,
+            5,
+            52,
+            112
+          ]
+        ],
+        "rootAnchors": [
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ],
+          [
+            64,
+            39.04
+          ]
+        ],
+        "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+        "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between WASD directions.",
+        "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_raw_8x8.png",
+        "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_all_actions_8x8_clean_sheet.png"
+      },
+      "animations": [
+        {
+          "id": "clip_black_hair_psych_patient_pixel_idle_down",
+          "name": "Idle Down",
+          "actionName": "idle",
+          "direction": "down",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_idle_down_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Idle Down",
+            "description": "8-frame idle down top-down pixel sprite strip for a black-haired female psychiatric patient in a pale hospital shirt and long pants. Directional breathing idle from the same gait-fix raster sheet. Transparent 128x128 frames, normalized scale, and stable root anchor.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as an 8x8 raster pixel-art contact sheet on #ff00ff chroma key, after user feedback that the previous WASD walking legs did not cross/alternate correctly. Rows: idle down/front breathing, idle left breathing, idle right breathing, idle up/back breathing, corrected walk down, corrected walk left, corrected walk right, corrected walk up. Walk rows requested contact/down/passing/up/opposite contact rhythm. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T19:50:39.743Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_down_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_topdown_wasd_8x8_directional_idle_gaitfix_contact_sheet",
+            "artSourcePolicy": "Visible character, neat hair, feminine facial features, shirt, pants, hands, feet, idle breathing poses, and corrected walking gait poses were generated as raster pixel-art spritesheet cells. Code only performed chroma-key alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; walk rows checked for clearer alternating feet, passing poses, and reduced sliding. No code-drawn facial features, hair, clothing, limbs, or animation poses were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; action row 0 (idle_down) sliced from the normalized 8x8 gait-fix sheet into an 8x1 strip.",
+            "inputReferenceInvariant": "One generated identity across all 64 cells: young female patient, neat straight black hair with tidy bangs, feminine brows/eyes, pale face, slim build, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown, no accessories.",
+            "fps": 6,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                5,
+                18,
+                157,
+                172
+              ],
+              [
+                161,
+                18,
+                314,
+                172
+              ],
+              [
+                318,
+                18,
+                470,
+                172
+              ],
+              [
+                474,
+                18,
+                626,
+                172
+              ],
+              [
+                630,
+                18,
+                783,
+                172
+              ],
+              [
+                787,
+                18,
+                939,
+                172
+              ],
+              [
+                943,
+                18,
+                1096,
+                172
+              ],
+              [
+                1100,
+                18,
+                1252,
+                172
+              ]
+            ],
+            "frameBboxes": [
+              [
+                38,
+                5,
+                53,
+                112
+              ],
+              [
+                39,
+                5,
+                52,
+                112
+              ],
+              [
+                38,
+                5,
+                52,
+                112
+              ],
+              [
+                38,
+                5,
+                53,
+                112
+              ],
+              [
+                38,
+                5,
+                53,
+                112
+              ],
+              [
+                38,
+                5,
+                53,
+                112
+              ],
+              [
+                39,
+                5,
+                52,
+                112
+              ],
+              [
+                38,
+                5,
+                52,
+                112
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between WASD directions.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_raw_8x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_all_actions_8x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "player.black_hair_psych_patient.idle_down",
+            "notes": "Default front/down breathing loop. Used after releasing S."
+          },
+          "loop": true,
+          "fps": 6
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_idle_left",
+          "name": "Idle Left",
+          "actionName": "idle",
+          "direction": "left",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_idle_left_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Idle Left",
+            "description": "8-frame idle left top-down pixel sprite strip for a black-haired female psychiatric patient in a pale hospital shirt and long pants. Directional breathing idle from the same gait-fix raster sheet. Transparent 128x128 frames, normalized scale, and stable root anchor.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as an 8x8 raster pixel-art contact sheet on #ff00ff chroma key, after user feedback that the previous WASD walking legs did not cross/alternate correctly. Rows: idle down/front breathing, idle left breathing, idle right breathing, idle up/back breathing, corrected walk down, corrected walk left, corrected walk right, corrected walk up. Walk rows requested contact/down/passing/up/opposite contact rhythm. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T19:50:39.743Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_left_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_topdown_wasd_8x8_directional_idle_gaitfix_contact_sheet",
+            "artSourcePolicy": "Visible character, neat hair, feminine facial features, shirt, pants, hands, feet, idle breathing poses, and corrected walking gait poses were generated as raster pixel-art spritesheet cells. Code only performed chroma-key alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; walk rows checked for clearer alternating feet, passing poses, and reduced sliding. No code-drawn facial features, hair, clothing, limbs, or animation poses were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; action row 1 (idle_left) sliced from the normalized 8x8 gait-fix sheet into an 8x1 strip.",
+            "inputReferenceInvariant": "One generated identity across all 64 cells: young female patient, neat straight black hair with tidy bangs, feminine brows/eyes, pale face, slim build, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown, no accessories.",
+            "fps": 6,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                5,
+                176,
+                157,
+                329
+              ],
+              [
+                161,
+                176,
+                314,
+                329
+              ],
+              [
+                318,
+                176,
+                470,
+                329
+              ],
+              [
+                474,
+                176,
+                626,
+                329
+              ],
+              [
+                630,
+                176,
+                783,
+                329
+              ],
+              [
+                787,
+                176,
+                939,
+                329
+              ],
+              [
+                943,
+                176,
+                1096,
+                329
+              ],
+              [
+                1100,
+                176,
+                1252,
+                329
+              ]
+            ],
+            "frameBboxes": [
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                48,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                39,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                48,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between WASD directions.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_raw_8x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_all_actions_8x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "player.black_hair_psych_patient.idle_left",
+            "notes": "Left-facing breathing loop. Used after releasing A."
+          },
+          "loop": true,
+          "fps": 6
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_idle_right",
+          "name": "Idle Right",
+          "actionName": "idle",
+          "direction": "right",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_idle_right_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Idle Right",
+            "description": "8-frame idle right top-down pixel sprite strip for a black-haired female psychiatric patient in a pale hospital shirt and long pants. Directional breathing idle from the same gait-fix raster sheet. Transparent 128x128 frames, normalized scale, and stable root anchor.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as an 8x8 raster pixel-art contact sheet on #ff00ff chroma key, after user feedback that the previous WASD walking legs did not cross/alternate correctly. Rows: idle down/front breathing, idle left breathing, idle right breathing, idle up/back breathing, corrected walk down, corrected walk left, corrected walk right, corrected walk up. Walk rows requested contact/down/passing/up/opposite contact rhythm. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T19:50:39.743Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_idle_right_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_topdown_wasd_8x8_directional_idle_gaitfix_contact_sheet",
+            "artSourcePolicy": "Visible character, neat hair, feminine facial features, shirt, pants, hands, feet, idle breathing poses, and corrected walking gait poses were generated as raster pixel-art spritesheet cells. Code only performed chroma-key alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; walk rows checked for clearer alternating feet, passing poses, and reduced sliding. No code-drawn facial features, hair, clothing, limbs, or animation poses were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; action row 2 (idle_right) sliced from the normalized 8x8 gait-fix sheet into an 8x1 strip.",
+            "inputReferenceInvariant": "One generated identity across all 64 cells: young female patient, neat straight black hair with tidy bangs, feminine brows/eyes, pale face, slim build, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown, no accessories.",
+            "fps": 6,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                5,
+                333,
+                157,
+                485
+              ],
+              [
+                161,
+                333,
+                314,
+                485
+              ],
+              [
+                318,
+                333,
+                470,
+                485
+              ],
+              [
+                474,
+                333,
+                626,
+                485
+              ],
+              [
+                630,
+                333,
+                783,
+                485
+              ],
+              [
+                787,
+                333,
+                939,
+                485
+              ],
+              [
+                943,
+                333,
+                1096,
+                485
+              ],
+              [
+                1100,
+                333,
+                1252,
+                485
+              ]
+            ],
+            "frameBboxes": [
+              [
+                41,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                50,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                41,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ],
+              [
+                40,
+                7,
+                49,
+                114
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between WASD directions.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_raw_8x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_all_actions_8x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "player.black_hair_psych_patient.idle_right",
+            "notes": "Right-facing breathing loop. Used after releasing D."
+          },
+          "loop": true,
+          "fps": 6
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_idle_up",
+          "name": "Idle Up",
+          "actionName": "idle",
+          "direction": "up",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_idle_up_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Idle Up",
+            "description": "8-frame corrected back/up idle strip for the black-haired psychiatric patient girl. Feet and pant legs stay planted while only the back, shoulders, and hair breathe subtly.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as a 2x8 raster pixel-art back/up correction sheet on #ff00ff chroma key, after user feedback that W walk suddenly split into a wide V stance and W idle legs should not move. Row 1 idle up/back with planted feet, row 2 restrained walk up/back with feet close under hips. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T20:00:45.151Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_idle_up_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_backfix_idle_walk_up_2x8_contact_sheet",
+            "artSourcePolicy": "Visible back-view idle and walk poses, planted feet, restrained stepping legs, hair, shirt, pants, hands, and shoes were generated as raster pixel-art cells. Code only performed alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "W idle and walk strips inspected after alpha cleanup; idle feet remain planted, and walk-up uses restrained close-under-body steps with no wide V split. No code-drawn limbs or pose edits were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; row 0 backfix idle_up sliced into an 8x1 strip with planted feet.",
+            "inputReferenceInvariant": "One generated identity: young female patient, neat straight black hair, feminine brows/eyes where visible, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown.",
+            "fps": 6,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1983,
+              793
+            ],
+            "sourceCells": [
+              [
+                50,
+                85,
+                284,
+                408
+              ],
+              [
+                288,
+                85,
+                523,
+                408
+              ],
+              [
+                527,
+                85,
+                762,
+                408
+              ],
+              [
+                766,
+                85,
+                999,
+                408
+              ],
+              [
+                1003,
+                85,
+                1235,
+                408
+              ],
+              [
+                1239,
+                85,
+                1471,
+                408
+              ],
+              [
+                1475,
+                85,
+                1707,
+                408
+              ],
+              [
+                1711,
+                85,
+                1943,
+                408
+              ]
+            ],
+            "frameBboxes": [
+              [
+                37,
+                4,
+                53,
+                114
+              ],
+              [
+                37,
+                4,
+                53,
+                114
+              ],
+              [
+                37,
+                4,
+                54,
+                114
+              ],
+              [
+                37,
+                4,
+                54,
+                114
+              ],
+              [
+                37,
+                4,
+                54,
+                114
+              ],
+              [
+                37,
+                4,
+                54,
+                114
+              ],
+              [
+                37,
+                4,
+                54,
+                114
+              ],
+              [
+                37,
+                4,
+                54,
+                114
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active back idle frames. Feet and pant legs remain visually planted while upper body breathes subtly.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_raw_2x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_all_actions_2x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "idle",
+            "triggerType": "auto",
+            "triggerValue": "auto",
+            "gameState": "player.black_hair_psych_patient.idle_up",
+            "notes": "Back/up breathing loop after releasing W; feet stay planted."
+          },
+          "loop": true,
+          "fps": 6
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_walk_down",
+          "name": "Move Down",
+          "actionName": "move_down",
+          "direction": "down",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_walk_down_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Move Down",
+            "description": "8-frame move down top-down pixel sprite strip for a black-haired female psychiatric patient in a pale hospital shirt and long pants. Gait-fix redraw with clearer alternating feet, contact poses, passing poses, and opposite arm swing. Transparent 128x128 frames, normalized scale, and stable root anchor.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as an 8x8 raster pixel-art contact sheet on #ff00ff chroma key, after user feedback that the previous WASD walking legs did not cross/alternate correctly. Rows: idle down/front breathing, idle left breathing, idle right breathing, idle up/back breathing, corrected walk down, corrected walk left, corrected walk right, corrected walk up. Walk rows requested contact/down/passing/up/opposite contact rhythm. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T19:50:39.743Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_walk_down_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_topdown_wasd_8x8_directional_idle_gaitfix_contact_sheet",
+            "artSourcePolicy": "Visible character, neat hair, feminine facial features, shirt, pants, hands, feet, idle breathing poses, and corrected walking gait poses were generated as raster pixel-art spritesheet cells. Code only performed chroma-key alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "Pixel-art source inspected after alpha cleanup; walk rows checked for clearer alternating feet, passing poses, and reduced sliding. No code-drawn facial features, hair, clothing, limbs, or animation poses were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; action row 4 (walk_down) sliced from the normalized 8x8 gait-fix sheet into an 8x1 strip.",
+            "inputReferenceInvariant": "One generated identity across all 64 cells: young female patient, neat straight black hair with tidy bangs, feminine brows/eyes, pale face, slim build, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown, no accessories.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                5,
+                645,
+                157,
+                799
+              ],
+              [
+                161,
+                645,
+                314,
+                799
+              ],
+              [
+                318,
+                645,
+                470,
+                799
+              ],
+              [
+                474,
+                645,
+                626,
+                799
+              ],
+              [
+                630,
+                645,
+                783,
+                799
+              ],
+              [
+                787,
+                645,
+                939,
+                799
+              ],
+              [
+                943,
+                645,
+                1096,
+                799
+              ],
+              [
+                1100,
+                645,
+                1252,
+                799
+              ]
+            ],
+            "frameBboxes": [
+              [
+                38,
+                4,
+                54,
+                115
+              ],
+              [
+                39,
+                4,
+                54,
+                115
+              ],
+              [
+                37,
+                4,
+                57,
+                115
+              ],
+              [
+                39,
+                4,
+                52,
+                116
+              ],
+              [
+                36,
+                5,
+                57,
+                114
+              ],
+              [
+                38,
+                5,
+                51,
+                114
+              ],
+              [
+                37,
+                4,
+                53,
+                115
+              ],
+              [
+                38,
+                4,
+                51,
+                115
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active frames. Use fixed 128x128 cells for playback so the character does not pop between WASD directions.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_raw_8x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_gaitfix_all_actions_8x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "move_down",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyS",
+            "gameState": "player.black_hair_psych_patient.walk_down",
+            "notes": "Hold S to play corrected down walk with alternating contact and passing poses."
+          },
+          "loop": true,
+          "fps": 10
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_walk_left",
+          "name": "Move Left",
+          "actionName": "move_left",
+          "direction": "left",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_walk_left_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Move Left",
+            "description": "8-frame corrected left side-walk strip for the black-haired psychiatric patient girl. Stronger near/far leg separation and visibly swapped forward/back foot positions between the two contact poses.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as a 2x8 raster pixel-art side-walk correction sheet on #ff00ff chroma key, after user feedback that A/D did not visibly switch legs. Row 1 walk left, row 2 walk right. Prompt required top-down three-quarter side view, near/far leg separation, and frame 1/frame 5 visibly different with swapped forward/back foot positions. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T20:00:45.151Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_left_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_sidelegswap_v2_left_right_2x8_contact_sheet",
+            "artSourcePolicy": "Visible side-walk character poses, legs, shoes, hair, face, shirt, and pants were generated as raster pixel-art cells. Code only performed alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "A/D strips inspected after alpha cleanup; frame 1 and frame 5 now have distinct silhouettes and visible near/far leg swap. No code-drawn limbs or pose edits were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; row 0 sidelegswap_v2 walk_left sliced into an 8x1 strip.",
+            "inputReferenceInvariant": "One generated identity: young female patient, neat straight black hair, feminine brows/eyes where visible, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1983,
+              793
+            ],
+            "sourceCells": [
+              [
+                23,
+                52,
+                271,
+                398
+              ],
+              [
+                277,
+                52,
+                525,
+                398
+              ],
+              [
+                531,
+                52,
+                780,
+                398
+              ],
+              [
+                786,
+                52,
+                1033,
+                398
+              ],
+              [
+                1038,
+                51,
+                1278,
+                399
+              ],
+              [
+                1282,
+                51,
+                1510,
+                399
+              ],
+              [
+                1514,
+                51,
+                1738,
+                399
+              ],
+              [
+                1742,
+                51,
+                1977,
+                399
+              ]
+            ],
+            "frameBboxes": [
+              [
+                35,
+                7,
+                53,
+                115
+              ],
+              [
+                40,
+                7,
+                48,
+                114
+              ],
+              [
+                40,
+                8,
+                47,
+                110
+              ],
+              [
+                38,
+                8,
+                53,
+                112
+              ],
+              [
+                39,
+                8,
+                49,
+                109
+              ],
+              [
+                40,
+                8,
+                48,
+                109
+              ],
+              [
+                40,
+                9,
+                47,
+                107
+              ],
+              [
+                38,
+                9,
+                50,
+                107
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active side-walk frames. Contact poses use visible near/far leg swap; fixed 128x128 cells prevent playback popping.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_raw_2x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_all_actions_2x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "move_left",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyA",
+            "gameState": "player.black_hair_psych_patient.walk_left",
+            "notes": "Hold A to play corrected left walk with visible near/far leg switching."
+          },
+          "loop": true,
+          "fps": 10
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_walk_right",
+          "name": "Move Right",
+          "actionName": "move_right",
+          "direction": "right",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_walk_right_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Move Right",
+            "description": "8-frame corrected right side-walk strip for the black-haired psychiatric patient girl. Stronger near/far leg separation and visibly swapped forward/back foot positions between the two contact poses.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as a 2x8 raster pixel-art side-walk correction sheet on #ff00ff chroma key, after user feedback that A/D did not visibly switch legs. Row 1 walk left, row 2 walk right. Prompt required top-down three-quarter side view, near/far leg separation, and frame 1/frame 5 visibly different with swapped forward/back foot positions. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T20:00:45.151Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_walk_right_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_sidelegswap_v2_left_right_2x8_contact_sheet",
+            "artSourcePolicy": "Visible side-walk character poses, legs, shoes, hair, face, shirt, and pants were generated as raster pixel-art cells. Code only performed alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "A/D strips inspected after alpha cleanup; frame 1 and frame 5 now have distinct silhouettes and visible near/far leg swap. No code-drawn limbs or pose edits were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; row 1 sidelegswap_v2 walk_right sliced into an 8x1 strip.",
+            "inputReferenceInvariant": "One generated identity: young female patient, neat straight black hair, feminine brows/eyes where visible, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1983,
+              793
+            ],
+            "sourceCells": [
+              [
+                23,
+                404,
+                271,
+                750
+              ],
+              [
+                277,
+                404,
+                525,
+                750
+              ],
+              [
+                531,
+                404,
+                780,
+                750
+              ],
+              [
+                786,
+                404,
+                1033,
+                750
+              ],
+              [
+                1038,
+                403,
+                1278,
+                751
+              ],
+              [
+                1282,
+                403,
+                1510,
+                751
+              ],
+              [
+                1514,
+                403,
+                1738,
+                751
+              ],
+              [
+                1742,
+                403,
+                1977,
+                751
+              ]
+            ],
+            "frameBboxes": [
+              [
+                41,
+                7,
+                55,
+                115
+              ],
+              [
+                41,
+                7,
+                48,
+                116
+              ],
+              [
+                41,
+                8,
+                48,
+                111
+              ],
+              [
+                39,
+                7,
+                53,
+                113
+              ],
+              [
+                41,
+                8,
+                49,
+                109
+              ],
+              [
+                41,
+                8,
+                48,
+                110
+              ],
+              [
+                41,
+                8,
+                47,
+                110
+              ],
+              [
+                40,
+                8,
+                51,
+                110
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active side-walk frames. Contact poses use visible near/far leg swap; fixed 128x128 cells prevent playback popping.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_raw_2x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_sidelegswap_v2_all_actions_2x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "move_right",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyD",
+            "gameState": "player.black_hair_psych_patient.walk_right",
+            "notes": "Hold D to play corrected right walk with visible near/far leg switching."
+          },
+          "loop": true,
+          "fps": 10
+        },
+        {
+          "id": "clip_black_hair_psych_patient_pixel_walk_up",
+          "name": "Move Up",
+          "actionName": "move_up",
+          "direction": "up",
+          "sprite": {
+            "id": "sprite_black_hair_psych_patient_pixel_walk_up_8f",
+            "characterName": "Black-haired Psych Patient Pixel / Move Up",
+            "description": "8-frame corrected back/up walking strip for the black-haired psychiatric patient girl. Restrained small steps keep feet close under the hips and avoid sudden V-shaped leg splitting.",
+            "frameCount": 8,
+            "style": "crisp top-down pixel RPG character sprite, neat straight black hair with tidy bangs, feminine eyes and brows, pale blue-white psychiatric hospital shirt and matching long pants, no skirt, transparent PNG spritesheet",
+            "prompt": "Generated with built-in image_gen as a 2x8 raster pixel-art back/up correction sheet on #ff00ff chroma key, after user feedback that W walk suddenly split into a wide V stance and W idle legs should not move. Row 1 idle up/back with planted feet, row 2 restrained walk up/back with feet close under hips. Code only removed chroma key/despilled edges, detected cells, normalized scale/anchor, sliced strips, and wrote metadata.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"0 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"128 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"256 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"384 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"512 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"640 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"768 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"128\" height=\"128\" viewBox=\"896 0 128 128\" overflow=\"hidden\"><image href=\"/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"128\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-03T19:28:08.848Z",
+            "updatedTime": "2026-07-03T20:00:45.151Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_walk_up_8f_sheet.png",
+            "generationMode": "built_in_imagegen_pixel_chroma_key_backfix_idle_walk_up_2x8_contact_sheet",
+            "artSourcePolicy": "Visible back-view idle and walk poses, planted feet, restrained stepping legs, hair, shirt, pants, hands, and shoes were generated as raster pixel-art cells. Code only performed alpha cleanup/despill, grid detection, fixed-frame normalization, row slicing, and metadata wiring.",
+            "qualityPolicy": "W idle and walk strips inspected after alpha cleanup; idle feet remain planted, and walk-up uses restrained close-under-body steps with no wide V split. No code-drawn limbs or pose edits were added.",
+            "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+            "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling; row 1 backfix walk_up sliced into an 8x1 strip with restrained close steps.",
+            "inputReferenceInvariant": "One generated identity: young female patient, neat straight black hair, feminine brows/eyes where visible, pale blue-white psychiatric hospital top/shirt and matching long pants, no skirt, no dress, no gown.",
+            "fps": 10,
+            "gridColumns": 8,
+            "cellSize": 128,
+            "frameSize": [
+              128,
+              128
+            ],
+            "sheetSize": [
+              1024,
+              128
+            ],
+            "sourceSheetSize": [
+              1983,
+              793
+            ],
+            "sourceCells": [
+              [
+                50,
+                412,
+                284,
+                734
+              ],
+              [
+                288,
+                412,
+                523,
+                734
+              ],
+              [
+                527,
+                412,
+                762,
+                734
+              ],
+              [
+                766,
+                412,
+                999,
+                734
+              ],
+              [
+                1003,
+                412,
+                1235,
+                734
+              ],
+              [
+                1239,
+                412,
+                1471,
+                734
+              ],
+              [
+                1475,
+                412,
+                1707,
+                734
+              ],
+              [
+                1711,
+                412,
+                1943,
+                734
+              ]
+            ],
+            "frameBboxes": [
+              [
+                37,
+                4,
+                54,
+                116
+              ],
+              [
+                37,
+                4,
+                53,
+                116
+              ],
+              [
+                38,
+                4,
+                53,
+                116
+              ],
+              [
+                38,
+                4,
+                53,
+                116
+              ],
+              [
+                38,
+                4,
+                52,
+                116
+              ],
+              [
+                38,
+                4,
+                53,
+                116
+              ],
+              [
+                37,
+                4,
+                53,
+                116
+              ],
+              [
+                37,
+                4,
+                53,
+                116
+              ]
+            ],
+            "rootAnchors": [
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ],
+              [
+                64,
+                39.04
+              ]
+            ],
+            "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+            "adaptiveFramePolicy": "8 columns, 1 row, 8 active back walk frames. Foot spread stays narrow; fixed 128x128 cells prevent playback popping.",
+            "rawContactSheetPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_raw_2x8.png",
+            "normalizedAllActionsPng": "/generated/black_hair_psych_patient_pants_pixel_backfix_all_actions_2x8_clean_sheet.png"
+          },
+          "binding": {
+            "actionName": "move_up",
+            "triggerType": "keyboard",
+            "triggerValue": "KeyW",
+            "gameState": "player.black_hair_psych_patient.walk_up",
+            "notes": "Hold W to play corrected back/up walk with restrained close steps and no sudden V-leg split."
+          },
+          "loop": true,
+          "fps": 10
+        }
+      ],
+      "defaultAnimationId": "clip_black_hair_psych_patient_pixel_idle_down",
+      "binding": {
+        "actionName": "idle",
+        "triggerType": "auto",
+        "triggerValue": "auto",
+        "gameState": "player.black_hair_psych_patient.idle_down",
+        "notes": "Default down/front breathing loop for the black-haired psychiatric patient top-down WASD player."
+      },
+      "tags": [
+        "generated",
+        "pixel-art",
+        "top-down",
+        "player",
+        "wasd",
+        "directional-idle",
+        "spritesheet",
+        "psychiatric-patient",
+        "hospital-shirt-and-pants",
+        "shirt-and-pants",
+        "no-skirt",
+        "black-hair",
+        "female-character",
+        "gait-fix",
+        "corrected-walk-cycle",
+        "side-leg-swap-v2",
+        "back-walk-fix",
+        "planted-idle-up",
+        "no-v-leg-split"
+      ]
+    },
+    {
+      "id": "asset_dark_classroom_psych_ward_topdown_background",
+      "name": "Dark Classroom and Psych Ward / Classic RPG Horror Top-down Background",
+      "role": "background",
+      "confirmed": true,
+      "savedTime": "2026-07-03T19:06:06.845Z",
+      "updatedTime": "2026-07-03T21:34:32.749Z",
+      "sprite": {
+        "id": "sprite_dark_classroom_psych_ward_topdown_background",
+        "characterName": "Dark Classroom and Psych Ward Top-down Background",
+        "description": "Static 1672x941 raster pixel-art top-down map connecting a dark classroom, a psychiatric ward, and a lower connected observation room.",
+        "frameCount": 1,
+        "style": "classic 2D RPG horror top-down pixel art, clean room silhouettes, blue-purple dark palette, theatrical window beams, cyan ward light, green classroom lamp, red emergency focus, readable playable floor",
+        "prompt": "User provided a reference for a cleaner classic RPG horror aesthetic. Built-in image generation used the current dark classroom / psychiatric ward map as edit target and the reference only for mood: clean room silhouettes, blue-purple shadows, strong theatrical light beams, reduced noisy clutter, and clearer playable floor while preserving the classroom-corridor-ward-lower-room layout.",
+        "frames": [
+          "<img src=\"/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png\" alt=\"Classic RPG horror dark classroom psychiatric ward pixel-art top-down scene\" draggable=\"false\" />"
+        ],
+        "createdTime": "2026-07-03T19:06:06.845Z",
+        "updatedTime": "2026-07-03T21:34:32.749Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png",
+        "rawSpritesheetPng": "/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png",
+        "generationMode": "built_in_imagegen_raster_pixel_art_topdown_scene_classic_rpg_horror_v3",
+        "artSourcePolicy": "Visible room layout, furniture, lighting, tiles, grime, and pixel-art details were generated as a raster bitmap. Code only copied the image into the project and wired metadata.",
+        "proportionPolicy": "Static background uses one 1672x941 frame; the scene layer displays it at 1:1 scale without stretching.",
+        "normalization": "Built-in image generation output padded to 1672x941 and copied into the project as a raster background; existing scene layer displays it at 1:1 scale.",
+        "gridColumns": 1,
+        "frameSize": [
+          1672,
+          941
+        ],
+        "sheetSize": [
+          1672,
+          941
+        ]
+      },
+      "animations": [
+        {
+          "id": "clip_dark_classroom_psych_ward_background_idle",
+          "name": "Static top-down background",
+          "actionName": "scene-background",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_dark_classroom_psych_ward_topdown_background",
+            "characterName": "Dark Classroom and Psych Ward Top-down Background",
+            "description": "Static 1672x941 raster pixel-art top-down map connecting a dark classroom, a psychiatric ward, and a lower connected observation room.",
+            "frameCount": 1,
+            "style": "classic 2D RPG horror top-down pixel art, clean room silhouettes, blue-purple dark palette, theatrical window beams, cyan ward light, green classroom lamp, red emergency focus, readable playable floor",
+            "prompt": "User provided a reference for a cleaner classic RPG horror aesthetic. Built-in image generation used the current dark classroom / psychiatric ward map as edit target and the reference only for mood: clean room silhouettes, blue-purple shadows, strong theatrical light beams, reduced noisy clutter, and clearer playable floor while preserving the classroom-corridor-ward-lower-room layout.",
+            "frames": [
+              "<img src=\"/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png\" alt=\"Classic RPG horror dark classroom psychiatric ward pixel-art top-down scene\" draggable=\"false\" />"
+            ],
+            "createdTime": "2026-07-03T19:06:06.845Z",
+            "updatedTime": "2026-07-03T21:34:32.749Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png",
+            "rawSpritesheetPng": "/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png",
+            "generationMode": "built_in_imagegen_raster_pixel_art_topdown_scene_classic_rpg_horror_v3",
+            "artSourcePolicy": "Visible room layout, furniture, lighting, tiles, grime, and pixel-art details were generated as a raster bitmap. Code only copied the image into the project and wired metadata.",
+            "proportionPolicy": "Static background uses one 1672x941 frame; the scene layer displays it at 1:1 scale without stretching.",
+            "normalization": "Built-in image generation output padded to 1672x941 and copied into the project as a raster background; existing scene layer displays it at 1:1 scale.",
+            "gridColumns": 1,
+            "frameSize": [
+              1672,
+              941
+            ],
+            "sheetSize": [
+              1672,
+              941
+            ]
+          },
+          "binding": {
+            "actionName": "scene-background",
+            "triggerType": "state",
+            "triggerValue": "scene.dark_institution",
+            "gameState": "background.darkInstitution",
+            "notes": "Reusable static 2D pixel top-down background for the connected classroom, psychiatric ward, and observation room scene."
+          },
+          "loop": false
+        }
+      ],
+      "defaultAnimationId": "clip_dark_classroom_psych_ward_background_idle",
+      "binding": {
+        "actionName": "scene-background",
+        "triggerType": "state",
+        "triggerValue": "scene.dark_institution",
+        "gameState": "background.darkInstitution",
+        "notes": "Reusable static 2D pixel top-down background for a dark classroom, psychiatric ward, and connected room."
+      },
+      "tags": [
+        "top-down",
+        "pixel-art",
+        "dark-classroom",
+        "psychiatric-ward",
+        "connected-room",
+        "large-scene",
+        "background",
+        "beautified-v2",
+        "classic-rpg-horror-v3"
+      ]
+    },
+    {
       "id": "asset_red_haired_drummer_pixel_drumming_front_16f",
       "name": "Red-haired Drummer Pixel / Front Drumming 16f",
       "role": "character",
@@ -5967,6 +7865,282 @@
   ],
   "scenes": [
     {
+      "id": "scene_dark_classroom_psych_ward_topdown",
+      "name": "Dark Classroom - Psychiatric Ward Top-down",
+      "width": 1672,
+      "height": 941,
+      "viewportWidth": 1672,
+      "viewportHeight": 941,
+      "viewportPreset": "custom",
+      "cameraX": 0,
+      "groundY": 941,
+      "background": "dark_classroom_psych_ward_topdown",
+      "lighting": {
+        "preset": "none",
+        "brightness": 1,
+        "contrast": 1,
+        "saturate": 1,
+        "ambience": 1,
+        "vignette": 0,
+        "glow": 0
+      },
+      "state": {
+        "dark_institution_scene": true,
+        "classroom_connected": true,
+        "psychiatric_ward_connected": true,
+        "connected_room_unlocked": true,
+        "black_hair_psych_patient_player": true,
+        "beautified_background_v2": true,
+        "classic_rpg_horror_background_v3": true
+      },
+      "savedTime": "2026-07-03T19:06:06.845Z",
+      "updatedTime": "2026-07-03T21:34:32.749Z",
+      "layers": [
+        {
+          "id": "layer_dark_institution_background",
+          "name": "Dark Classroom and Psych Ward Background",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 941,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 1672,
+          "height": 941,
+          "color": "#050506",
+          "imageUrl": "/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png",
+          "fit": "stretch",
+          "position": "center center",
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#ffffff",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#ffffff",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_dark_institution_ground_reference",
+          "name": "Walkable Floor Reference",
+          "type": "ground",
+          "visible": false,
+          "locked": true,
+          "x": 0,
+          "y": 941,
+          "scale": 1,
+          "zIndex": 1,
+          "opacity": 0,
+          "parallax": 1,
+          "color": "#111015"
+        },
+        {
+          "id": "layer_black_hair_psych_patient_player",
+          "name": "Black-haired Psych Patient Pixel Player",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_black_hair_psych_patient_pixel_topdown_wasd",
+          "activeAnimationId": "clip_black_hair_psych_patient_pixel_idle_down",
+          "x": 805,
+          "y": 552,
+          "scale": 0.72,
+          "zIndex": 42,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0,0,0,0)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0,
+            "height": 0,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#ffffff",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#ffffff",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_light_zone_player_halo",
+          "name": "Light Zone / Player Halo",
+          "type": "effect",
+          "visible": true,
+          "assetId": "asset_scene_e_trigger_point",
+          "activeAnimationId": "clip_eye_inspect_idle",
+          "x": 829,
+          "y": 528,
+          "scale": 0.55,
+          "zIndex": 43,
+          "opacity": 0.08,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0,0,0,0)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0,
+            "height": 0,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#ffffff",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#ffffff",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": true,
+            "preset": "light-zone",
+            "triggerMode": "auto",
+            "actionType": "light-zone",
+            "promptKey": "",
+            "promptText": "Light",
+            "subtitle": "",
+            "failSubtitle": "",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.88,
+            "promptStyle": "minimal",
+            "triggerRadius": 0,
+            "offsetX": 0,
+            "offsetY": -34,
+            "zoneShape": "circle",
+            "zoneWidth": 320,
+            "zoneHeight": 250,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": -8,
+            "repeatMode": "repeatable",
+            "cooldownMs": 0,
+            "debugVisible": true,
+            "hideLayerOnPickup": false,
+            "hotspotVisible": false,
+            "lightColor": "#f4d38a",
+            "lightIntensity": 0.72,
+            "lightFalloff": 0.76,
+            "lightBlendMode": "screen",
+            "lightFlicker": 0,
+            "lightAttachToLayerId": "layer_black_hair_psych_patient_player"
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_draft_1782692392237",
+      "name": "New Scene 8",
+      "width": 3840,
+      "height": 720,
+      "viewportWidth": 1280,
+      "viewportHeight": 720,
+      "viewportPreset": "desktop",
+      "cameraX": 0,
+      "groundY": 520,
+      "background": "chinese_station_platform",
+      "state": {
+        "has_key": false,
+        "radio_on": false,
+        "door_open": false,
+        "visited_bedroom": false
+      },
+      "lighting": {
+        "preset": "neon-station",
+        "brightness": 1,
+        "contrast": 1.04,
+        "saturate": 0.96,
+        "ambience": 0.78,
+        "vignette": 0.28,
+        "glow": 1
+      },
+      "savedTime": "2026-06-29T00:19:52.237Z",
+      "layers": [
+        {
+          "id": "layer_sky",
+          "name": "Background",
+          "type": "background",
+          "visible": true,
+          "locked": false,
+          "x": 0,
+          "y": 720,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 3840,
+          "height": 720,
+          "color": "#08070d",
+          "imageUrl": "/generated/chinese_side_scroller_station_extended_3840x720.png",
+          "fit": "stretch",
+          "position": "left center"
+        },
+        {
+          "id": "layer_ground",
+          "name": "Ground",
+          "type": "ground",
+          "visible": false,
+          "locked": true,
+          "x": 0,
+          "y": 520,
+          "scale": 1,
+          "zIndex": 10,
+          "opacity": 0.45,
+          "parallax": 1,
+          "color": "#f0b14a"
+        },
+        {
+          "id": "layer_player_scene_1782692392237_0",
+          "name": "Silver Bob Schoolgirl Pixel Player",
+          "type": "sprite",
+          "visible": true,
+          "assetId": "asset_silver_bob_schoolgirl_pixel_topdown_wasd",
+          "activeAnimationId": "clip_silver_bob_schoolgirl_pixel_idle",
+          "x": 420,
+          "y": 522,
+          "scale": 0.86,
+          "zIndex": 30,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0,0,0,0)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0,
+            "height": 0,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#ffffff",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#ffffff",
+            "rimLightOpacity": 0
+          }
+        }
+      ],
+      "updatedTime": "2026-06-29T00:19:56.908Z"
+    },
+    {
       "id": "scene_silver_bob_schoolgirl_pixel_library_topdown_wasd",
       "name": "Pixel Library - Silver Bob Schoolgirl WASD",
       "width": 1536,
@@ -7129,5 +9303,5 @@
       }
     }
   ],
-  "updatedTime": "2026-06-25T18:48:35.274Z"
+  "updatedTime": "2026-07-04T01:10:32.083Z"
 }
