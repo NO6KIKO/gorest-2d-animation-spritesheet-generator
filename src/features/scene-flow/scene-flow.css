@@ -330,6 +330,12 @@
     linear-gradient(180deg, rgba(34, 12, 25, .88), rgba(5, 6, 10, .96)),
     #08090e;
 }
+.scene-start-ui-preview.layered {
+  min-height: 420px;
+  align-items: center;
+  padding: 12px;
+  background: #020407;
+}
 .scene-start-ui-preview > img {
   position: absolute;
   inset: 0;
@@ -337,6 +343,22 @@
   height: 100%;
   object-fit: cover;
   filter: saturate(.82) contrast(.92) brightness(.72);
+}
+.scene-start-ui-layer-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(218, 232, 238, .18);
+  background: #05070a;
+}
+.scene-start-ui-art-layer {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
 }
 .scene-start-ui-preview-content {
   position: relative;
@@ -418,6 +440,9 @@
   border: 1px solid #d8e0e8;
   background: #fff;
 }
+.scene-start-ui-section.wide {
+  grid-column: 1 / -1;
+}
 .scene-start-ui-section > strong {
   display: inline-flex;
   align-items: center;
@@ -476,6 +501,38 @@
   font-size: 12px;
   font-weight: 900;
 }
+.scene-start-ui-layer-list {
+  display: grid;
+  gap: 8px;
+}
+.scene-start-ui-layer-item {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(150px, .85fr) auto minmax(220px, 1.25fr);
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #d8e0e8;
+  background: #f8fafc;
+}
+.scene-start-ui-layer-item > span {
+  color: #6a7179;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.scene-start-ui-layer-grid {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(150px, 1.5fr);
+  gap: 8px;
+}
+.scene-start-ui-layer-grid label:last-child {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.scene-start-ui-layer-grid label:last-child input {
+  grid-column: 1 / -1;
+}
 
 @media (max-width: 940px) {
   .scene-flow-toolbar {
@@ -492,6 +549,15 @@
   .scene-start-ui-preview {
     position: relative;
     min-height: 420px;
+  }
+  .scene-start-ui-layer-item,
+  .scene-start-ui-layer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .scene-start-ui-layer-item > label:first-child,
+  .scene-start-ui-layer-item > label:nth-child(3),
+  .scene-start-ui-layer-grid label:last-child {
+    grid-column: 1 / -1;
   }
   .scene-start-ui-footer {
     flex-wrap: wrap;

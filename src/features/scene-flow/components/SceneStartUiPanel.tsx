@@ -1,7 +1,7 @@
-import { Monitor, Save, Settings, X } from "lucide-react";
-import { useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { Layers, Monitor, Save, Settings, X } from "lucide-react";
+import { useEffect, useMemo, useState, type ChangeEvent, type CSSProperties } from "react";
 import { normalizeStartUiSettings } from "../../../domain/scene/startUiModel";
-import type { GameScene, GameStartUiSettings, StartUiTheme } from "../../../types";
+import type { GameScene, GameStartUiLayer, GameStartUiSettings, StartUiTheme } from "../../../types";
 
 type SceneStartUiPanelProps = {
   isSaving?: boolean;
@@ -21,6 +21,17 @@ function toggleLabel(value: boolean) {
   return value ? "On" : "Off";
 }
 
+function layerStyle(layer: GameStartUiLayer, designWidth: number, designHeight: number): CSSProperties {
+  return {
+    height: `${layer.height / designHeight * 100}%`,
+    left: `${layer.x / designWidth * 100}%`,
+    opacity: layer.opacity,
+    top: `${layer.y / designHeight * 100}%`,
+    width: `${layer.width / designWidth * 100}%`,
+    zIndex: layer.zIndex,
+  };
+}
+
 export function SceneStartUiPanel({
   isSaving = false,
   scenes,
@@ -37,9 +48,25 @@ export function SceneStartUiPanel({
   const selectedStartScene = useMemo(() => (
     scenes.find(scene => scene.id === draft.initialSceneId) || scenes[0]
   ), [draft.initialSceneId, scenes]);
+  const designWidth = Math.max(1, draft.designWidth || 1672);
+  const designHeight = Math.max(1, draft.designHeight || 941);
+  const visibleLayers = useMemo(() => (
+    [...(draft.layers || [])]
+      .filter(layer => layer.visible && layer.imageUrl)
+      .sort((a, b) => a.zIndex - b.zIndex)
+  ), [draft.layers]);
+  const hasLayeredArtwork = visibleLayers.length > 0;
 
   const patchDraft = (patch: Partial<GameStartUiSettings>) => {
     setDraft(prev => normalizeStartUiSettings({ ...prev, ...patch }, scenes));
+  };
+
+  const patchLayer = (layerId: string, patch: Partial<GameStartUiLayer>) => {
+    patchDraft({
+      layers: (draft.layers || []).map(layer => (
+        layer.id === layerId ? { ...layer, ...patch } : layer
+      )),
+    });
   };
 
   const handleNumberInput = (key: "saveSlots" | "musicVolume" | "sfxVolume") => (event: ChangeEvent<HTMLInputElement>) => {
@@ -74,19 +101,39 @@ export function SceneStartUiPanel({
         </header>
 
         <div className="scene-start-ui-body">
-          <div className={`scene-start-ui-preview ${draft.theme}`}>
-            {draft.backgroundImageUrl && <img src={draft.backgroundImageUrl} alt="" draggable={false} />}
-            <div className="scene-start-ui-preview-content">
-              <span>{draft.enabled ? "Enabled" : "Disabled"}</span>
-              <h2>{draft.title}</h2>
-              <p>{draft.subtitle}</p>
-              <div className="scene-start-ui-menu">
-                {menuButtons.map(item => (
-                  <button type="button" key={item.label}>{item.label}</button>
+          <div className={`scene-start-ui-preview ${draft.theme} ${hasLayeredArtwork ? "layered" : ""}`}>
+            {hasLayeredArtwork ? (
+              <div
+                className="scene-start-ui-layer-stage"
+                style={{ aspectRatio: `${designWidth} / ${designHeight}` }}
+              >
+                {visibleLayers.map(layer => (
+                  <img
+                    key={layer.id}
+                    src={layer.imageUrl}
+                    alt=""
+                    className={`scene-start-ui-art-layer ${layer.kind}`}
+                    draggable={false}
+                    style={layerStyle(layer, designWidth, designHeight)}
+                  />
                 ))}
               </div>
-              <small>{draft.saveSlots} save slots / Autosave {toggleLabel(draft.autosave)}</small>
-            </div>
+            ) : (
+              <>
+                {draft.backgroundImageUrl && <img src={draft.backgroundImageUrl} alt="" draggable={false} />}
+                <div className="scene-start-ui-preview-content">
+                  <span>{draft.enabled ? "Enabled" : "Disabled"}</span>
+                  <h2>{draft.title}</h2>
+                  <p>{draft.subtitle}</p>
+                  <div className="scene-start-ui-menu">
+                    {menuButtons.map(item => (
+                      <button type="button" key={item.label}>{item.label}</button>
+                    ))}
+                  </div>
+                  <small>{draft.saveSlots} save slots / Autosave {toggleLabel(draft.autosave)}</small>
+                </div>
+              </>
+            )}
           </div>
 
           <div className="scene-start-ui-editor">
@@ -120,6 +167,55 @@ export function SceneStartUiPanel({
                 Background URL
                 <input value={draft.backgroundImageUrl || ""} onChange={event => patchDraft({ backgroundImageUrl: event.target.value })} placeholder="/generated/start_screen.png" />
               </label>
+            </div>
+
+            <div className="scene-start-ui-section wide">
+              <strong><Layers size={14} /> Layers</strong>
+              <div className="scene-start-ui-layer-list">
+                {(draft.layers || []).map(layer => (
+                  <div className="scene-start-ui-layer-item" key={layer.id}>
+                    <label className="scene-start-ui-toggle">
+                      <input
+                        type="checkbox"
+                        checked={layer.visible}
+                        onChange={event => patchLayer(layer.id, { visible: event.target.checked })}
+                      />
+                      {layer.name}
+                    </label>
+                    <span>{layer.kind}</span>
+                    <label>
+                      URL
+                      <input value={layer.imageUrl} onChange={event => patchLayer(layer.id, { imageUrl: event.target.value })} />
+                    </label>
+                    <div className="scene-start-ui-layer-grid">
+                      <label>
+                        X
+                        <input type="number" value={layer.x} onChange={event => patchLayer(layer.id, { x: Number(event.target.value) })} />
+                      </label>
+                      <label>
+                        Y
+                        <input type="number" value={layer.y} onChange={event => patchLayer(layer.id, { y: Number(event.target.value) })} />
+                      </label>
+                      <label>
+                        W
+                        <input type="number" min="1" value={layer.width} onChange={event => patchLayer(layer.id, { width: Number(event.target.value) })} />
+                      </label>
+                      <label>
+                        H
+                        <input type="number" min="1" value={layer.height} onChange={event => patchLayer(layer.id, { height: Number(event.target.value) })} />
+                      </label>
+                      <label>
+                        Z
+                        <input type="number" value={layer.zIndex} onChange={event => patchLayer(layer.id, { zIndex: Number(event.target.value) })} />
+                      </label>
+                      <label>
+                        Opacity <span>{Math.round(layer.opacity * 100)}%</span>
+                        <input type="range" min="0" max="1" step="0.01" value={layer.opacity} onChange={event => patchLayer(layer.id, { opacity: Number(event.target.value) })} />
+                      </label>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="scene-start-ui-section">

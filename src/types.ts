@@ -204,6 +204,22 @@ export interface GameScene {
 }
 
 export type StartUiTheme = "dark" | "light" | "horror";
+export type StartUiLayerKind = "background" | "title" | "menu" | "overlay";
+
+export interface GameStartUiLayer {
+  id: string;
+  name: string;
+  kind: StartUiLayerKind;
+  imageUrl: string;
+  visible: boolean;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  opacity: number;
+  zIndex: number;
+  locked?: boolean;
+}
 
 export interface GameStartUiSettings {
   id: string;
@@ -211,8 +227,11 @@ export interface GameStartUiSettings {
   title: string;
   subtitle: string;
   theme: StartUiTheme;
+  designWidth?: number;
+  designHeight?: number;
   initialSceneId?: string;
   backgroundImageUrl?: string;
+  layers?: GameStartUiLayer[];
   primaryActionLabel: string;
   continueActionLabel: string;
   loadActionLabel: string;
