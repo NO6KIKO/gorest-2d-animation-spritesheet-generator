@@ -2196,6 +2196,7 @@ export default function App() {
     await saveStartUiSettings(nextStartUi);
     setTab("scenes");
     setNotice(`Start UI created: ${nextStartUi.title}`);
+    return nextStartUi;
   };
 
   const duplicateStartUiNode = async (settings: GameStartUiSettings) => {

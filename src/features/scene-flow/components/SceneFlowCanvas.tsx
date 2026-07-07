@@ -11,7 +11,7 @@ type SceneFlowCanvasProps = {
   nodes: SceneFlowNode[];
   scenes: GameScene[];
   onCreateScene: () => void | Promise<void>;
-  onCreateStartUi: () => void | Promise<void>;
+  onCreateStartUi: () => GameStartUiSettings | void | Promise<GameStartUiSettings | void>;
   onDeleteScene: (node: SceneFlowNode) => void | Promise<void>;
   onDeleteStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
   onDuplicateScene: (node: SceneFlowNode) => void | Promise<void>;
@@ -149,6 +149,21 @@ export function SceneFlowCanvas({
     onOpenScene(node);
   };
 
+  const openStartUiEditor = async () => {
+    const existingStartUiNode = displayNodes.find(node => node.startUi);
+    if (existingStartUiNode?.startUi) {
+      setSelectedNodeId(existingStartUiNode.id);
+      setEditingStartUi(existingStartUiNode.startUi);
+      return;
+    }
+
+    const createdStartUi = await onCreateStartUi();
+    if (createdStartUi) {
+      setSelectedNodeId(createdStartUi.id);
+      setEditingStartUi(createdStartUi);
+    }
+  };
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.repeat || isEditingTarget(event.target)) return;
@@ -218,7 +233,7 @@ export function SceneFlowCanvas({
         <button type="button" className="ghost-button" onClick={() => void onCreateScene()}>
           <Plus size={16} /> New Scene
         </button>
-        <button type="button" className="ghost-button" onClick={() => void onCreateStartUi()}>
+        <button type="button" className="ghost-button" onClick={() => void openStartUiEditor()}>
           <Monitor size={16} /> Start UI
         </button>
       </div>
