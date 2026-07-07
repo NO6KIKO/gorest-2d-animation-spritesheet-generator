@@ -10,6 +10,7 @@ import {
   NEON_SCENE_LIGHTING,
   sceneViewportWidth,
 } from "./sceneModel";
+import { normalizeSceneTimeline } from "./sceneTimeline";
 import type { GameScene, LayerInteractionSettings, SceneLayer } from "../../types";
 
 export function createInteractionTriggerLayer(
@@ -227,10 +228,10 @@ export function normalizeEditableScene(scene: GameScene): GameScene {
 }
 
 export function prepareSceneForEditor(scene: GameScene): GameScene {
-  return normalizeEditableScene(removeBuiltInSceneKitLayers({
+  return normalizeSceneTimeline(normalizeEditableScene(removeBuiltInSceneKitLayers({
     ...scene,
     cameraY: scene.cameraY || 0,
-  }));
+  })));
 }
 
 export function sceneTimestampLabel(date = new Date()) {
@@ -246,6 +247,13 @@ export function createDefaultScene(): GameScene {
   return {
     id: "scene_side_scroller_demo",
     name: "Side Scroller Scene",
+    playbackMode: "game",
+    timeline: {
+      durationMs: 5000,
+      primaryLayerId: undefined,
+      transitionDurationMs: 800,
+      transitionType: "cut",
+    },
     width: 3840,
     height: 720,
     viewportWidth: 1280,

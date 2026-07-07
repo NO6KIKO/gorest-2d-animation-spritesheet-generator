@@ -53,6 +53,7 @@ import {
   prepareSceneForEditor,
 } from "./domain/scene/sceneFactory";
 import { normalizeStartUiCollection, normalizeStartUiSettings } from "./domain/scene/startUiModel";
+import { normalizeSceneTimeline, scenePlaybackMode, sceneTimeline } from "./domain/scene/sceneTimeline";
 import {
   type SceneObjectTarget,
 } from "./domain/scene/sceneLayerOperations";
@@ -358,6 +359,9 @@ export default function App() {
   const selectedLayerClipFps = Math.round(selectedLayerClip?.fps || selectedLayerSprite?.fps || fps);
   const selectedLayerSpriteEditableGrid = Boolean(selectedAssetEditable && selectedLayerSpriteSource && selectedLayerSprite?.sheetSize?.length);
   const selectedLayerIsAvatar = selectedLayerAsset?.role === "player" || selectedLayerAsset?.role === "npc";
+  const visualLayers = useMemo(() => scene.layers.filter(isSceneVisualLayer), [scene.layers]);
+  const currentPlaybackMode = scenePlaybackMode(scene);
+  const currentSceneTimeline = sceneTimeline(scene);
   const savedSceneCards = useMemo(() => scenes.filter(savedScene => savedScene.id !== scene.id), [scene.id, scenes]);
   const startUiSceneOptions = useMemo(() => {
     const sceneMap = new Map<string, GameScene>();
@@ -664,6 +668,14 @@ export default function App() {
     setSheetColumns(Math.min(4, activeSprite.frames.length || 4));
     setSheetDataUrl(activeSprite.spritesheetPng || null);
   }, [activeSprite.id]);
+
+  const updateScenePlaybackMode = (playbackMode: GameScene["playbackMode"]) => {
+    setScene(prev => normalizeSceneTimeline({ ...prev, playbackMode }));
+  };
+
+  const updateSceneTimeline = (patch: Partial<NonNullable<GameScene["timeline"]>>) => {
+    setScene(prev => normalizeSceneTimeline({ ...prev, timeline: { ...sceneTimeline(prev), ...patch } }));
+  };
 
   const {
     applyInteractionPreset, applyNeonLightingToSelectedLayer, clearLightingFromSelectedLayer, compileSheet,
@@ -1042,8 +1054,10 @@ export default function App() {
                     getLayerWorldBounds={layerWorldBounds}
                     isPlaying={isPlaying}
                     layerCount={scene.layers.length}
+                    playbackMode={currentPlaybackMode}
                     roleLabels={roleLabels}
                     sceneName={scene.name}
+                    sceneTimeline={currentSceneTimeline}
                     selectedAssetEditable={selectedAssetEditable}
                     selectedInteractionZoneAsset={selectedInteractionZoneAsset}
                     selectedInteractionZoneLayer={selectedInteractionZoneLayer}
@@ -1067,12 +1081,14 @@ export default function App() {
                     selectedLayerSpriteSheetSize={selectedLayerSpriteSheetSize}
                     selectedLayerSpriteSource={selectedLayerSpriteSource}
                     triggerLabels={triggerLabels}
+                    visualLayers={visualLayers}
                     walkSpeed={walkSpeed}
                     onApplyNeonLighting={applyNeonLightingToSelectedLayer}
                     onClearLighting={clearLightingFromSelectedLayer}
                     onDownloadSelectedItem={downloadSelectedSceneItem}
                     onDownloadSpritePng={() => selectedLayerSpriteSource && selectedLayerSprite && downloadUrl(selectedLayerSpriteSource, `spritesheet_${safeName(selectedLayerSprite.characterName)}.png`)}
                     onPlayingChange={setIsPlaying}
+                    onPlaybackModeChange={updateScenePlaybackMode}
                     onRebuildSpriteGrid={rebuildSelectedSpritesheetGrid}
                     onRestartSpritePreview={() => {
                       if (!selectedLayerSprite) return;
@@ -1102,6 +1118,7 @@ export default function App() {
                     onUpdateLighting={updateSelectedLayerLighting}
                     onUpdatePreviewFps={updateSelectedSpritesheetFps}
                     onUpdateShadow={updateSelectedLayerShadow}
+                    onUpdateTimeline={updateSceneTimeline}
                     onWalkSpeedChange={setWalkSpeed}
                   />
                 </div>

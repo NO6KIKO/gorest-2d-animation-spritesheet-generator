@@ -95,6 +95,16 @@ export interface SceneLightingSettings {
   glow: number;
 }
 
+export type ScenePlaybackMode = "game" | "animate";
+export type SceneTransitionType = "cut" | "fade-black" | "dissolve";
+
+export interface SceneTimelineSettings {
+  durationMs: number;
+  transitionType: SceneTransitionType;
+  transitionDurationMs: number;
+  primaryLayerId?: string;
+}
+
 export type InteractionPromptStyle = "horror" | "minimal" | "caption";
 export type InteractionPreset = "inspect" | "pickup" | "toggle" | "scene-link" | "animated" | "conditional" | "light-zone" | "audio-zone" | "camera-zone" | "dialogue-zone" | "physics-zone";
 export type InteractionTriggerMode = "near-click" | "near-key" | "inventory" | "state" | "auto";
@@ -192,6 +202,8 @@ export interface SceneLayer {
 export interface GameScene {
   id: string;
   name: string;
+  playbackMode?: ScenePlaybackMode;
+  timeline?: SceneTimelineSettings;
   width: number;
   height: number;
   viewportWidth?: number;

@@ -5,4 +5,5 @@ export { SceneInspectorItemSection } from "./SceneInspectorItemSection";
 export { SceneInspectorLightingSection } from "./SceneInspectorLightingSection";
 export { SceneInspectorPanel } from "./SceneInspectorPanel";
 export { SceneInspectorSpritesheetSection } from "./SceneInspectorSpritesheetSection";
+export { SceneInspectorTimelineSection } from "./SceneInspectorTimelineSection";
 export { SceneInspectorTransformSection } from "./SceneInspectorTransformSection";

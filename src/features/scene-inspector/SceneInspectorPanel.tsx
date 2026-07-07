@@ -8,6 +8,8 @@ import type {
   LayerInteractionSettings,
   LayerLightingSettings,
   LayerShadowSettings,
+  ScenePlaybackMode,
+  SceneTimelineSettings,
   SceneLayer,
 } from "../../types";
 import { SceneInspectorAvatarSection } from "./SceneInspectorAvatarSection";
@@ -17,6 +19,7 @@ import { SceneInspectorInteractionZoneSection } from "./SceneInspectorInteractio
 import { SceneInspectorItemSection } from "./SceneInspectorItemSection";
 import { SceneInspectorLightingSection } from "./SceneInspectorLightingSection";
 import { SceneInspectorSpritesheetSection } from "./SceneInspectorSpritesheetSection";
+import { SceneInspectorTimelineSection } from "./SceneInspectorTimelineSection";
 import { SceneInspectorTransformSection } from "./SceneInspectorTransformSection";
 
 type LayerBounds = {
@@ -36,8 +39,10 @@ type SceneInspectorPanelProps = {
   getLayerWorldBounds: (layer: SceneLayer, asset?: GameAsset) => LayerBounds;
   isPlaying: boolean;
   layerCount: number;
+  playbackMode: ScenePlaybackMode;
   roleLabels: Record<AssetRole, string>;
   sceneName: string;
+  sceneTimeline: SceneTimelineSettings;
   selectedAssetEditable: boolean;
   selectedInteractionZoneAsset?: GameAsset;
   selectedInteractionZoneLayer?: SceneLayer;
@@ -61,12 +66,14 @@ type SceneInspectorPanelProps = {
   selectedLayerSpriteSheetSize: number[];
   selectedLayerSpriteSource: string;
   triggerLabels: Record<ActionTriggerType, string>;
+  visualLayers: SceneLayer[];
   walkSpeed: number;
   onApplyNeonLighting: () => void;
   onClearLighting: () => void;
   onDownloadSelectedItem: () => void;
   onDownloadSpritePng: () => void;
   onPlayingChange: (isPlaying: boolean) => void;
+  onPlaybackModeChange: (mode: ScenePlaybackMode) => void;
   onRebuildSpriteGrid: (patch: SpritesheetGridPatch) => void;
   onRestartSpritePreview: () => void;
   onSaveAssetMetadata: (assetId: string) => void;
@@ -87,6 +94,7 @@ type SceneInspectorPanelProps = {
   onUpdateLighting: (patch: Partial<LayerLightingSettings>) => void;
   onUpdatePreviewFps: (fps: number) => void;
   onUpdateShadow: (patch: Partial<LayerShadowSettings>) => void;
+  onUpdateTimeline: (patch: Partial<SceneTimelineSettings>) => void;
   onWalkSpeedChange: (walkSpeed: number) => void;
 };
 
@@ -95,8 +103,10 @@ export function SceneInspectorPanel({
   getLayerWorldBounds,
   isPlaying,
   layerCount,
+  playbackMode,
   roleLabels,
   sceneName,
+  sceneTimeline,
   selectedAssetEditable,
   selectedInteractionZoneAsset,
   selectedInteractionZoneLayer,
@@ -120,12 +130,14 @@ export function SceneInspectorPanel({
   selectedLayerSpriteSheetSize,
   selectedLayerSpriteSource,
   triggerLabels,
+  visualLayers,
   walkSpeed,
   onApplyNeonLighting,
   onClearLighting,
   onDownloadSelectedItem,
   onDownloadSpritePng,
   onPlayingChange,
+  onPlaybackModeChange,
   onRebuildSpriteGrid,
   onRestartSpritePreview,
   onSaveAssetMetadata,
@@ -141,6 +153,7 @@ export function SceneInspectorPanel({
   onUpdateLighting,
   onUpdatePreviewFps,
   onUpdateShadow,
+  onUpdateTimeline,
   onWalkSpeedChange,
 }: SceneInspectorPanelProps) {
   return (
@@ -156,6 +169,13 @@ export function SceneInspectorPanel({
           selectedLayerIsAvatar={selectedLayerIsAvatar}
           onDownloadSelectedItem={onDownloadSelectedItem}
           onToggleSelectedLayerLock={onToggleSelectedLayerLock}
+        />
+        <SceneInspectorTimelineSection
+          playbackMode={playbackMode}
+          timeline={sceneTimeline}
+          visualLayers={visualLayers}
+          onPlaybackModeChange={onPlaybackModeChange}
+          onTimelineChange={onUpdateTimeline}
         />
         {selectedLayer && (
           <>

@@ -1,4 +1,5 @@
 import type { GameScene, GameStartUiSettings, SceneLayer } from "../../../types";
+import { SCENE_TRANSITION_LABELS, sceneDurationLabel, scenePlaybackMode, sceneTimeline } from "../../../domain/scene/sceneTimeline";
 import { SCENE_NODE_WIDTH_PERCENT } from "./geometry";
 import type { SceneFlowNode } from "../types";
 
@@ -30,6 +31,14 @@ function scenePreview(scene: GameScene, currentSceneId: string, currentBackgroun
     thumbnail: background?.imageUrl,
     backgroundColor: background?.color || "#f7f7f7",
   };
+}
+
+function sceneNodeSubtitle(scene: GameScene, isCurrent = false) {
+  if (scenePlaybackMode(scene) === "animate") {
+    const timeline = sceneTimeline(scene);
+    return `Animate / ${sceneDurationLabel(timeline.durationMs)} / ${SCENE_TRANSITION_LABELS[timeline.transitionType]}`;
+  }
+  return isCurrent ? "Current game scene" : "Game scene";
 }
 
 function startUiPreview(startUi: GameStartUiSettings) {
@@ -85,7 +94,7 @@ export function buildSceneFlowNodes({
     id: savedScene.id,
     kind: "scene" as const,
     title: savedScene.name || `Scene${index + 2}`,
-    subtitle: "Animation / game scene",
+    subtitle: sceneNodeSubtitle(savedScene),
     scene: savedScene,
     x: flowPosition(index + 1, sceneBaseY).x,
     y: flowPosition(index + 1, sceneBaseY).y,
@@ -99,7 +108,7 @@ export function buildSceneFlowNodes({
       id: currentScene.id,
       kind: "scene",
       title: currentScene.name || "Current Scene",
-      subtitle: "Current scene",
+      subtitle: sceneNodeSubtitle(currentScene, true),
       scene: currentScene,
       isCurrent: true,
       x: flowPosition(0, sceneBaseY).x,
