@@ -405,6 +405,7 @@ input:focus, select:focus, textarea:focus { border-color: #2f7ab8; box-shadow: 0
 .stage-zone-menu-item.dialogue { color: #40307b; }
 .stage-zone-menu-item.audio { color: #145c58; }
 .stage-zone-menu-item.camera { color: #29323b; }
+.stage-zone-menu-item.physics { color: #73520e; }
 .scene-size-controls {
   min-height: 42px;
   display: flex;
@@ -1561,6 +1562,26 @@ input:focus, select:focus, textarea:focus { border-color: #2f7ab8; box-shadow: 0
 .interaction-zone-outline.zone-preset-dialogue-zone {
   border-color: rgba(94, 72, 180, .76);
   background: rgba(94, 72, 180, .08);
+}
+.interaction-zone-outline.zone-preset-physics-zone {
+  border-color: rgba(188, 132, 28, .86);
+  background:
+    linear-gradient(135deg, rgba(188, 132, 28, .13) 25%, transparent 25%, transparent 50%, rgba(188, 132, 28, .13) 50%, rgba(188, 132, 28, .13) 75%, transparent 75%),
+    rgba(188, 132, 28, .055);
+  background-size: 18px 18px;
+}
+.interaction-zone-outline.zone-shape-polygon::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  clip-path: polygon(50% 0, 96% 22%, 88% 78%, 50% 100%, 12% 78%, 4% 22%);
+  border: 1px solid rgba(188, 132, 28, .7);
+  background: rgba(188, 132, 28, .08);
+  pointer-events: none;
+}
+.interaction-zone-outline.zone-shape-brush {
+  border-style: dotted;
+  border-radius: 42% 58% 46% 54% / 56% 42% 58% 44%;
 }
 .interaction-zone-outline:hover,
 .interaction-zone-outline.owner-selected {

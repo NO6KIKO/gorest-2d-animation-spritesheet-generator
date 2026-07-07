@@ -93,6 +93,9 @@ export const DEFAULT_INTERACTION_SETTINGS: LayerInteractionSettings = {
   cameraDurationMs: 450,
   cameraZoom: 1.12,
   cameraShakeIntensity: 8,
+  physicsMode: "solid",
+  physicsStrength: 1,
+  physicsFriction: 0.55,
   dialogueSpeaker: "Unknown",
   dialogueText: "Who are you?\nWhy is this classroom connected to the ward?",
 };
@@ -242,6 +245,57 @@ export function interactionZoneBounds(layer: SceneLayer, asset: GameAsset | unde
   };
 }
 
+type InteractionZoneBounds = ReturnType<typeof interactionZoneBounds>;
+
+const DEFAULT_ZONE_POLYGON_POINTS = [
+  { x: 0.5, y: 0 },
+  { x: 0.96, y: 0.22 },
+  { x: 0.88, y: 0.78 },
+  { x: 0.5, y: 1 },
+  { x: 0.12, y: 0.78 },
+  { x: 0.04, y: 0.22 },
+];
+
+function pointInPolygon(pointX: number, pointY: number, points: Array<{ x: number; y: number }>) {
+  let inside = false;
+  for (let index = 0, previous = points.length - 1; index < points.length; previous = index++) {
+    const currentPoint = points[index];
+    const previousPoint = points[previous];
+    const crosses = (
+      (currentPoint.y > pointY) !== (previousPoint.y > pointY) &&
+      pointX < ((previousPoint.x - currentPoint.x) * (pointY - currentPoint.y)) / (previousPoint.y - currentPoint.y || 1) + currentPoint.x
+    );
+    if (crosses) inside = !inside;
+  }
+  return inside;
+}
+
+export function interactionZoneContainsPoint(bounds: InteractionZoneBounds, interaction: LayerInteractionSettings, pointX: number, pointY: number) {
+  if (interaction.zoneShape === "circle" || interaction.zoneShape === "brush") {
+    const radiusX = Math.max(1, bounds.width / 2);
+    const radiusY = Math.max(1, bounds.height / 2);
+    const normalizedX = (pointX - bounds.centerX) / radiusX;
+    const normalizedY = (pointY - bounds.centerY) / radiusY;
+    return normalizedX * normalizedX + normalizedY * normalizedY <= 1;
+  }
+
+  if (interaction.zoneShape === "polygon") {
+    const points = (interaction.zonePolygonPoints?.length ? interaction.zonePolygonPoints : DEFAULT_ZONE_POLYGON_POINTS)
+      .map(point => ({
+        x: bounds.left + point.x * bounds.width,
+        y: bounds.top + point.y * bounds.height,
+      }));
+    return pointInPolygon(pointX, pointY, points);
+  }
+
+  return (
+    pointX >= bounds.left &&
+    pointX <= bounds.right &&
+    pointY >= bounds.top &&
+    pointY <= bounds.bottom
+  );
+}
+
 export function isLightZoneInteraction(interaction?: LayerInteractionSettings | null) {
   return interaction?.preset === "light-zone" || interaction?.actionType === "light-zone";
 }
@@ -258,12 +312,17 @@ export function isDialogueZoneInteraction(interaction?: LayerInteractionSettings
   return interaction?.preset === "dialogue-zone" || interaction?.actionType === "dialogue";
 }
 
+export function isPhysicsZoneInteraction(interaction?: LayerInteractionSettings | null) {
+  return interaction?.preset === "physics-zone" || interaction?.actionType === "physics-zone";
+}
+
 export function interactionZoneLabel(interaction?: LayerInteractionSettings | null) {
   if (!interaction) return "Interaction Zone";
   if (isLightZoneInteraction(interaction)) return "Light Zone";
   if (isAudioZoneInteraction(interaction)) return "Audio Zone";
   if (isCameraZoneInteraction(interaction)) return "Camera Zone";
   if (isDialogueZoneInteraction(interaction)) return "Dialogue Zone";
+  if (isPhysicsZoneInteraction(interaction)) return "Physics Zone";
   if (interaction.preset === "scene-link" || interaction.actionType === "scene-link") return "Door Zone";
   if (interaction.preset === "pickup" || interaction.actionType === "pickup-item") return "Pickup Zone";
   if (interaction.preset === "toggle" || interaction.actionType === "toggle-layer") return "Switch Zone";

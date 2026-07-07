@@ -139,6 +139,23 @@ export const INTERACTION_PRESETS: Record<InteractionPreset, Partial<LayerInterac
     dialogueSpeaker: "Unknown",
     dialogueText: "Who are you?\nWhy is this classroom connected to the ward?",
   },
+  "physics-zone": {
+    label: "Physics Zone",
+    preset: "physics-zone",
+    triggerMode: "auto",
+    actionType: "physics-zone",
+    promptText: "Physics",
+    subtitle: "",
+    showText: false,
+    hotspotVisible: false,
+    zoneShape: "rect",
+    zoneWidth: 280,
+    zoneHeight: 180,
+    triggerRadius: 0,
+    physicsMode: "solid",
+    physicsStrength: 1,
+    physicsFriction: 0.55,
+  },
 };
 
 export const VIEWPORT_PRESETS: ViewportPreset[] = [

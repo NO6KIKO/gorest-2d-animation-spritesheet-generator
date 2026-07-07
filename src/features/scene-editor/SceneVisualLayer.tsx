@@ -102,6 +102,7 @@ export function SceneVisualLayer({
     : layer.opacity;
   const isLightZone = interaction?.preset === "light-zone" || interaction?.actionType === "light-zone";
   const zonePresetClass = interaction?.preset ? `zone-preset-${interaction.preset}` : "";
+  const zoneShapeClass = interaction?.zoneShape ? `zone-shape-${interaction.zoneShape}` : "";
 
   return (
     <>
@@ -175,7 +176,7 @@ export function SceneVisualLayer({
       </div>
       {zone && interaction?.enabled && (
         <div
-          className={`interaction-zone-outline ${zonePresetClass} ${isLightZone ? "light-zone" : ""} ${interaction.zoneShape === "circle" ? "circle-zone" : ""} ${selectedInteractionZoneLayerId === layer.id ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}
+          className={`interaction-zone-outline ${zonePresetClass} ${zoneShapeClass} ${isLightZone ? "light-zone" : ""} ${interaction.zoneShape === "circle" ? "circle-zone" : ""} ${selectedInteractionZoneLayerId === layer.id ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}
           style={{
             left: (zone.left - sceneCameraX * (layer.parallax ?? 1)) * stageScaleX,
             top: (zone.top - sceneCameraY * (layer.parallax ?? 1)) * stageScaleY,

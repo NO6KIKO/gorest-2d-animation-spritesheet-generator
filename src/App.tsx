@@ -45,8 +45,10 @@ import {
   NEON_SCENE_LIGHTING,
   formatViewportRatio,
   interactionZoneBounds,
+  interactionZoneContainsPoint,
   isCameraZoneInteraction,
   isLightZoneInteraction,
+  isPhysicsZoneInteraction,
   isSceneVisualLayer,
   isTransformableSceneLayer,
   layerInteractionSettings,
@@ -1146,6 +1148,16 @@ export default function App() {
         const maxCameraY = Math.max(0, prev.height - viewportH);
         const dx = heldDirection === "left" ? -1 : heldDirection === "right" ? 1 : 0;
         const dy = heldDirection === "up" ? -1 : heldDirection === "down" ? 1 : 0;
+        const physicsZones = prev.layers
+          .filter(layer => layer.visible && layer.assetId)
+          .map(layer => {
+            const asset = assetById.get(layer.assetId!);
+            if (!asset) return null;
+            const interaction = layerInteractionSettings(layer, asset);
+            if (!interaction?.enabled || !isPhysicsZoneInteraction(interaction)) return null;
+            return { bounds: interactionZoneBounds(layer, asset, interaction), interaction, layer };
+          })
+          .filter(Boolean);
         let focusX: number | null = null;
         let focusY: number | null = null;
         let playerLayerAfterMove: SceneLayer | null = null;
@@ -1157,8 +1169,48 @@ export default function App() {
           const [spriteW, spriteH] = sprite ? getFrameSize(sprite) : [0, 0];
           const layerWidth = spriteW * layer.scale;
           const layerHeight = spriteH * layer.scale;
-          const nextX = dx === 0 ? layer.x : clamp(layer.x + dx * walkSpeed * delta, 0, Math.max(0, prev.width - layerWidth));
-          const nextY = dy === 0 ? layer.y : clamp(layer.y + dy * walkSpeed * delta, layerHeight, prev.height);
+          const currentFootX = layer.x + layerWidth * 0.5;
+          const currentFootY = layer.y;
+          const tentativeFootX = currentFootX + dx * walkSpeed * delta;
+          const tentativeFootY = currentFootY + dy * walkSpeed * delta;
+          let speedScale = 1;
+          let pullX = 0;
+          let pullY = 0;
+
+          physicsZones.forEach(entry => {
+            if (!entry) return;
+            const insideCurrent = interactionZoneContainsPoint(entry.bounds, entry.interaction, currentFootX, currentFootY);
+            const insideTentative = interactionZoneContainsPoint(entry.bounds, entry.interaction, tentativeFootX, tentativeFootY);
+            if (!insideCurrent && !insideTentative) return;
+            if (entry.interaction.physicsMode === "slow") {
+              speedScale = Math.min(speedScale, clamp(entry.interaction.physicsFriction ?? 0.55, 0.1, 0.95));
+              return;
+            }
+            if (entry.interaction.physicsMode === "pull") {
+              const strength = clamp(entry.interaction.physicsStrength ?? 1, 0, 2);
+              const vectorX = entry.bounds.centerX - currentFootX;
+              const vectorY = entry.bounds.centerY - currentFootY;
+              const distance = Math.max(1, Math.hypot(vectorX, vectorY));
+              pullX += (vectorX / distance) * walkSpeed * delta * strength;
+              pullY += (vectorY / distance) * walkSpeed * delta * strength;
+            }
+          });
+
+          let nextX = clamp(layer.x + dx * walkSpeed * delta * speedScale + pullX, 0, Math.max(0, prev.width - layerWidth));
+          let nextY = clamp(layer.y + dy * walkSpeed * delta * speedScale + pullY, layerHeight, prev.height);
+          const nextFootX = nextX + layerWidth * 0.5;
+          const nextFootY = nextY;
+          const blockedBySolidZone = physicsZones.some(entry => {
+            if (!entry) return false;
+            if ((entry.interaction.physicsMode || "solid") !== "solid") return false;
+            const insideCurrent = interactionZoneContainsPoint(entry.bounds, entry.interaction, currentFootX, currentFootY);
+            const insideNext = interactionZoneContainsPoint(entry.bounds, entry.interaction, nextFootX, nextFootY);
+            return insideNext && !insideCurrent;
+          });
+          if (blockedBySolidZone) {
+            nextX = layer.x;
+            nextY = layer.y;
+          }
           focusX = nextX + layerWidth * 0.5;
           focusY = nextY - layerHeight * 0.5;
           playerLayerAfterMove = { ...layer, x: Number(nextX.toFixed(2)), y: Number(nextY.toFixed(2)) };
@@ -1656,6 +1708,7 @@ export default function App() {
       "dialogue-zone": { x: -8, y: 126 },
       "audio-zone": { x: -220, y: 44 },
       "camera-zone": { x: 260, y: 44 },
+      "physics-zone": { x: 0, y: 160 },
     };
     const offset = toolOffsets[preset] || { x: 0, y: 0 };
     const anchorX = baseX + offset.x;

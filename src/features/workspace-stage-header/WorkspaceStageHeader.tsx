@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
+  Box,
   Camera,
   DoorOpen,
   Eye,
@@ -61,6 +62,7 @@ const STAGE_ZONE_TOOLS: StageZoneTool[] = [
   { preset: "dialogue-zone", label: "Add Dialogue Zone", className: "dialogue", Icon: MessageSquareText },
   { preset: "audio-zone", label: "Add Audio Zone", className: "audio", Icon: Volume2 },
   { preset: "camera-zone", label: "Add Camera Zone", className: "camera", Icon: Camera },
+  { preset: "physics-zone", label: "Add Physics Zone", className: "physics", Icon: Box },
 ];
 
 export function WorkspaceStageHeader({

@@ -1,11 +1,12 @@
 import { Eye } from "lucide-react";
-import { isAudioZoneInteraction, isCameraZoneInteraction, isDialogueZoneInteraction, isLightZoneInteraction } from "../../domain/scene/sceneModel";
+import { isAudioZoneInteraction, isCameraZoneInteraction, isDialogueZoneInteraction, isLightZoneInteraction, isPhysicsZoneInteraction } from "../../domain/scene/sceneModel";
 import type {
   GameAsset,
   GameScene,
   InteractionCameraMode,
   InteractionPreset,
   InteractionLightBlendMode,
+  InteractionPhysicsMode,
   InteractionPromptStyle,
   InteractionZoneShape,
   LayerInteractionSettings,
@@ -45,6 +46,7 @@ export function LayerInteractionControls({
   const isAudioZone = isAudioZoneInteraction(interaction);
   const isCameraZone = isCameraZoneInteraction(interaction);
   const isDialogueZone = isDialogueZoneInteraction(interaction);
+  const isPhysicsZone = isPhysicsZoneInteraction(interaction);
   const cameraMode = interaction?.cameraMode || "room-lock";
 
   return (
@@ -98,6 +100,7 @@ export function LayerInteractionControls({
                 <option value="play-audio">Play Audio</option>
                 <option value="camera-focus">Camera Zone</option>
                 <option value="dialogue">Dialogue</option>
+                <option value="physics-zone">Physics Zone</option>
               </select>
             </div>
           </div>
@@ -225,6 +228,34 @@ export function LayerInteractionControls({
               <input value={interaction.dialoguePortraitUrl || ""} onChange={event => onUpdateInteraction({ dialoguePortraitUrl: event.target.value })} placeholder="/generated/portrait.png" />
             </>
           )}
+          {isPhysicsZone && (
+            <>
+              <div className="section-title compact">Physics Zone</div>
+              <div className="two-col">
+                <div>
+                  <label>Physics Mode</label>
+                  <select value={interaction.physicsMode || "solid"} onChange={event => onUpdateInteraction({ physicsMode: event.target.value as InteractionPhysicsMode })}>
+                    <option value="solid">Solid Block</option>
+                    <option value="slow">Slow Area</option>
+                    <option value="pull">Auto Pull</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Zone Shape</label>
+                  <select value={interaction.zoneShape || "rect"} onChange={event => onUpdateInteraction({ zoneShape: event.target.value as InteractionZoneShape })}>
+                    <option value="rect">Box / Rect</option>
+                    <option value="circle">Circle / Ellipse</option>
+                    <option value="polygon">Polygon</option>
+                    <option value="brush">Brush Circle</option>
+                  </select>
+                </div>
+              </div>
+              <label>Physics Strength {(interaction.physicsStrength ?? 1).toFixed(2)}</label>
+              <input type="range" min="0" max="2" step="0.05" value={interaction.physicsStrength ?? 1} onChange={event => onUpdateInteraction({ physicsStrength: Number(event.target.value) })} />
+              <label>Friction {(interaction.physicsFriction ?? 0.55).toFixed(2)}</label>
+              <input type="range" min="0.1" max="0.95" step="0.05" value={interaction.physicsFriction ?? 0.55} onChange={event => onUpdateInteraction({ physicsFriction: Number(event.target.value) })} />
+            </>
+          )}
           <div className="two-col">
             <div>
               <label>Prompt Key</label>
@@ -310,6 +341,19 @@ export function LayerInteractionControls({
             <input type="checkbox" checked={interaction.hideLayerOnPickup !== false} onChange={event => onUpdateInteraction({ hideLayerOnPickup: event.target.checked })} />
             Hide this layer after pickup
           </label>
+          {!isPhysicsZone && !isLightZone && (
+            <div className="two-col">
+              <div>
+                <label>Zone Shape</label>
+                <select value={interaction.zoneShape || "rect"} onChange={event => onUpdateInteraction({ zoneShape: event.target.value as InteractionZoneShape })}>
+                  <option value="rect">Box / Rect</option>
+                  <option value="circle">Circle / Ellipse</option>
+                  <option value="polygon">Polygon</option>
+                  <option value="brush">Brush Circle</option>
+                </select>
+              </div>
+            </div>
+          )}
           <div className="two-col">
             <div>
               <label>Zone Width</label>

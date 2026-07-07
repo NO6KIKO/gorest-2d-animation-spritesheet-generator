@@ -96,13 +96,14 @@ export interface SceneLightingSettings {
 }
 
 export type InteractionPromptStyle = "horror" | "minimal" | "caption";
-export type InteractionPreset = "inspect" | "pickup" | "toggle" | "scene-link" | "animated" | "conditional" | "light-zone" | "audio-zone" | "camera-zone" | "dialogue-zone";
+export type InteractionPreset = "inspect" | "pickup" | "toggle" | "scene-link" | "animated" | "conditional" | "light-zone" | "audio-zone" | "camera-zone" | "dialogue-zone" | "physics-zone";
 export type InteractionTriggerMode = "near-click" | "near-key" | "inventory" | "state" | "auto";
-export type InteractionActionType = "subtitle" | "play-animation" | "toggle-layer" | "pickup-item" | "scene-link" | "set-state" | "light-zone" | "play-audio" | "camera-focus" | "dialogue";
-export type InteractionZoneShape = "rect" | "circle";
+export type InteractionActionType = "subtitle" | "play-animation" | "toggle-layer" | "pickup-item" | "scene-link" | "set-state" | "light-zone" | "play-audio" | "camera-focus" | "dialogue" | "physics-zone";
+export type InteractionZoneShape = "rect" | "circle" | "polygon" | "brush";
 export type InteractionRepeatMode = "once" | "repeatable" | "cooldown";
 export type InteractionLightBlendMode = "screen" | "plus-lighter" | "normal";
 export type InteractionCameraMode = "room-lock" | "focus" | "pan" | "zoom" | "shake" | "return-player";
+export type InteractionPhysicsMode = "solid" | "slow" | "pull";
 
 export interface LayerInteractionSettings {
   enabled: boolean;
@@ -125,6 +126,10 @@ export interface LayerInteractionSettings {
   zoneHeight?: number;
   zoneOffsetX?: number;
   zoneOffsetY?: number;
+  zonePolygonPoints?: Array<{ x: number; y: number }>;
+  physicsMode?: InteractionPhysicsMode;
+  physicsStrength?: number;
+  physicsFriction?: number;
   repeatMode?: InteractionRepeatMode;
   cooldownMs?: number;
   debugVisible?: boolean;

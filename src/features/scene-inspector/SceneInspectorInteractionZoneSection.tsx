@@ -1,5 +1,5 @@
-import { interactionZoneLabel, isAudioZoneInteraction, isCameraZoneInteraction, isDialogueZoneInteraction, isLightZoneInteraction } from "../../domain/scene/sceneModel";
-import type { GameAsset, InteractionCameraMode, LayerInteractionSettings, SceneLayer } from "../../types";
+import { interactionZoneLabel, isAudioZoneInteraction, isCameraZoneInteraction, isDialogueZoneInteraction, isLightZoneInteraction, isPhysicsZoneInteraction } from "../../domain/scene/sceneModel";
+import type { GameAsset, InteractionCameraMode, InteractionPhysicsMode, InteractionZoneShape, LayerInteractionSettings, SceneLayer } from "../../types";
 
 type LayerBounds = {
   width: number;
@@ -26,11 +26,23 @@ export function SceneInspectorInteractionZoneSection({
   const isAudioZone = isAudioZoneInteraction(selectedInteractionZoneSettings);
   const isCameraZone = isCameraZoneInteraction(selectedInteractionZoneSettings);
   const isDialogueZone = isDialogueZoneInteraction(selectedInteractionZoneSettings);
+  const isPhysicsZone = isPhysicsZoneInteraction(selectedInteractionZoneSettings);
   const cameraMode = selectedInteractionZoneSettings.cameraMode || "room-lock";
 
   return (
     <div className="compact-inspector-section interaction-zone-inspector">
       <em>{interactionZoneLabel(selectedInteractionZoneSettings)}</em>
+      <label>Zone Shape</label>
+      <select
+        value={selectedInteractionZoneSettings.zoneShape || "rect"}
+        onChange={event => onUpdateInteraction(selectedInteractionZoneLayer.id, { zoneShape: event.target.value as InteractionZoneShape })}
+        disabled={selectedInteractionZoneLayer.locked}
+      >
+        <option value="rect">Box / Rect</option>
+        <option value="circle">Circle / Ellipse</option>
+        <option value="polygon">Polygon</option>
+        <option value="brush">Brush Circle</option>
+      </select>
       {isLightZone && (
         <>
           <label>Light Color</label>
@@ -176,6 +188,40 @@ export function SceneInspectorInteractionZoneSection({
             rows={5}
             value={selectedInteractionZoneSettings.dialogueText || selectedInteractionZoneSettings.subtitle || ""}
             onChange={event => onUpdateInteraction(selectedInteractionZoneLayer.id, { dialogueText: event.target.value })}
+            disabled={selectedInteractionZoneLayer.locked}
+          />
+        </>
+      )}
+      {isPhysicsZone && (
+        <>
+          <label>Physics Mode</label>
+          <select
+            value={selectedInteractionZoneSettings.physicsMode || "solid"}
+            onChange={event => onUpdateInteraction(selectedInteractionZoneLayer.id, { physicsMode: event.target.value as InteractionPhysicsMode })}
+            disabled={selectedInteractionZoneLayer.locked}
+          >
+            <option value="solid">Solid Block</option>
+            <option value="slow">Slow Area</option>
+            <option value="pull">Auto Pull</option>
+          </select>
+          <label>Strength {(selectedInteractionZoneSettings.physicsStrength ?? 1).toFixed(2)}</label>
+          <input
+            type="range"
+            min="0"
+            max="2"
+            step="0.05"
+            value={selectedInteractionZoneSettings.physicsStrength ?? 1}
+            onChange={event => onUpdateInteraction(selectedInteractionZoneLayer.id, { physicsStrength: Number(event.target.value) })}
+            disabled={selectedInteractionZoneLayer.locked}
+          />
+          <label>Friction {(selectedInteractionZoneSettings.physicsFriction ?? 0.55).toFixed(2)}</label>
+          <input
+            type="range"
+            min="0.1"
+            max="0.95"
+            step="0.05"
+            value={selectedInteractionZoneSettings.physicsFriction ?? 0.55}
+            onChange={event => onUpdateInteraction(selectedInteractionZoneLayer.id, { physicsFriction: Number(event.target.value) })}
             disabled={selectedInteractionZoneLayer.locked}
           />
         </>
