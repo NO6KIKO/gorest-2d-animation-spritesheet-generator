@@ -1,0 +1,112 @@
+@media (max-width: 1280px) {
+  .game-workspace { grid-template-columns: 290px minmax(0, 1fr); }
+  .game-workspace.simple-workspace { grid-template-columns: minmax(0, 1fr); }
+  .right-panel {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    max-height: none;
+  }
+  .right-panel section + section { margin-top: 0; padding-top: 0; border-top: 0; }
+  .simple-workspace .right-panel { display: none; }
+}
+
+@media (max-width: 940px) {
+  .game-workspace { grid-template-columns: 1fr; padding: 10px; }
+  .game-workspace.simple-workspace {
+    padding: 0;
+    min-height: 100vh;
+  }
+  .simple-workspace .canvas-stage,
+  .simple-workspace .blueprint-grid,
+  .simple-workspace .scene-editor,
+  .simple-workspace .scene-wireframe {
+    min-height: 100vh;
+    height: 100vh;
+  }
+  .simple-workspace .stage-header {
+    top: 8px;
+  }
+  .simple-workspace .scene-wireframe {
+    padding: 66px 8px 10px;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .left-panel, .right-panel { max-height: none; }
+  .right-panel { display: block; }
+  .simple-workspace .right-panel,
+  .simple-workspace .left-panel { display: none; }
+  .right-panel section + section { margin-top: 18px; padding-top: 16px; border-top: 1px solid #e0e7ef; }
+  .stage-header, .simulator-row { grid-template-columns: 1fr; }
+  .simulator-row { display: grid; grid-template-columns: 1fr; }
+  .side-scroller-stage { min-height: 0; }
+  .workspace-tabs { justify-items: stretch; width: 100%; }
+  .stage-mode-row {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .simple-workspace .stage-header-actions {
+    position: static;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .stage-header-actions {
+    flex-wrap: wrap;
+  }
+  .primary-tabs button { min-width: 0; flex: 1; }
+  .scene-resizer {
+    width: 8px;
+    min-width: 8px;
+  }
+  .scene-resizer::before {
+    left: 3px;
+  }
+  .scene-mini-panel { min-height: 120px; }
+  .mini-layer-list { max-height: 180px; }
+  .inspector-rail {
+    padding: 9px;
+  }
+  .compact-inspector {
+    gap: 8px;
+  }
+  .scene-global-controls {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    display: flex;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 7px;
+  }
+  .scene-global-controls label {
+    flex: 0 0 128px;
+  }
+}
+
+@media (max-width: 560px) {
+  .two-col { grid-template-columns: 1fr; }
+  .tabs button { flex: 0 0 auto; }
+  .primary-tabs {
+    width: max-content;
+    min-width: 100%;
+  }
+  .primary-tabs button {
+    min-width: 108px;
+  }
+  .scene-size-controls {
+    padding-inline: 6px;
+    gap: 5px;
+  }
+  .scene-size-controls select {
+    width: 124px;
+  }
+  .scene-size-controls input {
+    width: 54px;
+  }
+  .scene-toolbar,
+  .lighting-strip {
+    grid-template-columns: 1fr;
+  }
+}

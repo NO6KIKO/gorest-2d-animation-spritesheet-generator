@@ -1,0 +1,263 @@
+.canvas-stage { min-width: 0; }
+.blueprint-grid { min-height: 100%; padding: 14px; overflow: hidden; }
+.stage-header {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto minmax(210px, 1fr);
+  align-items: start;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dbe3ec;
+}
+.simple-workspace .stage-header {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  z-index: 12;
+  border-bottom: 0;
+  padding: 0;
+  pointer-events: none;
+}
+.stage-back-button {
+  justify-self: start;
+  pointer-events: auto;
+}
+.simple-workspace .workspace-tabs {
+  justify-self: center;
+  max-width: 100%;
+  justify-items: center;
+  pointer-events: auto;
+  overflow: visible;
+}
+.workspace-tabs {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  min-width: 0;
+}
+.stage-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  gap: 8px;
+  pointer-events: auto;
+}
+.stage-header-actions button {
+  min-height: 34px;
+  padding-inline: 12px;
+  border-radius: 0;
+  white-space: nowrap;
+}
+.simple-workspace .stage-header-actions {
+  justify-self: end;
+}
+.tabs {
+  max-width: 100%;
+  background: #edf3f8;
+  border: 1px solid #cfd8e3;
+  padding: 4px;
+  border-radius: 8px;
+}
+.tabs button, .bg-buttons button { min-height: 32px; border: 0; background: transparent; }
+.tabs button.active, .bg-buttons button.active { background: #17202a; color: white; }
+.stage-mode-row {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+}
+.stage-zone-picker {
+  position: relative;
+  flex: 0 0 42px;
+  min-width: 42px;
+  z-index: 160;
+}
+.primary-tabs {
+  border-color: #2f3438;
+  border-radius: 0;
+  background: #f8f8f8;
+  padding: 0;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+.primary-tabs button {
+  min-width: clamp(118px, 12vw, 160px);
+  min-height: 42px;
+  padding-inline: clamp(8px, 1vw, 14px);
+  border-radius: 0;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.primary-tabs button.active {
+  background: #595959;
+  color: #fff;
+}
+.stage-square-tool-button {
+  flex: 0 0 42px;
+  width: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0;
+  border-color: #2f3438;
+  border-radius: 0;
+  background: #fffdf2;
+  color: #604200;
+}
+.stage-square-tool-button.zone-picker-trigger {
+  background: #fff;
+  color: #17202a;
+}
+.stage-square-tool-button.zone-picker-trigger.active {
+  background: #17202a;
+  color: #fff;
+}
+.stage-square-tool-button.light { background: #fff8ce; color: #604200; }
+.stage-square-tool-button.inspect { background: #eef7ff; color: #12466e; }
+.stage-square-tool-button.pickup { background: #eefbf1; color: #1b5a2d; }
+.stage-square-tool-button.door { background: #f5f0ff; color: #4a3179; }
+.stage-square-tool-button.switch { background: #fff1f1; color: #7a1f29; }
+.stage-square-tool-button.dialogue { background: #f4f2ff; color: #40307b; }
+.stage-square-tool-button.audio { background: #eef9f8; color: #145c58; }
+.stage-square-tool-button.camera { background: #f6f6f6; color: #29323b; }
+.stage-square-tool-button:hover { filter: brightness(.98); }
+.stage-zone-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  z-index: 180;
+  width: 176px;
+  padding: 7px;
+  border: 2px solid #111;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(17, 24, 39, .16);
+}
+.stage-zone-menu::before {
+  display: none;
+}
+.stage-zone-menu-item {
+  width: 100%;
+  min-height: 34px;
+  justify-content: flex-start;
+  gap: 9px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+.stage-zone-menu-item:hover {
+  transform: none;
+  background: #f1f5f9;
+}
+.stage-zone-menu-item.light { color: #604200; }
+.stage-zone-menu-item.inspect { color: #12466e; }
+.stage-zone-menu-item.pickup { color: #1b5a2d; }
+.stage-zone-menu-item.door { color: #4a3179; }
+.stage-zone-menu-item.switch { color: #7a1f29; }
+.stage-zone-menu-item.dialogue { color: #40307b; }
+.stage-zone-menu-item.audio { color: #145c58; }
+.stage-zone-menu-item.camera { color: #29323b; }
+.stage-zone-menu-item.physics { color: #73520e; }
+.scene-size-controls {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 1 auto;
+  min-width: 0;
+  padding: 0 10px;
+  border: 1px solid #2f3438;
+  background: #fff;
+  color: #222;
+  font-size: 12px;
+  font-weight: 800;
+}
+.scene-size-controls input {
+  width: clamp(56px, 6vw, 72px);
+  min-height: 28px;
+  padding: 0 6px;
+  border-radius: 0;
+  border-color: #9aa6b2;
+  background: #fff;
+  color: #17202a;
+  font-size: 12px;
+  font-weight: 750;
+}
+.scene-size-controls select {
+  width: clamp(132px, 16vw, 182px);
+  height: 28px;
+  min-height: 28px;
+  padding: 0 8px;
+  border-radius: 0;
+  border-color: #9aa6b2;
+  background: #fff;
+  color: #17202a;
+  font-size: 12px;
+  font-weight: 750;
+}
+.scene-size-controls span {
+  color: #666;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.advanced-tabs {
+  opacity: .76;
+}
+.simple-workspace .advanced-tabs {
+  display: none;
+}
+
+.asset-preview-card {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #d5dee8;
+  border-radius: 8px;
+  background: #f9fbfd;
+}
+.asset-preview-card strong { font-size: 13px; line-height: 1.35; }
+.asset-preview-card span { font-size: 12px; color: #66798d; }
+
+.mini-preview {
+  width: 66px;
+  height: 66px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #cbd6e2;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+}
+.mini-preview.large {
+  width: 100%;
+  height: 180px;
+}
+.mini-preview > div,
+.layer-asset-thumb > span,
+.frame-canvas > div,
+.spritesheet-inspector-preview > div {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.mini-preview svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.mini-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  pointer-events: none;
+}
+
