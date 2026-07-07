@@ -34,7 +34,7 @@ function scenePreview(scene: GameScene, currentSceneId: string, currentBackgroun
 
 function startUiPreview(startUi: GameStartUiSettings) {
   const visibleLayers = [...(startUi.layers || [])]
-    .filter(layer => layer.visible && layer.imageUrl)
+    .filter(layer => layer.visible && (layer.imageUrl || layer.label))
     .sort((a, b) => a.zIndex - b.zIndex);
   return {
     thumbnail: startUi.backgroundImageUrl || visibleLayers[0]?.imageUrl,
@@ -44,12 +44,18 @@ function startUiPreview(startUi: GameStartUiSettings) {
     previewLayers: visibleLayers.map(layer => ({
       id: layer.id,
       imageUrl: layer.imageUrl,
+      label: layer.label,
+      kind: layer.kind,
       x: layer.x,
       y: layer.y,
       width: layer.width,
       height: layer.height,
       opacity: layer.opacity,
       zIndex: layer.zIndex,
+      sourceX: layer.sourceX,
+      sourceY: layer.sourceY,
+      sourceWidth: layer.sourceWidth,
+      sourceHeight: layer.sourceHeight,
     })),
   };
 }

@@ -216,6 +216,7 @@ export interface GameStartUiLayer {
   name: string;
   kind: StartUiLayerKind;
   imageUrl: string;
+  label?: string;
   visible: boolean;
   x: number;
   y: number;
@@ -224,6 +225,10 @@ export interface GameStartUiLayer {
   opacity: number;
   zIndex: number;
   locked?: boolean;
+  sourceX?: number;
+  sourceY?: number;
+  sourceWidth?: number;
+  sourceHeight?: number;
 }
 
 export interface GameStartUiSettings {

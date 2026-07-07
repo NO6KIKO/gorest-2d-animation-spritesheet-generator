@@ -28,6 +28,21 @@ function previewLayerStyle(node: SceneFlowNode, layer: NonNullable<SceneFlowNode
   };
 }
 
+function previewLayerBackgroundStyle(node: SceneFlowNode, layer: NonNullable<SceneFlowNode["previewLayers"]>[number]): CSSProperties {
+  const previewWidth = Math.max(1, node.previewWidth || 1);
+  const previewHeight = Math.max(1, node.previewHeight || 1);
+  const sourceWidth = Math.max(1, layer.sourceWidth || layer.width);
+  const sourceHeight = Math.max(1, layer.sourceHeight || layer.height);
+  const positionX = previewWidth === sourceWidth ? 0 : ((layer.sourceX || 0) / (previewWidth - sourceWidth)) * 100;
+  const positionY = previewHeight === sourceHeight ? 0 : ((layer.sourceY || 0) / (previewHeight - sourceHeight)) * 100;
+  return {
+    backgroundImage: layer.imageUrl ? `url("${layer.imageUrl}")` : undefined,
+    backgroundPosition: `${positionX}% ${positionY}%`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: `${previewWidth / sourceWidth * 100}% ${previewHeight / sourceHeight * 100}%`,
+  };
+}
+
 export function SceneFlowNodeCard({
   isMoving,
   isSelected,
@@ -83,14 +98,27 @@ export function SceneFlowNodeCard({
           {Boolean(node.previewLayers?.length) && (
             <span className="scene-node-preview-layer-stage">
               {node.previewLayers?.map(layer => (
-                <img
-                  key={layer.id}
-                  alt=""
-                  className="scene-node-preview-layer"
-                  draggable={false}
-                  src={layer.imageUrl}
-                  style={previewLayerStyle(node, layer)}
-                />
+                layer.imageUrl ? (
+                  <span
+                    key={layer.id}
+                    aria-hidden="true"
+                    className={`scene-node-preview-layer ${layer.sourceWidth ? "cropped" : ""}`}
+                    style={{
+                      ...previewLayerStyle(node, layer),
+                      ...(layer.sourceWidth ? previewLayerBackgroundStyle(node, layer) : {}),
+                    }}
+                  >
+                    {!layer.sourceWidth && <img alt="" draggable={false} src={layer.imageUrl} />}
+                  </span>
+                ) : (
+                  <span
+                    key={layer.id}
+                    className={`scene-node-preview-layer text-layer ${layer.kind || ""}`}
+                    style={previewLayerStyle(node, layer)}
+                  >
+                    {layer.label}
+                  </span>
+                )
               ))}
             </span>
           )}

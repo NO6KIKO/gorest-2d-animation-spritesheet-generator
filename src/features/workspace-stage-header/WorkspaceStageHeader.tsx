@@ -149,6 +149,7 @@ export function WorkspaceStageHeader({
           <div className="tabs primary-tabs">
             <button className={activeTab === "scenes" ? "active" : ""} onClick={() => onTabChange("scenes")}><MapIcon size={15} /> 2D Canvas</button>
             <button className={activeTab === "scene" ? "active" : ""} onClick={() => onTabChange("scene")}><MapIcon size={15} /> 2D Scene</button>
+            <button className={activeTab === "start-ui" ? "active" : ""} onClick={() => onTabChange("start-ui")}><Monitor size={15} /> Start UI</button>
           </div>
           {activeTab === "scene" && (
             <div className="scene-size-controls" aria-label="2D Scene screen size">
@@ -179,7 +180,7 @@ export function WorkspaceStageHeader({
           <button className={activeTab === "blueprint" ? "active" : ""} onClick={() => onTabChange("blueprint")}>Blueprint</button>
         </div>
       </div>
-      {activeTab !== "scenes" && (
+      {activeTab === "scene" && (
         <div className="stage-header-actions">
           <button type="button" className="ghost-button" onClick={onSaveScene}><Save size={15} /> Save Scene</button>
           <button type="button" className="ghost-button" onClick={() => void onStartNewScene()}><Plus size={15} /> New Scene</button>

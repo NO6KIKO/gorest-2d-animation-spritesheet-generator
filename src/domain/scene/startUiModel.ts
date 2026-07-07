@@ -28,6 +28,7 @@ export const DEFAULT_START_UI_LAYERS: GameStartUiLayer[] = [
     name: "Title",
     kind: "title",
     imageUrl: START_UI_TITLE_URL,
+    label: "Smile for graduates",
     visible: true,
     x: 402,
     y: 52,
@@ -41,6 +42,7 @@ export const DEFAULT_START_UI_LAYERS: GameStartUiLayer[] = [
     name: "New Game",
     kind: "menu",
     imageUrl: START_UI_NEW_GAME_URL,
+    label: "New Game",
     visible: true,
     x: 542,
     y: 427,
@@ -54,6 +56,7 @@ export const DEFAULT_START_UI_LAYERS: GameStartUiLayer[] = [
     name: "Load Game",
     kind: "menu",
     imageUrl: START_UI_LOAD_GAME_URL,
+    label: "Load Game",
     visible: true,
     x: 542,
     y: 570,
@@ -67,6 +70,7 @@ export const DEFAULT_START_UI_LAYERS: GameStartUiLayer[] = [
     name: "Option",
     kind: "menu",
     imageUrl: START_UI_OPTION_URL,
+    label: "Option",
     visible: true,
     x: 542,
     y: 715,
@@ -112,7 +116,7 @@ function clampNumber(value: unknown, min: number, max: number, fallback: number)
 }
 
 function normalizeStartUiLayers(layers?: Partial<GameStartUiLayer>[]): GameStartUiLayer[] {
-  const sourceLayers = Array.isArray(layers) && layers.length ? layers : DEFAULT_START_UI_LAYERS;
+  const sourceLayers = Array.isArray(layers) ? layers : DEFAULT_START_UI_LAYERS;
   return sourceLayers.map((layer, index) => {
     const fallback = DEFAULT_START_UI_LAYERS[index] || DEFAULT_START_UI_LAYERS[0];
     return {
@@ -121,7 +125,8 @@ function normalizeStartUiLayers(layers?: Partial<GameStartUiLayer>[]): GameStart
       id: layer.id || fallback.id || `start_ui_layer_${index + 1}`,
       name: layer.name || fallback.name || `Layer ${index + 1}`,
       kind: layer.kind || fallback.kind || "overlay",
-      imageUrl: layer.imageUrl || fallback.imageUrl || "",
+      imageUrl: layer.imageUrl ?? fallback.imageUrl ?? "",
+      label: layer.label ?? fallback.label,
       visible: layer.visible ?? fallback.visible ?? true,
       x: Math.round(clampNumber(layer.x, -START_UI_CANVAS_WIDTH, START_UI_CANVAS_WIDTH * 2, fallback.x)),
       y: Math.round(clampNumber(layer.y, -START_UI_CANVAS_HEIGHT, START_UI_CANVAS_HEIGHT * 2, fallback.y)),
@@ -129,6 +134,11 @@ function normalizeStartUiLayers(layers?: Partial<GameStartUiLayer>[]): GameStart
       height: Math.round(clampNumber(layer.height, 1, START_UI_CANVAS_HEIGHT * 2, fallback.height)),
       opacity: clampNumber(layer.opacity, 0, 1, fallback.opacity),
       zIndex: Math.round(clampNumber(layer.zIndex, -100, 1000, fallback.zIndex)),
+      locked: layer.locked ?? fallback.locked,
+      sourceX: layer.sourceX === undefined ? fallback.sourceX : Math.round(clampNumber(layer.sourceX, 0, START_UI_CANVAS_WIDTH * 2, fallback.sourceX ?? 0)),
+      sourceY: layer.sourceY === undefined ? fallback.sourceY : Math.round(clampNumber(layer.sourceY, 0, START_UI_CANVAS_HEIGHT * 2, fallback.sourceY ?? 0)),
+      sourceWidth: layer.sourceWidth === undefined ? fallback.sourceWidth : Math.round(clampNumber(layer.sourceWidth, 1, START_UI_CANVAS_WIDTH * 2, fallback.sourceWidth ?? fallback.width)),
+      sourceHeight: layer.sourceHeight === undefined ? fallback.sourceHeight : Math.round(clampNumber(layer.sourceHeight, 1, START_UI_CANVAS_HEIGHT * 2, fallback.sourceHeight ?? fallback.height)),
     };
   });
 }

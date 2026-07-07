@@ -4,13 +4,19 @@ export type SceneFlowNodeKind = "scene" | "start-ui";
 
 export type SceneFlowNodePreviewLayer = {
   id: string;
-  imageUrl: string;
+  imageUrl?: string;
+  label?: string;
+  kind?: string;
   x: number;
   y: number;
   width: number;
   height: number;
   opacity: number;
   zIndex: number;
+  sourceX?: number;
+  sourceY?: number;
+  sourceWidth?: number;
+  sourceHeight?: number;
 };
 
 export type SceneFlowNode = {

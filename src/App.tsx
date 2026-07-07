@@ -93,7 +93,7 @@ import { CurrentActionPanel } from "./features/current-action";
 import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack, useSceneHistory, useSceneStageLayout, type SceneCameraVisualEffect, type SceneDialogueOverlayState, type SceneInteractionPromptEntry } from "./features/scene-editor";
 import { SceneInspectorPanel } from "./features/scene-inspector";
 import { SceneLayerControlsPanel, SceneLayerRail, useSceneLayerClipboard } from "./features/scene-layers";
-import { buildSceneFlowNodes, SceneFlowCanvas, type SceneFlowNode } from "./features/scene-flow";
+import { buildSceneFlowNodes, SceneFlowCanvas, SceneStartUiPanel, type SceneFlowNode } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { SceneSpritesheetCard, SceneSpritesheetsEmptyState, SceneSpritesheetsHeader, type SceneSpritesheetEntry } from "./features/scene-spritesheets";
 import { ModePicker } from "./features/mode-picker";
@@ -193,6 +193,7 @@ export default function App() {
   const [scenes, setScenes] = useState<GameScene[]>([]);
   const [scene, setScene] = useState<GameScene>(() => prepareSceneForEditor(createDefaultScene()));
   const [startUis, setStartUis] = useState<GameStartUiSettings[]>(() => [normalizeStartUiSettings(undefined)]);
+  const [activeStartUiId, setActiveStartUiId] = useState("start_ui_main");
   const [selectedLayerId, setSelectedLayerId] = useState<string>("layer_ground");
   const [selectedInteractionZoneLayerId, setSelectedInteractionZoneLayerId] = useState<string | null>(null);
   const [appMode, setAppMode] = useState<AppMode>("home");
@@ -430,6 +431,9 @@ export default function App() {
     savedScenes: savedSceneCards,
     startUis,
   }), [backgroundLayer, savedSceneCards, scene, startUis]);
+  const activeStartUi = useMemo(() => (
+    startUis.find(settings => settings.id === activeStartUiId) || startUis[0] || normalizeStartUiSettings(undefined, startUiSceneOptions)
+  ), [activeStartUiId, startUiSceneOptions, startUis]);
   const sceneFrameCount = useMemo(() => {
     return scene.layers.reduce((maxFrameCount, layer) => {
       if (!layer.visible || !isSceneVisualLayer(layer)) return maxFrameCount;
@@ -644,7 +648,11 @@ export default function App() {
       }
       if (Array.isArray(libraryData.assets)) setAssets(libraryData.assets);
       setRepositoryImages(generatedFiles);
-      setStartUis(normalizeStartUiCollection(libraryData.startUis, libraryData.startUi, libraryData.scenes || []));
+      const normalizedStartUis = normalizeStartUiCollection(libraryData.startUis, libraryData.startUi, libraryData.scenes || []);
+      setStartUis(normalizedStartUis);
+      setActiveStartUiId(current => normalizedStartUis.some(settings => settings.id === current)
+        ? current
+        : normalizedStartUis[0]?.id || "start_ui_main");
       if (Array.isArray(libraryData.scenes) && libraryData.scenes.length) {
         const firstScene = libraryData.scenes[0];
         setScenes(libraryData.scenes.map(prepareSceneForEditor));
@@ -2098,11 +2106,13 @@ export default function App() {
         updatedTime: new Date().toISOString(),
       }, startUiSceneOptions);
       const data = await saveGameStartUi(nextStartUi);
-      setStartUis(normalizeStartUiCollection(
+      const normalizedStartUis = normalizeStartUiCollection(
         data.library.startUis,
         data.library.startUi || data.startUi || nextStartUi,
         startUiSceneOptions
-      ));
+      );
+      setStartUis(normalizedStartUis);
+      setActiveStartUiId(nextStartUi.id);
       if (Array.isArray(data.library.scenes)) setScenes(data.library.scenes.map(prepareSceneForEditor));
       setNotice("Start UI saved.");
     } catch (err: any) {
@@ -2247,6 +2257,7 @@ export default function App() {
       updatedTime: new Date(nowTime).toISOString(),
     }, startUiSceneOptions);
     await saveStartUiSettings(nextStartUi);
+    setActiveStartUiId(nextStartUi.id);
     setTab("scenes");
     setNotice(`Start UI created: ${nextStartUi.title}`);
     return nextStartUi;
@@ -2262,6 +2273,7 @@ export default function App() {
       updatedTime: new Date(nowTime).toISOString(),
     }, startUiSceneOptions);
     await saveStartUiSettings(nextStartUi);
+    setActiveStartUiId(nextStartUi.id);
     setTab("scenes");
     setNotice(`Start UI duplicated: ${nextStartUi.title}`);
   };
@@ -2271,7 +2283,9 @@ export default function App() {
     setIsSavingStartUi(true);
     try {
       const data = await deleteGameStartUi(settings.id);
-      setStartUis(normalizeStartUiCollection(data.library.startUis, data.library.startUi, startUiSceneOptions));
+      const normalizedStartUis = normalizeStartUiCollection(data.library.startUis, data.library.startUi, startUiSceneOptions);
+      setStartUis(normalizedStartUis);
+      setActiveStartUiId(normalizedStartUis[0]?.id || "start_ui_main");
       setTab("scenes");
       setNotice(`Start UI deleted: ${settings.title || "Start UI"}.`);
     } catch (err: any) {
@@ -2721,8 +2735,8 @@ export default function App() {
 
   return (
     <Fragment>
-      <div className={`blueprint-app ${tab === "scenes" || tab === "scene" ? "core-mode" : ""}`}>
-      <main className={`game-workspace ${tab === "scenes" || tab === "scene" ? "simple-workspace" : ""}`}>
+      <div className={`blueprint-app ${tab === "scenes" || tab === "scene" || tab === "start-ui" ? "core-mode" : ""}`}>
+      <main className={`game-workspace ${tab === "scenes" || tab === "scene" || tab === "start-ui" ? "simple-workspace" : ""}`}>
         <aside className="panel left-panel utility-panel">
           <CurrentActionPanel
             activeFrame={activeFrame}
@@ -2808,15 +2822,17 @@ export default function App() {
 
             {tab === "scenes" && (
               <SceneFlowCanvas
-                isSavingStartUi={isSavingStartUi}
                 nodes={sceneFlowNodes}
-                scenes={startUiSceneOptions}
                 onCreateScene={startNewScene}
                 onCreateStartUi={createStartUiNode}
                 onDeleteScene={deleteSceneNode}
                 onDeleteStartUi={deleteStartUiNode}
                 onDuplicateScene={duplicateSceneNode}
                 onDuplicateStartUi={duplicateStartUiNode}
+                onOpenStartUi={settings => {
+                  setActiveStartUiId(settings.id);
+                  setTab("start-ui");
+                }}
                 onOpenScene={node => {
                   if (node.isPlaceholder) {
                     void startNewScene();
@@ -2827,8 +2843,16 @@ export default function App() {
                 }}
                 onPasteScene={pasteSceneNode}
                 onSaveCurrent={saveCompletedScene}
-                onSaveStartUi={saveStartUiSettings}
                 onStatus={setNotice}
+              />
+            )}
+
+            {tab === "start-ui" && (
+              <SceneStartUiPanel
+                isSaving={isSavingStartUi}
+                scenes={startUiSceneOptions}
+                settings={activeStartUi}
+                onSave={saveStartUiSettings}
               />
             )}
 

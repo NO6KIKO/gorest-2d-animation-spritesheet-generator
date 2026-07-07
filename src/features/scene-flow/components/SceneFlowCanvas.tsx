@@ -4,12 +4,9 @@ import type { GameScene, GameStartUiSettings } from "../../../types";
 import { useSceneFlowLayout } from "../hooks/useSceneFlowLayout";
 import type { SceneFlowNode } from "../types";
 import { SceneFlowNodeCard } from "./SceneFlowNodeCard";
-import { SceneStartUiPanel } from "./SceneStartUiPanel";
 
 type SceneFlowCanvasProps = {
-  isSavingStartUi?: boolean;
   nodes: SceneFlowNode[];
-  scenes: GameScene[];
   onCreateScene: () => void | Promise<void>;
   onCreateStartUi: () => GameStartUiSettings | void | Promise<GameStartUiSettings | void>;
   onDeleteScene: (node: SceneFlowNode) => void | Promise<void>;
@@ -17,9 +14,9 @@ type SceneFlowCanvasProps = {
   onDuplicateScene: (node: SceneFlowNode) => void | Promise<void>;
   onDuplicateStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
   onOpenScene: (node: SceneFlowNode) => void;
+  onOpenStartUi: (settings: GameStartUiSettings) => void;
   onPasteScene: (scene: GameScene) => void | Promise<void>;
   onSaveCurrent: () => void;
-  onSaveStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
   onStatus: (message: string) => void;
 };
 
@@ -40,9 +37,7 @@ function isEditingTarget(target: EventTarget | null) {
 }
 
 export function SceneFlowCanvas({
-  isSavingStartUi = false,
   nodes,
-  scenes,
   onCreateScene,
   onCreateStartUi,
   onDeleteScene,
@@ -50,14 +45,13 @@ export function SceneFlowCanvas({
   onDuplicateScene,
   onDuplicateStartUi,
   onOpenScene,
+  onOpenStartUi,
   onPasteScene,
   onSaveCurrent,
-  onSaveStartUi,
   onStatus,
 }: SceneFlowCanvasProps) {
   const [sceneClipboard, setSceneClipboard] = useState<GameScene | null>(null);
   const [contextMenu, setContextMenu] = useState<SceneFlowContextMenu | null>(null);
-  const [editingStartUi, setEditingStartUi] = useState<GameStartUiSettings | null>(null);
   const {
     activeSelectedNodeId,
     consumeSuppressedClick,
@@ -143,7 +137,7 @@ export function SceneFlowCanvas({
 
   const openNode = (node: SceneFlowNode) => {
     if (node.startUi) {
-      setEditingStartUi(node.startUi);
+      onOpenStartUi(node.startUi);
       return;
     }
     onOpenScene(node);
@@ -153,14 +147,14 @@ export function SceneFlowCanvas({
     const existingStartUiNode = displayNodes.find(node => node.startUi);
     if (existingStartUiNode?.startUi) {
       setSelectedNodeId(existingStartUiNode.id);
-      setEditingStartUi(existingStartUiNode.startUi);
+      onOpenStartUi(existingStartUiNode.startUi);
       return;
     }
 
     const createdStartUi = await onCreateStartUi();
     if (createdStartUi) {
       setSelectedNodeId(createdStartUi.id);
-      setEditingStartUi(createdStartUi);
+      onOpenStartUi(createdStartUi);
     }
   };
 
@@ -336,22 +330,6 @@ export function SceneFlowCanvas({
         </div>
       </div>
 
-      {editingStartUi && (
-        <SceneStartUiPanel
-          isSaving={isSavingStartUi}
-          scenes={scenes}
-          settings={editingStartUi}
-          onClose={() => setEditingStartUi(null)}
-          onSave={async settings => {
-            try {
-              await onSaveStartUi(settings);
-              setEditingStartUi(null);
-            } catch {
-              // App-level error state owns the visible failure message.
-            }
-          }}
-        />
-      )}
     </div>
   );
 }
