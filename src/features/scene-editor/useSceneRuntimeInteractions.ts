@@ -4,7 +4,7 @@ import { safeName } from "../../domain/assets/assetModel";
 import { BOARDING_TRAIN_ASSET_ID } from "../../domain/scene-kit/sceneKitAssets";
 import {
   interactionZoneBounds,
-  interactionZoneContainsPoint,
+  interactionZoneIntersectsRect,
   isCameraZoneInteraction,
   isPhysicsZoneInteraction,
   isSceneVisualLayer,
@@ -24,6 +24,19 @@ import type { SceneCameraVisualEffect } from "./SceneStageCanvas";
 import type { SceneDialogueOverlayState, SceneInteractionPromptEntry } from "./SceneStageOverlays";
 
 export type SceneHeldDirection = "left" | "right" | "up" | "down" | null;
+
+function playerFootCollisionRect(footX: number, footY: number, width: number, height: number) {
+  return {
+    left: footX - width / 2,
+    right: footX + width / 2,
+    top: footY - height,
+    bottom: footY,
+    width,
+    height,
+    centerX: footX,
+    centerY: footY - height / 2,
+  };
+}
 
 type UseSceneRuntimeInteractionsOptions = {
   activeDialogue: SceneDialogueOverlayState | null;
@@ -620,14 +633,18 @@ export function useSceneRuntimeInteractions({
           const currentFootY = layer.y;
           const tentativeFootX = currentFootX + dx * walkSpeed * delta;
           const tentativeFootY = currentFootY + dy * walkSpeed * delta;
+          const collisionWidth = Math.max(12, layerWidth * 0.42);
+          const collisionHeight = Math.max(10, layerHeight * 0.18);
+          const currentFootRect = playerFootCollisionRect(currentFootX, currentFootY, collisionWidth, collisionHeight);
+          const tentativeFootRect = playerFootCollisionRect(tentativeFootX, tentativeFootY, collisionWidth, collisionHeight);
           let speedScale = 1;
           let pullX = 0;
           let pullY = 0;
 
           physicsZones.forEach(entry => {
             if (!entry) return;
-            const insideCurrent = interactionZoneContainsPoint(entry.bounds, entry.interaction, currentFootX, currentFootY);
-            const insideTentative = interactionZoneContainsPoint(entry.bounds, entry.interaction, tentativeFootX, tentativeFootY);
+            const insideCurrent = interactionZoneIntersectsRect(entry.bounds, entry.interaction, currentFootRect);
+            const insideTentative = interactionZoneIntersectsRect(entry.bounds, entry.interaction, tentativeFootRect);
             if (!insideCurrent && !insideTentative) return;
             if (entry.interaction.physicsMode === "slow") {
               speedScale = Math.min(speedScale, clamp(entry.interaction.physicsFriction ?? 0.55, 0.1, 0.95));
@@ -635,8 +652,8 @@ export function useSceneRuntimeInteractions({
             }
             if (entry.interaction.physicsMode === "pull") {
               const strength = clamp(entry.interaction.physicsStrength ?? 1, 0, 2);
-              const vectorX = entry.bounds.centerX - currentFootX;
-              const vectorY = entry.bounds.centerY - currentFootY;
+              const vectorX = entry.bounds.centerX - currentFootRect.centerX;
+              const vectorY = entry.bounds.centerY - currentFootRect.centerY;
               const distance = Math.max(1, Math.hypot(vectorX, vectorY));
               pullX += (vectorX / distance) * walkSpeed * delta * strength;
               pullY += (vectorY / distance) * walkSpeed * delta * strength;
@@ -647,11 +664,12 @@ export function useSceneRuntimeInteractions({
           let nextY = clamp(layer.y + dy * walkSpeed * delta * speedScale + pullY, layerHeight, prev.height);
           const nextFootX = nextX + layerWidth * 0.5;
           const nextFootY = nextY;
+          const nextFootRect = playerFootCollisionRect(nextFootX, nextFootY, collisionWidth, collisionHeight);
           const blockedBySolidZone = physicsZones.some(entry => {
             if (!entry) return false;
             if ((entry.interaction.physicsMode || "solid") !== "solid") return false;
-            const insideCurrent = interactionZoneContainsPoint(entry.bounds, entry.interaction, currentFootX, currentFootY);
-            const insideNext = interactionZoneContainsPoint(entry.bounds, entry.interaction, nextFootX, nextFootY);
+            const insideCurrent = interactionZoneIntersectsRect(entry.bounds, entry.interaction, currentFootRect);
+            const insideNext = interactionZoneIntersectsRect(entry.bounds, entry.interaction, nextFootRect);
             return insideNext && !insideCurrent;
           });
           if (blockedBySolidZone) {

@@ -88,6 +88,7 @@ export function SceneVisualLayer({
   onZoneContextMenu,
 }: SceneVisualLayerProps) {
   const isSelected = layer.id === selectedLayerId;
+  const isZoneSelected = selectedInteractionZoneLayerId === layer.id;
   const [assetWidth, assetHeight] = getFrameSize(sprite);
   const width = assetWidth * layer.scale * spriteStageScale;
   const height = assetHeight * layer.scale * spriteStageScale;
@@ -103,6 +104,7 @@ export function SceneVisualLayer({
   const isLightZone = interaction?.preset === "light-zone" || interaction?.actionType === "light-zone";
   const zonePresetClass = interaction?.preset ? `zone-preset-${interaction.preset}` : "";
   const zoneShapeClass = interaction?.zoneShape ? `zone-shape-${interaction.zoneShape}` : "";
+  const shouldShowInteractionZone = Boolean(zone && interaction?.enabled && (isSelected || isZoneSelected));
 
   return (
     <>
@@ -148,7 +150,7 @@ export function SceneVisualLayer({
           style={{ filter: renderFilter }}
           dangerouslySetInnerHTML={{ __html: frame }}
         />
-        {isSelected && selectedInteractionZoneLayerId !== layer.id && (
+        {isSelected && !isZoneSelected && (
           <>
             <span className="scene-selection-label">{layer.name}</span>
             <span
@@ -174,9 +176,9 @@ export function SceneVisualLayer({
           </>
         )}
       </div>
-      {zone && interaction?.enabled && (
+      {shouldShowInteractionZone && zone && interaction && (
         <div
-          className={`interaction-zone-outline ${zonePresetClass} ${zoneShapeClass} ${isLightZone ? "light-zone" : ""} ${interaction.zoneShape === "circle" ? "circle-zone" : ""} ${selectedInteractionZoneLayerId === layer.id ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}
+          className={`interaction-zone-outline ${zonePresetClass} ${zoneShapeClass} ${isLightZone ? "light-zone" : ""} ${interaction.zoneShape === "circle" ? "circle-zone" : ""} ${isZoneSelected ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}
           style={{
             left: (zone.left - sceneCameraX * (layer.parallax ?? 1)) * stageScaleX,
             top: (zone.top - sceneCameraY * (layer.parallax ?? 1)) * stageScaleY,
@@ -193,7 +195,7 @@ export function SceneVisualLayer({
             onZoneContextMenu(event, layer);
           }}
         >
-          {selectedInteractionZoneLayerId === layer.id && (
+          {isZoneSelected && (
             <>
               <span>{interactionZoneLabel(interaction)}</span>
               <i

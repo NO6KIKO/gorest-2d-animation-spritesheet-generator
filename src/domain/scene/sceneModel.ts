@@ -245,7 +245,18 @@ export function interactionZoneBounds(layer: SceneLayer, asset: GameAsset | unde
   };
 }
 
-type InteractionZoneBounds = ReturnType<typeof interactionZoneBounds>;
+export type InteractionZoneBounds = ReturnType<typeof interactionZoneBounds>;
+
+export type InteractionCollisionRect = {
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+  width: number;
+  height: number;
+  centerX: number;
+  centerY: number;
+};
 
 const DEFAULT_ZONE_POLYGON_POINTS = [
   { x: 0.5, y: 0 },
@@ -293,6 +304,42 @@ export function interactionZoneContainsPoint(bounds: InteractionZoneBounds, inte
     pointX <= bounds.right &&
     pointY >= bounds.top &&
     pointY <= bounds.bottom
+  );
+}
+
+export function interactionZoneIntersectsRect(
+  bounds: InteractionZoneBounds,
+  interaction: LayerInteractionSettings,
+  rect: InteractionCollisionRect
+) {
+  const overlapsBounds =
+    rect.right >= bounds.left &&
+    rect.left <= bounds.right &&
+    rect.bottom >= bounds.top &&
+    rect.top <= bounds.bottom;
+  if (!overlapsBounds) return false;
+  if (!interaction.zoneShape || interaction.zoneShape === "rect") return true;
+
+  const samplePoints: Array<[number, number]> = [
+    [rect.centerX, rect.centerY],
+    [rect.left, rect.top],
+    [rect.right, rect.top],
+    [rect.right, rect.bottom],
+    [rect.left, rect.bottom],
+    [rect.centerX, rect.top],
+    [rect.right, rect.centerY],
+    [rect.centerX, rect.bottom],
+    [rect.left, rect.centerY],
+  ];
+  if (samplePoints.some(([pointX, pointY]) => interactionZoneContainsPoint(bounds, interaction, pointX, pointY))) {
+    return true;
+  }
+
+  return (
+    bounds.centerX >= rect.left &&
+    bounds.centerX <= rect.right &&
+    bounds.centerY >= rect.top &&
+    bounds.centerY <= rect.bottom
   );
 }
 
