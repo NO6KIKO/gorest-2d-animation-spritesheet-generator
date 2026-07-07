@@ -1,9 +1,8 @@
-import { Fragment, useEffect, useMemo, useRef, useState, type ChangeEvent, type MouseEvent, type PointerEvent } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { PRESET_SPRITES } from "./presets";
-import { isEditingTextTarget } from "./app/domEvents";
-import { downloadDataUrl, downloadJson, downloadUrl } from "./app/downloads";
-import { loadImageSize, readFileAsDataUrl } from "./app/fileInput";
+import { downloadJson, downloadUrl } from "./app/downloads";
 import type { AppMode, BackgroundMode, SheetOnlySelectionKind, WorkspaceTab } from "./app/types";
+import { useGameWorkspaceActions } from "./app/useGameWorkspaceActions";
 import {
   DEFAULT_WALK_SPEED,
   INTERACTION_PRESETS,
@@ -16,20 +15,11 @@ import {
 import {
   DEFAULT_BINDING as defaultBinding,
   clipButtonText,
-  createAsset,
   defaultGameStateForTrigger,
   defaultTriggerValueForType,
   safeName,
   splitTags,
 } from "./domain/assets/assetModel";
-import { createImportedSpritesheetAsset, createUploadedStaticObjectAsset } from "./domain/assets/assetImportFactory";
-import {
-  applyAssetClipMetadataPatch,
-  deleteFrameFromSprite,
-  rebuildSpritesheetGridSprite,
-  replaceSpriteInAsset,
-  type SpriteGridPatch,
-} from "./domain/assets/assetSpriteOperations";
 import {
   BOARDING_TRAIN_ASSET_ID,
   BUILT_IN_SCENE_KIT_ASSET_IDS,
@@ -37,7 +27,6 @@ import {
   SCENE_KIT_ASSETS,
 } from "./domain/scene-kit/sceneKitAssets";
 import {
-  DEFAULT_INTERACTION_SETTINGS,
   backgroundLayerFilter,
   combineFilters,
   NEON_CONTACT_SHADOW,
@@ -45,10 +34,8 @@ import {
   NEON_SCENE_LIGHTING,
   formatViewportRatio,
   interactionZoneBounds,
-  interactionZoneContainsPoint,
   isCameraZoneInteraction,
   isLightZoneInteraction,
-  isPhysicsZoneInteraction,
   isSceneVisualLayer,
   isTransformableSceneLayer,
   layerInteractionSettings,
@@ -60,24 +47,13 @@ import {
   sceneLighting,
   sceneViewportHeight,
   sceneViewportWidth,
-  stateMatches,
-  stateValueFromText,
 } from "./domain/scene/sceneModel";
 import {
-  createInteractionTriggerLayer,
   createDefaultScene,
-  createSceneKitLayer,
-  ensureSceneKitLayers,
   prepareSceneForEditor,
-  sceneTimestampLabel,
 } from "./domain/scene/sceneFactory";
-import { resizeSceneFrame, type SceneFramePatch } from "./domain/scene/sceneFrame";
-import { cloneSceneForHistory } from "./domain/scene/sceneHistory";
 import { normalizeStartUiCollection, normalizeStartUiSettings } from "./domain/scene/startUiModel";
 import {
-  clearBackgroundLayerImage,
-  disableLayerInteraction,
-  reorderSceneLayerStack,
   type SceneObjectTarget,
 } from "./domain/scene/sceneLayerOperations";
 import {
@@ -87,13 +63,12 @@ import {
   spriteGridColumns,
   spriteGridRows,
 } from "./domain/sprites/spriteUtils";
-import { compileSpritesheetImage } from "./domain/sprites/spriteCanvas";
 import { CommunityHelp } from "./features/community-help";
 import { CurrentActionPanel } from "./features/current-action";
-import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack, useSceneHistory, useSceneStageLayout, type SceneCameraVisualEffect, type SceneDialogueOverlayState, type SceneInteractionPromptEntry } from "./features/scene-editor";
+import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack, useSceneHistory, useSceneRuntimeInteractions, useSceneStageLayout, useSceneStagePointerInteractions, type SceneCameraVisualEffect, type SceneDialogueOverlayState, type SceneHeldDirection, type SceneInteractionPromptEntry } from "./features/scene-editor";
 import { SceneInspectorPanel } from "./features/scene-inspector";
 import { SceneLayerControlsPanel, SceneLayerRail, useSceneLayerClipboard } from "./features/scene-layers";
-import { buildSceneFlowNodes, SceneFlowCanvas, SceneStartUiPanel, type SceneFlowNode } from "./features/scene-flow";
+import { buildSceneFlowNodes, SceneFlowCanvas, SceneStartUiPanel, useSceneFlowLibraryActions, type SceneVehiclePhase } from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { SceneSpritesheetCard, SceneSpritesheetsEmptyState, SceneSpritesheetsHeader, type SceneSpritesheetEntry } from "./features/scene-spritesheets";
 import { ModePicker } from "./features/mode-picker";
@@ -111,42 +86,23 @@ import {
 import { ActionPreviewPanel, BlueprintPanel, FramesGridPanel, SheetPreviewPanel } from "./features/workspace-stage-views";
 import { TriggerTestPanel, WorkspaceMessages } from "./features/workspace-sidebar";
 import {
-  deleteGameAsset,
-  deleteGameScene,
-  deleteGameStartUi,
   fetchGameLibrary,
   fetchLatestSprite,
-  saveGameAsset,
-  saveGameScene,
-  saveGameStartUi,
 } from "./services/gameLibraryApi";
-import { fetchGeneratedAssets, saveGeneratedImage, type RepositoryGeneratedImage } from "./services/generatedAssetsApi";
-import { clamp, clampLayerScale } from "./shared/math";
+import { fetchGeneratedAssets, type RepositoryGeneratedImage } from "./services/generatedAssetsApi";
+import { clamp } from "./shared/math";
 import {
   ActionBinding,
   ActionTriggerType,
-  AnimationClip,
   AnimationSprite,
   AssetRole,
   GameAsset,
   GameLibrary,
   GameScene,
   GameStartUiSettings,
-  InteractionPreset,
-  LayerInteractionSettings,
-  SceneLayer,
 } from "./types";
 
-type ResizeHandle = "nw" | "ne" | "sw" | "se";
 type ScenePanelResizeHandle = "layers" | "inspector";
-type ResizeState = {
-  id: string;
-  handle: ResizeHandle;
-  anchorScreenX: number;
-  anchorScreenY: number;
-  assetWidth: number;
-  assetHeight: number;
-};
 type ScenePanelResizeState = {
   handle: ScenePanelResizeHandle;
   startX: number;
@@ -159,32 +115,6 @@ type SceneContextMenuState = {
   layerId: string;
   target: SceneObjectTarget;
 };
-type HeldDirection = "left" | "right" | "up" | "down" | null;
-type VehiclePhase = "approaching" | "ready" | "boarded";
-
-function cloneStartUiSettings(settings: GameStartUiSettings) {
-  if (typeof structuredClone === "function") return structuredClone(settings);
-  return JSON.parse(JSON.stringify(settings)) as GameStartUiSettings;
-}
-
-function interactionKeyMatches(event: KeyboardEvent, configuredKey = "KeyE") {
-  const key = configuredKey.trim() || "KeyE";
-  const normalizedCode = key.length === 1 ? `Key${key.toUpperCase()}` : key;
-  return (
-    event.code.toLowerCase() === normalizedCode.toLowerCase() ||
-    event.key.toLowerCase() === key.toLowerCase()
-  );
-}
-
-function dialogueLinesFromInteraction(interaction: LayerInteractionSettings, fallbackText: string) {
-  const source = interaction.dialogueText || interaction.subtitle || fallbackText;
-  const lines = source
-    .split(/\r?\n/)
-    .map(line => line.trim())
-    .filter(Boolean);
-  return lines.length ? lines : [fallbackText || "There is nothing to say."];
-}
-
 export default function App() {
   const [sprites, setSprites] = useState<AnimationSprite[]>(PRESET_SPRITES);
   const [activeSprite, setActiveSprite] = useState<AnimationSprite>(PRESET_SPRITES[0]);
@@ -200,7 +130,7 @@ export default function App() {
   const [tab, setTab] = useState<WorkspaceTab>("scenes");
   const [activeFrame, setActiveFrame] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [heldDirection, setHeldDirection] = useState<HeldDirection>(null);
+  const [heldDirection, setHeldDirection] = useState<SceneHeldDirection>(null);
   const [fps, setFps] = useState(12);
   const [walkSpeed, setWalkSpeed] = useState(DEFAULT_WALK_SPEED);
   const [bgMode, setBgMode] = useState<BackgroundMode>("checker");
@@ -240,25 +170,14 @@ export default function App() {
   const [activeDialogue, setActiveDialogue] = useState<SceneDialogueOverlayState | null>(null);
   const [cameraEffect, setCameraEffect] = useState<SceneCameraVisualEffect | null>(null);
   const [isBackpackOpen, setIsBackpackOpen] = useState(false);
-  const [vehiclePhase, setVehiclePhase] = useState<VehiclePhase>("approaching");
+  const [vehiclePhase, setVehiclePhase] = useState<SceneVehiclePhase>("approaching");
   const [notice, setNotice] = useState("Confirmed spritesheets can be saved as game action assets.");
   const [error, setError] = useState<string | null>(null);
-  const dragRef = useRef<{ id: string; dx: number; dy: number } | null>(null);
-  const resizeRef = useRef<ResizeState | null>(null);
   const scenePanelResizeRef = useRef<ScenePanelResizeState | null>(null);
   const layerDragRef = useRef<string | null>(null);
-  const zoneDragRef = useRef<{ id: string; startPointerX: number; startPointerY: number; startOffsetX: number; startOffsetY: number } | null>(null);
-  const zoneResizeRef = useRef<{ id: string; handle: ResizeHandle; anchorWorldX: number; anchorWorldY: number } | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const sceneStateRef = useRef<GameScene>(scene);
   const selectedLayerIdRef = useRef(selectedLayerId);
-  const nearbyInteractionRef = useRef<SceneInteractionPromptEntry | null>(null);
-  const activeDialogueRef = useRef<SceneDialogueOverlayState | null>(null);
-  const triggerNearbyInteractionRef = useRef<(entry?: SceneInteractionPromptEntry | null) => void>(() => {});
-  const cameraAnimationRef = useRef<number | null>(null);
-  const cameraEffectTimerRef = useRef<number | null>(null);
-  const activeAutoCameraZoneIdRef = useRef<string | null>(null);
-  const isCreatingSceneRef = useRef(false);
 
   useSceneHistory({
     enabled: tab === "scene",
@@ -352,6 +271,29 @@ export default function App() {
     return new Map(allAssets.map(asset => [asset.id, asset]));
   }, [allAssets]);
 
+  const {
+    clearPointerState,
+    clearSceneSelection,
+    stagePointerDown,
+    stagePointerMove,
+    startInteractionZoneDrag,
+    startInteractionZoneResize,
+    startLayerResize,
+    updateSceneLayer,
+  } = useSceneStagePointerInteractions({
+    assetById,
+    scene,
+    sceneStateRef,
+    spriteStageScale,
+    stageRef,
+    stageScaleX,
+    stageScaleY,
+    setIsPlaying,
+    setScene,
+    setSelectedInteractionZoneLayerId,
+    setSelectedLayerId,
+  });
+
   const layerLibraryAssets = useMemo(() => {
     return assets.filter(asset => Boolean(resolveAssetSprite(asset)?.frames.length));
   }, [assets]);
@@ -434,6 +376,36 @@ export default function App() {
   const activeStartUi = useMemo(() => (
     startUis.find(settings => settings.id === activeStartUiId) || startUis[0] || normalizeStartUiSettings(undefined, startUiSceneOptions)
   ), [activeStartUiId, startUiSceneOptions, startUis]);
+  const {
+    createStartUiNode,
+    deleteSceneNode,
+    deleteStartUiNode,
+    duplicateSceneNode,
+    duplicateStartUiNode,
+    loadSavedScene,
+    pasteSceneNode,
+    saveCompletedScene,
+    saveScene,
+    saveStartUiSettings,
+    startNewScene,
+  } = useSceneFlowLibraryActions({
+    assetById,
+    scene,
+    scenes,
+    startUiSceneOptions,
+    startUis,
+    setActiveStartUiId,
+    setError,
+    setIsBackpackOpen,
+    setIsSavingStartUi,
+    setNotice,
+    setScene,
+    setScenes,
+    setSelectedLayerId,
+    setStartUis,
+    setTab,
+    setVehiclePhase,
+  });
   const sceneFrameCount = useMemo(() => {
     return scene.layers.reduce((maxFrameCount, layer) => {
       if (!layer.visible || !isSceneVisualLayer(layer)) return maxFrameCount;
@@ -549,14 +521,37 @@ export default function App() {
   }, [assetById, scene.layers]);
 
   const scenePayload = useMemo(() => ({ ...scene, layers: [...scene.layers] }), [scene]);
+  const { advanceDialogue, triggerNearbyInteraction } = useSceneRuntimeInteractions({
+    activeDialogue,
+    assetById,
+    assets,
+    autoCameraInteraction,
+    hasBoardingTrainLayer,
+    heldDirection,
+    interactionToast,
+    loadSavedScene,
+    nearbyInteraction,
+    sceneStateRef,
+    scenes,
+    vehiclePhase,
+    walkSpeed,
+    setActiveDialogue,
+    setActiveFrame,
+    setActiveSprite,
+    setCameraEffect,
+    setHeldDirection,
+    setInteractionToast,
+    setIsBackpackOpen,
+    setIsPlaying,
+    setNotice,
+    setScene,
+    setSelectedLayerId,
+    setVehiclePhase,
+  });
 
   useEffect(() => {
     sceneStateRef.current = scene;
   }, [scene]);
-
-  useEffect(() => {
-    activeDialogueRef.current = activeDialogue;
-  }, [activeDialogue]);
 
   useEffect(() => {
     selectedLayerIdRef.current = selectedLayerId;
@@ -618,21 +613,11 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    nearbyInteractionRef.current = nearbyInteraction;
-  }, [nearbyInteraction]);
-
-  useEffect(() => {
     const hasBuiltInSceneKitLayer = scene.layers.some(layer => layer.assetId && BUILT_IN_SCENE_KIT_ASSET_IDS.has(layer.assetId));
     if (!hasBuiltInSceneKitLayer) return;
     setScene(prev => prepareSceneForEditor(prev));
     setIsBackpackOpen(false);
   }, [scene.layers]);
-
-  useEffect(() => {
-    if (!interactionToast) return;
-    const id = window.setTimeout(() => setInteractionToast(""), 1800);
-    return () => window.clearTimeout(id);
-  }, [interactionToast]);
 
   useEffect(() => {
     let cancelled = false;
@@ -680,2019 +665,40 @@ export default function App() {
     setSheetDataUrl(activeSprite.spritesheetPng || null);
   }, [activeSprite.id]);
 
-  const advanceDialogue = () => {
-    setActiveDialogue(prev => {
-      if (!prev) return null;
-      if (prev.lineIndex < prev.lines.length - 1) {
-        return { ...prev, lineIndex: prev.lineIndex + 1 };
-      }
-      setNotice("Dialogue closed.");
-      return null;
-    });
-  };
-
-  const playerCenterXForScene = (currentScene: GameScene) => {
-    const playerLayer = currentScene.layers.find(layer => {
-      if (!layer.visible || !layer.assetId || !isSceneVisualLayer(layer)) return false;
-      return assetById.get(layer.assetId)?.role === "player";
-    });
-    if (!playerLayer) return undefined;
-    return layerWorldBounds(playerLayer, assetById.get(playerLayer.assetId!)).centerX;
-  };
-
-  const playerCenterForScene = (currentScene: GameScene) => {
-    const playerLayer = currentScene.layers.find(layer => {
-      if (!layer.visible || !layer.assetId || !isSceneVisualLayer(layer)) return false;
-      return assetById.get(layer.assetId)?.role === "player";
-    });
-    if (!playerLayer) return undefined;
-    const bounds = layerWorldBounds(playerLayer, assetById.get(playerLayer.assetId!));
-    return { x: bounds.centerX, y: bounds.centerY };
-  };
-
-  const cameraModeLabel = (mode: LayerInteractionSettings["cameraMode"] = "room-lock") => {
-    if (mode === "room-lock") return "Room Lock";
-    if (mode === "focus") return "Focus";
-    if (mode === "pan") return "Pan";
-    if (mode === "zoom") return "Zoom";
-    if (mode === "shake") return "Shake";
-    return "Return To Player";
-  };
-
-  const cameraXForInteraction = (
-    entry: SceneInteractionPromptEntry,
-    currentScene: GameScene,
-    playerCenterX?: number
-  ) => {
-    const viewportW = sceneViewportWidth(currentScene);
-    const maxCameraX = Math.max(0, currentScene.width - viewportW);
-    const mode = entry.interaction.cameraMode || "room-lock";
-    if (mode === "shake") return currentScene.cameraX;
-    if (mode === "return-player") {
-      const playerX = playerCenterX ?? playerCenterXForScene(currentScene);
-      return clamp((playerX ?? entry.bounds.centerX) - viewportW * 0.42, 0, maxCameraX);
-    }
-    if (mode === "room-lock") {
-      const roomMin = clamp(entry.bounds.left, 0, maxCameraX);
-      const roomMax = clamp(entry.bounds.right - viewportW, 0, maxCameraX);
-      if (entry.bounds.width > viewportW && roomMin <= roomMax) {
-        const desired = (playerCenterX ?? entry.bounds.centerX) - viewportW * 0.5;
-        return clamp(desired, roomMin, roomMax);
-      }
-      return clamp(entry.bounds.centerX - viewportW * 0.5, 0, maxCameraX);
-    }
-    const configuredX = typeof entry.interaction.cameraTargetX === "number" && Number.isFinite(entry.interaction.cameraTargetX)
-      ? entry.interaction.cameraTargetX
-      : undefined;
-    return clamp(configuredX ?? entry.bounds.centerX - viewportW * 0.5, 0, maxCameraX);
-  };
-
-  const cameraYForInteraction = (
-    entry: SceneInteractionPromptEntry,
-    currentScene: GameScene,
-    playerCenterY?: number
-  ) => {
-    const viewportH = sceneViewportHeight(currentScene);
-    const maxCameraY = Math.max(0, currentScene.height - viewportH);
-    const mode = entry.interaction.cameraMode || "room-lock";
-    if (mode === "shake") return currentScene.cameraY || 0;
-    if (mode === "return-player") {
-      const playerCenter = playerCenterForScene(currentScene);
-      return clamp((playerCenterY ?? playerCenter?.y ?? entry.bounds.centerY) - viewportH * 0.5, 0, maxCameraY);
-    }
-    if (mode === "room-lock") {
-      const roomMin = clamp(entry.bounds.top, 0, maxCameraY);
-      const roomMax = clamp(entry.bounds.bottom - viewportH, 0, maxCameraY);
-      if (entry.bounds.height > viewportH && roomMin <= roomMax) {
-        const desired = (playerCenterY ?? entry.bounds.centerY) - viewportH * 0.5;
-        return clamp(desired, roomMin, roomMax);
-      }
-      return clamp(entry.bounds.centerY - viewportH * 0.5, 0, maxCameraY);
-    }
-    const configuredY = typeof entry.interaction.cameraTargetY === "number" && Number.isFinite(entry.interaction.cameraTargetY)
-      ? entry.interaction.cameraTargetY
-      : undefined;
-    return clamp(configuredY ?? entry.bounds.centerY - viewportH * 0.5, 0, maxCameraY);
-  };
-
-  const animateSceneCamera = (targetX: number, targetY: number, durationMs = 0) => {
-    if (cameraAnimationRef.current !== null) {
-      window.cancelAnimationFrame(cameraAnimationRef.current);
-      cameraAnimationRef.current = null;
-    }
-    const safeTargetX = Number(targetX.toFixed(2));
-    const safeTargetY = Number(targetY.toFixed(2));
-    const safeDurationMs = Math.max(0, durationMs);
-    if (safeDurationMs <= 0) {
-      setScene(prev => ({ ...prev, cameraX: safeTargetX, cameraY: safeTargetY }));
-      return;
-    }
-    const startX = sceneStateRef.current.cameraX;
-    const startY = sceneStateRef.current.cameraY || 0;
-    const startedAt = performance.now();
-    const step = (time: number) => {
-      const progress = clamp((time - startedAt) / safeDurationMs, 0, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const nextCameraX = Number((startX + (safeTargetX - startX) * eased).toFixed(2));
-      const nextCameraY = Number((startY + (safeTargetY - startY) * eased).toFixed(2));
-      setScene(prev => ({ ...prev, cameraX: nextCameraX, cameraY: nextCameraY }));
-      if (progress < 1) {
-        cameraAnimationRef.current = window.requestAnimationFrame(step);
-      } else {
-        cameraAnimationRef.current = null;
-      }
-    };
-    cameraAnimationRef.current = window.requestAnimationFrame(step);
-  };
-
-  const playCameraEffect = (effect: Omit<SceneCameraVisualEffect, "id">) => {
-    if (cameraEffectTimerRef.current !== null) window.clearTimeout(cameraEffectTimerRef.current);
-    setCameraEffect(null);
-    window.requestAnimationFrame(() => {
-      setCameraEffect({ ...effect, id: Date.now() });
-      cameraEffectTimerRef.current = window.setTimeout(() => setCameraEffect(null), effect.durationMs + 80);
-    });
-  };
-
-  const runCameraZone = (entry: SceneInteractionPromptEntry) => {
-    const mode = entry.interaction.cameraMode || "room-lock";
-    const durationMs = entry.interaction.cameraDurationMs ?? 450;
-    const currentScene = sceneStateRef.current;
-    const targetX = cameraXForInteraction(entry, currentScene);
-    const targetY = cameraYForInteraction(entry, currentScene);
-    if (mode !== "shake") animateSceneCamera(targetX, targetY, mode === "pan" ? durationMs : Math.min(durationMs, 280));
-    if (mode === "zoom") {
-      playCameraEffect({
-        durationMs,
-        type: "zoom",
-        zoom: clamp(entry.interaction.cameraZoom ?? 1.12, 1, 1.6),
-      });
-    }
-    if (mode === "shake") {
-      playCameraEffect({
-        durationMs,
-        shakeIntensity: clamp(entry.interaction.cameraShakeIntensity ?? 8, 1, 28),
-        type: "shake",
-      });
-    }
-    if (entry.interaction.subtitle) setInteractionToast(entry.interaction.subtitle);
-    setNotice(`Camera Zone triggered: ${cameraModeLabel(mode)}.`);
-  };
-
-  const triggerNearbyInteraction = (entry = nearbyInteractionRef.current || nearbyInteraction) => {
-    if (!entry) return;
-    if (entry.asset.id === BOARDING_TRAIN_ASSET_ID) {
-      setVehiclePhase("boarded");
-      setHeldDirection(null);
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(layer => {
-          if (!layer.assetId) return layer;
-          const asset = assetById.get(layer.assetId);
-          if (asset?.role === "player") return { ...layer, opacity: 0.18 };
-          if (layer.assetId === BOARDING_TRAIN_ASSET_ID) return { ...layer, zIndex: Math.max(layer.zIndex, 92) };
-          return layer;
-        }),
-      }));
-      setInteractionToast("Boarded the subway car");
-      setNotice("Boarding triggered from the eye prompt. This vehicle can now be used as a scene-transition hook.");
-      return;
-    }
-    const { layer, asset, interaction } = entry;
-    const promptText = interaction.promptText || layer.name;
-    const stateBag = sceneStateRef.current.state || {};
-    const conditionKey = interaction.conditionStateKey?.trim();
-    if (conditionKey && !stateMatches(stateBag[conditionKey], interaction.conditionStateValue)) {
-      const failText = interaction.failSubtitle || "It does not seem ready yet.";
-      setInteractionToast(failText);
-      setNotice(`Interaction blocked by state: ${conditionKey}`);
-      return;
-    }
-
-    const actionType = interaction.actionType || "subtitle";
-    const subtitle = interaction.subtitle || promptText;
-    if (actionType === "dialogue") {
-      const lines = dialogueLinesFromInteraction(interaction, subtitle);
-      setInteractionToast("");
-      setActiveDialogue({
-        layerId: layer.id,
-        lineIndex: 0,
-        lines,
-        portraitUrl: interaction.dialoguePortraitUrl?.trim() || undefined,
-        promptKey: interaction.promptKey || "KeyE",
-        speaker: interaction.dialogueSpeaker || layer.name || "Unknown",
-      });
-      setNotice(`Dialogue started: ${interaction.dialogueSpeaker || layer.name || "Unknown"}`);
-      return;
-    }
-
-    if (actionType === "pickup-item") {
-      const itemId = (interaction.itemId || safeName(layer.name)).trim();
-      setScene(prev => ({
-        ...prev,
-        state: { ...(prev.state || {}), [itemId]: true },
-        layers: prev.layers.map(item =>
-          item.id === layer.id && interaction.hideLayerOnPickup !== false
-            ? { ...item, visible: false }
-            : item
-        ),
-      }));
-      setSelectedLayerId("");
-      setInteractionToast(subtitle || `Picked up ${layer.name}.`);
-      setNotice(`Pickup stored in scene state: ${itemId}=true`);
-      return;
-    }
-
-    if (actionType === "toggle-layer") {
-      const targetLayerId = interaction.targetLayerId || layer.id;
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(item => item.id === targetLayerId ? { ...item, visible: !item.visible } : item),
-      }));
-      setInteractionToast(subtitle);
-      setNotice(`Toggled layer visibility: ${targetLayerId}`);
-      return;
-    }
-
-    if (actionType === "play-animation") {
-      const targetLayerId = interaction.targetLayerId || layer.id;
-      const targetLayer = sceneStateRef.current.layers.find(item => item.id === targetLayerId) || layer;
-      const targetAsset = targetLayer.assetId ? assetById.get(targetLayer.assetId) : asset;
-      const targetClip =
-        targetAsset?.animations?.find(clip => clip.id === interaction.targetAnimationId) ||
-        targetAsset?.animations?.find(clip => clip.id === targetAsset.defaultAnimationId) ||
-        targetAsset?.animations?.[0];
-      if (targetClip) {
-        setScene(prev => ({
-          ...prev,
-          layers: prev.layers.map(item => item.id === targetLayerId ? { ...item, activeAnimationId: targetClip.id } : item),
-        }));
-        setActiveSprite(targetClip.sprite);
-        setActiveFrame(0);
-        setIsPlaying(true);
-        setInteractionToast(subtitle);
-        setNotice(`Played interaction animation: ${targetClip.name}`);
-        return;
-      }
-    }
-
-    if (actionType === "play-audio") {
-      const audioText = subtitle || interaction.audioLabel || promptText;
-      const audioUrl = interaction.audioUrl?.trim();
-      if (audioUrl) {
-        const audio = new Audio(audioUrl);
-        audio.volume = clamp(interaction.audioVolume ?? 0.7, 0, 1);
-        audio.loop = Boolean(interaction.audioLoop);
-        void audio.play().catch(() => {
-          setNotice("Audio Zone has a URL, but the browser blocked playback until a direct user gesture.");
-        });
-      }
-      setInteractionToast(audioText);
-      setNotice(audioUrl ? `Audio Zone triggered: ${interaction.audioLabel || audioUrl}` : "Audio Zone triggered. Add an Audio URL in the inspector to play a file.");
-      return;
-    }
-
-    if (actionType === "camera-focus") {
-      runCameraZone(entry);
-      return;
-    }
-
-    if (actionType === "scene-link") {
-      const targetScene = interaction.targetSceneId ? scenes.find(item => item.id === interaction.targetSceneId) : undefined;
-      if (targetScene) {
-        setInteractionToast(subtitle);
-        loadSavedScene(targetScene);
-        return;
-      }
-      setInteractionToast(interaction.failSubtitle || "No target scene is assigned yet.");
-      setNotice("Scene-link interaction needs a target scene.");
-      return;
-    }
-
-    if (actionType === "set-state") {
-      const key = (interaction.setStateKey || conditionKey || safeName(promptText)).trim();
-      const value = stateValueFromText(interaction.setStateValue || "true");
-      setScene(prev => ({ ...prev, state: { ...(prev.state || {}), [key]: value } }));
-      setInteractionToast(subtitle);
-      setNotice(`Scene state updated: ${key}=${String(value)}`);
-      return;
-    }
-
-    setInteractionToast(subtitle);
-    setNotice(`Inspect triggered: ${promptText}`);
-  };
-
-  useEffect(() => {
-    triggerNearbyInteractionRef.current = triggerNearbyInteraction;
-  }, [triggerNearbyInteraction]);
-
-  useEffect(() => {
-    if (!autoCameraInteraction) {
-      activeAutoCameraZoneIdRef.current = null;
-      return;
-    }
-    const interaction = autoCameraInteraction.interaction;
-    const signature = [
-      autoCameraInteraction.layer.id,
-      interaction.cameraMode || "room-lock",
-      interaction.cameraTargetX ?? "",
-      interaction.cameraTargetY ?? "",
-      interaction.cameraDurationMs ?? "",
-      interaction.cameraZoom ?? "",
-      interaction.cameraShakeIntensity ?? "",
-    ].join(":");
-    if (activeAutoCameraZoneIdRef.current === signature) return;
-    activeAutoCameraZoneIdRef.current = signature;
-    triggerNearbyInteractionRef.current(autoCameraInteraction);
-  }, [
-    autoCameraInteraction?.layer.id,
-    autoCameraInteraction?.interaction.cameraMode,
-    autoCameraInteraction?.interaction.cameraTargetX,
-    autoCameraInteraction?.interaction.cameraTargetY,
-    autoCameraInteraction?.interaction.cameraDurationMs,
-    autoCameraInteraction?.interaction.cameraZoom,
-    autoCameraInteraction?.interaction.cameraShakeIntensity,
-  ]);
-
-  useEffect(() => {
-    return () => {
-      if (cameraAnimationRef.current !== null) window.cancelAnimationFrame(cameraAnimationRef.current);
-      if (cameraEffectTimerRef.current !== null) window.clearTimeout(cameraEffectTimerRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (isEditingTextTarget(event.target)) return;
-
-      const currentDialogue = activeDialogueRef.current;
-      if (currentDialogue) {
-        if (event.key === "Escape") {
-          event.preventDefault();
-          if (event.repeat) return;
-          setActiveDialogue(null);
-          setNotice("Dialogue closed.");
-          return;
-        }
-        if (interactionKeyMatches(event, currentDialogue.promptKey) || event.code === "Enter" || event.code === "Space") {
-          event.preventDefault();
-          if (event.repeat) return;
-          advanceDialogue();
-          return;
-        }
-      }
-
-      if (event.code === "KeyI") {
-        event.preventDefault();
-        if (event.repeat) return;
-        setIsBackpackOpen(value => !value);
-        setNotice("Backpack inventory toggled.");
-        return;
-      }
-
-      const activeNearbyInteraction = nearbyInteractionRef.current;
-      if (activeNearbyInteraction?.interaction?.triggerMode === "near-key") {
-        if (interactionKeyMatches(event, String(activeNearbyInteraction.interaction.promptKey || "KeyE"))) {
-          event.preventDefault();
-          if (event.repeat) return;
-          triggerNearbyInteractionRef.current(activeNearbyInteraction);
-          return;
-        }
-      }
-
-      const matchedLayer = sceneStateRef.current.layers
-        .filter(layer => layer.visible && isSceneVisualLayer(layer) && layer.assetId)
-        .map(layer => {
-          const asset = assetById.get(layer.assetId!);
-          const clip = asset?.animations?.find(item =>
-            item.binding?.triggerType === "keyboard" &&
-            item.binding.triggerValue.toLowerCase() === event.code.toLowerCase()
-          );
-          return asset && clip ? { layer, asset, clip } : null;
-        })
-        .find(Boolean);
-
-      if (matchedLayer) {
-        event.preventDefault();
-        if (matchedLayer.clip.direction !== "none") {
-          setHeldDirection(matchedLayer.clip.direction);
-        }
-        if (event.repeat) return;
-        setScene(prev => ({
-          ...prev,
-          layers: prev.layers.map(layer => layer.id === matchedLayer.layer.id ? { ...layer, activeAnimationId: matchedLayer.clip.id } : layer),
-        }));
-        setActiveSprite(matchedLayer.clip.sprite);
-        setActiveFrame(0);
-        setIsPlaying(true);
-        setNotice(`Keyboard ${matchedLayer.clip.binding?.triggerValue} triggered action: ${matchedLayer.clip.name}`);
-        return;
-      }
-
-      const matched = assets.find(asset =>
-        !asset.animations?.length &&
-        asset.binding?.triggerType === "keyboard" &&
-        asset.binding.triggerValue.toLowerCase() === event.code.toLowerCase()
-      );
-      if (!matched) return;
-      event.preventDefault();
-      if (event.repeat) return;
-      setActiveSprite(matched.sprite);
-      setActiveFrame(0);
-      setIsPlaying(true);
-      setNotice(`Keyboard ${matched.binding?.triggerValue || event.code} triggered action: ${matched.binding?.actionName || matched.name}`);
-    };
-
-    const onKeyUp = (event: KeyboardEvent) => {
-      const matchedLayer = sceneStateRef.current.layers
-        .filter(layer => layer.visible && isSceneVisualLayer(layer) && layer.assetId)
-        .map(layer => {
-          const asset = assetById.get(layer.assetId!);
-          const triggeredClip = asset?.animations?.find(item =>
-            item.binding?.triggerType === "keyboard" &&
-            item.binding.triggerValue.toLowerCase() === event.code.toLowerCase()
-          );
-          if (!asset || !triggeredClip) return null;
-          const idleClip =
-            asset.animations?.find(item => item.actionName === "idle" && item.direction === triggeredClip.direction) ||
-            asset.animations?.find(item => item.id === asset.defaultAnimationId) ||
-            asset.animations?.find(item => item.actionName === "idle");
-          return idleClip ? { layer, idleClip } : null;
-        })
-        .find(Boolean);
-
-      if (!matchedLayer) return;
-      event.preventDefault();
-      setHeldDirection(null);
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(layer => layer.id === matchedLayer.layer.id ? { ...layer, activeAnimationId: matchedLayer.idleClip.id } : layer),
-      }));
-      setActiveSprite(matchedLayer.idleClip.sprite);
-      setActiveFrame(0);
-      setIsPlaying(true);
-      setNotice(`Key released. Returning to ${matchedLayer.idleClip.name}.`);
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("keyup", onKeyUp);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("keyup", onKeyUp);
-    };
-  }, [assetById, assets]);
-
-  useEffect(() => {
-    if (!heldDirection) return;
-    let frameId = 0;
-    let lastTime = performance.now();
-    const step = (time: number) => {
-      const delta = Math.min(0.05, (time - lastTime) / 1000);
-      lastTime = time;
-      setScene(prev => {
-        const viewportW = sceneViewportWidth(prev);
-        const viewportH = sceneViewportHeight(prev);
-        const maxCameraX = Math.max(0, prev.width - viewportW);
-        const maxCameraY = Math.max(0, prev.height - viewportH);
-        const dx = heldDirection === "left" ? -1 : heldDirection === "right" ? 1 : 0;
-        const dy = heldDirection === "up" ? -1 : heldDirection === "down" ? 1 : 0;
-        const physicsZones = prev.layers
-          .filter(layer => layer.visible && layer.assetId)
-          .map(layer => {
-            const asset = assetById.get(layer.assetId!);
-            if (!asset) return null;
-            const interaction = layerInteractionSettings(layer, asset);
-            if (!interaction?.enabled || !isPhysicsZoneInteraction(interaction)) return null;
-            return { bounds: interactionZoneBounds(layer, asset, interaction), interaction, layer };
-          })
-          .filter(Boolean);
-        let focusX: number | null = null;
-        let focusY: number | null = null;
-        let playerLayerAfterMove: SceneLayer | null = null;
-        const layers = prev.layers.map(layer => {
-          if (!layer.assetId) return layer;
-          const asset = assetById.get(layer.assetId);
-          if (asset?.role !== "player") return layer;
-          const sprite = resolveAssetSprite(asset, layer);
-          const [spriteW, spriteH] = sprite ? getFrameSize(sprite) : [0, 0];
-          const layerWidth = spriteW * layer.scale;
-          const layerHeight = spriteH * layer.scale;
-          const currentFootX = layer.x + layerWidth * 0.5;
-          const currentFootY = layer.y;
-          const tentativeFootX = currentFootX + dx * walkSpeed * delta;
-          const tentativeFootY = currentFootY + dy * walkSpeed * delta;
-          let speedScale = 1;
-          let pullX = 0;
-          let pullY = 0;
-
-          physicsZones.forEach(entry => {
-            if (!entry) return;
-            const insideCurrent = interactionZoneContainsPoint(entry.bounds, entry.interaction, currentFootX, currentFootY);
-            const insideTentative = interactionZoneContainsPoint(entry.bounds, entry.interaction, tentativeFootX, tentativeFootY);
-            if (!insideCurrent && !insideTentative) return;
-            if (entry.interaction.physicsMode === "slow") {
-              speedScale = Math.min(speedScale, clamp(entry.interaction.physicsFriction ?? 0.55, 0.1, 0.95));
-              return;
-            }
-            if (entry.interaction.physicsMode === "pull") {
-              const strength = clamp(entry.interaction.physicsStrength ?? 1, 0, 2);
-              const vectorX = entry.bounds.centerX - currentFootX;
-              const vectorY = entry.bounds.centerY - currentFootY;
-              const distance = Math.max(1, Math.hypot(vectorX, vectorY));
-              pullX += (vectorX / distance) * walkSpeed * delta * strength;
-              pullY += (vectorY / distance) * walkSpeed * delta * strength;
-            }
-          });
-
-          let nextX = clamp(layer.x + dx * walkSpeed * delta * speedScale + pullX, 0, Math.max(0, prev.width - layerWidth));
-          let nextY = clamp(layer.y + dy * walkSpeed * delta * speedScale + pullY, layerHeight, prev.height);
-          const nextFootX = nextX + layerWidth * 0.5;
-          const nextFootY = nextY;
-          const blockedBySolidZone = physicsZones.some(entry => {
-            if (!entry) return false;
-            if ((entry.interaction.physicsMode || "solid") !== "solid") return false;
-            const insideCurrent = interactionZoneContainsPoint(entry.bounds, entry.interaction, currentFootX, currentFootY);
-            const insideNext = interactionZoneContainsPoint(entry.bounds, entry.interaction, nextFootX, nextFootY);
-            return insideNext && !insideCurrent;
-          });
-          if (blockedBySolidZone) {
-            nextX = layer.x;
-            nextY = layer.y;
-          }
-          focusX = nextX + layerWidth * 0.5;
-          focusY = nextY - layerHeight * 0.5;
-          playerLayerAfterMove = { ...layer, x: Number(nextX.toFixed(2)), y: Number(nextY.toFixed(2)) };
-          return playerLayerAfterMove;
-        });
-        if (focusX === null || focusY === null) return prev;
-        let nextCameraX = clamp(focusX - viewportW * 0.42, 0, maxCameraX);
-        let nextCameraY = clamp(focusY - viewportH * 0.5, 0, maxCameraY);
-        if (playerLayerAfterMove) {
-          const playerAsset = playerLayerAfterMove.assetId ? assetById.get(playerLayerAfterMove.assetId) : undefined;
-          const playerBounds = layerWorldBounds(playerLayerAfterMove, playerAsset);
-          const roomLockEntry = layers
-            .filter(layer => layer.visible && layer.assetId && isSceneVisualLayer(layer))
-            .map(layer => {
-              const asset = assetById.get(layer.assetId!);
-              if (!asset) return null;
-              const interaction = layerInteractionSettings(layer, asset);
-              if (!interaction?.enabled || !isCameraZoneInteraction(interaction) || interaction.triggerMode !== "auto") return null;
-              if ((interaction.cameraMode || "room-lock") !== "room-lock") return null;
-              const bounds = interactionZoneBounds(layer, asset, interaction);
-              const inside =
-                playerBounds.centerX >= bounds.left &&
-                playerBounds.centerX <= bounds.right &&
-                playerBounds.centerY >= bounds.top &&
-                playerBounds.centerY <= bounds.bottom;
-              if (!inside) return null;
-              const distance = Math.hypot(playerBounds.centerX - bounds.centerX, playerBounds.centerY - bounds.centerY);
-              return { asset, bounds, distance, interaction, layer };
-            })
-            .filter(Boolean)
-            .sort((a, b) => a!.distance - b!.distance)[0];
-          if (roomLockEntry) {
-            const entry = {
-              asset: roomLockEntry.asset,
-              bounds: roomLockEntry.bounds,
-              interaction: roomLockEntry.interaction,
-              layer: roomLockEntry.layer,
-            };
-            const nextScene = { ...prev, layers };
-            nextCameraX = cameraXForInteraction(entry, nextScene, focusX);
-            nextCameraY = cameraYForInteraction(entry, nextScene, focusY);
-          }
-        }
-        return {
-          ...prev,
-          cameraX: Number(nextCameraX.toFixed(2)),
-          cameraY: Number(nextCameraY.toFixed(2)),
-          layers,
-        };
-      });
-      frameId = window.requestAnimationFrame(step);
-    };
-    frameId = window.requestAnimationFrame(step);
-    return () => window.cancelAnimationFrame(frameId);
-  }, [assetById, heldDirection, walkSpeed]);
-
-  useEffect(() => {
-    if (vehiclePhase !== "approaching" || !hasBoardingTrainLayer) return;
-    let frameId = 0;
-    let lastTime = performance.now();
-    const step = (time: number) => {
-      const delta = Math.min(0.05, (time - lastTime) / 1000);
-      lastTime = time;
-      let arrived = false;
-      setScene(prev => {
-        const viewportW = sceneViewportWidth(prev);
-        const trainAsset = assetById.get(BOARDING_TRAIN_ASSET_ID);
-        const playerLayer = prev.layers.find(layer => {
-          if (!layer.visible || !layer.assetId || !isSceneVisualLayer(layer)) return false;
-          return assetById.get(layer.assetId)?.role === "player";
-        });
-        const playerAsset = playerLayer?.assetId ? assetById.get(playerLayer.assetId) : undefined;
-        const playerBounds = playerLayer ? layerWorldBounds(playerLayer, playerAsset) : null;
-        const layers = prev.layers.map(layer => {
-          if (layer.assetId !== BOARDING_TRAIN_ASSET_ID) return layer;
-          const bounds = layerWorldBounds(layer, trainAsset);
-          const maxLayerX = Math.max(40, prev.width - bounds.width);
-          const targetX = playerBounds
-            ? clamp(playerBounds.centerX - bounds.width * 0.46, 40, maxLayerX)
-            : clamp(prev.cameraX + viewportW * 0.28, 40, maxLayerX);
-          const nextX = Math.max(targetX, layer.x - 330 * delta);
-          if (Math.abs(nextX - targetX) < 3) arrived = true;
-          return { ...layer, x: Number(nextX.toFixed(2)) };
-        });
-        return { ...prev, layers };
-      });
-      if (arrived) {
-        setVehiclePhase("ready");
-        setInteractionToast("Subway car stopped");
-        setNotice("The subway car has stopped in front of the player. Click the eye prompt to board.");
-        return;
-      }
-      frameId = window.requestAnimationFrame(step);
-    };
-    frameId = window.requestAnimationFrame(step);
-    return () => window.cancelAnimationFrame(frameId);
-  }, [assetById, hasBoardingTrainLayer, vehiclePhase]);
-
-  const updateSceneLayer = (layerId: string, patch: Partial<SceneLayer>) => {
-    setScene(prev => ({
-      ...prev,
-      layers: prev.layers.map(layer => layer.id === layerId ? { ...layer, ...patch } : layer),
-    }));
-  };
-
-  const setLayerAnimation = (layerId: string, clip: AnimationClip) => {
-    updateSceneLayer(layerId, { activeAnimationId: clip.id });
-    setActiveSprite(clip.sprite);
-    setActiveFrame(0);
-    setIsPlaying(true);
-    setNotice(`Switched action: ${clip.name}`);
-  };
-
-  const previewSceneSpritesheetEntry = (entry: SceneSpritesheetEntry, openScene = false) => {
-    updateSceneLayer(entry.layer.id, { activeAnimationId: entry.clip?.id || entry.layer.activeAnimationId });
-    setSelectedLayerId(entry.layer.id);
-    setActiveSprite(entry.sprite);
-    setActiveFrame(0);
-    setIsPlaying(true);
-    setExpandedSpritesheetKey(entry.key);
-    if (openScene) setTab("scene");
-    setNotice(`Previewing ${entry.asset.name} on layer ${entry.layer.name}.`);
-  };
-
-  const updateAssetMetadata = (assetId: string, patch: Partial<GameAsset>) => {
-    if (!assets.some(asset => asset.id === assetId)) {
-      setNotice("Built-in scene kit assets can be layered and animated, but save a copy before editing their library metadata.");
-      return;
-    }
-    setAssets(prev => prev.map(asset => asset.id === assetId ? { ...asset, ...patch, updatedTime: new Date().toISOString() } : asset));
-  };
-
-  const updateAssetClipMetadata = (
-    assetId: string,
-    clipId: string,
-    patch: Partial<AnimationClip>,
-    bindingPatch?: Partial<ActionBinding>
-  ) => {
-    if (!assets.some(asset => asset.id === assetId)) {
-      setNotice("Built-in scene kit assets can be previewed here, but their metadata is read-only.");
-      return;
-    }
-    setAssets(prev => prev.map(asset => {
-      if (asset.id !== assetId) return asset;
-      return applyAssetClipMetadataPatch(asset, clipId, patch, bindingPatch);
-    }));
-  };
-
-  const updateSelectedSpriteMetadata = (patch: Partial<AnimationSprite>) => {
-    if (!selectedLayerAsset || !selectedLayerSprite) return;
-    if (!selectedAssetEditable) {
-      setNotice("Built-in spritesheet metadata is read-only. Import or save a copy before editing it.");
-      return;
-    }
-    const nextSprite = { ...selectedLayerSprite, ...patch };
-    setAssets(prev => prev.map(asset => (
-      asset.id === selectedLayerAsset.id ? replaceSpriteInAsset(asset, selectedLayerSprite.id, nextSprite) : asset
-    )));
-    if (activeSprite.id === selectedLayerSprite.id) setActiveSprite(nextSprite);
-  };
-
-  const updateSelectedSpritesheetFps = (nextValue: number) => {
-    const nextFps = Math.max(1, Math.round(nextValue));
-    setFps(nextFps);
-    if (!selectedLayerAsset || !selectedAssetEditable) return;
-    if (selectedLayerClip) {
-      updateAssetClipMetadata(selectedLayerAsset.id, selectedLayerClip.id, { fps: nextFps });
-      return;
-    }
-    updateSelectedSpriteMetadata({ fps: nextFps });
-  };
-
-  const rebuildSelectedSpritesheetGrid = (patch: SpriteGridPatch) => {
-    if (!selectedLayerAsset || !selectedLayerSprite) return;
-    if (!selectedLayerSpriteEditableGrid) {
-      setNotice("Only imported spritesheet images can rebuild their frame grid here.");
-      return;
-    }
-    const rebuiltGrid = rebuildSpritesheetGridSprite({
-      sprite: selectedLayerSprite,
-      source: selectedLayerSpriteSource,
-      sheetSize: selectedLayerSpriteSheetSize as [number, number],
-      currentFrameSize: selectedLayerFrameSize as [number, number],
-      currentFrameCount: selectedLayerSpriteFrameCount,
-      currentColumns: selectedLayerSpriteColumns,
-      patch,
-    });
-    if (!rebuiltGrid) {
-      setNotice("Frame grid is larger than the spritesheet image. Reduce frame size, frame count, or columns.");
-      return;
-    }
-
-    setAssets(prev => prev.map(asset => (
-      asset.id === selectedLayerAsset.id ? replaceSpriteInAsset(asset, selectedLayerSprite.id, rebuiltGrid.sprite) : asset
-    )));
-    if (activeSprite.id === selectedLayerSprite.id) setActiveSprite(rebuiltGrid.sprite);
-    setActiveFrame(prev => Math.min(prev, rebuiltGrid.frameCount - 1));
-    setNotice(`Updated spritesheet grid: ${rebuiltGrid.frameCount} frames / ${rebuiltGrid.frameWidth} x ${rebuiltGrid.frameHeight}.`);
-  };
-
-  const deleteSheetOnlySpriteFrame = async (frameIndex: number) => {
-    if (sheetOnlySelectionKind !== "sprite") return;
-    if (activeSprite.frames.length <= 1) {
-      setNotice("A spritesheet needs at least one frame.");
-      return;
-    }
-
-    const asset = sheetOnlySelectedAssetId
-      ? assets.find(item => item.id === sheetOnlySelectedAssetId)
-      : assets.find(item =>
-          item.sprite.id === activeSprite.id ||
-          item.animations?.some(clip => clip.sprite.id === activeSprite.id)
-        );
-    if (!asset) {
-      setNotice("This preview is not a saved asset, so frames cannot be deleted persistently.");
-      return;
-    }
-
-    const nextSprite = deleteFrameFromSprite(activeSprite, frameIndex);
-    if (!nextSprite) return;
-    const nextAsset = replaceSpriteInAsset(asset, activeSprite.id, nextSprite);
-
-    setActiveSprite(nextSprite);
-    setActiveFrame(prev => Math.min(prev, nextSprite.frames.length - 1));
-    setAssets(prev => prev.map(item => item.id === nextAsset.id ? nextAsset : item));
-    setError(null);
-
-    try {
-      const data = await saveGameAsset(nextAsset, "Failed to save frame deletion");
-      setAssets(data.library.assets);
-      setNotice(`Deleted frame ${frameIndex + 1} and saved ${nextAsset.name}.`);
-    } catch (err: any) {
-      setError(err.message || "Failed to save frame deletion");
-    }
-  };
-
-  const saveAssetMetadata = async (assetId: string) => {
-    const asset = assets.find(item => item.id === assetId);
-    if (!asset) {
-      setNotice("This asset is built in. Save it as a confirmed asset first if you want persistent metadata edits.");
-      return;
-    }
-    setError(null);
-    try {
-      const data = await saveGameAsset(asset, "Failed to save asset metadata");
-      setAssets(data.library.assets);
-      setNotice(`Saved spritesheet metadata: ${asset.name}`);
-    } catch (err: any) {
-      setError(err.message || "Failed to save asset metadata");
-    }
-  };
-
-  const updateSceneLighting = (patch: Partial<NonNullable<GameScene["lighting"]>>) => {
-    setScene(prev => ({
-      ...prev,
-      lighting: { ...NEON_SCENE_LIGHTING, ...prev.lighting, ...patch },
-    }));
-  };
-
-  const updateSelectedLayerLighting = (patch: Partial<NonNullable<SceneLayer["lighting"]>>) => {
-    if (!selectedLayer || selectedLayer.locked || !isSceneVisualLayer(selectedLayer)) return;
-    updateSceneLayer(selectedLayer.id, {
-      lighting: { ...NEON_LAYER_LIGHTING, ...selectedLayer.lighting, ...patch },
-    });
-  };
-
-  const updateSelectedLayerShadow = (patch: Partial<NonNullable<SceneLayer["shadow"]>>) => {
-    if (!selectedLayer || selectedLayer.locked || !isSceneVisualLayer(selectedLayer)) return;
-    updateSceneLayer(selectedLayer.id, {
-      shadow: { ...NEON_CONTACT_SHADOW, ...selectedLayer.shadow, ...patch },
-    });
-  };
-
-  const updateLayerInteraction = (layerId: string, patch: Partial<LayerInteractionSettings>) => {
-    setScene(prev => ({
-      ...prev,
-      layers: prev.layers.map(layer => {
-        if (layer.id !== layerId || layer.locked || !isSceneVisualLayer(layer)) return layer;
-        const asset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-        const base = layerInteractionSettings(layer, asset) || DEFAULT_INTERACTION_SETTINGS;
-        return {
-          ...layer,
-          interaction: { ...base, ...layer.interaction, ...patch },
-        };
-      }),
-    }));
-  };
-
-  const updateSelectedLayerInteraction = (patch: Partial<LayerInteractionSettings>) => {
-    if (!selectedLayer || selectedLayer.locked || !isSceneVisualLayer(selectedLayer)) return;
-    updateLayerInteraction(selectedLayer.id, patch);
-  };
-
-  const applyInteractionPreset = (preset: InteractionPreset) => {
-    if (!selectedLayer || selectedLayer.locked || !isSceneVisualLayer(selectedLayer)) return;
-    const { label, ...presetPatch } = INTERACTION_PRESETS[preset];
-    const base = layerInteractionSettings(selectedLayer, selectedLayerAsset) || DEFAULT_INTERACTION_SETTINGS;
-    const bounds = layerWorldBounds(selectedLayer, selectedLayerAsset);
-    const keyName = safeName(selectedLayer.name || label);
-    updateSceneLayer(selectedLayer.id, {
-      interaction: {
-        ...base,
-        ...selectedLayer.interaction,
-        ...presetPatch,
-        enabled: true,
-        zoneWidth: selectedLayer.interaction?.zoneWidth || presetPatch.zoneWidth || Math.round(bounds.width || 160),
-        zoneHeight: selectedLayer.interaction?.zoneHeight || presetPatch.zoneHeight || Math.round(bounds.height || 120),
-        itemId: preset === "pickup" ? selectedLayer.interaction?.itemId || keyName : selectedLayer.interaction?.itemId,
-        setStateKey: preset === "conditional" ? selectedLayer.interaction?.setStateKey || keyName : selectedLayer.interaction?.setStateKey,
-        promptKey: presetPatch.triggerMode === "near-key" ? selectedLayer.interaction?.promptKey || "KeyE" : selectedLayer.interaction?.promptKey || base.promptKey,
-      },
-    });
-    setNotice(`Applied interaction preset: ${label}`);
-  };
-
-  const updateSceneFrame = (patch: SceneFramePatch) => {
-    setScene(prev => resizeSceneFrame(prev, patch));
-  };
-
-  const enableFollowCameraView = () => {
-    const minScrollRoom = 160;
-    if (scene.width <= 360 || scene.width - minScrollRoom < 240) {
-      setNotice("Follow camera needs a world wider than the visible camera view.");
-      return;
-    }
-    const currentRatio = viewportWidth / Math.max(1, viewportHeight);
-    const targetViewportWidth = Math.round(clamp(Math.min(scene.width * 0.62, 1280), 240, scene.width - minScrollRoom));
-    const targetViewportHeight = Math.round(clamp(targetViewportWidth / currentRatio, 240, scene.height));
-    updateSceneFrame({
-      viewportWidth: targetViewportWidth,
-      viewportHeight: targetViewportHeight,
-      viewportPreset: "custom",
-    });
-    setNotice(`Follow Camera view enabled: ${targetViewportWidth} x ${targetViewportHeight}. Scroll room ${Math.round(scene.width - targetViewportWidth)}px.`);
-  };
-
-  const saveAsset = async () => {
-    setError(null);
-    try {
-      const asset = createAsset(activeSprite, role, binding, tagsText);
-      const data = await saveGameAsset(asset);
-      setAssets(data.library.assets);
-      setNotice(`Saved action asset: ${asset.name}`);
-    } catch (err: any) {
-      setError(err.message || "Failed to save asset");
-    }
-  };
-
-  const deleteAsset = async (assetId: string) => {
-    setError(null);
-    try {
-      const data = await deleteGameAsset(assetId);
-      setAssets(data.library.assets);
-      setScenes(data.library.scenes);
-      setScene(prev => ({ ...prev, layers: prev.layers.filter(layer => layer.assetId !== assetId) }));
-      setNotice("Removed from the asset library.");
-    } catch (err: any) {
-      setError(err.message || "Failed to delete asset");
-    }
-  };
-
-  const insertAssetLayer = (asset: GameAsset, overrides: Partial<SceneLayer> = {}) => {
-    const assetSprite = resolveAssetSprite(asset);
-    const [, assetHeight] = assetSprite ? getFrameSize(assetSprite) : [256, 256];
-    const targetHeight = asset.role === "effect" ? 150 : asset.role === "player" ? 300 : 220;
-    const defaultScale = clampLayerScale(targetHeight / Math.max(1, assetHeight));
-    const layerActionName = asset.binding?.actionName || asset.name;
-    const layer: SceneLayer = {
-      id: `layer_${safeName(layerActionName)}_${Date.now()}`,
-      name: asset.name,
-      type: asset.role === "effect" ? "effect" : "sprite",
-      visible: true,
-      assetId: asset.id,
-      activeAnimationId: asset.defaultAnimationId || asset.animations?.[0]?.id,
-      x: Math.round(scene.width * 0.45),
-      y: scene.groundY + 2,
-      scale: defaultScale,
-      zIndex: asset.role === "effect" ? 42 : 30,
-      opacity: 1,
-      parallax: 1,
-      ...overrides,
-    };
-    setScene(prev => ({ ...prev, layers: [...prev.layers, layer] }));
-    setSelectedLayerId(layer.id);
-    setSelectedInteractionZoneLayerId(null);
-    if (assetSprite) {
-      setActiveSprite(assetSprite);
-      setActiveFrame(0);
-    }
-    setIsLayerLibraryOpen(false);
-    setTab("scene");
-    setNotice(`Inserted layer: ${asset.name}`);
-  };
-
-  const handleLayerImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    event.currentTarget.value = "";
-    if (!file) return;
-    if (!file.type.startsWith("image/")) {
-      setError("Choose an image file to add as a static object.");
-      return;
-    }
-
-    setError(null);
-    try {
-      const dataUrl = await readFileAsDataUrl(file, "Could not read the uploaded image.");
-      const [width, height] = await loadImageSize(dataUrl);
-      const { asset, sprite } = createUploadedStaticObjectAsset({
-        dataUrl,
-        fileName: file.name,
-        width,
-        height,
-      });
-      const data = await saveGameAsset(asset, "Failed to save uploaded object");
-      const savedAsset = data.library.assets.find((item: GameAsset) => item.id === asset.id) || asset;
-      setAssets(data.library.assets);
-      setSprites(prev => [sprite, ...prev.filter(item => item.id !== sprite.id)]);
-      insertAssetLayer(savedAsset);
-      setNotice(`Uploaded and inserted: ${savedAsset.name}`);
-    } catch (err: any) {
-      setError(err.message || "Failed to save uploaded object");
-    }
-  };
-
-  const insertActiveSprite = () => {
-    const tempAsset = assets.find(asset =>
-      asset.sprite.id === activeSprite.id ||
-      asset.animations?.some(clip => clip.sprite.id === activeSprite.id)
-    );
-    if (tempAsset) {
-      insertAssetLayer(tempAsset);
-      return;
-    }
-    setNotice("Save the current spritesheet as a confirmed asset before inserting it into the scene.");
-  };
-
-  const selectSheetOnlySprite = (previewSprite: AnimationSprite, title = previewSprite.characterName, asset?: GameAsset) => {
-    if (!previewSprite?.frames.length) return;
-    const defaultClip = asset?.animations?.find(clip => clip.id === asset.defaultAnimationId) || asset?.animations?.[0];
-    setActiveSprite(previewSprite);
-    setActiveFrame(0);
-    setIsPlaying(false);
-    setSheetOnlyHasSelection(true);
-    setSheetOnlySelectionKind("sprite");
-    setSheetOnlySelectionTitle(title);
-    setSheetOnlySelectedAssetId(asset?.id || null);
-    setSheetColumns(previewSprite.gridColumns || Math.min(4, previewSprite.frames.length || 4));
-    setSheetDataUrl(previewSprite.spritesheetPng || previewSprite.rawSpritesheetPng || null);
-    if (asset) {
-      setRole(asset.role);
-      setBinding(defaultClip?.binding || asset.binding || defaultBinding);
-      setTagsText(asset.tags.join(", "));
-    }
-    setNotice(`Loaded spritesheet object: ${title}`);
-  };
-
-  const selectSheetOnlyImage = (imageUrl: string, title: string) => {
-    setActiveFrame(0);
-    setIsPlaying(false);
-    setSheetOnlyHasSelection(true);
-    setSheetOnlySelectionKind("image");
-    setSheetOnlySelectionTitle(title);
-    setSheetOnlySelectedAssetId(null);
-    setSheetDataUrl(imageUrl);
-    setNotice(`Loaded image: ${title}`);
-  };
-
-  const insertSceneKitAsset = (assetId: string) => {
-    const asset = SCENE_KIT_ASSETS.find(item => item.id === assetId);
-    if (!asset) return;
-    insertAssetLayer(asset, createSceneKitLayer(scene, assetId, false));
-    if (assetId === BOARDING_TRAIN_ASSET_ID) setVehiclePhase("approaching");
-    setNotice(`Inserted reusable scene-kit layer: ${asset.name}`);
-  };
-
-  const insertInteractionZone = (preset: InteractionPreset) => {
-    const asset = SCENE_KIT_ASSETS.find(item => item.id === INSPECT_TRIGGER_ASSET_ID);
-    if (!asset) return;
-    const { label, ...presetPatch } = INTERACTION_PRESETS[preset];
-    const playerLayer = scene.layers.find(layer => {
-      if (!layer.visible || !layer.assetId || !isSceneVisualLayer(layer)) return false;
-      return assetById.get(layer.assetId)?.role === "player";
-    });
-    const playerBounds = playerLayer ? layerWorldBounds(playerLayer, assetById.get(playerLayer.assetId!)) : null;
-    const viewportW = sceneViewportWidth(scene);
-    const viewportH = sceneViewportHeight(scene);
-    const baseX = playerBounds?.centerX ?? scene.cameraX + viewportW * 0.5;
-    const baseY = playerBounds?.centerY ?? (scene.cameraY || 0) + viewportH * 0.5;
-    const toolOffsets: Partial<Record<InteractionPreset, { x: number; y: number }>> = {
-      "light-zone": { x: 0, y: 0 },
-      inspect: { x: -150, y: -20 },
-      pickup: { x: -80, y: 76 },
-      "scene-link": { x: 180, y: -4 },
-      toggle: { x: 88, y: 84 },
-      "dialogue-zone": { x: -8, y: 126 },
-      "audio-zone": { x: -220, y: 44 },
-      "camera-zone": { x: 260, y: 44 },
-      "physics-zone": { x: 0, y: 160 },
-    };
-    const offset = toolOffsets[preset] || { x: 0, y: 0 };
-    const anchorX = baseX + offset.x;
-    const anchorY = baseY + offset.y;
-    const isPlayerLight = preset === "light-zone" && Boolean(playerLayer);
-    const cameraTargetX = Math.round(clamp(anchorX - viewportW * 0.5, 0, cameraMax));
-    const cameraTargetY = Math.round(clamp(anchorY - viewportH * 0.5, 0, cameraMaxY));
-    const layer = createInteractionTriggerLayer(
-      scene,
-      `layer_reusable_zone_${safeName(preset)}_${Date.now()}`,
-      isPlayerLight ? "Light Zone / Player Halo" : label,
-      Math.round(anchorX - 22),
-      Math.round(anchorY + 22),
-      presetPatch.promptText || label.replace(" Zone", ""),
-      {
-        ...presetPatch,
-        enabled: true,
-        hotspotVisible: false,
-        zoneWidth: preset === "light-zone" ? 320 : presetPatch.zoneWidth,
-        zoneHeight: preset === "light-zone" ? 250 : presetPatch.zoneHeight,
-        zoneOffsetX: 0,
-        zoneOffsetY: preset === "light-zone" ? -8 : 0,
-        lightAttachToLayerId: preset === "light-zone" ? playerLayer?.id : undefined,
-        cameraTargetX: preset === "camera-zone" ? cameraTargetX : presetPatch.cameraTargetX,
-        cameraTargetY: preset === "camera-zone" ? cameraTargetY : presetPatch.cameraTargetY,
-      }
-    );
-    insertAssetLayer(asset, {
-      ...layer,
-      opacity: preset === "light-zone" ? 0.08 : 0.18,
-      zIndex: preset === "light-zone"
-        ? (playerLayer ? playerLayer.zIndex + 1 : 44)
-        : (playerLayer ? playerLayer.zIndex + 2 : 84),
-    });
-    setSelectedInteractionZoneLayerId(layer.id);
-    setTab("scene");
-    setNotice(isPlayerLight ? "Inserted reusable Light Zone attached to the player." : `Inserted reusable ${label}.`);
-  };
-
-  const insertFullSceneKit = () => {
-    setScene(prev => ensureSceneKitLayers(prev));
-    setVehiclePhase("approaching");
-    setTab("scene");
-    setNotice("Subway interaction kit is available: reusable eye inspect hotspots, ticket machine, backpack HUD, Line 13 sign, and boarding train.");
-  };
-
-  const reorderLayerStack = (sourceId: string, targetId: string) => {
-    setScene(prev => reorderSceneLayerStack(prev, sourceId, targetId));
-  };
-
-  const finishLayerPointerReorder = (clientX: number, clientY: number) => {
-    const sourceLayerId = layerDragRef.current;
-    if (!sourceLayerId) return;
-    const targetLayerId = document
-      .elementFromPoint(clientX, clientY)
-      ?.closest<HTMLElement>("[data-layer-row-id]")
-      ?.dataset.layerRowId;
-    if (targetLayerId) reorderLayerStack(sourceLayerId, targetLayerId);
-    layerDragRef.current = null;
-    setDraggedLayerId(null);
-    setLayerDropTargetId(null);
-  };
-
-  const startScenePanelResize = (event: PointerEvent<HTMLButtonElement>, handle: ScenePanelResizeHandle) => {
-    event.preventDefault();
-    event.stopPropagation();
-    scenePanelResizeRef.current = {
-      handle,
-      startX: event.clientX,
-      startLayerWidth: scenePanelWidths.layers,
-      startInspectorWidth: scenePanelWidths.inspector,
-    };
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-    document.body.classList.add("resizing-scene-panels");
-  };
-
-  const inferImportedFrameSize = (sheetSize = importSheetSize, columns = importColumns, frameCount = importFrameCount) => {
-    if (!sheetSize) {
-      setNotice("Upload a spritesheet first so the frame size can be inferred.");
-      return;
-    }
-    const safeColumns = Math.max(1, Math.round(columns));
-    const rows = Math.max(1, Math.ceil(Math.max(1, frameCount) / safeColumns));
-    setImportFrameWidth(Math.max(1, Math.floor(sheetSize[0] / safeColumns)));
-    setImportFrameHeight(Math.max(1, Math.floor(sheetSize[1] / rows)));
-  };
-
-  const handleImportFile = async (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    setError(null);
-    try {
-      const dataUrl = await readFileAsDataUrl(file);
-      setImportSheetDataUrl(dataUrl);
-      setImportFileName(file.name);
-      const baseName = file.name.replace(/\.[^.]+$/, "");
-      setImportAssetName(prev => (!prev.trim() || prev === "Imported Animation" ? baseName : prev));
-      const sheetSize = await loadImageSize(dataUrl);
-      setImportSheetSize(sheetSize);
-      inferImportedFrameSize(sheetSize);
-    } catch (err: any) {
-      setError(err.message || "Could not read the uploaded file.");
-    }
-  };
-
-  const updateImportTriggerType = (triggerType: ActionTriggerType) => {
-    setImportTriggerType(triggerType);
-    setImportTriggerValue(defaultTriggerValueForType(triggerType));
-    setImportGameState(defaultGameStateForTrigger(triggerType, importActionName));
-    if (triggerType === "auto") setImportLoop(true);
-  };
-
-  const updateImportActionName = (nextActionName: string) => {
-    setImportActionName(nextActionName);
-    setImportGameState(prev =>
-      prev === defaultGameStateForTrigger(importTriggerType, importActionName)
-        ? defaultGameStateForTrigger(importTriggerType, nextActionName)
-        : prev
-    );
-  };
-
-  const saveImportedSpritesheet = async (insertAfterSave = false) => {
-    setError(null);
-    if (!importSheetDataUrl) {
-      setError("Choose a spritesheet image first.");
-      return;
-    }
-    const frameWidth = Math.max(1, Math.round(importFrameWidth));
-    const frameHeight = Math.max(1, Math.round(importFrameHeight));
-    const frameCount = Math.max(1, Math.round(importFrameCount));
-    const columns = Math.max(1, Math.round(importColumns));
-    const rows = Math.ceil(frameCount / columns);
-    const sheetWidth = importSheetSize?.[0] || frameWidth * columns;
-    const sheetHeight = importSheetSize?.[1] || frameHeight * rows;
-    if (columns * frameWidth > sheetWidth + 1 || rows * frameHeight > sheetHeight + 1) {
-      setError("The frame grid is larger than the uploaded spritesheet. Check frame size, columns, and frame count.");
-      return;
-    }
-
-    const actionName = importActionName.trim() || "loop";
-    const assetName = importAssetName.trim() || "Imported Animation";
-    const { asset, sprite } = createImportedSpritesheetAsset({
-      dataUrl: importSheetDataUrl,
-      fileName: importFileName,
-      assetName,
-      actionName,
-      frameWidth,
-      frameHeight,
-      frameCount,
-      columns,
-      sheetWidth,
-      sheetHeight,
-      role: importRole,
-      triggerType: importTriggerType,
-      triggerValue: importTriggerValue,
-      gameState: importGameState,
-      tagsText: importTagsText,
-      loop: importLoop,
-      fps,
-    });
-
-    try {
-      const data = await saveGameAsset(asset, "Failed to import spritesheet asset");
-      const savedAsset = data.library.assets.find((item: GameAsset) => item.id === asset.id) || asset;
-      setAssets(data.library.assets);
-      setSprites(prev => [sprite, ...prev.filter(item => item.id !== sprite.id)]);
-      setActiveSprite(sprite);
-      setActiveFrame(0);
-      setSheetColumns(columns);
-      setSheetDataUrl(importSheetDataUrl);
-      if (insertAfterSave) insertAssetLayer(savedAsset);
-      setNotice(insertAfterSave ? `Imported and inserted: ${asset.name}` : `Imported spritesheet asset: ${asset.name}`);
-    } catch (err: any) {
-      setError(err.message || "Failed to import spritesheet asset");
-    }
-  };
-
-  const saveSheetOnlyRecolorVariant = async (request: SheetOnlyRecolorSaveRequest) => {
-    if (!request.dataUrl || !request.paletteChanges.length) return;
-    setError(null);
-    setIsSavingRecolorVariant(true);
-
-    try {
-      const sourceTitle = request.title.trim() || activeSprite.characterName || "Spritesheet";
-      const sourceAsset = sheetOnlySelectedAssetId
-        ? assets.find(item => item.id === sheetOnlySelectedAssetId)
-        : assets.find(item =>
-            item.sprite.id === activeSprite.id ||
-            item.animations?.some(clip => clip.sprite.id === activeSprite.id)
-          );
-      const sourceClip = sourceAsset?.animations?.find(clip => clip.sprite.id === activeSprite.id);
-      const sourceBinding = sourceClip?.binding || sourceAsset?.binding || {
-        actionName: "recolor",
-        triggerType: "auto" as ActionTriggerType,
-        triggerValue: "auto",
-        gameState: "scene.recolor.loop",
-      };
-      const actionName = sourceClip?.actionName || sourceBinding.actionName || "recolor";
-      const savedImage = await saveGeneratedImage(
-        request.dataUrl,
-        `${safeName(sourceTitle)}_recolor_${Date.now()}.png`,
-        "Failed to save recolored spritesheet PNG"
-      );
-      const sourceTags = sourceAsset?.tags?.length ? sourceAsset.tags : splitTags(tagsText);
-      const tags = Array.from(new Set([...sourceTags, "recolor", "variant"]));
-      const paletteNote = request.paletteChanges
-        .slice(0, 5)
-        .map(change => `${change.name} ${change.from}->${change.to}`)
-        .join(", ");
-      const imported = createImportedSpritesheetAsset({
-        dataUrl: savedImage.url,
-        fileName: savedImage.name,
-        assetName: `${sourceTitle} Recolor`,
-        actionName,
-        frameWidth: request.frameWidth,
-        frameHeight: request.frameHeight,
-        frameCount: request.frameCount,
-        columns: request.columns,
-        sheetWidth: request.sheetWidth,
-        sheetHeight: request.sheetHeight,
-        role: sourceAsset?.role || role,
-        triggerType: sourceBinding.triggerType,
-        triggerValue: sourceBinding.triggerValue || defaultTriggerValueForType(sourceBinding.triggerType),
-        gameState: sourceBinding.gameState || defaultGameStateForTrigger(sourceBinding.triggerType, actionName),
-        tagsText: tags.join(", "),
-        loop: sourceClip?.loop ?? true,
-        fps: sourceClip?.fps || activeSprite.fps || fps,
-      });
-      const sprite: AnimationSprite = {
-        ...imported.sprite,
-        rawSpritesheetPng: savedImage.url,
-        description: `Palette recolor variant of ${sourceTitle}. ${paletteNote ? `Changed ${paletteNote}.` : ""}`.trim(),
-        style: sourceClip?.sprite.style || sourceAsset?.sprite.style || imported.sprite.style,
-        generationMode: "spritesheet-recolor-variant",
-        proportionPolicy: "Recolor variant keeps the source spritesheet grid and alpha exactly; only mapped color groups changed.",
-      };
-      const animations = imported.asset.animations?.map(clip => ({
-        ...clip,
-        sprite,
-        binding: {
-          ...clip.binding,
-          notes: "Palette recolor variant derived from the source spritesheet.",
-        },
-      }));
-      const asset: GameAsset = {
-        ...imported.asset,
-        name: `${sourceTitle} Recolor / ${actionName}`,
-        sprite,
-        animations,
-        binding: {
-          ...imported.binding,
-          notes: "Palette recolor variant derived from the source spritesheet.",
-        },
-        tags,
-      };
-
-      const data = await saveGameAsset(asset, "Failed to save recolor variant");
-      const savedAsset = data.library.assets.find((item: GameAsset) => item.id === asset.id) || asset;
-      const savedSprite = savedAsset.animations?.[0]?.sprite || savedAsset.sprite || sprite;
-      setAssets(data.library.assets);
-      setRepositoryImages(prev => [savedImage, ...prev.filter(image => image.url !== savedImage.url)]);
-      setSprites(prev => [savedSprite, ...prev.filter(item => item.id !== savedSprite.id)]);
-      setActiveSprite(savedSprite);
-      setActiveFrame(0);
-      setSheetColumns(request.columns);
-      setSheetDataUrl(savedImage.url);
-      setSheetOnlySelectionKind("sprite");
-      setSheetOnlySelectionTitle(savedAsset.name);
-      setSheetOnlySelectedAssetId(savedAsset.id);
-      setNotice(`Saved recolor variant: ${savedAsset.name}`);
-    } catch (err: any) {
-      setError(err.message || "Failed to save recolor variant");
-    } finally {
-      setIsSavingRecolorVariant(false);
-    }
-  };
-
-  const openSceneLayerContextMenu = (
-    event: MouseEvent<HTMLElement>,
-    layer: SceneLayer,
-    target: SceneObjectTarget = "layer",
-  ) => {
-    event.preventDefault();
-    event.stopPropagation();
-    setSelectedLayerId(layer.id);
-    setSelectedInteractionZoneLayerId(target === "interaction-zone" ? layer.id : null);
-    const layerAsset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-    const layerSprite = resolveAssetSprite(layerAsset, layer);
-    if (layerSprite) {
-      setActiveSprite(layerSprite);
-      setActiveFrame(0);
-    }
-    setSceneContextMenu({ x: event.clientX, y: event.clientY, layerId: layer.id, target });
-  };
-
-  const deleteSceneObject = (layerId: string, target: SceneObjectTarget) => {
-    const layer = sceneStateRef.current.layers.find(item => item.id === layerId);
-    if (!layer) return;
-    if (target !== "interaction-zone" && layer.type === "background") {
-      const hadBackgroundImage = Boolean(layer.imageUrl);
-      setScene(prev => ({
-        ...prev,
-        background: "none",
-        layers: prev.layers.map(item => item.id === layerId
-          ? clearBackgroundLayerImage(item)
-          : item),
-      }));
-      setSelectedLayerId(layerId);
-      setSelectedInteractionZoneLayerId(null);
-      setSceneContextMenu(null);
-      setNotice(hadBackgroundImage ? "Deleted background image. Scene now uses the default black background." : "Background is already empty.");
-      return;
-    }
-    if (layer.locked) {
-      setNotice("Unlock the layer before deleting it.");
-      setSceneContextMenu(null);
-      return;
-    }
-    if (target === "interaction-zone") {
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(item => item.id === layerId
-          ? disableLayerInteraction(item)
-          : item),
-      }));
-      setSelectedInteractionZoneLayerId(null);
-      setSceneContextMenu(null);
-      setNotice(`Deleted interaction zone: ${layer.name}`);
-      return;
-    }
-    setScene(prev => ({ ...prev, layers: prev.layers.filter(item => item.id !== layerId) }));
-    setSelectedLayerId("");
-    setSelectedInteractionZoneLayerId(null);
-    setSceneContextMenu(null);
-    setNotice(`Deleted layer: ${layer.name}`);
-  };
-
-  const removeSelectedLayer = () => {
-    if (!selectedLayer) return;
-    deleteSceneObject(selectedLayer.id, selectedInteractionZoneLayerId === selectedLayer.id ? "interaction-zone" : "layer");
-  };
-
-  useEffect(() => {
-    const onDeleteKey = (event: KeyboardEvent) => {
-      if (tab !== "scene") return;
-      if (event.repeat || (event.key !== "Backspace" && event.key !== "Delete")) return;
-      if (isEditingTextTarget(event.target)) return;
-      if (!selectedLayerId) return;
-      event.preventDefault();
-      event.stopPropagation();
-      deleteSceneObject(selectedLayerId, selectedInteractionZoneLayerId === selectedLayerId ? "interaction-zone" : "layer");
-    };
-    window.addEventListener("keydown", onDeleteKey, true);
-    return () => window.removeEventListener("keydown", onDeleteKey, true);
-  }, [selectedInteractionZoneLayerId, selectedLayerId, tab]);
-
-  const persistScene = async (sceneToSave: GameScene, successMessage: string) => {
-    setError(null);
-    try {
-      const nextScene = {
-        ...prepareSceneForEditor(sceneToSave),
-        savedTime: sceneToSave.savedTime || new Date().toISOString(),
-        updatedTime: new Date().toISOString(),
-      };
-      const data = await saveGameScene(nextScene);
-      const savedScene = data.scene || nextScene;
-      setScenes(data.library.scenes.map(prepareSceneForEditor));
-      setScene(prepareSceneForEditor(savedScene));
-      setSelectedLayerId("");
-      setTab("scenes");
-      setNotice(successMessage.replace("{name}", savedScene.name));
-    } catch (err: any) {
-      setError(err.message || "Failed to save scene");
-    }
-  };
-
-  const saveScene = async () => {
-    await persistScene(scene, "Scene updated: {name}");
-  };
-
-  const saveStartUiSettings = async (settings: GameStartUiSettings) => {
-    setError(null);
-    setIsSavingStartUi(true);
-    try {
-      const nextStartUi = normalizeStartUiSettings({
-        ...settings,
-        updatedTime: new Date().toISOString(),
-      }, startUiSceneOptions);
-      const data = await saveGameStartUi(nextStartUi);
-      const normalizedStartUis = normalizeStartUiCollection(
-        data.library.startUis,
-        data.library.startUi || data.startUi || nextStartUi,
-        startUiSceneOptions
-      );
-      setStartUis(normalizedStartUis);
-      setActiveStartUiId(nextStartUi.id);
-      if (Array.isArray(data.library.scenes)) setScenes(data.library.scenes.map(prepareSceneForEditor));
-      setNotice("Start UI saved.");
-    } catch (err: any) {
-      setError(err.message || "Failed to save Start UI");
-      throw err;
-    } finally {
-      setIsSavingStartUi(false);
-    }
-  };
-
-  const saveCompletedScene = async () => {
-    const now = new Date();
-    const completedScene: GameScene = {
-      ...prepareSceneForEditor(scene),
-      id: `scene_completed_${Date.now()}`,
-      name: `${scene.name || "Scene"} - Complete ${sceneTimestampLabel(now)}`,
-      savedTime: now.toISOString(),
-      updatedTime: now.toISOString(),
-    };
-    await persistScene(completedScene, "Completed scene saved: {name}");
-  };
-
-  const deleteScene = async (sceneId: string) => {
-    setError(null);
-    try {
-      const data = await deleteGameScene(sceneId);
-      const nextScenes = Array.isArray(data.library.scenes)
-        ? data.library.scenes.map(prepareSceneForEditor)
-        : [];
-      setScenes(nextScenes);
-      if (scene.id === sceneId) {
-        const fallbackScene = nextScenes[0] || prepareSceneForEditor(createDefaultScene());
-        setScene(fallbackScene);
-        setSelectedLayerId("");
-      }
-      setIsBackpackOpen(false);
-      setVehiclePhase("approaching");
-      setTab("scenes");
-      setNotice("Scene deleted.");
-    } catch (err: any) {
-      setError(err.message || "Failed to delete scene");
-    }
-  };
-
-  const uniqueCopiedSceneName = (sourceName: string) => {
-    const baseName = `${sourceName || "Scene"} Copy`;
-    const usedNames = new Set([scene.name, ...scenes.map(savedScene => savedScene.name)].filter(Boolean));
-    if (!usedNames.has(baseName)) return baseName;
-    let copyIndex = 2;
-    while (usedNames.has(`${baseName} ${copyIndex}`)) copyIndex += 1;
-    return `${baseName} ${copyIndex}`;
-  };
-
-  const uniqueNewSceneName = () => {
-    const usedNames = new Set([scene.name, ...scenes.map(savedScene => savedScene.name)].filter(Boolean));
-    let sceneIndex = scenes.length + 1;
-    let candidate = `New Scene ${sceneIndex}`;
-    while (usedNames.has(candidate)) {
-      sceneIndex += 1;
-      candidate = `New Scene ${sceneIndex}`;
-    }
-    return candidate;
-  };
-
-  const uniqueStartUiTitle = (sourceTitle = "Start UI") => {
-    const usedTitles = new Set(startUis.map(settings => settings.title).filter(Boolean));
-    if (!usedTitles.has(sourceTitle)) return sourceTitle;
-    let startUiIndex = 2;
-    let candidate = `${sourceTitle} ${startUiIndex}`;
-    while (usedTitles.has(candidate)) {
-      startUiIndex += 1;
-      candidate = `${sourceTitle} ${startUiIndex}`;
-    }
-    return candidate;
-  };
-
-  const saveSceneCopy = async (sourceScene: GameScene, successPrefix: string) => {
-    setError(null);
-    try {
-      const now = new Date().toISOString();
-      const cleanSource = prepareSceneForEditor(sourceScene);
-      const sceneCopy: GameScene = {
-        ...cloneSceneForHistory(cleanSource),
-        id: `scene_copy_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-        name: uniqueCopiedSceneName(cleanSource.name),
-        savedTime: now,
-        updatedTime: now,
-      };
-      const data = await saveGameScene(sceneCopy, "Failed to save scene copy");
-      const savedScene = data.scene || sceneCopy;
-      setScenes(data.library.scenes.map(prepareSceneForEditor));
-      setTab("scenes");
-      setNotice(`${successPrefix}: ${savedScene.name}`);
-    } catch (err: any) {
-      setError(err.message || "Failed to save scene copy");
-    }
-  };
-
-  const duplicateSceneNode = async (node: SceneFlowNode) => {
-    if (!node.scene || node.isPlaceholder) {
-      setNotice("Select a scene to duplicate.");
-      return;
-    }
-    await saveSceneCopy(node.scene, "Scene duplicated");
-  };
-
-  const pasteSceneNode = async (sourceScene: GameScene) => {
-    await saveSceneCopy(sourceScene, "Scene pasted");
-  };
-
-  const deleteSceneNode = async (node: SceneFlowNode) => {
-    if (!node.scene || node.isPlaceholder) {
-      setNotice("Select a scene to delete.");
-      return;
-    }
-    const isSavedScene = scenes.some(savedScene => savedScene.id === node.scene?.id);
-    if (!isSavedScene) {
-      if (node.isCurrent) {
-        const fallbackScene = scenes[0] || prepareSceneForEditor(createDefaultScene());
-        setScene(fallbackScene);
-        setSelectedLayerId("");
-        setTab("scenes");
-        setNotice("Current draft scene cleared.");
-        return;
-      }
-      setNotice("This scene has not been saved yet.");
-      return;
-    }
-    await deleteScene(node.scene.id);
-  };
-
-  const createStartUiNode = async () => {
-    const nowTime = Date.now();
-    const template = startUis[0]
-      ? cloneStartUiSettings(startUis[0])
-      : normalizeStartUiSettings(undefined, startUiSceneOptions);
-    const nextStartUi = normalizeStartUiSettings({
-      ...template,
-      id: `start_ui_${nowTime}`,
-      title: uniqueStartUiTitle("Start UI"),
-      initialSceneId: scene.id,
-      updatedTime: new Date(nowTime).toISOString(),
-    }, startUiSceneOptions);
-    await saveStartUiSettings(nextStartUi);
-    setActiveStartUiId(nextStartUi.id);
-    setTab("scenes");
-    setNotice(`Start UI created: ${nextStartUi.title}`);
-    return nextStartUi;
-  };
-
-  const duplicateStartUiNode = async (settings: GameStartUiSettings) => {
-    const nowTime = Date.now();
-    const copyTitle = uniqueStartUiTitle(`${settings.title || "Start UI"} Copy`);
-    const nextStartUi = normalizeStartUiSettings({
-      ...cloneStartUiSettings(settings),
-      id: `start_ui_copy_${nowTime}_${Math.random().toString(36).slice(2, 8)}`,
-      title: copyTitle,
-      updatedTime: new Date(nowTime).toISOString(),
-    }, startUiSceneOptions);
-    await saveStartUiSettings(nextStartUi);
-    setActiveStartUiId(nextStartUi.id);
-    setTab("scenes");
-    setNotice(`Start UI duplicated: ${nextStartUi.title}`);
-  };
-
-  const deleteStartUiNode = async (settings: GameStartUiSettings) => {
-    setError(null);
-    setIsSavingStartUi(true);
-    try {
-      const data = await deleteGameStartUi(settings.id);
-      const normalizedStartUis = normalizeStartUiCollection(data.library.startUis, data.library.startUi, startUiSceneOptions);
-      setStartUis(normalizedStartUis);
-      setActiveStartUiId(normalizedStartUis[0]?.id || "start_ui_main");
-      setTab("scenes");
-      setNotice(`Start UI deleted: ${settings.title || "Start UI"}.`);
-    } catch (err: any) {
-      setError(err.message || "Failed to delete Start UI");
-    } finally {
-      setIsSavingStartUi(false);
-    }
-  };
-
-  const startNewScene = async () => {
-    if (isCreatingSceneRef.current) return;
-    isCreatingSceneRef.current = true;
-    setError(null);
-    setNotice("Creating new scene...");
-    const nowTime = Date.now();
-    const now = new Date(nowTime);
-    const base = prepareSceneForEditor(createDefaultScene());
-    const playerLayers = scene.layers
-      .filter(layer => {
-        if (!layer.assetId || !isSceneVisualLayer(layer)) return false;
-        return assetById.get(layer.assetId)?.role === "player";
-      })
-      .map((layer, index) => ({
-        ...layer,
-        id: `layer_player_scene_${nowTime}_${index}`,
-        name: layer.name || "Player",
-        x: 420 + index * 36,
-        y: base.groundY + 2,
-        zIndex: Math.max(layer.zIndex, 30),
-        opacity: 1,
-        parallax: 1,
-        visible: true,
-      }));
-    const nextScene: GameScene = {
-      ...base,
-      id: `scene_new_${nowTime}`,
-      name: uniqueNewSceneName(),
-      cameraX: 0,
-      cameraY: 0,
-      savedTime: now.toISOString(),
-      updatedTime: now.toISOString(),
-      layers: [...base.layers, ...playerLayers],
-    };
-    try {
-      const data = await saveGameScene(nextScene, "Failed to create new scene");
-      const savedScene = prepareSceneForEditor(data.scene || nextScene);
-      setScenes(data.library.scenes.map(prepareSceneForEditor));
-      setScene(savedScene);
-      setSelectedLayerId(playerLayers[0]?.id || "");
-      setIsBackpackOpen(false);
-      setVehiclePhase("approaching");
-      setTab("scene");
-      setNotice(playerLayers.length
-        ? `New scene created: ${savedScene.name}. Current player copied in.`
-        : `New scene created: ${savedScene.name}.`);
-    } catch (err: any) {
-      setError(err.message || "Failed to create new scene");
-      setNotice("");
-    } finally {
-      isCreatingSceneRef.current = false;
-    }
-  };
-
-  const loadSavedScene = (savedScene: GameScene) => {
-    const cleanScene = prepareSceneForEditor(savedScene);
-    setScene(cleanScene);
-    setSelectedLayerId("");
-    setIsBackpackOpen(false);
-    setVehiclePhase("approaching");
-    setTab("scene");
-    setNotice(`Loaded scene: ${cleanScene.name}`);
-  };
-
-  const compileSheet = async () => {
-    const url = await compileSpritesheetImage(activeSprite, sheetColumns);
-    if (!url) return null;
-    setSheetDataUrl(url);
-    return url;
-  };
-
-  const openGameMode = () => {
-    setAppMode("game");
-    setTab("scenes");
-  };
-
-  const openSheetOnlyMode = () => {
-    setAppMode("sheet-only");
-    setTab("sheet");
-    setIsPlaying(false);
-    setSheetOnlyHasSelection(false);
-    setSheetOnlySelectionKind(null);
-    setSheetOnlySelectionTitle("");
-    setSheetOnlySelectedAssetId(null);
-  };
-
-  const returnToModePicker = () => {
-    setIsPlaying(false);
-    setAppMode("home");
-  };
-
-  const returnWithinGameWorkspace = () => {
-    setIsPlaying(false);
-    if (tab !== "scenes") {
-      setIsBackpackOpen(false);
-      setTab("scenes");
-      return;
-    }
-    returnToModePicker();
-  };
-
-  useEffect(() => {
-    if (appMode !== "sheet-only" || !sheetOnlyHasSelection || sheetOnlySelectionKind !== "sprite") return;
-    if (activeSprite.spritesheetPng) {
-      setSheetDataUrl(activeSprite.spritesheetPng);
-      return;
-    }
-    setSheetDataUrl(null);
-    void compileSheet().catch((err: any) => setError(err.message || "Failed to generate spritesheet preview"));
-  }, [appMode, activeSprite.id, activeSprite.spritesheetPng, sheetOnlyHasSelection, sheetOnlySelectionKind]);
-
-  const downloadSheet = async () => {
-    try {
-      const url = activeSprite.spritesheetPng || sheetDataUrl || await compileSheet();
-      if (url) {
-        const filename = `spritesheet_${safeName(activeSprite.characterName)}_${activeSprite.frames.length}f.png`;
-        if (activeSprite.spritesheetPng && url === activeSprite.spritesheetPng) downloadUrl(url, filename);
-        else downloadDataUrl(url, filename);
-      }
-    } catch (err: any) {
-      setError(err.message || "Failed to export spritesheet");
-    }
-  };
-
-  const downloadSelectedSceneItem = () => {
-    if (!selectedLayer) {
-      setNotice("Select an item first.");
-      return;
-    }
-
-    if (selectedLayer.type === "background" && selectedLayer.imageUrl) {
-      downloadUrl(selectedLayer.imageUrl, `item_${safeName(selectedLayer.name)}.png`);
-      return;
-    }
-
-    const asset = selectedLayer.assetId ? assetById.get(selectedLayer.assetId) : undefined;
-    const sprite = resolveAssetSprite(asset, selectedLayer);
-    if (!asset || !sprite) {
-      downloadJson(selectedLayer, `item_${safeName(selectedLayer.name)}.json`);
-      return;
-    }
-
-    const pngUrl = sprite.spritesheetPng || sprite.rawSpritesheetPng;
-    if (pngUrl) {
-      downloadUrl(pngUrl, `item_${safeName(selectedLayer.name)}_spritesheet.png`);
-      return;
-    }
-
-    const frameSvg = spriteFrame(sprite, activeFrame);
-    downloadDataUrl(
-      `data:image/svg+xml;charset=utf-8,${encodeURIComponent(frameSvg)}`,
-      `item_${safeName(selectedLayer.name)}_frame.svg`
-    );
-  };
-
-  const triggerMouseAction = () => {
-    const matched = assets
-      .map(asset => {
-        const clip = asset.animations?.find(item => item.binding?.triggerType === "mouse");
-        if (clip) return { asset, clip };
-        return asset.binding?.triggerType === "mouse" ? { asset, clip: undefined } : null;
-      })
-      .find(Boolean);
-    if (!matched) {
-      setNotice("No mouse-triggered action is bound yet.");
-      return;
-    }
-    if (matched.clip) {
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(layer => layer.assetId === matched.asset.id ? { ...layer, activeAnimationId: matched.clip!.id } : layer),
-      }));
-    }
-    setActiveSprite(matched.clip?.sprite || resolveAssetSprite(matched.asset) || matched.asset.sprite);
-    setActiveFrame(0);
-    setIsPlaying(true);
-    setNotice(`Mouse triggered action: ${matched.clip?.name || matched.asset.binding?.actionName || matched.asset.name}`);
-  };
-
-  const clearSceneSelection = () => {
-    dragRef.current = null;
-    resizeRef.current = null;
-    zoneDragRef.current = null;
-    zoneResizeRef.current = null;
-    setSelectedLayerId("");
-    setSelectedInteractionZoneLayerId(null);
-    setIsPlaying(false);
-  };
-
-  const stagePointerDown = (event: PointerEvent<HTMLDivElement>, layer: SceneLayer) => {
-    if (layer.locked) return;
-    event.stopPropagation();
-    const rect = stageRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const parallax = layer.parallax ?? 1;
-    const pointerX = (event.clientX - rect.left) / stageScaleX + scene.cameraX * parallax;
-    const pointerY = (event.clientY - rect.top) / stageScaleY + (scene.cameraY || 0) * parallax;
-    dragRef.current = { id: layer.id, dx: pointerX - layer.x, dy: pointerY - layer.y };
-    resizeRef.current = null;
-    setSelectedLayerId(layer.id);
-    setSelectedInteractionZoneLayerId(null);
-  };
-
-  const startLayerResize = (
-    event: PointerEvent<HTMLSpanElement>,
-    layer: SceneLayer,
-    assetWidth: number,
-    assetHeight: number,
-    handle: ResizeHandle
-  ) => {
-    if (layer.locked) return;
-    event.stopPropagation();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-    dragRef.current = null;
-    const parallax = layer.parallax ?? 1;
-    const left = (layer.x - scene.cameraX * parallax) * stageScaleX;
-    const width = assetWidth * layer.scale * spriteStageScale;
-    const height = assetHeight * layer.scale * spriteStageScale;
-    const bottom = (layer.y - (scene.cameraY || 0) * parallax) * stageScaleY;
-    const top = bottom - height;
-    const right = left + width;
-    const anchorScreenX = handle === "nw" || handle === "sw" ? right : left;
-    const anchorScreenY = handle === "nw" || handle === "ne" ? bottom : top;
-    resizeRef.current = {
-      id: layer.id,
-      handle,
-      anchorScreenX,
-      anchorScreenY,
-      assetWidth,
-      assetHeight,
-    };
-    setSelectedLayerId(layer.id);
-    setSelectedInteractionZoneLayerId(null);
-  };
-
-  const startInteractionZoneDrag = (event: PointerEvent<HTMLDivElement>, layer: SceneLayer, interaction: LayerInteractionSettings) => {
-    if (layer.locked) return;
-    event.stopPropagation();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-    const rect = stageRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const parallax = layer.parallax ?? 1;
-    const pointerX = (event.clientX - rect.left) / stageScaleX + scene.cameraX * parallax;
-    const pointerY = (event.clientY - rect.top) / stageScaleY + (scene.cameraY || 0) * parallax;
-    dragRef.current = null;
-    resizeRef.current = null;
-    zoneResizeRef.current = null;
-    zoneDragRef.current = {
-      id: layer.id,
-      startPointerX: pointerX,
-      startPointerY: pointerY,
-      startOffsetX: interaction.zoneOffsetX || 0,
-      startOffsetY: interaction.zoneOffsetY || 0,
-    };
-    setSelectedLayerId(layer.id);
-    setSelectedInteractionZoneLayerId(layer.id);
-  };
-
-  const startInteractionZoneResize = (
-    event: PointerEvent<HTMLElement>,
-    layer: SceneLayer,
-    asset: GameAsset,
-    interaction: LayerInteractionSettings,
-    handle: ResizeHandle
-  ) => {
-    if (layer.locked) return;
-    event.stopPropagation();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-    const zone = interactionZoneBounds(layer, asset, interaction);
-    dragRef.current = null;
-    resizeRef.current = null;
-    zoneDragRef.current = null;
-    zoneResizeRef.current = {
-      id: layer.id,
-      handle,
-      anchorWorldX: handle === "nw" || handle === "sw" ? zone.right : zone.left,
-      anchorWorldY: handle === "nw" || handle === "ne" ? zone.bottom : zone.top,
-    };
-    setSelectedLayerId(layer.id);
-    setSelectedInteractionZoneLayerId(layer.id);
-  };
-
-  const stagePointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const zoneResize = zoneResizeRef.current;
-    if (zoneResize) {
-      const layerSnapshot = sceneStateRef.current.layers.find(layer => layer.id === zoneResize.id);
-      const parallax = layerSnapshot?.parallax ?? 1;
-      const pointerWorldX = (event.clientX - rect.left) / stageScaleX + scene.cameraX * parallax;
-      const pointerWorldY = (event.clientY - rect.top) / stageScaleY + (scene.cameraY || 0) * parallax;
-      setScene(prev => {
-        const layer = prev.layers.find(item => item.id === zoneResize.id);
-        const asset = layer?.assetId ? assetById.get(layer.assetId) : undefined;
-        if (!layer || !asset) return prev;
-        const base = layerInteractionSettings(layer, asset) || DEFAULT_INTERACTION_SETTINGS;
-        const width = Math.max(24, Math.abs(pointerWorldX - zoneResize.anchorWorldX));
-        const height = Math.max(24, Math.abs(pointerWorldY - zoneResize.anchorWorldY));
-        const centerX = (pointerWorldX + zoneResize.anchorWorldX) / 2;
-        const centerY = (pointerWorldY + zoneResize.anchorWorldY) / 2;
-        const layerBounds = layerWorldBounds(layer, asset);
-        const interaction = {
-          ...base,
-          ...layer.interaction,
-          zoneWidth: Math.round(width),
-          zoneHeight: Math.round(height),
-          zoneOffsetX: Math.round(centerX - layerBounds.centerX),
-          zoneOffsetY: Math.round(centerY - layerBounds.centerY),
-        };
-        return {
-          ...prev,
-          layers: prev.layers.map(item => item.id === layer.id ? { ...item, interaction } : item),
-        };
-      });
-      return;
-    }
-
-    const zoneDrag = zoneDragRef.current;
-    if (zoneDrag) {
-      const layerSnapshot = sceneStateRef.current.layers.find(layer => layer.id === zoneDrag.id);
-      const parallax = layerSnapshot?.parallax ?? 1;
-      const pointerWorldX = (event.clientX - rect.left) / stageScaleX + scene.cameraX * parallax;
-      const pointerWorldY = (event.clientY - rect.top) / stageScaleY + (scene.cameraY || 0) * parallax;
-      const nextOffsetX = Math.round(zoneDrag.startOffsetX + pointerWorldX - zoneDrag.startPointerX);
-      const nextOffsetY = Math.round(zoneDrag.startOffsetY + pointerWorldY - zoneDrag.startPointerY);
-      setScene(prev => ({
-        ...prev,
-        layers: prev.layers.map(layer => {
-          if (layer.id !== zoneDrag.id) return layer;
-          const asset = layer.assetId ? assetById.get(layer.assetId) : undefined;
-          const base = layerInteractionSettings(layer, asset) || DEFAULT_INTERACTION_SETTINGS;
-          return {
-            ...layer,
-            interaction: { ...base, ...layer.interaction, zoneOffsetX: nextOffsetX, zoneOffsetY: nextOffsetY },
-          };
-        }),
-      }));
-      return;
-    }
-
-    const resize = resizeRef.current;
-    if (resize) {
-      const pointerScreenX = event.clientX - rect.left;
-      const pointerScreenY = event.clientY - rect.top;
-      const widthScreen = resize.handle === "nw" || resize.handle === "sw"
-        ? resize.anchorScreenX - pointerScreenX
-        : pointerScreenX - resize.anchorScreenX;
-      const heightScreen = resize.handle === "nw" || resize.handle === "ne"
-        ? resize.anchorScreenY - pointerScreenY
-        : pointerScreenY - resize.anchorScreenY;
-      const scaleFromWidth = widthScreen / Math.max(1, resize.assetWidth * spriteStageScale);
-      const scaleFromHeight = heightScreen / Math.max(1, resize.assetHeight * spriteStageScale);
-      const nextScale = clampLayerScale(Math.max(scaleFromWidth, scaleFromHeight));
-      const scaledWidth = resize.assetWidth * nextScale * spriteStageScale;
-      const scaledHeight = resize.assetHeight * nextScale * spriteStageScale;
-      const layerSnapshot = sceneStateRef.current.layers.find(layer => layer.id === resize.id);
-      const parallax = layerSnapshot?.parallax ?? 1;
-      const x = resize.handle === "nw" || resize.handle === "sw"
-        ? (resize.anchorScreenX - scaledWidth) / stageScaleX + scene.cameraX * parallax
-        : resize.anchorScreenX / stageScaleX + scene.cameraX * parallax;
-      const y = resize.handle === "nw" || resize.handle === "ne"
-        ? resize.anchorScreenY / stageScaleY + (scene.cameraY || 0) * parallax
-        : (resize.anchorScreenY + scaledHeight) / stageScaleY + (scene.cameraY || 0) * parallax;
-      updateSceneLayer(resize.id, {
-        x: Math.round(x),
-        y: Math.round(y),
-        scale: Number(nextScale.toFixed(3)),
-      });
-      return;
-    }
-
-    const drag = dragRef.current;
-    if (!drag) return;
-    const layerSnapshot = sceneStateRef.current.layers.find(layer => layer.id === drag.id);
-    const parallax = layerSnapshot?.parallax ?? 1;
-    updateSceneLayer(drag.id, {
-      x: Math.round((event.clientX - rect.left) / stageScaleX + scene.cameraX * parallax - drag.dx),
-      y: Math.round((event.clientY - rect.top) / stageScaleY + (scene.cameraY || 0) * parallax - drag.dy),
-    });
-  };
-
-  const applyNeonLightingToSelectedLayer = () => {
-    if (!selectedLayer || selectedLayer.locked || !isSceneVisualLayer(selectedLayer)) return;
-    updateSceneLayer(selectedLayer.id, {
-      shadow: { ...NEON_CONTACT_SHADOW },
-      lighting: { ...NEON_LAYER_LIGHTING },
-    });
-    setNotice("Applied neon station lighting to the selected layer.");
-  };
-
-  const clearLightingFromSelectedLayer = () => {
-    if (!selectedLayer || selectedLayer.locked || !isSceneVisualLayer(selectedLayer)) return;
-    updateSceneLayer(selectedLayer.id, {
-      shadow: { ...NEON_CONTACT_SHADOW, enabled: false },
-      lighting: { ...NEON_LAYER_LIGHTING, preset: "none" as const },
-    });
-    setNotice("Disabled simulated lighting on the selected layer.");
-  };
-
+  const {
+    applyInteractionPreset, applyNeonLightingToSelectedLayer, clearLightingFromSelectedLayer, compileSheet,
+    deleteAsset, deleteSceneObject, deleteSheetOnlySpriteFrame, downloadSelectedSceneItem,
+    enableFollowCameraView, finishLayerPointerReorder, handleImportFile, handleLayerImageUpload,
+    inferImportedFrameSize, insertActiveSprite, insertAssetLayer, insertFullSceneKit,
+    insertInteractionZone, insertSceneKitAsset, openGameMode, openSceneLayerContextMenu,
+    openSheetOnlyMode, previewSceneSpritesheetEntry, rebuildSelectedSpritesheetGrid, removeSelectedLayer,
+    reorderLayerStack, returnToModePicker, returnWithinGameWorkspace, saveAsset,
+    saveAssetMetadata, saveImportedSpritesheet, saveSheetOnlyRecolorVariant, selectSheetOnlyImage,
+    selectSheetOnlySprite, setLayerAnimation, startScenePanelResize, triggerMouseAction, updateAssetClipMetadata, updateAssetMetadata,
+    updateImportActionName, updateImportTriggerType, updateLayerInteraction, updateSceneFrame,
+    updateSceneLighting, updateSelectedLayerInteraction, updateSelectedLayerLighting,
+    updateSelectedLayerShadow, updateSelectedSpriteMetadata, updateSelectedSpritesheetFps,
+  } = useGameWorkspaceActions({
+    activeFrame, activeSprite, appMode, assetById, assets, binding, cameraMax, cameraMaxY, fps, role, scene,
+    scenePanelResizeRef, scenePanelWidths, sceneStateRef, scenes, tab, tagsText, updateSceneLayer,
+    importActionName, importAssetName, importColumns, importFileName, importFrameCount, importFrameHeight,
+    importFrameWidth, importGameState, importLoop, importRole, importSheetDataUrl, importSheetSize,
+    importTagsText, importTriggerType, importTriggerValue,
+    layerDragRef, selectedAssetEditable, selectedInteractionZoneLayerId, selectedLayer, selectedLayerAsset,
+    selectedLayerId, selectedLayerClip, selectedLayerFrameSize, selectedLayerSprite, selectedLayerSpriteColumns,
+    selectedLayerSpriteEditableGrid, selectedLayerSpriteFrameCount, selectedLayerSpriteSheetSize,
+    selectedLayerSpriteSource, sheetColumns, sheetDataUrl, sheetOnlyHasSelection, sheetOnlySelectedAssetId,
+    sheetOnlySelectionKind,
+    setActiveFrame, setActiveSprite, setAppMode, setAssets, setBinding, setDraggedLayerId, setError,
+    setExpandedSpritesheetKey, setFps, setImportActionName, setImportAssetName, setImportColumns,
+    setImportFileName, setImportFrameCount, setImportFrameHeight, setImportFrameWidth, setImportGameState,
+    setImportLoop, setImportRole, setImportSheetDataUrl, setImportSheetSize, setImportTagsText,
+    setImportTriggerType, setImportTriggerValue, setIsBackpackOpen, setIsLayerLibraryOpen, setIsPlaying,
+    setIsSavingRecolorVariant, setLayerDropTargetId, setNotice, setRepositoryImages, setRole, setScene,
+    setSceneContextMenu, setScenes, setSelectedInteractionZoneLayerId, setSelectedLayerId, setSheetColumns,
+    setSheetDataUrl, setSheetOnlyHasSelection, setSheetOnlySelectedAssetId, setSheetOnlySelectionKind,
+    setSheetOnlySelectionTitle, setSprites, setTab, setTagsText, setVehiclePhase,
+  });
   const bgClass = bgMode === "checker" ? "preview-bg checker" : `preview-bg ${bgMode}`;
 
   if (appMode === "home") {
@@ -2942,12 +948,7 @@ export default function App() {
                     viewportWidth={viewportWidth}
                     onClearSelection={clearSceneSelection}
                     onOpenBackgroundContextMenu={openSceneLayerContextMenu}
-                    onPointerEnd={() => {
-                      dragRef.current = null;
-                      resizeRef.current = null;
-                      zoneDragRef.current = null;
-                      zoneResizeRef.current = null;
-                    }}
+                    onPointerEnd={clearPointerState}
                     onPointerMove={stagePointerMove}
                   >
                   {backgroundLayer?.visible && (

@@ -10,4 +10,8 @@ export { SceneToolbar } from "./SceneToolbar";
 export { SceneVisualLayer } from "./SceneVisualLayer";
 export { SceneVisualLayerStack } from "./SceneVisualLayerStack";
 export { useSceneHistory } from "./useSceneHistory";
+export { useSceneRuntimeInteractions } from "./useSceneRuntimeInteractions";
+export type { SceneHeldDirection } from "./useSceneRuntimeInteractions";
 export { useSceneStageLayout } from "./useSceneStageLayout";
+export { useSceneStagePointerInteractions } from "./useSceneStagePointerInteractions";
+export type { SceneStageResizeHandle } from "./useSceneStagePointerInteractions";
