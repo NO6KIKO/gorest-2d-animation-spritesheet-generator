@@ -1,12 +1,18 @@
 import { loadImageSize, readFileAsDataUrl } from "../../../app/fileInput";
 import { saveGeneratedImage } from "../../../services/generatedAssetsApi";
 import type { GameStartUiLayer, GameStartUiSettings } from "../../../types";
+import { safeStartUiFilenamePart, startUiImageExtension } from "./startUiAssetNaming";
+import { detectStartUiAutoSplitRegions } from "./startUiRegionDetection";
 import {
-  safeStartUiFilenamePart,
-  startUiAutoSplitRegions,
-  startUiImageExtension,
   startUiRegionToLayer,
+  type AutoSplitRegion,
 } from "./startUiLayerModel";
+
+export type StartUiSplitResult = {
+  layers: GameStartUiLayer[];
+  detectedRegionCount: number;
+  usedSmartDetection: boolean;
+};
 
 function loadCanvasImage(src: string) {
   return new Promise<HTMLImageElement>((resolve, reject) => {
@@ -21,6 +27,54 @@ function loadCanvasImage(src: string) {
 async function saveCanvasPng(canvas: HTMLCanvasElement, name: string) {
   const file = await saveGeneratedImage(canvas.toDataURL("image/png"), `${name}.png`, "Failed to save Start UI layer image");
   return file.url;
+}
+
+function expandedRegion(region: AutoSplitRegion, width: number, height: number) {
+  const padX = Math.round(Math.max(10, region.width * 0.035, width * 0.006));
+  const padY = Math.round(Math.max(8, region.height * 0.06, height * 0.006));
+  const x = Math.max(0, region.x - padX);
+  const y = Math.max(0, region.y - padY);
+  const right = Math.min(width, region.x + region.width + padX);
+  const bottom = Math.min(height, region.y + region.height + padY);
+  return { x, y, width: right - x, height: bottom - y };
+}
+
+function healBackgroundRegion(
+  context: CanvasRenderingContext2D,
+  image: HTMLImageElement,
+  region: AutoSplitRegion,
+  settings: GameStartUiSettings,
+  width: number,
+  height: number,
+) {
+  const mask = expandedRegion(region, width, height);
+  const blur = Math.round(Math.max(18, Math.min(44, Math.max(mask.width, mask.height) * 0.08)));
+  const offsetX = Math.max(16, Math.round(region.width * 0.5));
+  const offsetY = Math.max(14, Math.round(region.height * 0.5));
+  const offsets = [
+    { x: -offsetX, y: 0, opacity: 0.24 },
+    { x: offsetX, y: 0, opacity: 0.24 },
+    { x: 0, y: -offsetY, opacity: 0.2 },
+    { x: 0, y: offsetY, opacity: 0.2 },
+    { x: -offsetX, y: -offsetY, opacity: 0.12 },
+    { x: offsetX, y: offsetY, opacity: 0.12 },
+  ];
+
+  context.save();
+  context.beginPath();
+  context.rect(mask.x, mask.y, mask.width, mask.height);
+  context.clip();
+  context.filter = `blur(${blur}px)`;
+  context.drawImage(image, -blur, -blur, width + blur * 2, height + blur * 2);
+  offsets.forEach(offset => {
+    context.globalAlpha = offset.opacity;
+    context.drawImage(image, offset.x, offset.y, width, height);
+  });
+  context.filter = "none";
+  context.globalAlpha = 1;
+  context.fillStyle = settings.theme === "light" ? "rgba(248, 250, 252, .28)" : "rgba(5, 8, 14, .38)";
+  context.fillRect(mask.x, mask.y, mask.width, mask.height);
+  context.restore();
 }
 
 export async function uploadStartUiImage(file: File, prefix: string) {
@@ -39,7 +93,7 @@ export async function generateSplitLayersFromStartUiArtwork(
   settings: GameStartUiSettings,
   designWidth: number,
   designHeight: number,
-) {
+): Promise<StartUiSplitResult> {
   const image = await loadCanvasImage(sourceUrl);
   const width = Math.max(1, Math.round(designWidth));
   const height = Math.max(1, Math.round(designHeight));
@@ -47,7 +101,8 @@ export async function generateSplitLayersFromStartUiArtwork(
   const naturalHeight = Math.max(1, image.naturalHeight || image.height || height);
   const scaleX = naturalWidth / width;
   const scaleY = naturalHeight / height;
-  const regions = startUiAutoSplitRegions(settings, width, height);
+  const split = detectStartUiAutoSplitRegions(image, settings, width, height);
+  const regions = split.regions;
   const timestamp = Date.now();
 
   const backgroundCanvas = document.createElement("canvas");
@@ -57,18 +112,9 @@ export async function generateSplitLayersFromStartUiArtwork(
   if (!backgroundContext) throw new Error("Could not create Start UI canvas.");
   backgroundContext.drawImage(image, 0, 0, width, height);
 
-  regions.filter(region => region.kind !== "background").forEach(region => {
-    backgroundContext.save();
-    backgroundContext.beginPath();
-    backgroundContext.rect(region.x, region.y, region.width, region.height);
-    backgroundContext.clip();
-    backgroundContext.filter = "blur(22px)";
-    backgroundContext.drawImage(image, -32, -32, width + 64, height + 64);
-    backgroundContext.filter = "none";
-    backgroundContext.fillStyle = settings.theme === "light" ? "rgba(248, 250, 252, .34)" : "rgba(5, 8, 14, .34)";
-    backgroundContext.fillRect(region.x, region.y, region.width, region.height);
-    backgroundContext.restore();
-  });
+  regions
+    .filter(region => region.kind !== "background")
+    .forEach(region => healBackgroundRegion(backgroundContext, image, region, settings, width, height));
 
   const backgroundUrl = await saveCanvasPng(backgroundCanvas, `start_ui_autosplit_background_${timestamp}`);
   const layers: GameStartUiLayer[] = [startUiRegionToLayer(regions[0], backgroundUrl, false)];
@@ -97,5 +143,9 @@ export async function generateSplitLayersFromStartUiArtwork(
     });
   }
 
-  return layers;
+  return {
+    layers,
+    detectedRegionCount: regions.filter(region => region.detected).length,
+    usedSmartDetection: split.usedSmartDetection,
+  };
 }

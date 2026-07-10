@@ -1,4 +1,13 @@
-import type { GameScene, GameStartUiLayer, GameStartUiSettings } from "../../types";
+import type {
+  GameScene,
+  GameStartUiEffects,
+  GameStartUiLayer,
+  GameStartUiSettings,
+  StartUiButtonHoverEffect,
+  StartUiEntranceEffect,
+  StartUiTitleEffect,
+  StartUiTransitionEffect,
+} from "../../types";
 
 const START_UI_CANVAS_WIDTH = 1672;
 const START_UI_CANVAS_HEIGHT = 941;
@@ -28,7 +37,7 @@ export const DEFAULT_START_UI_LAYERS: GameStartUiLayer[] = [
     name: "Title",
     kind: "title",
     imageUrl: START_UI_TITLE_URL,
-    label: "Smile for graduates",
+    label: "Smile for graduation",
     visible: true,
     x: 402,
     y: 52,
@@ -81,16 +90,40 @@ export const DEFAULT_START_UI_LAYERS: GameStartUiLayer[] = [
   },
 ];
 
+export const DEFAULT_START_UI_EFFECTS: GameStartUiEffects = {
+  enabled: true,
+  parallaxStrength: 8,
+  flickerEnabled: true,
+  flickerStrength: 12,
+  flickerInterval: 6,
+  vignetteStrength: 14,
+  grainStrength: 8,
+  titleEffect: "breathe",
+  titleStrength: 14,
+  titleSpeed: 5,
+  buttonHoverEffect: "lift-glow",
+  buttonLift: 2,
+  buttonGlow: 22,
+  buttonPressScale: 98,
+  entranceEffect: "rise",
+  entranceDuration: 420,
+  entranceStagger: 80,
+  transitionEffect: "lights-out",
+  transitionDuration: 900,
+  respectReducedMotion: true,
+};
+
 export const DEFAULT_START_UI_SETTINGS: GameStartUiSettings = {
   id: "start_ui_main",
   enabled: true,
-  title: "Smile for graduates",
+  title: "Smile for graduation",
   subtitle: "",
   theme: "dark",
   designWidth: START_UI_CANVAS_WIDTH,
   designHeight: START_UI_CANVAS_HEIGHT,
   backgroundImageUrl: START_UI_BACKGROUND_URL,
   layers: DEFAULT_START_UI_LAYERS,
+  effects: DEFAULT_START_UI_EFFECTS,
   primaryActionLabel: "New Game",
   continueActionLabel: "Continue",
   loadActionLabel: "Load Game",
@@ -143,6 +176,38 @@ function normalizeStartUiLayers(layers?: Partial<GameStartUiLayer>[]): GameStart
   });
 }
 
+function normalizeOption<T extends string>(value: unknown, options: readonly T[], fallback: T): T {
+  return typeof value === "string" && options.includes(value as T) ? value as T : fallback;
+}
+
+export function normalizeStartUiEffects(effects?: Partial<GameStartUiEffects>): GameStartUiEffects {
+  const source = effects || {};
+  return {
+    ...DEFAULT_START_UI_EFFECTS,
+    ...source,
+    enabled: source.enabled ?? DEFAULT_START_UI_EFFECTS.enabled,
+    parallaxStrength: clampNumber(source.parallaxStrength, 0, 30, DEFAULT_START_UI_EFFECTS.parallaxStrength),
+    flickerEnabled: source.flickerEnabled ?? DEFAULT_START_UI_EFFECTS.flickerEnabled,
+    flickerStrength: clampNumber(source.flickerStrength, 0, 100, DEFAULT_START_UI_EFFECTS.flickerStrength),
+    flickerInterval: clampNumber(source.flickerInterval, 1, 15, DEFAULT_START_UI_EFFECTS.flickerInterval),
+    vignetteStrength: clampNumber(source.vignetteStrength, 0, 100, DEFAULT_START_UI_EFFECTS.vignetteStrength),
+    grainStrength: clampNumber(source.grainStrength, 0, 100, DEFAULT_START_UI_EFFECTS.grainStrength),
+    titleEffect: normalizeOption<StartUiTitleEffect>(source.titleEffect, ["none", "breathe", "glitch"], DEFAULT_START_UI_EFFECTS.titleEffect),
+    titleStrength: clampNumber(source.titleStrength, 0, 100, DEFAULT_START_UI_EFFECTS.titleStrength),
+    titleSpeed: clampNumber(source.titleSpeed, 1, 12, DEFAULT_START_UI_EFFECTS.titleSpeed),
+    buttonHoverEffect: normalizeOption<StartUiButtonHoverEffect>(source.buttonHoverEffect, ["none", "lift", "glow", "lift-glow"], DEFAULT_START_UI_EFFECTS.buttonHoverEffect),
+    buttonLift: clampNumber(source.buttonLift, 0, 12, DEFAULT_START_UI_EFFECTS.buttonLift),
+    buttonGlow: clampNumber(source.buttonGlow, 0, 100, DEFAULT_START_UI_EFFECTS.buttonGlow),
+    buttonPressScale: clampNumber(source.buttonPressScale, 90, 100, DEFAULT_START_UI_EFFECTS.buttonPressScale),
+    entranceEffect: normalizeOption<StartUiEntranceEffect>(source.entranceEffect, ["none", "fade", "rise"], DEFAULT_START_UI_EFFECTS.entranceEffect),
+    entranceDuration: Math.round(clampNumber(source.entranceDuration, 100, 2000, DEFAULT_START_UI_EFFECTS.entranceDuration)),
+    entranceStagger: Math.round(clampNumber(source.entranceStagger, 0, 500, DEFAULT_START_UI_EFFECTS.entranceStagger)),
+    transitionEffect: normalizeOption<StartUiTransitionEffect>(source.transitionEffect, ["none", "fade", "lights-out"], DEFAULT_START_UI_EFFECTS.transitionEffect),
+    transitionDuration: Math.round(clampNumber(source.transitionDuration, 200, 2500, DEFAULT_START_UI_EFFECTS.transitionDuration)),
+    respectReducedMotion: source.respectReducedMotion ?? DEFAULT_START_UI_EFFECTS.respectReducedMotion,
+  };
+}
+
 export function normalizeStartUiSettings(
   settings?: Partial<GameStartUiSettings>,
   scenes: GameScene[] = []
@@ -159,6 +224,7 @@ export function normalizeStartUiSettings(
     designHeight: Math.round(clampNumber(settings?.designHeight, 180, 4320, DEFAULT_START_UI_SETTINGS.designHeight || START_UI_CANVAS_HEIGHT)),
     backgroundImageUrl: settings?.backgroundImageUrl || DEFAULT_START_UI_SETTINGS.backgroundImageUrl,
     layers: normalizeStartUiLayers(settings?.layers),
+    effects: normalizeStartUiEffects(settings?.effects),
     saveSlots: Math.max(1, Math.min(12, Math.round(settings?.saveSlots || DEFAULT_START_UI_SETTINGS.saveSlots))),
     musicVolume: Math.max(0, Math.min(100, Math.round(settings?.musicVolume ?? DEFAULT_START_UI_SETTINGS.musicVolume))),
     sfxVolume: Math.max(0, Math.min(100, Math.round(settings?.sfxVolume ?? DEFAULT_START_UI_SETTINGS.sfxVolume))),

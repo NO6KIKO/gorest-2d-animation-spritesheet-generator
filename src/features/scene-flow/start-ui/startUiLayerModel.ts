@@ -11,6 +11,8 @@ export type AutoSplitRegion = {
   height: number;
   zIndex: number;
   locked?: boolean;
+  detected?: boolean;
+  score?: number;
 };
 
 export type UploadedStartUiImage = {
@@ -18,29 +20,6 @@ export type UploadedStartUiImage = {
   width: number;
   height: number;
 };
-
-export function clampStartUiValue(value: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, value));
-}
-
-export function toggleLabel(value: boolean) {
-  return value ? "On" : "Off";
-}
-
-export function safeStartUiFilenamePart(value: string) {
-  const cleaned = value
-    .replace(/\.[^.]+$/, "")
-    .replace(/[^a-z0-9]+/gi, "_")
-    .replace(/^_+|_+$/g, "")
-    .toLowerCase();
-  return cleaned.slice(0, 46) || "artwork";
-}
-
-export function startUiImageExtension(file: File) {
-  if (file.type === "image/jpeg") return "jpg";
-  if (file.type === "image/webp") return "webp";
-  return "png";
-}
 
 export function makeStartUiLayerId(prefix: string) {
   return `start_ui_layer_${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;

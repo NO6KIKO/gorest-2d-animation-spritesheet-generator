@@ -1,8 +1,5 @@
 import type { GameScene, GameStartUiSettings } from "../../../types";
-import { StartUiInspector } from "../start-ui/StartUiInspector";
-import { StartUiLayerRail } from "../start-ui/StartUiLayerRail";
-import { StartUiWorkbench } from "../start-ui/StartUiWorkbench";
-import { useStartUiEditor } from "../start-ui/useStartUiEditor";
+import { StartUiInspector, StartUiLayerRail, StartUiWorkbench, useStartUiEditor } from "../start-ui";
 
 type SceneStartUiPanelProps = {
   isSaving?: boolean;
@@ -45,10 +42,13 @@ export function SceneStartUiPanel({
         selectedLayerId={editor.selectedLayerId}
         stageRef={editor.stageRef}
         uiError={editor.uiError}
+        uiStatus={editor.uiStatus}
         visibleLayers={editor.visibleLayers}
         onFinishLayerDrag={editor.finishLayerDrag}
         onSave={onSave}
         onStartLayerDrag={editor.startLayerDrag}
+        onStartSelectedLayerDrag={editor.startSelectedLayerDrag}
+        onStageKeyDown={editor.handleStageKeyDown}
         onUpdateLayerDrag={editor.updateLayerDrag}
       />
 
@@ -59,7 +59,6 @@ export function SceneStartUiPanel({
         scenes={scenes}
         selectedLayer={editor.selectedLayer}
         onDeleteSelectedLayer={editor.deleteSelectedLayer}
-        onNumberInput={editor.handleNumberInput}
         onPatchDraft={editor.patchDraft}
         onPatchLayer={editor.patchLayer}
       />

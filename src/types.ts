@@ -222,6 +222,33 @@ export interface GameScene {
 
 export type StartUiTheme = "dark" | "light" | "horror";
 export type StartUiLayerKind = "background" | "title" | "menu" | "overlay";
+export type StartUiTitleEffect = "none" | "breathe" | "glitch";
+export type StartUiButtonHoverEffect = "none" | "lift" | "glow" | "lift-glow";
+export type StartUiEntranceEffect = "none" | "fade" | "rise";
+export type StartUiTransitionEffect = "none" | "fade" | "lights-out";
+
+export interface GameStartUiEffects {
+  enabled: boolean;
+  parallaxStrength: number;
+  flickerEnabled: boolean;
+  flickerStrength: number;
+  flickerInterval: number;
+  vignetteStrength: number;
+  grainStrength: number;
+  titleEffect: StartUiTitleEffect;
+  titleStrength: number;
+  titleSpeed: number;
+  buttonHoverEffect: StartUiButtonHoverEffect;
+  buttonLift: number;
+  buttonGlow: number;
+  buttonPressScale: number;
+  entranceEffect: StartUiEntranceEffect;
+  entranceDuration: number;
+  entranceStagger: number;
+  transitionEffect: StartUiTransitionEffect;
+  transitionDuration: number;
+  respectReducedMotion: boolean;
+}
 
 export interface GameStartUiLayer {
   id: string;
@@ -254,6 +281,7 @@ export interface GameStartUiSettings {
   initialSceneId?: string;
   backgroundImageUrl?: string;
   layers?: GameStartUiLayer[];
+  effects?: GameStartUiEffects;
   primaryActionLabel: string;
   continueActionLabel: string;
   loadActionLabel: string;
