@@ -362,3 +362,25 @@ A: The source code is available under the MIT License. The included media assets
 
 **Q: How can I report a bug?**  
 A: Please open an issue in the GitHub repository with a detailed description of the bug and steps to reproduce it.
+
+## Contributing
+
+We welcome contributions to the Gorest 2D Animation Spritesheet Generator! To ensure a smooth contribution process, please follow these guidelines:
+
+1. **Fork the repository**: Click the 'Fork' button at the top right of the page.
+2. **Clone your fork**: Use `git clone https://github.com/YOUR_USERNAME/gorest-2d-animation-spritesheet-generator.git` to clone your fork locally.
+3. **Create a branch**: Create a new branch for your changes with `git checkout -b my-feature-branch`.
+4. **Make your changes**: Implement your feature or bug fix. Please ensure your code adheres to the existing style and conventions used in the project.
+5. **Commit your changes**: Use `git commit -m 'Add some feature'` to commit your changes.
+6. **Push to your fork**: Push your changes back to your fork with `git push origin my-feature-branch`.
+7. **Open a pull request**: Go to the original repository and click on 'New Pull Request'.
+
+### Examples of Use
+
+Here are some practical examples of what you can achieve with the Gorest 2D Animation Spritesheet Generator:
+
+- **Creating a new scene**: Use Codex to generate a new side-scroller scene with specific backgrounds and props.
+- **Importing spritesheets**: Easily import existing spritesheets and configure them for use in your scenes.
+- **Previewing animations**: Utilize the built-in preview functionality to see your animations in action before finalizing them.
+
+These examples illustrate the flexibility and power of the tool, making it easier for new users to understand its capabilities.
