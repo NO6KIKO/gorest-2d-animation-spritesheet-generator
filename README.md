@@ -29,6 +29,8 @@ We open-sourced this 2D platform to make game creation simpler, and we will keep
 
 ## Star History
 
+If this project helps you, please consider giving it a ⭐ — it really helps the project grow.
+
 <a href="https://www.star-history.com/?type=date&repos=NO6KIKO%2Fgorest-2d-animation-spritesheet-generator">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=date&theme=dark&legend=top-left&sealed_token=pWQ3fZf8CbxNA2L3jJvZTedMBlN-vX9I6JjPgkwUPRlaEvgb9tWBVWLNTkA1wz-pXzns3ox-DQlTHB79zs1iBXag9r4S_mfy0fo4G4WHQaKN-kBQvvQu7TK19tka4yXWQV0jWXnr6w2DOCR-vGxNB66iwm6oPOyEqA2Q4sjIKG_Rv9XYKKwGrHnuJ7Dn" />
@@ -381,6 +383,4 @@ A: Yes. The hosted version at [sprite.gorest.ai](https://sprite.gorest.ai/) runs
 **Q: How can I report a bug?**  
 A: Please open an issue in the GitHub repository with a detailed description of the bug and steps to reproduce it.
 
-## Star History
 
-If this project helps you, please consider giving it a ⭐ — it really helps the project grow.
