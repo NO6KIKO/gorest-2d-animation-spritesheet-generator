@@ -14,9 +14,26 @@ export const SCENE_PLAYBACK_MODE_LABELS: Record<ScenePlaybackMode, string> = {
 
 export const SCENE_TRANSITION_LABELS: Record<SceneTransitionType, string> = {
   cut: "Cut",
-  "fade-black": "Fade Black",
   dissolve: "Dissolve",
+  "fade-black": "Fade Black",
+  "fade-white": "Fade White",
 };
+
+export const SCENE_TRANSITION_PRESETS: Array<{
+  type: SceneTransitionType;
+  label: string;
+  description: string;
+  durationMs: number;
+}> = [
+  { type: "cut", label: "Cut", description: "Instant scene change", durationMs: 0 },
+  { type: "dissolve", label: "Dissolve", description: "Soft cross-scene blend", durationMs: 700 },
+  { type: "fade-black", label: "Fade Black", description: "Cinematic dark bridge", durationMs: 900 },
+  { type: "fade-white", label: "Fade White", description: "Flash or dream bridge", durationMs: 800 },
+];
+
+function normalizeTransitionType(value: SceneTransitionType | undefined): SceneTransitionType {
+  return value && value in SCENE_TRANSITION_LABELS ? value : DEFAULT_SCENE_TIMELINE.transitionType;
+}
 
 export function normalizeSceneTimeline(scene: GameScene): GameScene {
   const playbackMode = scene.playbackMode || "game";
@@ -33,7 +50,7 @@ export function normalizeSceneTimeline(scene: GameScene): GameScene {
       ...scene.timeline,
       durationMs: clampTimelineMs(scene.timeline?.durationMs, 1000, 120000, DEFAULT_SCENE_TIMELINE.durationMs),
       transitionDurationMs: clampTimelineMs(scene.timeline?.transitionDurationMs, 0, 10000, DEFAULT_SCENE_TIMELINE.transitionDurationMs),
-      transitionType: scene.timeline?.transitionType || DEFAULT_SCENE_TIMELINE.transitionType,
+      transitionType: normalizeTransitionType(scene.timeline?.transitionType),
       primaryLayerId,
     },
   };

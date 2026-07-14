@@ -1,10 +1,11 @@
-import type { GameScene, GameStartUiSettings } from "../../../types";
+import type { GameScene, GameStartUiSettings, StartUiRuntimeActionId } from "../../../types";
 import { StartUiInspector, StartUiLayerRail, StartUiWorkbench, useStartUiEditor } from "../start-ui";
 
 type SceneStartUiPanelProps = {
   isSaving?: boolean;
   scenes: GameScene[];
   settings: GameStartUiSettings;
+  onRunAction: (actionId: StartUiRuntimeActionId) => void | Promise<void>;
   onSave: (settings: GameStartUiSettings) => void | Promise<void>;
 };
 
@@ -12,6 +13,7 @@ export function SceneStartUiPanel({
   isSaving = false,
   scenes,
   settings,
+  onRunAction,
   onSave,
 }: SceneStartUiPanelProps) {
   const editor = useStartUiEditor({ scenes, settings });
@@ -45,6 +47,7 @@ export function SceneStartUiPanel({
         uiStatus={editor.uiStatus}
         visibleLayers={editor.visibleLayers}
         onFinishLayerDrag={editor.finishLayerDrag}
+        onRunAction={onRunAction}
         onSave={onSave}
         onStartLayerDrag={editor.startLayerDrag}
         onStartSelectedLayerDrag={editor.startSelectedLayerDrag}

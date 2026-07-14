@@ -38,7 +38,9 @@ type WorkspaceStageHeaderProps = {
   onBack: () => void;
   onInsertInteractionZone: (preset: InteractionPreset) => void;
   onOpenSheet: () => void | Promise<void>;
+  onSaveAnimationScene: () => void | Promise<void>;
   onSaveScene: () => void;
+  onStartNewAnimationScene: () => unknown | Promise<unknown>;
   onStartNewScene: () => void | Promise<void>;
   onTabChange: (tab: WorkspaceTab) => void;
   onViewportHeightChange: (height: number) => void;
@@ -74,7 +76,9 @@ export function WorkspaceStageHeader({
   onBack,
   onInsertInteractionZone,
   onOpenSheet,
+  onSaveAnimationScene,
   onSaveScene,
+  onStartNewAnimationScene,
   onStartNewScene,
   onTabChange,
   onViewportHeightChange,
@@ -149,6 +153,7 @@ export function WorkspaceStageHeader({
           <div className="tabs primary-tabs">
             <button className={activeTab === "scenes" ? "active" : ""} onClick={() => onTabChange("scenes")}><MapIcon size={15} /> 2D Canvas</button>
             <button className={activeTab === "scene" ? "active" : ""} onClick={() => onTabChange("scene")}><MapIcon size={15} /> 2D Scene</button>
+            <button className={activeTab === "animation-scene" ? "active" : ""} onClick={() => onTabChange("animation-scene")}><Film size={15} /> Animation</button>
             <button className={activeTab === "start-ui" ? "active" : ""} onClick={() => onTabChange("start-ui")}><Monitor size={15} /> Start UI</button>
           </div>
           {activeTab === "scene" && (
@@ -184,6 +189,12 @@ export function WorkspaceStageHeader({
         <div className="stage-header-actions">
           <button type="button" className="ghost-button" onClick={onSaveScene}><Save size={15} /> Save Scene</button>
           <button type="button" className="ghost-button" onClick={() => void onStartNewScene()}><Plus size={15} /> New Scene</button>
+        </div>
+      )}
+      {activeTab === "animation-scene" && (
+        <div className="stage-header-actions">
+          <button type="button" className="ghost-button" onClick={() => void onSaveAnimationScene()}><Save size={15} /> Save Animation</button>
+          <button type="button" className="ghost-button" onClick={() => void onStartNewAnimationScene()}><Plus size={15} /> New Animation</button>
         </div>
       )}
     </div>

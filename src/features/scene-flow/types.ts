@@ -1,6 +1,6 @@
-import type { GameScene, GameStartUiSettings } from "../../types";
+import type { AnimationScene, GameScene, GameStartUiSettings } from "../../types";
 
-export type SceneFlowNodeKind = "scene" | "start-ui";
+export type SceneFlowNodeKind = "scene" | "animation" | "start-ui";
 
 export type SceneFlowNodePreviewLayer = {
   id: string;
@@ -25,6 +25,7 @@ export type SceneFlowNode = {
   title: string;
   subtitle: string;
   scene?: GameScene;
+  animationScene?: AnimationScene;
   startUi?: GameStartUiSettings;
   isCurrent?: boolean;
   isPlaceholder?: boolean;

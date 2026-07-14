@@ -74,6 +74,7 @@ type SceneInspectorPanelProps = {
   onDownloadSpritePng: () => void;
   onPlayingChange: (isPlaying: boolean) => void;
   onPlaybackModeChange: (mode: ScenePlaybackMode) => void;
+  onPreviewTransition: () => void;
   onRebuildSpriteGrid: (patch: SpritesheetGridPatch) => void;
   onRestartSpritePreview: () => void;
   onSaveAssetMetadata: (assetId: string) => void;
@@ -138,6 +139,7 @@ export function SceneInspectorPanel({
   onDownloadSpritePng,
   onPlayingChange,
   onPlaybackModeChange,
+  onPreviewTransition,
   onRebuildSpriteGrid,
   onRestartSpritePreview,
   onSaveAssetMetadata,
@@ -175,6 +177,7 @@ export function SceneInspectorPanel({
           timeline={sceneTimeline}
           visualLayers={visualLayers}
           onPlaybackModeChange={onPlaybackModeChange}
+          onPreviewTransition={onPreviewTransition}
           onTimelineChange={onUpdateTimeline}
         />
         {selectedLayer && (

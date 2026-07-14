@@ -1,7 +1,6 @@
 import type {
   AnimationClip,
   GameAsset,
-  GameScene,
   InteractionPreset,
   LayerInteractionSettings,
   LayerLightingSettings,
@@ -30,7 +29,7 @@ type SceneLayerControlsPanelProps = {
   sceneHeight: number;
   sceneState: Record<string, unknown>;
   sceneWidth: number;
-  scenes: GameScene[];
+  scenes: Array<{ id: string; name: string }>;
   selectedLayer?: SceneLayer;
   selectedLayerAsset?: GameAsset;
   selectedLayerClip?: AnimationClip;

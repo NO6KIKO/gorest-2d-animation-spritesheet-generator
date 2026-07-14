@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { DEFAULT_START_UI_EFFECTS } from "../../../domain/scene/startUiModel";
+import { normalizeStartUiActionLabel, startUiRuntimeActionOptions } from "../../../domain/scene/startUiRuntime";
 import type { GameStartUiEffects, GameStartUiLayer, GameStartUiSettings } from "../../../types";
 
 export type StartUiEffectPointer = {
@@ -13,26 +14,12 @@ type StartUiEffectStyle = CSSProperties & {
   [key: `--start-ui-${string}`]: string | number | undefined;
 };
 
-function normalizeEffectLabel(value?: string) {
-  return (value || "")
-    .trim()
-    .toLocaleLowerCase()
-    .replace(/[^a-z0-9\u3400-\u9fff]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 function startUiActionLabels(settings: GameStartUiSettings) {
-  return [
-    settings.primaryActionLabel,
-    settings.continueActionLabel,
-    settings.loadActionLabel,
-    settings.settingsActionLabel,
-    settings.quitActionLabel,
-  ].map(normalizeEffectLabel).filter(Boolean);
+  return startUiRuntimeActionOptions(settings).map(option => normalizeStartUiActionLabel(option.label)).filter(Boolean);
 }
 
 export function getStartUiButtonGroup(layer: GameStartUiLayer, settings: GameStartUiSettings) {
-  const group = normalizeEffectLabel(layer.label || layer.name);
+  const group = normalizeStartUiActionLabel(layer.label || layer.name);
   if (!group) return null;
   if (layer.kind === "menu") return group;
   return layer.kind === "overlay" && startUiActionLabels(settings).includes(group) ? group : null;

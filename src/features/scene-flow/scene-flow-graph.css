@@ -1,0 +1,336 @@
+.scene-flow-toolbar-status {
+  min-width: 42px;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #aeb8c2;
+  background: rgba(255, 255, 255, .9);
+  color: #33404c;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.scene-flow-connections {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.scene-flow-connections svg,
+.scene-flow-edge-labels {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.scene-flow-edge,
+.scene-flow-edge-hit {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.scene-flow-edge {
+  stroke: #385f73;
+  stroke-width: 2.25;
+  pointer-events: none;
+}
+.scene-flow-edge.ui-navigation {
+  stroke: #4d7656;
+}
+.scene-flow-edge.ui-overlay {
+  stroke: #9a682f;
+  stroke-dasharray: 7 5;
+}
+.scene-flow-edge.selected {
+  stroke: #3448cf;
+  stroke-width: 3;
+}
+.scene-flow-edge.draft {
+  stroke: #3448cf;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 5;
+}
+.scene-flow-edge.draft.valid {
+  stroke: #2b7651;
+}
+.scene-flow-edge-hit {
+  stroke: transparent;
+  stroke-width: 16;
+  cursor: pointer;
+  pointer-events: stroke;
+}
+.scene-flow-edge-label {
+  position: absolute;
+  max-width: 150px;
+  min-height: 24px;
+  padding: 3px 8px;
+  border: 1px solid #385f73;
+  border-radius: 8px;
+  background: rgba(248, 251, 252, .96);
+  color: #29495a;
+  box-shadow: 0 2px 5px rgba(24, 36, 44, .12);
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.15;
+  overflow: hidden;
+  pointer-events: auto;
+  text-overflow: ellipsis;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.scene-flow-edge-label.ui-navigation {
+  border-color: #4d7656;
+  color: #35583d;
+}
+.scene-flow-edge-label.ui-overlay {
+  border-color: #9a682f;
+  color: #70491f;
+}
+.scene-flow-edge-label.selected {
+  border-color: #3448cf;
+  background: #eef0ff;
+  color: #2939aa;
+  box-shadow: 0 0 0 2px rgba(52, 72, 207, .16);
+}
+
+.scene-flow-node.connection-source {
+  border-color: #3448cf;
+  box-shadow: inset 0 0 0 1px #3448cf;
+}
+.scene-flow-node.connection-target {
+  border-color: #2b7651;
+  box-shadow: inset 0 0 0 2px rgba(43, 118, 81, .25), 0 0 0 3px rgba(43, 118, 81, .12);
+  z-index: 8;
+}
+.scene-node-flow-badge {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 50;
+  max-width: calc(100% - 10px);
+  padding: 3px 5px;
+  border: 1px solid rgba(18, 28, 37, .48);
+  background: rgba(250, 252, 253, .9);
+  color: #263745;
+  font-size: 9px !important;
+  font-weight: 900;
+  line-height: 1 !important;
+  text-transform: uppercase;
+}
+.scene-node-port {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #26323c;
+  border-radius: 50%;
+  background: #f8fafb;
+  box-shadow: 0 1px 3px rgba(18, 28, 37, .2);
+  cursor: crosshair;
+  opacity: .72;
+  touch-action: none;
+  transform: translateY(-50%);
+}
+.scene-node-port > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3448cf;
+}
+.scene-node-port.input {
+  left: -12px;
+}
+.scene-node-port.output {
+  right: -12px;
+}
+.scene-node-port.input > span {
+  background: #f8fafb;
+  box-shadow: inset 0 0 0 2px #3448cf;
+}
+.scene-flow-node:hover .scene-node-port,
+.scene-flow-node.selected .scene-node-port,
+.scene-flow-node.connection-source .scene-node-port,
+.scene-flow-node.connection-target .scene-node-port,
+.scene-node-port:focus-visible {
+  opacity: 1;
+}
+.scene-flow-node.connection-target .scene-node-port.input {
+  border-color: #2b7651;
+  background: #e9f6ef;
+  transform: translateY(-50%) scale(1.18);
+}
+.scene-node-port:disabled {
+  display: none;
+}
+
+.scene-flow-connection-inspector {
+  position: fixed;
+  right: 24px;
+  top: 132px;
+  z-index: 40;
+  width: min(310px, calc(100vw - 32px));
+  max-height: calc(100vh - 156px);
+  display: grid;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid #27323d;
+  background: rgba(251, 253, 254, .98);
+  box-shadow: 0 16px 36px rgba(24, 35, 44, .2);
+  color: #1e2a34;
+  overflow: auto;
+}
+.scene-flow-connection-inspector > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d7dfe6;
+}
+.scene-flow-connection-inspector > header div {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+.scene-flow-connection-inspector > header span,
+.scene-flow-connection-inspector section > label,
+.scene-flow-connection-fields label > span {
+  color: #64717d;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.scene-flow-connection-inspector > header strong {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.scene-flow-connection-inspector .icon-button {
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  padding: 0;
+  border-radius: 0;
+}
+.scene-flow-connection-route {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.scene-flow-connection-route strong {
+  min-width: 0;
+  overflow: hidden;
+  color: #32414d;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.scene-flow-connection-route svg {
+  color: #71808c;
+}
+.scene-flow-connection-inspector section {
+  display: grid;
+  gap: 7px;
+}
+.scene-flow-relationship-segments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #aeb9c3;
+}
+.scene-flow-relationship-segments button {
+  min-width: 0;
+  min-height: 60px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 5px;
+  padding: 6px 3px;
+  border: 0;
+  border-right: 1px solid #c6cfd7;
+  border-radius: 0;
+  background: #fff;
+  color: #4b5965;
+}
+.scene-flow-relationship-segments button:last-child {
+  border-right: 0;
+}
+.scene-flow-relationship-segments button span {
+  max-width: 100%;
+  font-size: 9px;
+  font-weight: 850;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.scene-flow-relationship-segments button.active {
+  background: #e9edf9;
+  color: #2939aa;
+  box-shadow: inset 0 -3px 0 #3448cf;
+}
+.scene-flow-relationship-segments button:disabled {
+  background: #f1f3f5;
+  color: #9aa4ad;
+}
+.scene-flow-connection-fields label {
+  display: grid;
+  gap: 5px;
+}
+.scene-flow-connection-fields input,
+.scene-flow-connection-fields select {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid #aab5bf;
+  border-radius: 0;
+  background: #fff;
+  color: #1f2b35;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+.scene-flow-overlay-options {
+  padding: 10px;
+  border: 1px solid #d5b78c;
+  background: #fff9ee;
+}
+.scene-flow-overlay-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #654b2c;
+  font-size: 11px;
+  font-weight: 800;
+}
+.scene-flow-overlay-options input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+}
+.scene-flow-connection-inspector > footer {
+  padding-top: 10px;
+  border-top: 1px solid #d7dfe6;
+}
+.scene-flow-connection-inspector .danger-button {
+  width: 100%;
+  min-height: 34px;
+  border-radius: 0;
+}
+
+@media (max-width: 940px) {
+  .scene-flow-connection-inspector {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 12px;
+    width: auto;
+    max-height: 48vh;
+  }
+}

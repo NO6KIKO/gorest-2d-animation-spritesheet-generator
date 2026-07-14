@@ -47,6 +47,7 @@ type UseSceneRuntimeInteractionsOptions = {
   heldDirection: SceneHeldDirection;
   interactionToast: string;
   loadSavedScene: (savedScene: GameScene) => void;
+  openSceneLinkTarget?: (targetId: string) => boolean;
   nearbyInteraction: SceneInteractionPromptEntry | null;
   sceneStateRef: RefObject<GameScene>;
   scenes: GameScene[];
@@ -93,6 +94,7 @@ export function useSceneRuntimeInteractions({
   heldDirection,
   interactionToast,
   loadSavedScene,
+  openSceneLinkTarget,
   nearbyInteraction,
   sceneStateRef,
   scenes,
@@ -410,6 +412,10 @@ export function useSceneRuntimeInteractions({
     }
 
     if (actionType === "scene-link") {
+      if (interaction.targetSceneId && openSceneLinkTarget?.(interaction.targetSceneId)) {
+        setInteractionToast(subtitle);
+        return;
+      }
       const targetScene = interaction.targetSceneId ? scenes.find(item => item.id === interaction.targetSceneId) : undefined;
       if (targetScene) {
         setInteractionToast(subtitle);

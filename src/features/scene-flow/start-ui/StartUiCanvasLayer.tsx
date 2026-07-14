@@ -15,11 +15,14 @@ type StartUiCanvasLayerProps = {
   effectPointer: StartUiEffectPointer;
   hoveredButtonGroup: string | null;
   isEffectsPreviewing: boolean;
+  isRuntimeButtonTarget: boolean;
+  isRuntimePreviewing: boolean;
   isSelected: boolean;
   layer: GameStartUiLayer;
   layerIndex: number;
   pressedButtonGroup: string | null;
   settings: GameStartUiSettings;
+  onButtonGroupActivate: (group: string) => void;
   onButtonGroupEnter: (group: string) => void;
   onButtonGroupLeave: (group: string) => void;
   onButtonGroupPress: (group: string) => void;
@@ -42,11 +45,14 @@ export function StartUiCanvasLayer({
   effectPointer,
   hoveredButtonGroup,
   isEffectsPreviewing,
+  isRuntimeButtonTarget,
+  isRuntimePreviewing,
   isSelected,
   layer,
   layerIndex,
   pressedButtonGroup,
   settings,
+  onButtonGroupActivate,
   onButtonGroupEnter,
   onButtonGroupLeave,
   onButtonGroupPress,
@@ -60,6 +66,9 @@ export function StartUiCanvasLayer({
     layer.locked ? "locked" : "",
     layer.sourceWidth ? "cropped" : "",
     buttonGroup ? "button-layer" : "",
+    buttonGroup && isRuntimePreviewing
+      ? isRuntimeButtonTarget ? "runtime-button-target" : "runtime-button-decoration"
+      : "",
     buttonGroup === hoveredButtonGroup ? "button-hovered" : "",
     buttonGroup === pressedButtonGroup ? "button-pressed" : "",
   ].filter(Boolean).join(" ");
@@ -67,17 +76,34 @@ export function StartUiCanvasLayer({
   return (
     <div
       data-button-group={buttonGroup || undefined}
+      role={buttonGroup && isRuntimePreviewing && isRuntimeButtonTarget ? "button" : undefined}
+      tabIndex={buttonGroup && isRuntimePreviewing && isRuntimeButtonTarget ? 0 : undefined}
+      aria-label={buttonGroup && isRuntimePreviewing && isRuntimeButtonTarget ? layer.label || layer.name : undefined}
       className={className}
       style={{
         ...startUiLayerStyle(layer, designWidth, designHeight),
         ...startUiLayerEffectStyle(layer, settings, effectPointer, layerIndex),
       }}
-      onPointerEnter={buttonGroup && isEffectsPreviewing ? () => onButtonGroupEnter(buttonGroup) : undefined}
-      onPointerLeave={buttonGroup && isEffectsPreviewing ? () => onButtonGroupLeave(buttonGroup) : undefined}
+      onPointerEnter={buttonGroup && (isEffectsPreviewing || isRuntimePreviewing) ? () => onButtonGroupEnter(buttonGroup) : undefined}
+      onPointerLeave={buttonGroup && (isEffectsPreviewing || isRuntimePreviewing) ? () => onButtonGroupLeave(buttonGroup) : undefined}
       onPointerDown={event => {
-        if (buttonGroup && isEffectsPreviewing) onButtonGroupPress(buttonGroup);
+        if (buttonGroup && (isEffectsPreviewing || isRuntimePreviewing)) onButtonGroupPress(buttonGroup);
+        if (buttonGroup && isRuntimePreviewing && isRuntimeButtonTarget) {
+          event.stopPropagation();
+          return;
+        }
         if (!layer.locked) onStartLayerDrag(event, layer);
       }}
+      onClick={buttonGroup && isRuntimePreviewing && isRuntimeButtonTarget ? event => {
+        event.stopPropagation();
+        onButtonGroupActivate(buttonGroup);
+      } : undefined}
+      onKeyDown={buttonGroup && isRuntimePreviewing && isRuntimeButtonTarget ? event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        event.stopPropagation();
+        onButtonGroupActivate(buttonGroup);
+      } : undefined}
     >
       {isSelected && !layer.locked && (
         <span className="scene-start-ui-move-handle" aria-hidden="true">

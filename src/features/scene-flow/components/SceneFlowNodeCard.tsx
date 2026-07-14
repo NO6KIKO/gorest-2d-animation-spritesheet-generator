@@ -2,6 +2,9 @@ import { type CSSProperties, type Key, type MouseEvent, type PointerEvent } from
 import type { SceneFlowNode } from "../types";
 
 type SceneFlowNodeCardProps = {
+  incomingConnections: number;
+  isConnectionSource: boolean;
+  isConnectionTarget: boolean;
   isMoving: boolean;
   isSelected: boolean;
   isResizing: boolean;
@@ -11,8 +14,10 @@ type SceneFlowNodeCardProps = {
   onContextMenu: (event: MouseEvent<HTMLElement>, node: SceneFlowNode) => void;
   onOpen: (node: SceneFlowNode) => void;
   onSelect: (nodeId: string) => void;
+  onStartConnection: (event: PointerEvent<HTMLButtonElement>, node: SceneFlowNode) => void;
   onStartNodeDrag: (event: PointerEvent<HTMLElement>, node: SceneFlowNode) => void;
   onStartResize: (event: PointerEvent<HTMLButtonElement>, node: SceneFlowNode, edge: "left" | "right") => void;
+  outgoingConnections: number;
 };
 
 function previewLayerStyle(node: SceneFlowNode, layer: NonNullable<SceneFlowNode["previewLayers"]>[number]): CSSProperties {
@@ -44,6 +49,9 @@ function previewLayerBackgroundStyle(node: SceneFlowNode, layer: NonNullable<Sce
 }
 
 export function SceneFlowNodeCard({
+  incomingConnections,
+  isConnectionSource,
+  isConnectionTarget,
   isMoving,
   isSelected,
   isResizing,
@@ -52,24 +60,41 @@ export function SceneFlowNodeCard({
   onContextMenu,
   onOpen,
   onSelect,
+  onStartConnection,
   onStartNodeDrag,
   onStartResize,
+  outgoingConnections,
 }: SceneFlowNodeCardProps) {
   return (
     <article
       className={[
         "scene-flow-node",
         node.kind === "start-ui" ? "start-ui" : "",
+        node.kind === "animation" ? "animation-scene" : "",
         isSelected ? "selected" : "",
         node.isCurrent ? "current" : "",
         node.isPlaceholder ? "placeholder" : "",
         isMoving ? "moving" : "",
         isResizing ? "resizing" : "",
+        isConnectionSource ? "connection-source" : "",
+        isConnectionTarget ? "connection-target" : "",
       ].filter(Boolean).join(" ")}
       data-scene-node-id={node.id}
       style={{ left: `${node.x}%`, top: `${node.y}%`, width: `${node.width}%` }}
       onContextMenu={event => onContextMenu(event, node)}
     >
+      <button
+        type="button"
+        className="scene-node-port input"
+        aria-label={`Connection input for ${node.title}`}
+        title="Connection input"
+        disabled={node.isPlaceholder}
+        onPointerDown={event => event.stopPropagation()}
+        onClick={() => onSelect(node.id)}
+      >
+        <span aria-hidden="true" />
+      </button>
+
       <button
         type="button"
         className="scene-flow-open"
@@ -95,6 +120,9 @@ export function SceneFlowNodeCard({
             backgroundColor: node.backgroundColor,
           }}
         >
+          <span className="scene-node-flow-badge">
+            {node.kind === "start-ui" ? "UI" : node.kind === "animation" ? "Animation" : "Game"} / {incomingConnections} in / {outgoingConnections} out
+          </span>
           {Boolean(node.previewLayers?.length) && (
             <span className="scene-node-preview-layer-stage">
               {node.previewLayers?.map(layer => (
@@ -125,6 +153,17 @@ export function SceneFlowNodeCard({
         </span>
         <strong>{node.title}</strong>
         <span>{node.subtitle}</span>
+      </button>
+
+      <button
+        type="button"
+        className="scene-node-port output"
+        aria-label={`Create connection from ${node.title}`}
+        title="Create connection"
+        disabled={node.isPlaceholder}
+        onPointerDown={event => onStartConnection(event, node)}
+      >
+        <span aria-hidden="true" />
       </button>
 
       <button

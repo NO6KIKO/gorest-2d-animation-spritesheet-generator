@@ -47,6 +47,75 @@ export interface AnimationClip {
   fps?: number;
 }
 
+export type AnimationSceneTrackKind = "background" | "sprite" | "event";
+export type AnimationSceneClipKind = "background" | "spritesheet" | "event";
+export type AnimationSceneEndBehavior = "hold" | "loop" | "follow-connection";
+
+export interface AnimationSceneSpriteSheetSource {
+  imageUrl: string;
+  sheetWidth: number;
+  sheetHeight: number;
+  columns: number;
+  rows: number;
+  frameCount: number;
+}
+
+export interface AnimationSceneTimelineClip {
+  id: string;
+  name: string;
+  kind: AnimationSceneClipKind;
+  startMs: number;
+  durationMs: number;
+  offsetMs?: number;
+  assetId?: string;
+  animationId?: string;
+  imageUrl?: string;
+  spriteSheet?: AnimationSceneSpriteSheetSource;
+  eventName?: string;
+  loop?: boolean;
+  fps?: number;
+  playbackRate?: number;
+  x?: number;
+  y?: number;
+  scale?: number;
+  opacity?: number;
+  fadeInMs?: number;
+  fadeOutMs?: number;
+}
+
+export interface AnimationSceneTrack {
+  id: string;
+  name: string;
+  kind: AnimationSceneTrackKind;
+  clips: AnimationSceneTimelineClip[];
+  muted?: boolean;
+  locked?: boolean;
+  zIndex: number;
+}
+
+export interface AnimationSceneMarker {
+  id: string;
+  name: string;
+  timeMs: number;
+}
+
+export interface AnimationScene {
+  version: 1;
+  id: string;
+  kind: "animation";
+  name: string;
+  width: number;
+  height: number;
+  durationMs: number;
+  fps: number;
+  backgroundColor: string;
+  endBehavior: AnimationSceneEndBehavior;
+  tracks: AnimationSceneTrack[];
+  markers?: AnimationSceneMarker[];
+  savedTime: string;
+  updatedTime?: string;
+}
+
 export interface GameAsset {
   id: string;
   name: string;
@@ -96,7 +165,7 @@ export interface SceneLightingSettings {
 }
 
 export type ScenePlaybackMode = "game" | "animate";
-export type SceneTransitionType = "cut" | "fade-black" | "dissolve";
+export type SceneTransitionType = "cut" | "dissolve" | "fade-black" | "fade-white";
 
 export interface SceneTimelineSettings {
   durationMs: number;
@@ -226,6 +295,7 @@ export type StartUiTitleEffect = "none" | "breathe" | "glitch";
 export type StartUiButtonHoverEffect = "none" | "lift" | "glow" | "lift-glow";
 export type StartUiEntranceEffect = "none" | "fade" | "rise";
 export type StartUiTransitionEffect = "none" | "fade" | "lights-out";
+export type StartUiRuntimeActionId = "primary-action" | "continue-action" | "load-action" | "settings-action" | "quit-action";
 
 export interface GameStartUiEffects {
   enabled: boolean;
@@ -301,11 +371,42 @@ export interface GameStartUiSettings {
   updatedTime?: string;
 }
 
+export type GameFlowConnectionKind = "scene-transition" | "ui-navigation" | "ui-overlay";
+export type GameFlowTriggerType = "auto" | "interaction" | "button" | "system";
+
+export interface GameFlowConnection {
+  id: string;
+  sourceNodeId: string;
+  targetNodeId: string;
+  kind: GameFlowConnectionKind;
+  trigger: GameFlowTriggerType;
+  label: string;
+  sourceRefId?: string;
+  pauseSource?: boolean;
+  returnToSource?: boolean;
+  updatedTime?: string;
+}
+
+export interface GameFlowNodeLayout {
+  x: number;
+  y: number;
+  width: number;
+}
+
+export interface GameFlowGraph {
+  version: 1;
+  connections: GameFlowConnection[];
+  nodeLayouts: Record<string, GameFlowNodeLayout>;
+  updatedTime?: string;
+}
+
 export interface GameLibrary {
   assets: GameAsset[];
   scenes: GameScene[];
+  animationScenes?: AnimationScene[];
   startUi?: GameStartUiSettings;
   startUis?: GameStartUiSettings[];
+  flowGraph?: GameFlowGraph;
   updatedTime?: string;
 }
 

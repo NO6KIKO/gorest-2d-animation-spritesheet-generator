@@ -1,5 +1,5 @@
-import type { GameScene, GameStartUiSettings, SceneLayer } from "../../../types";
-import { SCENE_TRANSITION_LABELS, sceneDurationLabel, scenePlaybackMode, sceneTimeline } from "../../../domain/scene/sceneTimeline";
+import type { AnimationScene, GameScene, GameStartUiSettings, SceneLayer } from "../../../types";
+import { animationSceneClipCount, animationSceneDurationLabel, animationScenePoster } from "../../../domain/scene/animationSceneModel";
 import { SCENE_NODE_WIDTH_PERCENT } from "./geometry";
 import type { SceneFlowNode } from "../types";
 
@@ -9,6 +9,7 @@ const SCENE_ROW_Y = 15;
 const FLOW_ROW_GAP = 23;
 
 type BuildSceneFlowNodesOptions = {
+  animationScenes?: AnimationScene[];
   currentScene: GameScene;
   currentBackground?: SceneLayer;
   savedScenes: GameScene[];
@@ -34,10 +35,6 @@ function scenePreview(scene: GameScene, currentSceneId: string, currentBackgroun
 }
 
 function sceneNodeSubtitle(scene: GameScene, isCurrent = false) {
-  if (scenePlaybackMode(scene) === "animate") {
-    const timeline = sceneTimeline(scene);
-    return `Animate / ${sceneDurationLabel(timeline.durationMs)} / ${SCENE_TRANSITION_LABELS[timeline.transitionType]}`;
-  }
   return isCurrent ? "Current game scene" : "Game scene";
 }
 
@@ -70,6 +67,7 @@ function startUiPreview(startUi: GameStartUiSettings) {
 }
 
 export function buildSceneFlowNodes({
+  animationScenes = [],
   currentScene,
   currentBackground,
   savedScenes,
@@ -101,6 +99,19 @@ export function buildSceneFlowNodes({
     width: SCENE_NODE_WIDTH_PERCENT,
     ...scenePreview(savedScene, currentScene.id, currentBackground),
   }));
+  const animationBaseY = sceneBaseY + Math.max(1, Math.ceil((savedSceneNodes.length + 1) / FLOW_COLUMNS.length)) * FLOW_ROW_GAP;
+  const animationSceneNodes = animationScenes.map((animationScene, index) => ({
+    id: animationScene.id,
+    kind: "animation" as const,
+    title: animationScene.name || `Animation ${index + 1}`,
+    subtitle: `Animation / ${animationSceneDurationLabel(animationScene.durationMs)} / ${animationSceneClipCount(animationScene)} clips`,
+    animationScene,
+    x: flowPosition(index, animationBaseY).x,
+    y: flowPosition(index, animationBaseY).y,
+    width: SCENE_NODE_WIDTH_PERCENT,
+    thumbnail: animationScenePoster(animationScene),
+    backgroundColor: animationScene.backgroundColor,
+  }));
 
   const nodes: SceneFlowNode[] = [
     ...startUiNodes,
@@ -117,6 +128,7 @@ export function buildSceneFlowNodes({
       ...currentPreview,
     },
     ...savedSceneNodes,
+    ...animationSceneNodes,
   ];
 
   if (savedSceneNodes.length) return nodes;

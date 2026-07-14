@@ -9,6 +9,7 @@ import { StartUiCanvasLayer } from "./StartUiCanvasLayer";
 import { StartUiEffectOverlays } from "./StartUiEffectOverlays";
 import {
   CENTERED_START_UI_EFFECT_POINTER,
+  getStartUiButtonGroup,
   startUiStageEffectClassName,
   startUiStageEffectStyle,
 } from "./startUiEffectsModel";
@@ -19,10 +20,12 @@ type StartUiCanvasStageProps = {
   designHeight: number;
   designWidth: number;
   draft: GameStartUiSettings;
+  isRuntimePreviewing: boolean;
   preview: StartUiEffectsPreviewController;
   selectedLayerId: string | null;
   stageRef: MutableRefObject<HTMLDivElement | null>;
   visibleLayers: GameStartUiLayer[];
+  onButtonGroupActivate: (group: string) => void;
   onStageKeyDown: (event: ReactKeyboardEvent<HTMLDivElement>) => void;
   onStartLayerDrag: (event: ReactPointerEvent<HTMLDivElement>, layer: GameStartUiLayer) => void;
   onStartSelectedLayerDrag: (event: ReactPointerEvent<HTMLDivElement>) => void;
@@ -33,10 +36,12 @@ export function StartUiCanvasStage({
   designHeight,
   designWidth,
   draft,
+  isRuntimePreviewing,
   preview,
   selectedLayerId,
   stageRef,
   visibleLayers,
+  onButtonGroupActivate,
   onStageKeyDown,
   onStartLayerDrag,
   onStartSelectedLayerDrag,
@@ -45,12 +50,20 @@ export function StartUiCanvasStage({
   const effectPointer = preview.isEffectsPreviewing
     ? preview.effectPointer
     : CENTERED_START_UI_EFFECT_POINTER;
+  const runtimeButtonLayerIds = new Set<string>();
+  const runtimeButtonGroups = new Set<string>();
+  for (const layer of visibleLayers) {
+    const buttonGroup = getStartUiButtonGroup(layer, draft);
+    if (!buttonGroup || runtimeButtonGroups.has(buttonGroup)) continue;
+    runtimeButtonGroups.add(buttonGroup);
+    runtimeButtonLayerIds.add(layer.id);
+  }
 
   return (
     <div className={`scene-start-ui-canvas-shell ${draft.theme}`}>
       <div
         ref={stageRef}
-        className={startUiStageEffectClassName(effects, preview.isEffectsPreviewing, canDragSelectedLayer)}
+        className={`${startUiStageEffectClassName(effects, preview.isEffectsPreviewing, canDragSelectedLayer)} ${isRuntimePreviewing ? "runtime-preview" : ""}`}
         style={{
           aspectRatio: `${designWidth} / ${designHeight}`,
           maxWidth: `${designWidth}px`,
@@ -72,12 +85,15 @@ export function StartUiCanvasStage({
             effectPointer={effectPointer}
             hoveredButtonGroup={preview.hoveredButtonGroup}
             isEffectsPreviewing={preview.isEffectsPreviewing}
+            isRuntimeButtonTarget={runtimeButtonLayerIds.has(layer.id)}
+            isRuntimePreviewing={isRuntimePreviewing}
             isSelected={selectedLayerId === layer.id}
             layer={layer}
             layerIndex={layerIndex}
             pressedButtonGroup={preview.pressedButtonGroup}
             settings={draft}
             onButtonGroupEnter={preview.setHoveredButtonGroup}
+            onButtonGroupActivate={onButtonGroupActivate}
             onButtonGroupLeave={preview.leaveButtonGroup}
             onButtonGroupPress={preview.setPressedButtonGroup}
             onStartLayerDrag={onStartLayerDrag}

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./features/mode-picker/mode-picker.css";
 @import "./features/scene-flow/scene-flow.css";
+@import "./features/scene-flow/scene-flow-graph.css";
+@import "./features/scene-flow/scene-animation.css";
 @import "./features/sheet-only-gallery/sheet-only-gallery.css";
 @import "./styles/base.css";
 @import "./styles/workspace-shell.css";

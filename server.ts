@@ -98,7 +98,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use("/generated", express.static(GENERATED_DIR));
 
 function readGameLibrary() {
-  const empty = { assets: [], scenes: [], startUi: undefined, startUis: [], updatedTime: new Date().toISOString() };
+  const empty = { assets: [], scenes: [], animationScenes: [], startUi: undefined, startUis: [], flowGraph: undefined, updatedTime: new Date().toISOString() };
   try {
     if (!fs.existsSync(GAME_LIBRARY_PATH)) {
   console.warn('Game asset library not found, returning empty library.');
@@ -112,11 +112,23 @@ function readGameLibrary() {
       : startUi
         ? [startUi]
         : [];
+    const flowGraph = parsed.flowGraph && typeof parsed.flowGraph === "object"
+      ? {
+          version: 1,
+          connections: Array.isArray(parsed.flowGraph.connections) ? parsed.flowGraph.connections : [],
+          nodeLayouts: parsed.flowGraph.nodeLayouts && typeof parsed.flowGraph.nodeLayouts === "object"
+            ? parsed.flowGraph.nodeLayouts
+            : {},
+          updatedTime: parsed.flowGraph.updatedTime
+        }
+      : undefined;
     return {
       assets: Array.isArray(parsed.assets) ? parsed.assets : [],
       scenes: Array.isArray(parsed.scenes) ? parsed.scenes : [],
+      animationScenes: Array.isArray(parsed.animationScenes) ? parsed.animationScenes : [],
       startUi: startUi || startUis[0],
       startUis,
+      flowGraph,
       updatedTime: parsed.updatedTime || empty.updatedTime
     };
   } catch (error) {
@@ -132,6 +144,22 @@ function writeGameLibrary(library: any) {
     JSON.stringify({ ...library, updatedTime: new Date().toISOString() }, null, 2),
     "utf-8"
   );
+}
+
+function removeNodeFromFlowGraph(library: any, nodeId: string) {
+  const flowGraph = library.flowGraph;
+  if (!flowGraph || typeof flowGraph !== "object") return;
+  flowGraph.connections = Array.isArray(flowGraph.connections)
+    ? flowGraph.connections.filter((connection: any) => (
+        connection?.sourceNodeId !== nodeId && connection?.targetNodeId !== nodeId
+      ))
+    : [];
+  const nodeLayouts = flowGraph.nodeLayouts && typeof flowGraph.nodeLayouts === "object"
+    ? { ...flowGraph.nodeLayouts }
+    : {};
+  delete nodeLayouts[nodeId];
+  flowGraph.nodeLayouts = nodeLayouts;
+  flowGraph.updatedTime = new Date().toISOString();
 }
 
 type SpritesheetMediaExportSettings = {
@@ -857,6 +885,7 @@ app.delete("/api/game-library/start-ui/:id", (req, res) => {
   const existingStartUis = Array.isArray(library.startUis) ? library.startUis : [];
   library.startUis = existingStartUis.filter((item: any) => item?.id !== req.params.id);
   library.startUi = library.startUis[0];
+  removeNodeFromFlowGraph(library, req.params.id);
   writeGameLibrary(library);
   res.json({ startUi: library.startUi, startUis: library.startUis, library });
 });
@@ -867,6 +896,17 @@ app.delete("/api/game-library/assets/:id", (req, res) => {
   library.scenes = library.scenes.map((scene: any) => ({
     ...scene,
     layers: Array.isArray(scene.layers) ? scene.layers.filter((layer: any) => layer.assetId !== req.params.id) : []
+  }));
+  library.animationScenes = library.animationScenes.map((animationScene: any) => ({
+    ...animationScene,
+    tracks: Array.isArray(animationScene.tracks)
+      ? animationScene.tracks.map((track: any) => ({
+          ...track,
+          clips: Array.isArray(track.clips)
+            ? track.clips.filter((clip: any) => clip.assetId !== req.params.id)
+            : []
+        }))
+      : []
   }));
   writeGameLibrary(library);
   res.json({ library });
@@ -898,8 +938,67 @@ app.delete("/api/game-library/scenes/:id", (req, res) => {
   if (library.scenes.length === beforeCount) {
     return res.status(404).json({ error: "Scene not found" });
   }
+  removeNodeFromFlowGraph(library, req.params.id);
   writeGameLibrary(library);
   res.json({ library });
+});
+
+app.post("/api/game-library/animation-scenes", (req, res) => {
+  const animationScene = req.body?.animationScene;
+  if (!animationScene || !animationScene.id || !Array.isArray(animationScene.tracks)) {
+    return res.status(400).json({ error: "animationScene with id and tracks is required" });
+  }
+  const library = readGameLibrary();
+  const normalizedAnimationScene = {
+    ...animationScene,
+    version: 1,
+    kind: "animation",
+    savedTime: animationScene.savedTime || new Date().toISOString(),
+    updatedTime: new Date().toISOString()
+  };
+  library.animationScenes = [
+    normalizedAnimationScene,
+    ...library.animationScenes.filter((item: any) => item.id !== normalizedAnimationScene.id)
+  ];
+  writeGameLibrary(library);
+  res.json({ animationScene: normalizedAnimationScene, library });
+});
+
+app.delete("/api/game-library/animation-scenes/:id", (req, res) => {
+  const library = readGameLibrary();
+  const beforeCount = library.animationScenes.length;
+  library.animationScenes = library.animationScenes.filter((item: any) => item.id !== req.params.id);
+  if (library.animationScenes.length === beforeCount) {
+    return res.status(404).json({ error: "Animation scene not found" });
+  }
+  removeNodeFromFlowGraph(library, req.params.id);
+  writeGameLibrary(library);
+  res.json({ library });
+});
+
+app.put("/api/game-library/flow", (req, res) => {
+  const flowGraph = req.body?.flowGraph;
+  if (!flowGraph || typeof flowGraph !== "object" || !Array.isArray(flowGraph.connections)) {
+    return res.status(400).json({ error: "flowGraph with connections is required" });
+  }
+  const library = readGameLibrary();
+  const nodeLayouts = flowGraph.nodeLayouts && typeof flowGraph.nodeLayouts === "object" && !Array.isArray(flowGraph.nodeLayouts)
+    ? flowGraph.nodeLayouts
+    : {};
+  const normalizedFlowGraph = {
+    version: 1,
+    connections: flowGraph.connections.filter((connection: any) => (
+      connection
+      && typeof connection.id === "string"
+      && typeof connection.sourceNodeId === "string"
+      && typeof connection.targetNodeId === "string"
+    )),
+    nodeLayouts,
+    updatedTime: new Date().toISOString()
+  };
+  library.flowGraph = normalizedFlowGraph;
+  writeGameLibrary(library);
+  res.json({ flowGraph: normalizedFlowGraph, library });
 });
 
 function sanitizeSvg(svg: string): string {

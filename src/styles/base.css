@@ -49,6 +49,35 @@ button:disabled { cursor: not-allowed; opacity: .55; }
   background-size: 28px 28px, 28px 28px, auto;
 }
 
+.blueprint-app.scene-transition-dissolve {
+  animation-name: scene-transition-dissolve;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  pointer-events: none;
+}
+
+.scene-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  pointer-events: all;
+  animation-name: scene-transition-cover;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+.scene-transition-overlay.fade-black { background: #050607; }
+.scene-transition-overlay.fade-white { background: #fff; }
+
+@keyframes scene-transition-cover {
+  0%, 100% { opacity: 0; }
+  45%, 55% { opacity: 1; }
+}
+
+@keyframes scene-transition-dissolve {
+  0%, 100% { opacity: 1; filter: blur(0); }
+  45%, 55% { opacity: 0; filter: blur(3px); }
+}
+
 .core-mode .eyebrow {
   font-size: 10px;
 }

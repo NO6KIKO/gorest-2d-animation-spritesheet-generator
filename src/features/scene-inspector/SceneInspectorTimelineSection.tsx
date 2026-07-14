@@ -1,116 +1,81 @@
-import { Film, Gamepad2 } from "lucide-react";
-import {
-  SCENE_PLAYBACK_MODE_LABELS,
-  SCENE_TRANSITION_LABELS,
-  sceneDurationLabel,
-} from "../../domain/scene/sceneTimeline";
-import type { SceneLayer, ScenePlaybackMode, SceneTimelineSettings, SceneTransitionType } from "../../types";
+import { Eye, Gamepad2 } from "lucide-react";
+import { SCENE_TRANSITION_PRESETS } from "../../domain/scene/sceneTimeline";
+import type { SceneLayer, ScenePlaybackMode, SceneTimelineSettings } from "../../types";
 
 type SceneInspectorTimelineSectionProps = {
   playbackMode: ScenePlaybackMode;
   timeline: SceneTimelineSettings;
   visualLayers: SceneLayer[];
   onPlaybackModeChange: (mode: ScenePlaybackMode) => void;
+  onPreviewTransition: () => void;
   onTimelineChange: (patch: Partial<SceneTimelineSettings>) => void;
 };
-
-const transitionOptions = Object.entries(SCENE_TRANSITION_LABELS) as Array<[SceneTransitionType, string]>;
 
 export function SceneInspectorTimelineSection({
   playbackMode,
   timeline,
   visualLayers,
   onPlaybackModeChange,
+  onPreviewTransition,
   onTimelineChange,
 }: SceneInspectorTimelineSectionProps) {
-  const durationSeconds = Math.round(timeline.durationMs / 100) / 10;
-  const transitionSeconds = Math.round(timeline.transitionDurationMs / 100) / 10;
+  const durationSeconds = timeline.transitionDurationMs / 1000;
 
   return (
     <section className="compact-inspector-section scene-timeline-section">
       <em>Scene Type</em>
-      <div className="scene-mode-toggle" role="group" aria-label="Scene type">
+      <div className="scene-mode-toggle single" role="group" aria-label="Scene type">
         <button
           type="button"
-          className={playbackMode === "game" ? "active" : ""}
-          onClick={() => onPlaybackModeChange("game")}
+          className="active"
+          onClick={() => playbackMode !== "game" && onPlaybackModeChange("game")}
         >
-          <Gamepad2 size={14} /> {SCENE_PLAYBACK_MODE_LABELS.game}
-        </button>
-        <button
-          type="button"
-          className={playbackMode === "animate" ? "active" : ""}
-          onClick={() => onPlaybackModeChange("animate")}
-        >
-          <Film size={14} /> {SCENE_PLAYBACK_MODE_LABELS.animate}
+          <Gamepad2 size={14} /> Game Scene
         </button>
       </div>
 
-      {playbackMode === "animate" && (
-        <>
-          <div className="compact-dual-fields">
-            <label>
-              Duration
-              <input
-                min={1}
-                max={120}
-                step={0.1}
-                type="number"
-                value={durationSeconds}
-                onChange={event => onTimelineChange({ durationMs: secondsToMs(event.target.value, 5000) })}
-              />
-            </label>
-            <label>
-              Exit
-              <input
-                min={0}
-                max={10}
-                step={0.1}
-                type="number"
-                value={transitionSeconds}
-                onChange={event => onTimelineChange({ transitionDurationMs: secondsToMs(event.target.value, 800) })}
-              />
-            </label>
-          </div>
+      <em>Transition Template</em>
+      <div className="scene-transition-presets" role="group" aria-label="Scene transition template">
+        {SCENE_TRANSITION_PRESETS.map(preset => (
+          <button
+            key={preset.type}
+            type="button"
+            className={timeline.transitionType === preset.type ? "active" : ""}
+            title={preset.description}
+            onClick={() => onTimelineChange({
+              transitionType: preset.type,
+              transitionDurationMs: preset.durationMs,
+            })}
+          >
+            <strong>{preset.label}</strong>
+            <span>{preset.durationMs ? `${preset.durationMs}ms` : "instant"}</span>
+          </button>
+        ))}
+      </div>
 
-          <label>
-            Transition
-            <select
-              value={timeline.transitionType}
-              onChange={event => onTimelineChange({ transitionType: event.target.value as SceneTransitionType })}
-            >
-              {transitionOptions.map(([value, label]) => (
-                <option key={value} value={value}>{label}</option>
-              ))}
-            </select>
-          </label>
+      <label className="scene-transition-duration">
+        <span>Duration</span>
+        <input
+          type="range"
+          min="200"
+          max="3000"
+          step="50"
+          value={Math.max(200, timeline.transitionDurationMs)}
+          disabled={timeline.transitionType === "cut"}
+          onChange={event => onTimelineChange({ transitionDurationMs: Number(event.target.value) })}
+        />
+        <b>{timeline.transitionType === "cut" ? "0s" : `${durationSeconds.toFixed(2)}s`}</b>
+      </label>
 
-          <label>
-            Primary Sprite
-            <select
-              value={timeline.primaryLayerId || ""}
-              onChange={event => onTimelineChange({ primaryLayerId: event.target.value || undefined })}
-            >
-              <option value="">Auto</option>
-              {visualLayers.map(layer => (
-                <option key={layer.id} value={layer.id}>{layer.name}</option>
-              ))}
-            </select>
-          </label>
-
-          <div className="scene-timeline-summary">
-            <span>{sceneDurationLabel(timeline.durationMs)}</span>
-            <span>{SCENE_TRANSITION_LABELS[timeline.transitionType]}</span>
-            <span>{sceneDurationLabel(timeline.transitionDurationMs)}</span>
-          </div>
-        </>
-      )}
+      <button
+        type="button"
+        className="scene-transition-preview-button"
+        disabled={timeline.transitionType === "cut"}
+        onClick={onPreviewTransition}
+      >
+        <Eye size={14} /> Preview transition
+      </button>
+      <span className="scene-transition-layer-count">Applies when leaving this scene · {visualLayers.length} visual layers</span>
     </section>
   );
-}
-
-function secondsToMs(value: string, fallbackMs: number) {
-  const parsed = Number(value);
-  if (!Number.isFinite(parsed)) return fallbackMs;
-  return Math.round(Math.max(0, parsed) * 1000);
 }

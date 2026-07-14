@@ -1,0 +1,695 @@
+.animation-scene-editor {
+  height: 100vh;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(180px, 1fr) minmax(210px, 36vh);
+  padding-top: 64px;
+  background: #e8edf1;
+  color: #20272d;
+  overflow: hidden;
+}
+
+.animation-editor-topbar {
+  position: relative;
+  z-index: 30;
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px;
+  border-top: 1px solid #bcc5cc;
+  border-bottom: 1px solid #aeb8c0;
+  background: #f8fafb;
+}
+
+.animation-playback-controls,
+.animation-insert-tools,
+.animation-insert-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.animation-editor-topbar button {
+  min-height: 34px;
+  border-radius: 0;
+  border-color: #919ca5;
+  background: #fff;
+  color: #27323a;
+  white-space: nowrap;
+}
+
+.animation-editor-topbar button:hover:not(:disabled),
+.animation-editor-topbar button.active {
+  background: #242b31;
+  color: #fff;
+}
+
+.animation-editor-topbar button.flow {
+  border-color: #8a5427;
+  background: #8a5427;
+}
+
+.animation-playback-controls > button:first-child,
+.animation-playback-controls > button:nth-child(2) {
+  width: 36px;
+  padding: 0;
+}
+
+.animation-timecode {
+  min-width: 78px;
+  padding: 6px 8px;
+  border: 1px solid #aab4bc;
+  background: #171c20;
+  color: #f5f7f8;
+  font: 700 12px/1.2 Consolas, monospace;
+  text-align: center;
+}
+
+.animation-insert-tools {
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.animation-insert-control {
+  flex: 0 0 auto;
+  min-width: 0;
+  border: 1px solid #aab4bc;
+  background: #fff;
+}
+
+.animation-insert-control select {
+  width: clamp(118px, 11vw, 190px);
+  min-height: 32px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  font-size: 11px;
+}
+
+.animation-insert-control button {
+  border: 0;
+  border-left: 1px solid #c3cbd1;
+}
+
+.animation-insert-tools > button,
+.animation-insert-control button {
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0 9px;
+  border-radius: 0;
+  background: #fff;
+  color: #27323a;
+  white-space: nowrap;
+}
+
+.animation-insert-tools > button:hover:not(:disabled),
+.animation-insert-control button:hover:not(:disabled) {
+  background: #27323a;
+  color: #fff;
+  transform: none;
+}
+
+.animation-new-track-button {
+  width: 34px;
+  padding: 0 !important;
+}
+
+.animation-repository-sheet-settings {
+  height: 32px;
+  display: flex;
+  align-items: stretch;
+  border-left: 1px solid #c3cbd1;
+  background: #edf2f5;
+}
+
+.animation-repository-sheet-settings label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding-left: 5px;
+  color: #59666f;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.animation-repository-sheet-settings input {
+  width: 40px;
+  height: 100%;
+  padding: 0 3px;
+  border: 0;
+  border-left: 1px solid #c3cbd1;
+  border-radius: 0;
+  background: #fff;
+  color: #20272d;
+  font-size: 10px;
+}
+
+.animation-repository-sheet-settings label:last-child input {
+  width: 43px;
+}
+
+.animation-repository-sheet-status {
+  min-width: 90px;
+  padding: 0 7px;
+  color: #68757e;
+  font-size: 9px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.animation-insert-target {
+  flex: 0 0 auto;
+  min-width: 118px;
+  padding: 5px 8px;
+  border-left: 3px solid #8a5427;
+  background: #f7efe6;
+  color: #68401f !important;
+  font-size: 9px;
+  font-weight: 850;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.animation-save-button {
+  justify-self: end;
+  border-color: #33434e !important;
+  background: #33434e !important;
+  color: #fff !important;
+}
+
+.animation-editor-body {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 278px;
+  border-bottom: 1px solid #9faab3;
+  overflow: hidden;
+}
+
+.animation-stage-shell {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: #050607;
+  overflow: hidden;
+}
+
+.animation-stage-frame {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.animation-stage {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  border: 1px solid #0c0f12;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .28);
+  overflow: hidden;
+}
+
+.animation-stage-background,
+.animation-stage-sprite {
+  position: absolute;
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.animation-stage-background {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.animation-stage-background img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.animation-stage-sprite {
+  cursor: move;
+  touch-action: none;
+}
+
+.animation-stage-sprite > span,
+.animation-stage-sprite svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.animation-stage-background.selected,
+.animation-stage-sprite.selected {
+  outline: 2px solid #ffcf66;
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 1px #2d2415;
+}
+
+.animation-stage-timecode {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 5000;
+  padding: 4px 7px;
+  background: rgba(10, 13, 16, .82);
+  color: #fff;
+  font: 700 11px/1.2 Consolas, monospace;
+  pointer-events: none;
+}
+
+.animation-inspector {
+  min-width: 0;
+  min-height: 0;
+  border-left: 1px solid #aeb8c0;
+  background: #f7f9fa;
+  overflow: auto;
+}
+
+.animation-inspector > header {
+  display: grid;
+  gap: 2px;
+  padding: 13px 14px;
+  border-bottom: 1px solid #c7d0d6;
+  background: #eef2f4;
+}
+
+.animation-inspector > header span,
+.animation-inspector-fields label > span {
+  color: #64727c;
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.animation-inspector > header strong {
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.animation-inspector-fields {
+  display: grid;
+  gap: 11px;
+  padding: 14px;
+}
+
+.animation-inspector-fields label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.animation-inspector-fields input,
+.animation-inspector-fields select {
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  border: 1px solid #aab5bd;
+  border-radius: 0;
+  background: #fff;
+  font-size: 12px;
+}
+
+.animation-inspector-fields input[type="range"] {
+  min-height: 20px;
+  accent-color: #8a5427;
+}
+
+.animation-inspector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.animation-color-field {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+}
+
+.animation-color-field input[type="color"] {
+  padding: 3px;
+}
+
+.animation-clip-kind {
+  padding: 7px 8px;
+  border-left: 3px solid #8a5427;
+  background: #f3ede7;
+  color: #68401f;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.animation-repository-source {
+  overflow: hidden;
+  padding: 7px 8px;
+  border-left: 3px solid #38705a;
+  background: #edf5f1;
+  color: #315846;
+  font-size: 9px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.animation-check-field {
+  grid-template-columns: 16px minmax(0, 1fr) !important;
+  align-items: center;
+}
+
+.animation-check-field input {
+  width: 15px;
+  min-height: 15px;
+}
+
+.animation-check-field span {
+  color: #34434d !important;
+  font-size: 10px !important;
+  text-transform: none !important;
+}
+
+.animation-delete-clip {
+  min-height: 34px;
+  border: 1px solid #b87474;
+  border-radius: 0;
+  background: #fff;
+  color: #9a2727;
+}
+
+.animation-editor-timeline {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  background: #f4f6f7;
+  overflow: hidden;
+}
+
+.animation-timeline-toolbar {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 12px;
+  border-bottom: 1px solid #aeb8c0;
+  background: #e9edf0;
+  font-size: 11px;
+  overflow: hidden;
+}
+
+.animation-timeline-meta {
+  flex: 0 0 190px;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.animation-timeline-toolbar strong {
+  max-width: 260px;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.animation-timeline-toolbar span {
+  color: #65727b;
+}
+
+.animation-zoom-control {
+  margin-left: auto;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #53616b;
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.animation-zoom-control input {
+  width: 130px;
+  accent-color: #8a5427;
+}
+
+.animation-timeline-scroller {
+  min-height: 0;
+  overflow: auto;
+}
+
+.animation-timeline-grid {
+  position: relative;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 154px minmax(0, 1fr);
+  grid-auto-rows: 52px;
+  align-content: start;
+  background: #dfe4e7;
+}
+
+.animation-timeline-corner {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-right: 1px solid #89959e;
+  border-bottom: 1px solid #89959e;
+  background: #30383e;
+  color: #eef2f4;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.animation-timeline-ruler {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  border-bottom: 1px solid #89959e;
+  background: #30383e;
+  color: #d9e0e4;
+  cursor: pointer;
+}
+
+.animation-timeline-ruler > span {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  padding: 7px 0 0 5px;
+  border-left: 1px solid #77828a;
+  font: 700 9px/1 Consolas, monospace;
+}
+
+.animation-timeline-ruler > span i {
+  position: absolute;
+  left: -1px;
+  bottom: 0;
+  height: 10px;
+  border-left: 1px solid #9ca6ad;
+}
+
+.animation-timeline-row {
+  display: contents;
+}
+
+.animation-track-label {
+  position: sticky;
+  left: 0;
+  z-index: 8;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 25px 25px;
+  align-items: center;
+  gap: 2px;
+  padding: 0 6px 0 10px;
+  border-right: 1px solid #a1abb2;
+  border-bottom: 1px solid #bdc5ca;
+  background: #eef1f3;
+}
+
+.animation-track-label > div {
+  min-width: 0;
+  display: grid;
+}
+
+.animation-track-label strong,
+.animation-track-label span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.animation-track-label strong {
+  font-size: 10px;
+}
+
+.animation-track-label span {
+  color: #74818a;
+  font-size: 8px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.animation-track-label button {
+  width: 24px;
+  height: 24px;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #485761;
+}
+
+.animation-timeline-lane {
+  position: relative;
+  border-bottom: 1px solid #bdc5ca;
+  background-color: #f8f9fa;
+  background-image: linear-gradient(90deg, rgba(75, 86, 95, .11) 1px, transparent 1px);
+  background-size: 100px 100%;
+  cursor: text;
+  overflow: hidden;
+}
+
+.animation-timeline-lane.muted {
+  opacity: .5;
+}
+
+.animation-timeline-clip {
+  position: absolute;
+  top: 8px;
+  height: 36px;
+  min-height: 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px;
+  border: 1px solid #3b596d;
+  border-radius: 3px;
+  background: #cfe5f1;
+  color: #1f3848;
+  cursor: grab;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.animation-timeline-clip:active {
+  cursor: grabbing;
+}
+
+.animation-timeline-clip.spritesheet {
+  border-color: #38705a;
+  background: #cfe9de;
+  color: #1f4938;
+}
+
+.animation-timeline-clip.event {
+  border-color: #875a2d;
+  background: #f3dfbf;
+  color: #674016;
+}
+
+.animation-timeline-clip.selected {
+  border-color: #171d22;
+  box-shadow: 0 0 0 2px #ffca61;
+  z-index: 5;
+}
+
+.animation-timeline-clip span,
+.animation-timeline-clip small {
+  overflow: hidden;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.animation-timeline-clip span {
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.animation-timeline-clip small {
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.clip-trim-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  background: rgba(20, 27, 32, .16);
+  cursor: ew-resize;
+}
+
+.clip-trim-handle.start { left: 0; }
+.clip-trim-handle.end { right: 0; }
+
+.animation-timeline-playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 1px;
+  background: #df4b45;
+  pointer-events: none;
+}
+
+.animation-timeline-playhead > span {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 11px;
+  height: 9px;
+  background: #df4b45;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+@media (max-width: 1120px) {
+  .animation-insert-tools {
+    min-width: 680px;
+  }
+  .animation-scene-editor {
+    grid-template-rows: auto minmax(180px, 1fr) minmax(220px, 38vh);
+  }
+  .animation-timeline-toolbar {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .animation-scene-editor {
+    min-height: 0;
+  }
+  .animation-editor-body {
+    grid-template-columns: 1fr;
+  }
+  .animation-inspector {
+    display: none;
+  }
+  .animation-insert-tools {
+    overflow-x: auto;
+  }
+}

@@ -1,6 +1,1248 @@
 {
   "assets": [
     {
+      "id": "asset_fox_girl_front_left_arm_talking_hair_flow_16f",
+      "name": "Fox-Eared Ink Girl / Front Talking, Left Arm Extended 16f",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-07-13T07:25:07.323Z",
+      "updatedTime": "2026-07-13T07:25:07.323Z",
+      "sprite": {
+        "id": "sprite_fox_girl_front_left_arm_talking_hair_flow_16f",
+        "characterName": "Fox-Eared Ink Girl / Front Talking, Left Arm Extended 16f",
+        "description": "Transparent 16-frame front-facing waist-up loop of the long-haired fox-eared ink-wash girl speaking with her anatomical left arm held straight and horizontal while her loose hair drifts in a gentle breeze. Her face and torso axis remain centered in every frame.",
+        "frameCount": 16,
+        "style": "finely drawn monochrome Chinese ink-wash anime waist-up portrait, long loose black hair, symmetrical fox ears, transparent PNG spritesheet",
+        "prompt": "Use the fox-eared ink-wash girl reference as the strict identity and style anchor. Create a front-facing 16-frame 4x4 speaking loop. In every cell, the vertical centerline passes through her nose, mouth, neck, chest, and waist knot. Her anatomical left arm stays straight and horizontal at shoulder height, extending toward the viewer's right with the hand fully visible; torso and arm remain locked. Animate only clear speech mouth shapes, subtle blinking, and long loose hair flowing gently through a seamless breeze cycle.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-07-13T07:25:07.323Z",
+        "updatedTime": "2026-07-13T07:25:07.323Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png",
+        "rawSpritesheetPng": "/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png",
+        "generationMode": "imagegen_reference_chroma_key_alpha_matte_front_talking_hair_flow_loop",
+        "artSourcePolicy": "Visible character art, speech mouth shapes, hair motion, hand, arm, face, and fox ears were generated/redrawn as one full 4x4 raster spritesheet from the supplied references. Code only removed chroma key, cleaned alpha edges, detected the 16 real foreground components, applied one global scale and fixed body-axis anchor, packed transparent frames, and wrote metadata.",
+        "qualityPolicy": "High-detail generated bitmap source inspected on a dark checkerboard at 100% scale; no code-drawn mouth, hair, face, hand, arm, clothing, ears, or motion overlays were added.",
+        "proportionPolicy": "uniform_scale_preserve_generated_character_proportions",
+        "normalization": "1254x1254 generated 4x4 chroma-key sheet -> soft-matte chroma removal and despill -> detection of 16 real foreground components -> one shared global scale (1.364706) -> fixed head/body axis at x=256 and component center at y=256 -> 2048x2048 transparent RGBA sheet.",
+        "inputReferenceInvariant": "Same delicate pale face, large dark eyes, long loose dark hair, two triangular furry fox ears, robe, and monochrome Chinese ink-wash anime finish as the prior fox-girl asset; no hat or hood.",
+        "poseInvariant": "Front-facing waist-up camera. Face, head, neck, chest, waist knot, and torso vertical axis are fixed to frame x=256. Anatomical left arm extends toward viewer-right, straight and parallel to the ground at shoulder height, with a stable shoulder, elbow, wrist, and fully visible hand in every frame.",
+        "centeringPolicy": "body_axis_centered_x_256_in_all_16_frames; center the person rather than the total silhouette including the extended arm",
+        "motionPolicy": "Only mouth phoneme shapes, a restrained blink, and gentle hair/ear-fur breeze motion change; camera, head size, torso, arm, hand, costume, and anchor remain fixed.",
+        "fps": 10,
+        "gridColumns": 4,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          2048,
+          2048
+        ],
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "sourceCells": [
+          [
+            64,
+            46,
+            322,
+            306
+          ],
+          [
+            368,
+            46,
+            622,
+            306
+          ],
+          [
+            665,
+            46,
+            921,
+            306
+          ],
+          [
+            956,
+            46,
+            1212,
+            306
+          ],
+          [
+            63,
+            340,
+            322,
+            602
+          ],
+          [
+            365,
+            340,
+            622,
+            602
+          ],
+          [
+            665,
+            340,
+            921,
+            602
+          ],
+          [
+            955,
+            340,
+            1212,
+            602
+          ],
+          [
+            63,
+            642,
+            321,
+            903
+          ],
+          [
+            366,
+            642,
+            622,
+            903
+          ],
+          [
+            665,
+            642,
+            921,
+            903
+          ],
+          [
+            955,
+            642,
+            1213,
+            903
+          ],
+          [
+            63,
+            938,
+            322,
+            1201
+          ],
+          [
+            366,
+            939,
+            622,
+            1201
+          ],
+          [
+            665,
+            939,
+            921,
+            1201
+          ],
+          [
+            956,
+            939,
+            1213,
+            1201
+          ]
+        ],
+        "frameBboxes": [
+          [
+            131,
+            75,
+            491,
+            435
+          ],
+          [
+            135,
+            75,
+            490,
+            435
+          ],
+          [
+            132,
+            75,
+            486,
+            435
+          ],
+          [
+            132,
+            77,
+            488,
+            435
+          ],
+          [
+            130,
+            76,
+            491,
+            438
+          ],
+          [
+            132,
+            76,
+            490,
+            438
+          ],
+          [
+            132,
+            74,
+            487,
+            438
+          ],
+          [
+            133,
+            76,
+            490,
+            438
+          ],
+          [
+            130,
+            74,
+            490,
+            437
+          ],
+          [
+            132,
+            77,
+            488,
+            437
+          ],
+          [
+            130,
+            76,
+            487,
+            437
+          ],
+          [
+            132,
+            76,
+            489,
+            437
+          ],
+          [
+            130,
+            75,
+            491,
+            439
+          ],
+          [
+            132,
+            74,
+            489,
+            438
+          ],
+          [
+            130,
+            75,
+            487,
+            438
+          ],
+          [
+            132,
+            74,
+            490,
+            438
+          ]
+        ],
+        "gridPolicy": "detect_16_real_foreground_components_then_sort_rows_and_columns",
+        "gridDetection": {
+          "mode": "connected_components",
+          "componentCount": 16,
+          "ordering": "centroid rows then columns"
+        },
+        "rootAnchorPolicy": "fixed body-axis anchor at x=256 with locked torso, shoulder, head scale, and extended-arm baseline across all 16 frames",
+        "alignmentPolicy": "head/body axis fixed at x=256; component vertical center fixed at y=256",
+        "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use fixed 512x512 cells for playback.",
+        "alphaValidation": {
+          "transparentRatio": 0.76518,
+          "greenFringeRatio": 0.0001552,
+          "frameCoverage": [
+            0.23711,
+            0.23301,
+            0.23284,
+            0.2331,
+            0.23706,
+            0.235,
+            0.23471,
+            0.23612,
+            0.23612,
+            0.23327,
+            0.23293,
+            0.2341,
+            0.23736,
+            0.23458,
+            0.23404,
+            0.23576
+          ]
+        },
+        "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+        "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+      },
+      "animations": [
+        {
+          "id": "clip_fox_girl_front_left_arm_talking_hair_flow_loop",
+          "name": "Front talking / left arm extended / hair flow",
+          "actionName": "talk",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_fox_girl_front_left_arm_talking_hair_flow_16f",
+            "characterName": "Fox-Eared Ink Girl / Front Talking, Left Arm Extended 16f",
+            "description": "Transparent 16-frame front-facing waist-up loop of the long-haired fox-eared ink-wash girl speaking with her anatomical left arm held straight and horizontal while her loose hair drifts in a gentle breeze. Her face and torso axis remain centered in every frame.",
+            "frameCount": 16,
+            "style": "finely drawn monochrome Chinese ink-wash anime waist-up portrait, long loose black hair, symmetrical fox ears, transparent PNG spritesheet",
+            "prompt": "Use the fox-eared ink-wash girl reference as the strict identity and style anchor. Create a front-facing 16-frame 4x4 speaking loop. In every cell, the vertical centerline passes through her nose, mouth, neck, chest, and waist knot. Her anatomical left arm stays straight and horizontal at shoulder height, extending toward the viewer's right with the hand fully visible; torso and arm remain locked. Animate only clear speech mouth shapes, subtle blinking, and long loose hair flowing gently through a seamless breeze cycle.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-13T07:25:07.323Z",
+            "updatedTime": "2026-07-13T07:25:07.323Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png",
+            "rawSpritesheetPng": "/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png",
+            "generationMode": "imagegen_reference_chroma_key_alpha_matte_front_talking_hair_flow_loop",
+            "artSourcePolicy": "Visible character art, speech mouth shapes, hair motion, hand, arm, face, and fox ears were generated/redrawn as one full 4x4 raster spritesheet from the supplied references. Code only removed chroma key, cleaned alpha edges, detected the 16 real foreground components, applied one global scale and fixed body-axis anchor, packed transparent frames, and wrote metadata.",
+            "qualityPolicy": "High-detail generated bitmap source inspected on a dark checkerboard at 100% scale; no code-drawn mouth, hair, face, hand, arm, clothing, ears, or motion overlays were added.",
+            "proportionPolicy": "uniform_scale_preserve_generated_character_proportions",
+            "normalization": "1254x1254 generated 4x4 chroma-key sheet -> soft-matte chroma removal and despill -> detection of 16 real foreground components -> one shared global scale (1.364706) -> fixed head/body axis at x=256 and component center at y=256 -> 2048x2048 transparent RGBA sheet.",
+            "inputReferenceInvariant": "Same delicate pale face, large dark eyes, long loose dark hair, two triangular furry fox ears, robe, and monochrome Chinese ink-wash anime finish as the prior fox-girl asset; no hat or hood.",
+            "poseInvariant": "Front-facing waist-up camera. Face, head, neck, chest, waist knot, and torso vertical axis are fixed to frame x=256. Anatomical left arm extends toward viewer-right, straight and parallel to the ground at shoulder height, with a stable shoulder, elbow, wrist, and fully visible hand in every frame.",
+            "centeringPolicy": "body_axis_centered_x_256_in_all_16_frames; center the person rather than the total silhouette including the extended arm",
+            "motionPolicy": "Only mouth phoneme shapes, a restrained blink, and gentle hair/ear-fur breeze motion change; camera, head size, torso, arm, hand, costume, and anchor remain fixed.",
+            "fps": 10,
+            "gridColumns": 4,
+            "frameSize": [
+              512,
+              512
+            ],
+            "sheetSize": [
+              2048,
+              2048
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                64,
+                46,
+                322,
+                306
+              ],
+              [
+                368,
+                46,
+                622,
+                306
+              ],
+              [
+                665,
+                46,
+                921,
+                306
+              ],
+              [
+                956,
+                46,
+                1212,
+                306
+              ],
+              [
+                63,
+                340,
+                322,
+                602
+              ],
+              [
+                365,
+                340,
+                622,
+                602
+              ],
+              [
+                665,
+                340,
+                921,
+                602
+              ],
+              [
+                955,
+                340,
+                1212,
+                602
+              ],
+              [
+                63,
+                642,
+                321,
+                903
+              ],
+              [
+                366,
+                642,
+                622,
+                903
+              ],
+              [
+                665,
+                642,
+                921,
+                903
+              ],
+              [
+                955,
+                642,
+                1213,
+                903
+              ],
+              [
+                63,
+                938,
+                322,
+                1201
+              ],
+              [
+                366,
+                939,
+                622,
+                1201
+              ],
+              [
+                665,
+                939,
+                921,
+                1201
+              ],
+              [
+                956,
+                939,
+                1213,
+                1201
+              ]
+            ],
+            "frameBboxes": [
+              [
+                131,
+                75,
+                491,
+                435
+              ],
+              [
+                135,
+                75,
+                490,
+                435
+              ],
+              [
+                132,
+                75,
+                486,
+                435
+              ],
+              [
+                132,
+                77,
+                488,
+                435
+              ],
+              [
+                130,
+                76,
+                491,
+                438
+              ],
+              [
+                132,
+                76,
+                490,
+                438
+              ],
+              [
+                132,
+                74,
+                487,
+                438
+              ],
+              [
+                133,
+                76,
+                490,
+                438
+              ],
+              [
+                130,
+                74,
+                490,
+                437
+              ],
+              [
+                132,
+                77,
+                488,
+                437
+              ],
+              [
+                130,
+                76,
+                487,
+                437
+              ],
+              [
+                132,
+                76,
+                489,
+                437
+              ],
+              [
+                130,
+                75,
+                491,
+                439
+              ],
+              [
+                132,
+                74,
+                489,
+                438
+              ],
+              [
+                130,
+                75,
+                487,
+                438
+              ],
+              [
+                132,
+                74,
+                490,
+                438
+              ]
+            ],
+            "gridPolicy": "detect_16_real_foreground_components_then_sort_rows_and_columns",
+            "gridDetection": {
+              "mode": "connected_components",
+              "componentCount": 16,
+              "ordering": "centroid rows then columns"
+            },
+            "rootAnchorPolicy": "fixed body-axis anchor at x=256 with locked torso, shoulder, head scale, and extended-arm baseline across all 16 frames",
+            "alignmentPolicy": "head/body axis fixed at x=256; component vertical center fixed at y=256",
+            "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use fixed 512x512 cells for playback.",
+            "alphaValidation": {
+              "transparentRatio": 0.76518,
+              "greenFringeRatio": 0.0001552,
+              "frameCoverage": [
+                0.23711,
+                0.23301,
+                0.23284,
+                0.2331,
+                0.23706,
+                0.235,
+                0.23471,
+                0.23612,
+                0.23612,
+                0.23327,
+                0.23293,
+                0.2341,
+                0.23736,
+                0.23458,
+                0.23404,
+                0.23576
+              ]
+            },
+            "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+            "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/fox_girl_front_left_arm_talking_hair_flow_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+          },
+          "binding": {
+            "actionName": "talk",
+            "triggerType": "auto",
+            "triggerValue": "preview-loop",
+            "gameState": "dialogue.fox_girl_talking_left_arm_extended",
+            "notes": "Auto preview loop for the front-facing fox girl speaking while holding her left arm horizontal."
+          },
+          "loop": true,
+          "fps": 10
+        }
+      ],
+      "defaultAnimationId": "clip_fox_girl_front_left_arm_talking_hair_flow_loop",
+      "binding": {
+        "actionName": "talk",
+        "triggerType": "auto",
+        "triggerValue": "preview-loop",
+        "gameState": "dialogue.fox_girl_talking_left_arm_extended",
+        "notes": "Auto preview loop for the front-facing fox girl speaking while holding her left arm horizontal."
+      },
+      "tags": [
+        "spritesheet",
+        "front-facing",
+        "waist-up",
+        "talking",
+        "left arm extended",
+        "hair flow",
+        "fox ears",
+        "long hair",
+        "ink wash",
+        "anime",
+        "transparent",
+        "16 frames",
+        "4x4"
+      ]
+    },
+    {
+      "id": "asset_fox_girl_crying_closeup_16f",
+      "name": "Fox-Eared Ink Girl / Crying Close-up 16f",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-07-13T06:56:04.152Z",
+      "updatedTime": "2026-07-13T06:56:04.152Z",
+      "sprite": {
+        "id": "sprite_fox_girl_crying_closeup_16f",
+        "characterName": "Fox-Eared Ink Girl / Crying Close-up 16f",
+        "description": "Transparent 16-frame close-up crying loop for a long-haired fox-eared girl in monochrome Chinese ink-wash anime style. The 4x4 sheet progresses from wet eyes to falling tears and quiet sorrow.",
+        "frameCount": 16,
+        "style": "finely drawn monochrome Chinese ink-wash anime close-up portrait, long loose black hair, symmetrical fox ears, transparent PNG spritesheet",
+        "prompt": "Preserve the supplied character identity and monochrome ink-wash anime style. Remove the fur hat, use long loose dark hair, add exactly two consistent furry fox ears, and create a locked-camera 16-frame 4x4 close-up crying progression from glossy eyes to falling tears and quiet sorrow on a flat chroma-key background.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-07-13T06:56:04.152Z",
+        "updatedTime": "2026-07-13T06:56:04.152Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/fox_girl_crying_closeup_16f_sheet.png",
+        "rawSpritesheetPng": "/generated/fox_girl_crying_closeup_16f_sheet.png",
+        "generationMode": "imagegen_reference_chroma_key_alpha_matte_fox_crying_closeup_loop",
+        "artSourcePolicy": "Visible character art and expression changes were generated/redrawn as one full 4x4 raster spritesheet from the supplied references. Code only removed chroma key, cleaned alpha edges, split fixed source cells, uniformly resized each cell, packed transparent frames, and wrote metadata.",
+        "qualityPolicy": "High-detail generated bitmap source inspected on a dark checkerboard at 100% scale; no code-drawn face, eyes, tears, mouth, hair, ears, clothing, or expression changes were added.",
+        "proportionPolicy": "uniform_scale_preserve_generated_character_proportions",
+        "normalization": "1254x1254 generated 4x4 chroma-key sheet -> soft-matte chroma removal and despill -> proportional source-cell split -> uniform Lanczos resize into fixed 512x512 cells -> 2048x2048 transparent RGBA sheet.",
+        "inputReferenceInvariant": "Same delicate pale face and large dark eyes as the supplied reference; no hat or hood; long loose dark hair over both shoulders; exactly two triangular furry fox ears; monochrome Chinese ink-wash anime finish.",
+        "fps": 8,
+        "gridColumns": 4,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          2048,
+          2048
+        ],
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "sourceCells": [
+          [
+            0,
+            0,
+            314,
+            314
+          ],
+          [
+            314,
+            0,
+            627,
+            314
+          ],
+          [
+            627,
+            0,
+            940,
+            314
+          ],
+          [
+            940,
+            0,
+            1254,
+            314
+          ],
+          [
+            0,
+            314,
+            314,
+            627
+          ],
+          [
+            314,
+            314,
+            627,
+            627
+          ],
+          [
+            627,
+            314,
+            940,
+            627
+          ],
+          [
+            940,
+            314,
+            1254,
+            627
+          ],
+          [
+            0,
+            627,
+            314,
+            940
+          ],
+          [
+            314,
+            627,
+            627,
+            940
+          ],
+          [
+            627,
+            627,
+            940,
+            940
+          ],
+          [
+            940,
+            627,
+            1254,
+            940
+          ],
+          [
+            0,
+            940,
+            314,
+            1254
+          ],
+          [
+            314,
+            940,
+            627,
+            1254
+          ],
+          [
+            627,
+            940,
+            940,
+            1254
+          ],
+          [
+            940,
+            940,
+            1254,
+            1254
+          ]
+        ],
+        "frameBboxes": [
+          [
+            11,
+            3,
+            512,
+            512
+          ],
+          [
+            11,
+            0,
+            512,
+            512
+          ],
+          [
+            11,
+            1,
+            512,
+            512
+          ],
+          [
+            11,
+            3,
+            512,
+            512
+          ],
+          [
+            11,
+            1,
+            512,
+            512
+          ],
+          [
+            9,
+            0,
+            512,
+            512
+          ],
+          [
+            11,
+            3,
+            512,
+            512
+          ],
+          [
+            11,
+            3,
+            512,
+            512
+          ],
+          [
+            11,
+            4,
+            512,
+            512
+          ],
+          [
+            9,
+            0,
+            512,
+            512
+          ],
+          [
+            11,
+            4,
+            512,
+            512
+          ],
+          [
+            11,
+            4,
+            512,
+            512
+          ],
+          [
+            11,
+            3,
+            512,
+            512
+          ],
+          [
+            9,
+            3,
+            512,
+            512
+          ],
+          [
+            11,
+            4,
+            512,
+            512
+          ],
+          [
+            11,
+            3,
+            512,
+            512
+          ]
+        ],
+        "gridPolicy": "proportional_4x4_source_cells_from_generated_locked_grid",
+        "gridDetection": {
+          "mode": "proportional_fixed_grid",
+          "xBounds": [
+            0,
+            314,
+            627,
+            940,
+            1254
+          ],
+          "yBounds": [
+            0,
+            314,
+            627,
+            940,
+            1254
+          ]
+        },
+        "rootAnchorPolicy": "preserve the generated fixed portrait cell registration; locked camera, head scale, and shoulder placement across all 16 frames",
+        "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use fixed 512x512 cells for playback.",
+        "alphaValidation": {
+          "transparentRatio": 0.3245,
+          "greenFringeRatio": 0.0001688,
+          "frameCoverage": [
+            0.67252,
+            0.67524,
+            0.67476,
+            0.67215,
+            0.67609,
+            0.67821,
+            0.67676,
+            0.67485,
+            0.67472,
+            0.67701,
+            0.67645,
+            0.67387,
+            0.6753,
+            0.67784,
+            0.6772,
+            0.67505
+          ]
+        },
+        "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+        "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+      },
+      "animations": [
+        {
+          "id": "clip_fox_girl_crying_closeup_loop",
+          "name": "Fox girl crying close-up loop",
+          "actionName": "cry",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_fox_girl_crying_closeup_16f",
+            "characterName": "Fox-Eared Ink Girl / Crying Close-up 16f",
+            "description": "Transparent 16-frame close-up crying loop for a long-haired fox-eared girl in monochrome Chinese ink-wash anime style. The 4x4 sheet progresses from wet eyes to falling tears and quiet sorrow.",
+            "frameCount": 16,
+            "style": "finely drawn monochrome Chinese ink-wash anime close-up portrait, long loose black hair, symmetrical fox ears, transparent PNG spritesheet",
+            "prompt": "Preserve the supplied character identity and monochrome ink-wash anime style. Remove the fur hat, use long loose dark hair, add exactly two consistent furry fox ears, and create a locked-camera 16-frame 4x4 close-up crying progression from glossy eyes to falling tears and quiet sorrow on a flat chroma-key background.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 512 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1024 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"512 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1024 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"1536 1536 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-07-13T06:56:04.152Z",
+            "updatedTime": "2026-07-13T06:56:04.152Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/fox_girl_crying_closeup_16f_sheet.png",
+            "rawSpritesheetPng": "/generated/fox_girl_crying_closeup_16f_sheet.png",
+            "generationMode": "imagegen_reference_chroma_key_alpha_matte_fox_crying_closeup_loop",
+            "artSourcePolicy": "Visible character art and expression changes were generated/redrawn as one full 4x4 raster spritesheet from the supplied references. Code only removed chroma key, cleaned alpha edges, split fixed source cells, uniformly resized each cell, packed transparent frames, and wrote metadata.",
+            "qualityPolicy": "High-detail generated bitmap source inspected on a dark checkerboard at 100% scale; no code-drawn face, eyes, tears, mouth, hair, ears, clothing, or expression changes were added.",
+            "proportionPolicy": "uniform_scale_preserve_generated_character_proportions",
+            "normalization": "1254x1254 generated 4x4 chroma-key sheet -> soft-matte chroma removal and despill -> proportional source-cell split -> uniform Lanczos resize into fixed 512x512 cells -> 2048x2048 transparent RGBA sheet.",
+            "inputReferenceInvariant": "Same delicate pale face and large dark eyes as the supplied reference; no hat or hood; long loose dark hair over both shoulders; exactly two triangular furry fox ears; monochrome Chinese ink-wash anime finish.",
+            "fps": 8,
+            "gridColumns": 4,
+            "frameSize": [
+              512,
+              512
+            ],
+            "sheetSize": [
+              2048,
+              2048
+            ],
+            "sourceSize": [
+              1254,
+              1254
+            ],
+            "sourceCells": [
+              [
+                0,
+                0,
+                314,
+                314
+              ],
+              [
+                314,
+                0,
+                627,
+                314
+              ],
+              [
+                627,
+                0,
+                940,
+                314
+              ],
+              [
+                940,
+                0,
+                1254,
+                314
+              ],
+              [
+                0,
+                314,
+                314,
+                627
+              ],
+              [
+                314,
+                314,
+                627,
+                627
+              ],
+              [
+                627,
+                314,
+                940,
+                627
+              ],
+              [
+                940,
+                314,
+                1254,
+                627
+              ],
+              [
+                0,
+                627,
+                314,
+                940
+              ],
+              [
+                314,
+                627,
+                627,
+                940
+              ],
+              [
+                627,
+                627,
+                940,
+                940
+              ],
+              [
+                940,
+                627,
+                1254,
+                940
+              ],
+              [
+                0,
+                940,
+                314,
+                1254
+              ],
+              [
+                314,
+                940,
+                627,
+                1254
+              ],
+              [
+                627,
+                940,
+                940,
+                1254
+              ],
+              [
+                940,
+                940,
+                1254,
+                1254
+              ]
+            ],
+            "frameBboxes": [
+              [
+                11,
+                3,
+                512,
+                512
+              ],
+              [
+                11,
+                0,
+                512,
+                512
+              ],
+              [
+                11,
+                1,
+                512,
+                512
+              ],
+              [
+                11,
+                3,
+                512,
+                512
+              ],
+              [
+                11,
+                1,
+                512,
+                512
+              ],
+              [
+                9,
+                0,
+                512,
+                512
+              ],
+              [
+                11,
+                3,
+                512,
+                512
+              ],
+              [
+                11,
+                3,
+                512,
+                512
+              ],
+              [
+                11,
+                4,
+                512,
+                512
+              ],
+              [
+                9,
+                0,
+                512,
+                512
+              ],
+              [
+                11,
+                4,
+                512,
+                512
+              ],
+              [
+                11,
+                4,
+                512,
+                512
+              ],
+              [
+                11,
+                3,
+                512,
+                512
+              ],
+              [
+                9,
+                3,
+                512,
+                512
+              ],
+              [
+                11,
+                4,
+                512,
+                512
+              ],
+              [
+                11,
+                3,
+                512,
+                512
+              ]
+            ],
+            "gridPolicy": "proportional_4x4_source_cells_from_generated_locked_grid",
+            "gridDetection": {
+              "mode": "proportional_fixed_grid",
+              "xBounds": [
+                0,
+                314,
+                627,
+                940,
+                1254
+              ],
+              "yBounds": [
+                0,
+                314,
+                627,
+                940,
+                1254
+              ]
+            },
+            "rootAnchorPolicy": "preserve the generated fixed portrait cell registration; locked camera, head scale, and shoulder placement across all 16 frames",
+            "adaptiveFramePolicy": "4 columns, 4 rows, 16 active frames; use fixed 512x512 cells for playback.",
+            "alphaValidation": {
+              "transparentRatio": 0.3245,
+              "greenFringeRatio": 0.0001688,
+              "frameCoverage": [
+                0.67252,
+                0.67524,
+                0.67476,
+                0.67215,
+                0.67609,
+                0.67821,
+                0.67676,
+                0.67485,
+                0.67472,
+                0.67701,
+                0.67645,
+                0.67387,
+                0.6753,
+                0.67784,
+                0.6772,
+                0.67505
+              ]
+            },
+            "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
+            "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/fox_girl_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+          },
+          "binding": {
+            "actionName": "cry",
+            "triggerType": "auto",
+            "triggerValue": "preview-loop",
+            "gameState": "dialogue.fox_girl_crying",
+            "notes": "Auto preview loop for the fox-eared ink-wash close-up portrait."
+          },
+          "loop": true,
+          "fps": 8
+        }
+      ],
+      "defaultAnimationId": "clip_fox_girl_crying_closeup_loop",
+      "binding": {
+        "actionName": "cry",
+        "triggerType": "auto",
+        "triggerValue": "preview-loop",
+        "gameState": "dialogue.fox_girl_crying",
+        "notes": "Auto preview loop for the fox-eared ink-wash close-up portrait."
+      },
+      "tags": [
+        "spritesheet",
+        "portrait",
+        "close-up",
+        "crying",
+        "fox ears",
+        "long hair",
+        "ink wash",
+        "anime",
+        "transparent",
+        "16 frames",
+        "4x4"
+      ]
+    },
+    {
       "id": "asset_smile_orange_pajama_girl_topdown_wasd",
       "name": "Smile Orange Pajama Girl / Top-down WASD",
       "role": "player",
@@ -7750,7 +8992,7 @@
         "directional_idle_and_walk": true
       },
       "savedTime": "2026-07-07T08:09:41.623928Z",
-      "updatedTime": "2026-07-07T09:40:48.783Z",
+      "updatedTime": "2026-07-10T06:14:36.627Z",
       "layers": [
         {
           "id": "layer_smile_graduation_dark_classroom_background",
@@ -7801,9 +9043,9 @@
           "type": "sprite",
           "visible": true,
           "assetId": "asset_smile_orange_pajama_girl_topdown_wasd",
-          "activeAnimationId": "clip_smile_orange_pajama_girl_idle_left",
+          "activeAnimationId": "clip_smile_orange_pajama_girl_idle_down",
           "x": 336.81,
-          "y": 729.84,
+          "y": 642.22,
           "scale": 1.018,
           "zIndex": 42,
           "opacity": 1,
@@ -8656,7 +9898,14 @@
             "zoneHeight": 193
           }
         }
-      ]
+      ],
+      "playbackMode": "game",
+      "timeline": {
+        "durationMs": 5000,
+        "transitionDurationMs": 800,
+        "transitionType": "cut",
+        "primaryLayerId": "layer_smile_orange_pajama_girl_player"
+      }
     },
     {
       "id": "scene_dark_classroom_psych_ward_topdown",
@@ -10097,6 +11346,377 @@
       }
     }
   ],
+  "animationScenes": [
+    {
+      "version": 1,
+      "id": "animation_scene_1783728501271",
+      "kind": "animation",
+      "name": "Smile Graduation - Dark Classroom WASD Animation 2",
+      "width": 1672,
+      "height": 941,
+      "durationMs": 5000,
+      "fps": 30,
+      "backgroundColor": "#05070b",
+      "endBehavior": "hold",
+      "tracks": [
+        {
+          "id": "animation_track_background_1783728501271",
+          "name": "Background",
+          "kind": "background",
+          "clips": [
+            {
+              "id": "animation_clip_background_1783728501271",
+              "name": "Smile Graduation Dark Classroom Background",
+              "kind": "background",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "imageUrl": "/generated/smile_graduation_dark_classroom_topdown.png",
+              "loop": false,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 0,
+              "y": 0,
+              "scale": 1,
+              "opacity": 1,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 0
+        },
+        {
+          "id": "animation_track_sprite_1783728501271_0",
+          "name": "Smile Orange Pajama Girl Player",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783728501271_0",
+              "name": "Idle Down",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_smile_orange_pajama_girl_topdown_wasd",
+              "animationId": "clip_smile_orange_pajama_girl_idle_down",
+              "loop": true,
+              "fps": 6,
+              "playbackRate": 1,
+              "x": 336.81,
+              "y": 642.22,
+              "scale": 1.018,
+              "opacity": 1,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 42
+        },
+        {
+          "id": "animation_track_sprite_1783728501271_1",
+          "name": "Dialogue Zone",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783728501271_1",
+              "name": "Dialogue Zone",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_scene_e_trigger_point",
+              "animationId": "clip_eye_inspect_idle",
+              "loop": true,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 661,
+              "y": 591,
+              "scale": 0.424,
+              "opacity": 0.18,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 44
+        },
+        {
+          "id": "animation_track_sprite_1783728501271_2",
+          "name": "Dialogue Zone paste",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783728501271_2",
+              "name": "Dialogue Zone paste",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_scene_e_trigger_point",
+              "animationId": "clip_eye_inspect_idle",
+              "loop": true,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 1208,
+              "y": 552,
+              "scale": 0.424,
+              "opacity": 0.18,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 45
+        },
+        {
+          "id": "animation_track_sprite_1783728501271_3",
+          "name": "Dialogue Zone paste paste",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783728501271_3",
+              "name": "Dialogue Zone paste paste",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_scene_e_trigger_point",
+              "animationId": "clip_eye_inspect_idle",
+              "loop": true,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 1244,
+              "y": 576,
+              "scale": 0.424,
+              "opacity": 0.18,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 46
+        }
+      ],
+      "markers": [],
+      "savedTime": "2026-07-11T00:08:21.271Z",
+      "updatedTime": "2026-07-11T00:08:21.342Z"
+    },
+    {
+      "id": "animation_scene_1783667243113",
+      "kind": "animation",
+      "name": "Smile Graduation - Dark Classroom WASD Animation",
+      "width": 1672,
+      "height": 941,
+      "durationMs": 5000,
+      "fps": 30,
+      "backgroundColor": "#05070b",
+      "endBehavior": "follow-connection",
+      "tracks": [
+        {
+          "id": "animation_track_background_1783667243113",
+          "name": "Background",
+          "kind": "background",
+          "clips": [
+            {
+              "id": "animation_clip_background_1783667243113",
+              "name": "Smile Graduation Dark Classroom Background",
+              "kind": "background",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "imageUrl": "/generated/smile_graduation_dark_classroom_topdown.png",
+              "loop": false,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 0,
+              "y": 0,
+              "scale": 1,
+              "opacity": 1,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            },
+            {
+              "id": "background_clip_1783667478012_938ni",
+              "name": "Dark Classroom - Psychiatric Ward Top-down / Dark Classroom and Psych Ward Background",
+              "kind": "background",
+              "startMs": 3328,
+              "durationMs": 1038,
+              "offsetMs": 0,
+              "imageUrl": "/generated/dark_classroom_psych_ward_topdown_pixel_art_scene_v3_rpg_horror.png",
+              "loop": false,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 0,
+              "y": 0,
+              "scale": 1,
+              "opacity": 1,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 0
+        },
+        {
+          "id": "animation_track_sprite_1783667243113_0",
+          "name": "Smile Orange Pajama Girl Player",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783667243113_0",
+              "name": "Idle Down",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_smile_orange_pajama_girl_topdown_wasd",
+              "animationId": "clip_smile_orange_pajama_girl_idle_down",
+              "loop": true,
+              "fps": 6,
+              "playbackRate": 1,
+              "x": 336.81,
+              "y": 642.22,
+              "scale": 1.018,
+              "opacity": 1,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 42
+        },
+        {
+          "id": "animation_track_sprite_1783667243113_1",
+          "name": "Dialogue Zone",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783667243113_1",
+              "name": "Dialogue Zone",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_scene_e_trigger_point",
+              "animationId": "clip_eye_inspect_idle",
+              "loop": true,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 661,
+              "y": 591,
+              "scale": 0.424,
+              "opacity": 0.18,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 44
+        },
+        {
+          "id": "animation_track_sprite_1783667243113_2",
+          "name": "Dialogue Zone paste",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783667243113_2",
+              "name": "Dialogue Zone paste",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_scene_e_trigger_point",
+              "animationId": "clip_eye_inspect_idle",
+              "loop": true,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 1208,
+              "y": 552,
+              "scale": 0.424,
+              "opacity": 0.18,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 45
+        },
+        {
+          "id": "animation_track_sprite_1783667243113_3",
+          "name": "Dialogue Zone paste paste",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "animation_clip_sprite_1783667243113_3",
+              "name": "Dialogue Zone paste paste",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 5000,
+              "offsetMs": 0,
+              "assetId": "asset_scene_e_trigger_point",
+              "animationId": "clip_eye_inspect_idle",
+              "loop": true,
+              "fps": 12,
+              "playbackRate": 1,
+              "x": 1244,
+              "y": 576,
+              "scale": 0.424,
+              "opacity": 0.18,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 46
+        },
+        {
+          "id": "sprite_track_1783668549313_4aw5",
+          "name": "Smile Orange Pajama Girl / Top-down WASD",
+          "kind": "sprite",
+          "clips": [
+            {
+              "id": "sprite_clip_1783668549313_fimp9",
+              "name": "Idle Down",
+              "kind": "spritesheet",
+              "startMs": 0,
+              "durationMs": 3000,
+              "offsetMs": 0,
+              "assetId": "asset_smile_orange_pajama_girl_topdown_wasd",
+              "animationId": "clip_smile_orange_pajama_girl_idle_down",
+              "loop": true,
+              "fps": 6,
+              "playbackRate": 1,
+              "x": 962.8453608247423,
+              "y": 581.0442190009297,
+              "scale": 1,
+              "opacity": 1,
+              "fadeInMs": 0,
+              "fadeOutMs": 0
+            }
+          ],
+          "muted": false,
+          "locked": false,
+          "zIndex": 56
+        }
+      ],
+      "markers": [],
+      "savedTime": "2026-07-10T07:07:23.113Z",
+      "updatedTime": "2026-07-10T07:55:36.073Z",
+      "version": 1
+    }
+  ],
   "startUi": {
     "id": "start_ui_smile_for_graduates_light_split",
     "enabled": true,
@@ -10443,5 +12063,44 @@
       "updatedTime": "2026-07-10T03:35:47.146Z"
     }
   ],
-  "updatedTime": "2026-07-10T03:35:47.147Z"
+  "flowGraph": {
+    "version": 1,
+    "connections": [
+      {
+        "id": "flow_entry_start_ui_smile_for_graduates_light_split_scene_smile_graduation_dark_classroom_topdown_wasd",
+        "sourceNodeId": "start_ui_smile_for_graduates_light_split",
+        "targetNodeId": "scene_smile_graduation_dark_classroom_topdown_wasd",
+        "kind": "ui-navigation",
+        "trigger": "button",
+        "label": "New Game",
+        "sourceRefId": "primary-action",
+        "pauseSource": false,
+        "returnToSource": false
+      }
+    ],
+    "nodeLayouts": {
+      "scene_smile_graduation_dark_classroom_topdown_wasd": {
+        "x": 22.642858232770646,
+        "y": 3.833332061767578,
+        "width": 8.33333478655134
+      },
+      "animation_scene_1783667243113": {
+        "x": 13.40476117815291,
+        "y": 18.45833206176758,
+        "width": 10
+      },
+      "scene_dark_classroom_psych_ward_topdown": {
+        "x": 20.809524536132812,
+        "y": 31.250000000000004,
+        "width": 9
+      },
+      "scene_draft_1782692392237": {
+        "x": 40.880950927734375,
+        "y": 22.999999999999996,
+        "width": 9
+      }
+    },
+    "updatedTime": "2026-07-13T16:14:00.955Z"
+  },
+  "updatedTime": "2026-07-13T16:14:00.955Z"
 }

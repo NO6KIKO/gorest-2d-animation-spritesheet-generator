@@ -6,11 +6,10 @@ import {
   clampSceneNodeY,
   SCENE_NODE_MIN_WIDTH_PERCENT,
 } from "../model/geometry";
+import type { GameFlowNodeLayout } from "../../../types";
 import type { SceneFlowNode, SceneFlowPoint } from "../types";
 
-type SceneNodeLayout = SceneFlowPoint & {
-  width: number;
-};
+type SceneNodeLayout = GameFlowNodeLayout;
 
 type SceneNodeLayoutMap = Record<string, SceneNodeLayout>;
 
@@ -36,7 +35,9 @@ type SceneNodeResize = {
 };
 
 type UseSceneFlowLayoutOptions = {
+  initialLayouts?: SceneNodeLayoutMap;
   nodes: SceneFlowNode[];
+  onLayoutsCommit?: (layouts: SceneNodeLayoutMap) => void;
   onStatus: (message: string) => void;
 };
 
@@ -46,18 +47,31 @@ function cloneNodeLayouts(layouts: SceneNodeLayoutMap): SceneNodeLayoutMap {
   return Object.fromEntries(Object.entries(layouts).map(([nodeId, layout]) => [nodeId, { ...layout }]));
 }
 
-export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOptions) {
+function nodeLayoutsEqual(left: SceneNodeLayoutMap, right: SceneNodeLayoutMap) {
+  const leftEntries = Object.entries(left);
+  const rightKeys = Object.keys(right);
+  if (leftEntries.length !== rightKeys.length) return false;
+  return leftEntries.every(([nodeId, layout]) => {
+    const other = right[nodeId];
+    return Boolean(other && other.x === layout.x && other.y === layout.y && other.width === layout.width);
+  });
+}
+
+export function useSceneFlowLayout({ initialLayouts, nodes, onLayoutsCommit, onStatus }: UseSceneFlowLayoutOptions) {
   const railRef = useRef<HTMLDivElement | null>(null);
   const suppressNextClickRef = useRef(false);
   const nodeLayoutsRef = useRef<SceneNodeLayoutMap>({});
+  const nodeDragRef = useRef<SceneNodeDrag | null>(null);
+  const nodeResizeRef = useRef<SceneNodeResize | null>(null);
   const undoLayoutsRef = useRef<SceneNodeLayoutMap[]>([]);
   const redoLayoutsRef = useRef<SceneNodeLayoutMap[]>([]);
   const [selectedNodeId, setSelectedNodeId] = useState(nodes[0]?.id || "");
   const [nodeDrag, setNodeDrag] = useState<SceneNodeDrag | null>(null);
   const [nodeResize, setNodeResize] = useState<SceneNodeResize | null>(null);
-  const [nodeLayouts, setNodeLayouts] = useState<SceneNodeLayoutMap>({});
+  const [nodeLayouts, setNodeLayouts] = useState<SceneNodeLayoutMap>(() => cloneNodeLayouts(initialLayouts || {}));
 
   const nodeIds = useMemo(() => new Set(nodes.map(node => node.id)), [nodes]);
+  const nodeIdSignature = useMemo(() => nodes.map(node => node.id).join("\u0000"), [nodes]);
   const displayNodes = useMemo(() => nodes.map(node => {
     const layout = nodeLayouts[node.id];
     const width = clampSceneNodeWidth(layout?.width ?? node.width);
@@ -68,7 +82,9 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
       width,
     };
   }), [nodeLayouts, nodes]);
-  const activeSelectedNodeId = nodeIds.has(selectedNodeId) ? selectedNodeId : nodes[0]?.id || "";
+  const activeSelectedNodeId = selectedNodeId === ""
+    ? ""
+    : nodeIds.has(selectedNodeId) ? selectedNodeId : nodes[0]?.id || "";
 
   useEffect(() => {
     nodeLayoutsRef.current = nodeLayouts;
@@ -87,7 +103,7 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
     setNodeLayouts(currentLayouts => {
       const nextLayouts: Record<string, SceneNodeLayout> = {};
       for (const node of nodes) {
-        const existing = currentLayouts[node.id];
+        const existing = currentLayouts[node.id] || initialLayouts?.[node.id];
         if (existing) {
           const width = clampSceneNodeWidth(existing.width);
           nextLayouts[node.id] = {
@@ -97,11 +113,19 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
           };
         }
       }
+      if (nodeLayoutsEqual(currentLayouts, nextLayouts)) {
+        nodeLayoutsRef.current = currentLayouts;
+        return currentLayouts;
+      }
+      nodeLayoutsRef.current = nextLayouts;
       return nextLayouts;
     });
+  }, [initialLayouts, nodes]);
+
+  useEffect(() => {
     undoLayoutsRef.current = [];
     redoLayoutsRef.current = [];
-  }, [nodes]);
+  }, [nodeIdSignature]);
 
   const pushLayoutHistory = useCallback((previousLayouts: SceneNodeLayoutMap) => {
     undoLayoutsRef.current = [
@@ -117,7 +141,7 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
     const displayedNode = displayNodes.find(displayNode => displayNode.id === node.id) || node;
     setSelectedNodeId(node.id);
     suppressNextClickRef.current = false;
-    setNodeDrag({
+    const nextDrag = {
       nodeId: node.id,
       pointerStart,
       startX: displayedNode.x,
@@ -125,7 +149,9 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
       width: displayedNode.width,
       moved: false,
       startLayouts: cloneNodeLayouts(nodeLayoutsRef.current),
-    });
+    };
+    nodeDragRef.current = nextDrag;
+    setNodeDrag(nextDrag);
     event.currentTarget.setPointerCapture?.(event.pointerId);
   }, [displayNodes, nodeResize, pointFromClient]);
 
@@ -138,28 +164,34 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
       const moved = currentDrag.moved || Math.hypot(dx, dy) > 1;
       if (moved) {
         suppressNextClickRef.current = true;
-        setNodeLayouts(currentLayouts => ({
-          ...currentLayouts,
-          [currentDrag.nodeId]: {
-            x: clampSceneNodeX(currentDrag.startX + dx, currentDrag.width),
-            y: clampSceneNodeY(currentDrag.startY + dy),
-            width: currentDrag.width,
-          },
-        }));
+        setNodeLayouts(currentLayouts => {
+          const nextLayouts = {
+            ...currentLayouts,
+            [currentDrag.nodeId]: {
+              x: clampSceneNodeX(currentDrag.startX + dx, currentDrag.width),
+              y: clampSceneNodeY(currentDrag.startY + dy),
+              width: currentDrag.width,
+            },
+          };
+          nodeLayoutsRef.current = nextLayouts;
+          return nextLayouts;
+        });
       }
-      return { ...currentDrag, moved };
+      const nextDrag = { ...currentDrag, moved };
+      nodeDragRef.current = nextDrag;
+      return nextDrag;
     });
   }, [pointFromClient]);
 
   const finishNodeDrag = useCallback(() => {
-    setNodeDrag(currentDrag => {
-      if (currentDrag?.moved) {
-        pushLayoutHistory(currentDrag.startLayouts);
-        onStatus("Card moved.");
-      }
-      return null;
-    });
-  }, [onStatus, pushLayoutHistory]);
+    const currentDrag = nodeDragRef.current;
+    nodeDragRef.current = null;
+    setNodeDrag(null);
+    if (!currentDrag?.moved) return;
+    pushLayoutHistory(currentDrag.startLayouts);
+    onLayoutsCommit?.(cloneNodeLayouts(nodeLayoutsRef.current));
+    onStatus("Card moved.");
+  }, [onLayoutsCommit, onStatus, pushLayoutHistory]);
 
   const startNodeResize = useCallback((
     event: PointerEvent<HTMLButtonElement>,
@@ -172,9 +204,10 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
     const pointerStart = pointFromClient(event.clientX, event.clientY);
     const displayedNode = displayNodes.find(displayNode => displayNode.id === node.id) || node;
     setSelectedNodeId(node.id);
+    nodeDragRef.current = null;
     setNodeDrag(null);
     suppressNextClickRef.current = false;
-    setNodeResize({
+    const nextResize = {
       edge,
       nodeId: node.id,
       pointerStartX: pointerStart.x,
@@ -183,7 +216,9 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
       startWidth: displayedNode.width,
       moved: false,
       startLayouts: cloneNodeLayouts(nodeLayoutsRef.current),
-    });
+    };
+    nodeResizeRef.current = nextResize;
+    setNodeResize(nextResize);
     event.currentTarget.setPointerCapture?.(event.pointerId);
   }, [displayNodes, pointFromClient]);
 
@@ -211,7 +246,7 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
             width = SCENE_NODE_MIN_WIDTH_PERCENT;
           }
 
-          return {
+          const nextLayouts = {
             ...currentLayouts,
             [currentResize.nodeId]: {
               x,
@@ -219,21 +254,25 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
               width,
             },
           };
+          nodeLayoutsRef.current = nextLayouts;
+          return nextLayouts;
         });
       }
-      return { ...currentResize, moved };
+      const nextResize = { ...currentResize, moved };
+      nodeResizeRef.current = nextResize;
+      return nextResize;
     });
   }, [pointFromClient]);
 
   const finishNodeResize = useCallback(() => {
-    setNodeResize(currentResize => {
-      if (currentResize?.moved) {
-        pushLayoutHistory(currentResize.startLayouts);
-        onStatus("Card width adjusted.");
-      }
-      return null;
-    });
-  }, [onStatus, pushLayoutHistory]);
+    const currentResize = nodeResizeRef.current;
+    nodeResizeRef.current = null;
+    setNodeResize(null);
+    if (!currentResize?.moved) return;
+    pushLayoutHistory(currentResize.startLayouts);
+    onLayoutsCommit?.(cloneNodeLayouts(nodeLayoutsRef.current));
+    onStatus("Card width adjusted.");
+  }, [onLayoutsCommit, onStatus, pushLayoutHistory]);
 
   const undoNodeLayoutChange = useCallback(() => {
     const previousLayouts = undoLayoutsRef.current[undoLayoutsRef.current.length - 1];
@@ -246,11 +285,16 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
       ...redoLayoutsRef.current,
     ].slice(0, SCENE_FLOW_HISTORY_LIMIT);
     undoLayoutsRef.current = undoLayoutsRef.current.slice(0, -1);
+    nodeDragRef.current = null;
+    nodeResizeRef.current = null;
     setNodeDrag(null);
     setNodeResize(null);
-    setNodeLayouts(cloneNodeLayouts(previousLayouts));
+    const nextLayouts = cloneNodeLayouts(previousLayouts);
+    nodeLayoutsRef.current = nextLayouts;
+    setNodeLayouts(nextLayouts);
+    onLayoutsCommit?.(cloneNodeLayouts(nextLayouts));
     onStatus("Undo 2D Canvas layout.");
-  }, [onStatus]);
+  }, [onLayoutsCommit, onStatus]);
 
   const redoNodeLayoutChange = useCallback(() => {
     const nextLayouts = redoLayoutsRef.current[0];
@@ -263,11 +307,16 @@ export function useSceneFlowLayout({ nodes, onStatus }: UseSceneFlowLayoutOption
       cloneNodeLayouts(nodeLayoutsRef.current),
     ].slice(-SCENE_FLOW_HISTORY_LIMIT);
     redoLayoutsRef.current = redoLayoutsRef.current.slice(1);
+    nodeDragRef.current = null;
+    nodeResizeRef.current = null;
     setNodeDrag(null);
     setNodeResize(null);
-    setNodeLayouts(cloneNodeLayouts(nextLayouts));
+    const restoredLayouts = cloneNodeLayouts(nextLayouts);
+    nodeLayoutsRef.current = restoredLayouts;
+    setNodeLayouts(restoredLayouts);
+    onLayoutsCommit?.(cloneNodeLayouts(restoredLayouts));
     onStatus("Redo 2D Canvas layout.");
-  }, [onStatus]);
+  }, [onLayoutsCommit, onStatus]);
 
   useEffect(() => {
     if (!nodeDrag) return;

@@ -2,7 +2,6 @@ import { Eye } from "lucide-react";
 import { isAudioZoneInteraction, isCameraZoneInteraction, isDialogueZoneInteraction, isLightZoneInteraction, isPhysicsZoneInteraction } from "../../domain/scene/sceneModel";
 import type {
   GameAsset,
-  GameScene,
   InteractionCameraMode,
   InteractionPreset,
   InteractionLightBlendMode,
@@ -21,7 +20,7 @@ type LayerInteractionControlsProps = {
   interaction?: LayerInteractionSettings;
   interactionPresets: Record<string, InteractionPresetOption>;
   sceneState: Record<string, unknown>;
-  scenes: GameScene[];
+  scenes: Array<{ id: string; name: string }>;
   selectedLayer: SceneLayer;
   selectedLayerAsset?: GameAsset;
   visualLayers: SceneLayer[];

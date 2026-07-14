@@ -1,6 +1,10 @@
 export { SceneFlowCanvas } from "./components/SceneFlowCanvas";
+export { AnimationSceneEditor } from "./components/AnimationSceneEditor";
 export { SceneStartUiPanel } from "./components/SceneStartUiPanel";
 export { useSceneFlowLibraryActions } from "./hooks/useSceneFlowLibraryActions";
+export { useAnimationSceneLibraryActions } from "./hooks/useAnimationSceneLibraryActions";
+export { useSceneFlowGraphPersistence } from "./hooks/useSceneFlowGraphPersistence";
 export { buildSceneFlowNodes } from "./model/buildSceneFlowNodes";
 export type { SceneVehiclePhase } from "./hooks/useSceneFlowLibraryActions";
 export type { SceneFlowNode } from "./types";
+export type { AnimationBackgroundOption } from "./model/animationSceneEditor";

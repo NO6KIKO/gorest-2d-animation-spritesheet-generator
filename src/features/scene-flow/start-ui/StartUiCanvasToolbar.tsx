@@ -1,4 +1,4 @@
-import { Eye, EyeOff, Play, RotateCcw, Save } from "lucide-react";
+import { Eye, EyeOff, MousePointerClick, Play, RotateCcw, Save, Square } from "lucide-react";
 import type { GameStartUiEffects } from "../../../types";
 
 type StartUiCanvasToolbarProps = {
@@ -6,12 +6,14 @@ type StartUiCanvasToolbarProps = {
   designWidth: number;
   effects: GameStartUiEffects;
   isEffectsPreviewing: boolean;
+  isRuntimePreviewing: boolean;
   isProcessingArtwork: boolean;
   isSaving: boolean;
   onPreviewTransition: () => void;
   onReplayEntrance: () => void;
   onSave: () => void;
   onToggleEffectsPreview: () => void;
+  onToggleRuntimePreview: () => void;
 };
 
 export function StartUiCanvasToolbar({
@@ -19,12 +21,14 @@ export function StartUiCanvasToolbar({
   designWidth,
   effects,
   isEffectsPreviewing,
+  isRuntimePreviewing,
   isProcessingArtwork,
   isSaving,
   onPreviewTransition,
   onReplayEntrance,
   onSave,
   onToggleEffectsPreview,
+  onToggleRuntimePreview,
 }: StartUiCanvasToolbarProps) {
   return (
     <div className="scene-start-ui-canvas-toolbar">
@@ -33,7 +37,17 @@ export function StartUiCanvasToolbar({
         <span>{Math.round(designWidth)} x {Math.round(designHeight)}</span>
       </div>
       <div className="scene-start-ui-toolbar-actions">
-        <div className="scene-start-ui-preview-controls" role="group" aria-label="Effect preview controls">
+        <div className="scene-start-ui-preview-controls" role="group" aria-label="Preview controls">
+          <button
+            type="button"
+            className={`ghost-button scene-start-ui-runtime-toggle ${isRuntimePreviewing ? "active" : ""}`}
+            title={isRuntimePreviewing ? "Stop UI runtime" : "Run UI"}
+            aria-pressed={isRuntimePreviewing}
+            onClick={onToggleRuntimePreview}
+          >
+            {isRuntimePreviewing ? <Square size={14} /> : <MousePointerClick size={15} />}
+            {isRuntimePreviewing ? "Stop" : "Run UI"}
+          </button>
           <button
             type="button"
             className={`ghost-button scene-start-ui-preview-toggle ${isEffectsPreviewing ? "active" : ""}`}

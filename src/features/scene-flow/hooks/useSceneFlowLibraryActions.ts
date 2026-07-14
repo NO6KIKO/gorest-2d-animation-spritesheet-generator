@@ -1,6 +1,7 @@
 import { useRef, type Dispatch, type SetStateAction } from "react";
 import type { WorkspaceTab } from "../../../app/types";
 import { createDefaultScene, prepareSceneForEditor, sceneTimestampLabel } from "../../../domain/scene/sceneFactory";
+import { normalizeGameFlowGraph, removeNodeFromGameFlowGraph } from "../../../domain/scene/sceneFlowGraph";
 import { cloneSceneForHistory } from "../../../domain/scene/sceneHistory";
 import { isSceneVisualLayer } from "../../../domain/scene/sceneModel";
 import { normalizeStartUiCollection, normalizeStartUiSettings } from "../../../domain/scene/startUiModel";
@@ -10,7 +11,7 @@ import {
   saveGameScene,
   saveGameStartUi,
 } from "../../../services/gameLibraryApi";
-import type { GameAsset, GameScene, GameStartUiSettings } from "../../../types";
+import type { GameAsset, GameFlowGraph, GameScene, GameStartUiSettings } from "../../../types";
 import type { SceneFlowNode } from "../types";
 
 export type SceneVehiclePhase = "approaching" | "ready" | "boarded";
@@ -23,6 +24,7 @@ type UseSceneFlowLibraryActionsOptions = {
   startUis: GameStartUiSettings[];
   setActiveStartUiId: Dispatch<SetStateAction<string>>;
   setError: Dispatch<SetStateAction<string | null>>;
+  setFlowGraph: Dispatch<SetStateAction<GameFlowGraph>>;
   setIsBackpackOpen: Dispatch<SetStateAction<boolean>>;
   setIsSavingStartUi: Dispatch<SetStateAction<boolean>>;
   setNotice: Dispatch<SetStateAction<string>>;
@@ -47,6 +49,7 @@ export function useSceneFlowLibraryActions({
   startUis,
   setActiveStartUiId,
   setError,
+  setFlowGraph,
   setIsBackpackOpen,
   setIsSavingStartUi,
   setNotice,
@@ -129,6 +132,10 @@ export function useSceneFlowLibraryActions({
         ? data.library.scenes.map(prepareSceneForEditor)
         : [];
       setScenes(nextScenes);
+      setFlowGraph(currentGraph => removeNodeFromGameFlowGraph(
+        data.library.flowGraph ? normalizeGameFlowGraph(data.library.flowGraph) : currentGraph,
+        sceneId,
+      ));
       if (scene.id === sceneId) {
         const fallbackScene = nextScenes[0] || prepareSceneForEditor(createDefaultScene());
         setScene(fallbackScene);
@@ -271,6 +278,10 @@ export function useSceneFlowLibraryActions({
       const data = await deleteGameStartUi(settings.id);
       const normalizedStartUis = normalizeStartUiCollection(data.library.startUis, data.library.startUi, startUiSceneOptions);
       setStartUis(normalizedStartUis);
+      setFlowGraph(currentGraph => removeNodeFromGameFlowGraph(
+        data.library.flowGraph ? normalizeGameFlowGraph(data.library.flowGraph) : currentGraph,
+        settings.id,
+      ));
       setActiveStartUiId(normalizedStartUis[0]?.id || "start_ui_main");
       setTab("scenes");
       setNotice(`Start UI deleted: ${settings.title || "Start UI"}.`);

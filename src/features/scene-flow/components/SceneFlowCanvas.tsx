@@ -1,20 +1,31 @@
-import { CheckCircle2, Clipboard, Copy, Monitor, Plus, Scissors, Trash2 } from "lucide-react";
+import { CheckCircle2, Clipboard, Copy, Film, Link2, Monitor, Plus, Scissors, Trash2 } from "lucide-react";
 import { useEffect, useMemo, useState, type MouseEvent } from "react";
-import type { GameScene, GameStartUiSettings } from "../../../types";
+import type { AnimationScene, GameFlowConnection, GameFlowNodeLayout, GameScene, GameStartUiSettings } from "../../../types";
+import { useSceneFlowConnections } from "../hooks/useSceneFlowConnections";
 import { useSceneFlowLayout } from "../hooks/useSceneFlowLayout";
 import type { SceneFlowNode } from "../types";
+import { SceneFlowConnectionInspector } from "./SceneFlowConnectionInspector";
+import { SceneFlowConnectionsLayer } from "./SceneFlowConnectionsLayer";
 import { SceneFlowNodeCard } from "./SceneFlowNodeCard";
 
 type SceneFlowCanvasProps = {
+  connections: GameFlowConnection[];
+  nodeLayouts: Record<string, GameFlowNodeLayout>;
   nodes: SceneFlowNode[];
+  onConnectionsChange: (connections: GameFlowConnection[]) => void | Promise<void>;
+  onCreateAnimationScene: () => AnimationScene | void | Promise<AnimationScene | void>;
   onCreateScene: () => void | Promise<void>;
   onCreateStartUi: () => GameStartUiSettings | void | Promise<GameStartUiSettings | void>;
+  onDeleteAnimationScene: (node: SceneFlowNode) => void | Promise<void>;
   onDeleteScene: (node: SceneFlowNode) => void | Promise<void>;
   onDeleteStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
+  onDuplicateAnimationScene: (node: SceneFlowNode) => void | Promise<void>;
   onDuplicateScene: (node: SceneFlowNode) => void | Promise<void>;
   onDuplicateStartUi: (settings: GameStartUiSettings) => void | Promise<void>;
+  onOpenAnimationScene: (scene: AnimationScene) => void;
   onOpenScene: (node: SceneFlowNode) => void;
   onOpenStartUi: (settings: GameStartUiSettings) => void;
+  onNodeLayoutsChange: (layouts: Record<string, GameFlowNodeLayout>) => void | Promise<void>;
   onPasteScene: (scene: GameScene) => void | Promise<void>;
   onSaveCurrent: () => void;
   onStatus: (message: string) => void;
@@ -37,15 +48,23 @@ function isEditingTarget(target: EventTarget | null) {
 }
 
 export function SceneFlowCanvas({
+  connections,
+  nodeLayouts,
   nodes,
+  onConnectionsChange,
+  onCreateAnimationScene,
   onCreateScene,
   onCreateStartUi,
+  onDeleteAnimationScene,
   onDeleteScene,
   onDeleteStartUi,
+  onDuplicateAnimationScene,
   onDuplicateScene,
   onDuplicateStartUi,
+  onOpenAnimationScene,
   onOpenScene,
   onOpenStartUi,
+  onNodeLayoutsChange,
   onPasteScene,
   onSaveCurrent,
   onStatus,
@@ -67,8 +86,26 @@ export function SceneFlowCanvas({
     undoNodeLayoutChange,
     updateNodeDrag,
   } = useSceneFlowLayout({
+    initialLayouts: nodeLayouts,
     nodes,
+    onLayoutsCommit: layouts => void onNodeLayoutsChange(layouts),
     onStatus,
+  });
+  const {
+    cancelConnection,
+    connectionDraft,
+    deleteConnection,
+    selectedConnection,
+    selectedConnectionId,
+    setSelectedConnectionId,
+    startConnection,
+    updateConnection,
+  } = useSceneFlowConnections({
+    connections,
+    nodes: displayNodes,
+    onConnectionsChange,
+    onStatus,
+    railRef,
   });
   const selectedNode = useMemo(
     () => displayNodes.find(node => node.id === activeSelectedNodeId),
@@ -77,6 +114,28 @@ export function SceneFlowCanvas({
   const contextNode = contextMenu?.nodeId
     ? displayNodes.find(node => node.id === contextMenu.nodeId)
     : undefined;
+  const selectedConnectionSource = selectedConnection
+    ? displayNodes.find(node => node.id === selectedConnection.sourceNodeId)
+    : undefined;
+  const selectedConnectionTarget = selectedConnection
+    ? displayNodes.find(node => node.id === selectedConnection.targetNodeId)
+    : undefined;
+  const connectionCounts = useMemo(() => {
+    const counts = new Map<string, { incoming: number; outgoing: number }>();
+    for (const node of displayNodes) counts.set(node.id, { incoming: 0, outgoing: 0 });
+    for (const connection of connections) {
+      const source = counts.get(connection.sourceNodeId);
+      const target = counts.get(connection.targetNodeId);
+      if (source) source.outgoing += 1;
+      if (target) target.incoming += 1;
+    }
+    return counts;
+  }, [connections, displayNodes]);
+
+  const selectNode = (nodeId: string) => {
+    setSelectedConnectionId(null);
+    setSelectedNodeId(nodeId);
+  };
 
   const copyNode = (node = selectedNode) => {
     if (!node?.scene || node.isPlaceholder) {
@@ -105,6 +164,10 @@ export function SceneFlowCanvas({
   };
 
   const duplicateNode = async (node = selectedNode) => {
+    if (node?.animationScene) {
+      await onDuplicateAnimationScene(node);
+      return;
+    }
     if (node?.startUi) {
       await onDuplicateStartUi(node.startUi);
       return;
@@ -117,6 +180,10 @@ export function SceneFlowCanvas({
   };
 
   const deleteNode = async (node = selectedNode) => {
+    if (node?.animationScene) {
+      await onDeleteAnimationScene(node);
+      return;
+    }
     if (node?.startUi) {
       await onDeleteStartUi(node.startUi);
       return;
@@ -131,11 +198,15 @@ export function SceneFlowCanvas({
   const openNodeMenu = (event: MouseEvent<HTMLElement>, node: SceneFlowNode) => {
     event.preventDefault();
     event.stopPropagation();
-    setSelectedNodeId(node.id);
+    selectNode(node.id);
     setContextMenu({ x: event.clientX, y: event.clientY, nodeId: node.id });
   };
 
   const openNode = (node: SceneFlowNode) => {
+    if (node.animationScene) {
+      onOpenAnimationScene(node.animationScene);
+      return;
+    }
     if (node.startUi) {
       onOpenStartUi(node.startUi);
       return;
@@ -146,14 +217,14 @@ export function SceneFlowCanvas({
   const openStartUiEditor = async () => {
     const existingStartUiNode = displayNodes.find(node => node.startUi);
     if (existingStartUiNode?.startUi) {
-      setSelectedNodeId(existingStartUiNode.id);
+      selectNode(existingStartUiNode.id);
       onOpenStartUi(existingStartUiNode.startUi);
       return;
     }
 
     const createdStartUi = await onCreateStartUi();
     if (createdStartUi) {
-      setSelectedNodeId(createdStartUi.id);
+      selectNode(createdStartUi.id);
       onOpenStartUi(createdStartUi);
     }
   };
@@ -165,6 +236,12 @@ export function SceneFlowCanvas({
       const modifierPressed = event.ctrlKey || event.metaKey;
       const isUndo = modifierPressed && !event.altKey && key === "z" && !event.shiftKey;
       const isRedo = modifierPressed && !event.altKey && (key === "y" || (key === "z" && event.shiftKey));
+
+      if (event.key === "Escape" && connectionDraft) {
+        event.preventDefault();
+        cancelConnection();
+        return;
+      }
 
       if (isUndo || isRedo) {
         event.preventDefault();
@@ -184,7 +261,14 @@ export function SceneFlowCanvas({
         return;
       }
 
-      if ((event.key === "Backspace" || event.key === "Delete") && selectedNode?.scene && !selectedNode.isPlaceholder) {
+      if ((event.key === "Backspace" || event.key === "Delete") && selectedConnection) {
+        event.preventDefault();
+        event.stopPropagation();
+        deleteConnection(selectedConnection.id);
+        return;
+      }
+
+      if ((event.key === "Backspace" || event.key === "Delete") && (selectedNode?.scene || selectedNode?.animationScene) && !selectedNode.isPlaceholder) {
         event.preventDefault();
         event.stopPropagation();
         void deleteNode();
@@ -200,7 +284,7 @@ export function SceneFlowCanvas({
 
     window.addEventListener("keydown", onKeyDown, true);
     return () => window.removeEventListener("keydown", onKeyDown, true);
-  }, [redoNodeLayoutChange, sceneClipboard, selectedNode, undoNodeLayoutChange]);
+  }, [cancelConnection, connectionDraft, deleteConnection, redoNodeLayoutChange, sceneClipboard, selectedConnection, selectedNode, undoNodeLayoutChange]);
 
   useEffect(() => {
     if (!contextMenu) return;
@@ -225,11 +309,17 @@ export function SceneFlowCanvas({
           <CheckCircle2 size={16} /> Save Current
         </button>
         <button type="button" className="ghost-button" onClick={() => void onCreateScene()}>
-          <Plus size={16} /> New Scene
+          <Plus size={16} /> New Game Scene
+        </button>
+        <button type="button" className="ghost-button" onClick={() => void onCreateAnimationScene()}>
+          <Film size={16} /> New Animation
         </button>
         <button type="button" className="ghost-button" onClick={() => void openStartUiEditor()}>
           <Monitor size={16} /> Start UI
         </button>
+        <span className="scene-flow-toolbar-status">
+          <Link2 size={15} /> {connections.length}
+        </span>
       </div>
 
       <div className="scene-flow-canvas">
@@ -243,10 +333,26 @@ export function SceneFlowCanvas({
           onPointerMoveCapture={updateNodeDrag}
           onPointerUpCapture={finishNodeDrag}
           onPointerCancelCapture={finishNodeDrag}
+          onPointerDown={event => {
+            if (event.target === event.currentTarget) setSelectedConnectionId(null);
+          }}
         >
+          <SceneFlowConnectionsLayer
+            connections={connections}
+            draft={connectionDraft}
+            nodes={displayNodes}
+            selectedConnectionId={selectedConnectionId}
+            onSelectConnection={connectionId => {
+              setSelectedConnectionId(connectionId);
+              setSelectedNodeId("");
+            }}
+          />
           {displayNodes.map(node => (
             <SceneFlowNodeCard
               key={node.id}
+              incomingConnections={connectionCounts.get(node.id)?.incoming || 0}
+              isConnectionSource={connectionDraft?.sourceNodeId === node.id}
+              isConnectionTarget={connectionDraft?.targetNodeId === node.id}
               isMoving={draggedNodeId === node.id}
               isResizing={resizingNodeId === node.id}
               isSelected={activeSelectedNodeId === node.id}
@@ -254,12 +360,25 @@ export function SceneFlowCanvas({
               onConsumeSuppressedClick={consumeSuppressedClick}
               onContextMenu={openNodeMenu}
               onOpen={openNode}
-              onSelect={setSelectedNodeId}
+              onSelect={selectNode}
+              onStartConnection={startConnection}
               onStartNodeDrag={startNodeDrag}
               onStartResize={startNodeResize}
+              outgoingConnections={connectionCounts.get(node.id)?.outgoing || 0}
             />
           ))}
         </div>
+
+        {selectedConnection && (
+          <SceneFlowConnectionInspector
+            connection={selectedConnection}
+            sourceNode={selectedConnectionSource}
+            targetNode={selectedConnectionTarget}
+            onClose={() => setSelectedConnectionId(null)}
+            onDelete={() => deleteConnection(selectedConnection.id)}
+            onUpdate={patch => updateConnection(selectedConnection.id, patch)}
+          />
+        )}
 
         {contextMenu && (
           <div
@@ -302,7 +421,7 @@ export function SceneFlowCanvas({
             </button>
             <button
               type="button"
-              disabled={!contextNode || contextNode.isPlaceholder || (!contextNode.scene && !contextNode.startUi)}
+              disabled={!contextNode || contextNode.isPlaceholder || (!contextNode.scene && !contextNode.animationScene && !contextNode.startUi)}
               onClick={() => {
                 void duplicateNode(contextNode);
                 setContextMenu(null);
@@ -314,7 +433,7 @@ export function SceneFlowCanvas({
             <button
               type="button"
               className="danger"
-              disabled={!contextNode || contextNode.isPlaceholder || (!contextNode.scene && !contextNode.startUi)}
+              disabled={!contextNode || contextNode.isPlaceholder || (!contextNode.scene && !contextNode.animationScene && !contextNode.startUi)}
               onClick={() => {
                 void deleteNode(contextNode);
                 setContextMenu(null);
@@ -326,7 +445,7 @@ export function SceneFlowCanvas({
         )}
 
         <div className="scene-flow-empty-note">
-          {`${nodes.length} cards in this canvas`}
+          {`${nodes.length} cards · ${connections.length} connections`}
         </div>
       </div>
 

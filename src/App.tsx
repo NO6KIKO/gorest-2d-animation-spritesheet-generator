@@ -52,6 +52,8 @@ import {
   createDefaultScene,
   prepareSceneForEditor,
 } from "./domain/scene/sceneFactory";
+import { createDefaultAnimationScene, normalizeAnimationScene } from "./domain/scene/animationSceneModel";
+import { createEmptyGameFlowGraph, inferGameFlowGraph, normalizeGameFlowGraph } from "./domain/scene/sceneFlowGraph";
 import { normalizeStartUiCollection, normalizeStartUiSettings } from "./domain/scene/startUiModel";
 import { normalizeSceneTimeline, scenePlaybackMode, sceneTimeline } from "./domain/scene/sceneTimeline";
 import {
@@ -69,7 +71,17 @@ import { CurrentActionPanel } from "./features/current-action";
 import { SceneBackgroundLayer, SceneGlobalControls, SceneLightingStrip, SceneStageCanvas, SceneStageEnvironment, SceneStageOverlays, SceneToolbar, SceneVisualLayerStack, useSceneHistory, useSceneRuntimeInteractions, useSceneStageLayout, useSceneStagePointerInteractions, type SceneCameraVisualEffect, type SceneDialogueOverlayState, type SceneHeldDirection, type SceneInteractionPromptEntry } from "./features/scene-editor";
 import { SceneInspectorPanel } from "./features/scene-inspector";
 import { SceneLayerControlsPanel, SceneLayerRail, useSceneLayerClipboard } from "./features/scene-layers";
-import { buildSceneFlowNodes, SceneFlowCanvas, SceneStartUiPanel, useSceneFlowLibraryActions, type SceneVehiclePhase } from "./features/scene-flow";
+import {
+  AnimationSceneEditor,
+  buildSceneFlowNodes,
+  SceneFlowCanvas,
+  SceneStartUiPanel,
+  useAnimationSceneLibraryActions,
+  useSceneFlowGraphPersistence,
+  useSceneFlowLibraryActions,
+  type AnimationBackgroundOption,
+  type SceneVehiclePhase,
+} from "./features/scene-flow";
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { SceneSpritesheetCard, SceneSpritesheetsEmptyState, SceneSpritesheetsHeader, type SceneSpritesheetEntry } from "./features/scene-spritesheets";
 import { ModePicker } from "./features/mode-picker";
@@ -95,12 +107,16 @@ import { clamp } from "./shared/math";
 import {
   ActionBinding,
   ActionTriggerType,
+  AnimationScene,
   AnimationSprite,
   AssetRole,
   GameAsset,
+  GameFlowGraph,
   GameLibrary,
   GameScene,
   GameStartUiSettings,
+  SceneTransitionType,
+  StartUiRuntimeActionId,
 } from "./types";
 
 type ScenePanelResizeHandle = "layers" | "inspector";
@@ -116,6 +132,11 @@ type SceneContextMenuState = {
   layerId: string;
   target: SceneObjectTarget;
 };
+type SceneTransitionRuntimeState = {
+  id: number;
+  type: Exclude<SceneTransitionType, "cut">;
+  durationMs: number;
+};
 export default function App() {
   const [sprites, setSprites] = useState<AnimationSprite[]>(PRESET_SPRITES);
   const [activeSprite, setActiveSprite] = useState<AnimationSprite>(PRESET_SPRITES[0]);
@@ -123,7 +144,11 @@ export default function App() {
   const [repositoryImages, setRepositoryImages] = useState<RepositoryGeneratedImage[]>([]);
   const [scenes, setScenes] = useState<GameScene[]>([]);
   const [scene, setScene] = useState<GameScene>(() => prepareSceneForEditor(createDefaultScene()));
+  const [animationScenes, setAnimationScenes] = useState<AnimationScene[]>([]);
+  const [animationScene, setAnimationScene] = useState<AnimationScene>(() => createDefaultAnimationScene());
+  const [animationRunToken, setAnimationRunToken] = useState(0);
   const [startUis, setStartUis] = useState<GameStartUiSettings[]>(() => [normalizeStartUiSettings(undefined)]);
+  const [flowGraph, setFlowGraph] = useState<GameFlowGraph>(() => createEmptyGameFlowGraph());
   const [activeStartUiId, setActiveStartUiId] = useState("start_ui_main");
   const [selectedLayerId, setSelectedLayerId] = useState<string>("layer_ground");
   const [selectedInteractionZoneLayerId, setSelectedInteractionZoneLayerId] = useState<string | null>(null);
@@ -162,6 +187,7 @@ export default function App() {
   const [sceneContextMenu, setSceneContextMenu] = useState<SceneContextMenuState | null>(null);
   const [isLayerLibraryOpen, setIsLayerLibraryOpen] = useState(false);
   const [isSavingStartUi, setIsSavingStartUi] = useState(false);
+  const [isSavingAnimationScene, setIsSavingAnimationScene] = useState(false);
   const [sheetOnlyHasSelection, setSheetOnlyHasSelection] = useState(false);
   const [sheetOnlySelectionKind, setSheetOnlySelectionKind] = useState<SheetOnlySelectionKind>(null);
   const [sheetOnlySelectionTitle, setSheetOnlySelectionTitle] = useState("");
@@ -170,6 +196,7 @@ export default function App() {
   const [interactionToast, setInteractionToast] = useState("");
   const [activeDialogue, setActiveDialogue] = useState<SceneDialogueOverlayState | null>(null);
   const [cameraEffect, setCameraEffect] = useState<SceneCameraVisualEffect | null>(null);
+  const [sceneTransitionRuntime, setSceneTransitionRuntime] = useState<SceneTransitionRuntimeState | null>(null);
   const [isBackpackOpen, setIsBackpackOpen] = useState(false);
   const [vehiclePhase, setVehiclePhase] = useState<SceneVehiclePhase>("approaching");
   const [notice, setNotice] = useState("Confirmed spritesheets can be saved as game action assets.");
@@ -179,6 +206,11 @@ export default function App() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const sceneStateRef = useRef<GameScene>(scene);
   const selectedLayerIdRef = useRef(selectedLayerId);
+  const sceneTransitionTimersRef = useRef<number[]>([]);
+
+  useEffect(() => () => {
+    sceneTransitionTimersRef.current.forEach(timerId => window.clearTimeout(timerId));
+  }, []);
 
   useSceneHistory({
     enabled: tab === "scene",
@@ -370,16 +402,52 @@ export default function App() {
     });
     return Array.from(sceneMap.values());
   }, [scene, scenes]);
+  const animationBackgroundOptions = useMemo<AnimationBackgroundOption[]>(() => {
+    const options = new Map<string, AnimationBackgroundOption>();
+    [scene, ...scenes].forEach(sceneOption => {
+      sceneOption.layers
+        .filter(layer => layer.type === "background" && layer.imageUrl)
+        .forEach(layer => {
+          const imageUrl = layer.imageUrl!;
+          if (!options.has(imageUrl)) {
+            options.set(imageUrl, {
+              id: `scene-background:${sceneOption.id}:${layer.id}`,
+              label: `${sceneOption.name} / ${layer.name || "Background"}`,
+              imageUrl,
+            });
+          }
+        });
+    });
+    repositoryImages.forEach(image => {
+      if (!options.has(image.url)) {
+        options.set(image.url, {
+          id: `repository-background:${image.name}`,
+          label: image.name,
+          imageUrl: image.url,
+        });
+      }
+    });
+    return Array.from(options.values());
+  }, [repositoryImages, scene, scenes]);
   const hasVisibleBackgroundImage = Boolean(backgroundLayer?.visible && backgroundLayer.imageUrl);
   const sceneFlowNodes = useMemo(() => buildSceneFlowNodes({
+    animationScenes,
     currentScene: scene,
     currentBackground: backgroundLayer,
     savedScenes: savedSceneCards,
     startUis,
-  }), [backgroundLayer, savedSceneCards, scene, startUis]);
+  }), [animationScenes, backgroundLayer, savedSceneCards, scene, startUis]);
   const activeStartUi = useMemo(() => (
     startUis.find(settings => settings.id === activeStartUiId) || startUis[0] || normalizeStartUiSettings(undefined, startUiSceneOptions)
   ), [activeStartUiId, startUiSceneOptions, startUis]);
+  const {
+    updateFlowConnections,
+    updateFlowNodeLayouts,
+  } = useSceneFlowGraphPersistence({
+    flowGraph,
+    setError,
+    setFlowGraph,
+  });
   const {
     createStartUiNode,
     deleteSceneNode,
@@ -400,6 +468,7 @@ export default function App() {
     startUis,
     setActiveStartUiId,
     setError,
+    setFlowGraph,
     setIsBackpackOpen,
     setIsSavingStartUi,
     setNotice,
@@ -410,6 +479,106 @@ export default function App() {
     setTab,
     setVehiclePhase,
   });
+  const {
+    createAnimationSceneNode,
+    deleteAnimationSceneNode,
+    duplicateAnimationSceneNode,
+    loadAnimationScene,
+    saveCurrentAnimationScene,
+  } = useAnimationSceneLibraryActions({
+    animationScene,
+    animationScenes,
+    assets,
+    sourceScene: scene,
+    setAnimationRunToken,
+    setAnimationScene,
+    setAnimationScenes,
+    setError,
+    setFlowGraph,
+    setIsSaving: setIsSavingAnimationScene,
+    setNotice,
+    setTab,
+  });
+
+  const playSceneTransition = (activate: () => void, previewOnly = false) => {
+    sceneTransitionTimersRef.current.forEach(timerId => window.clearTimeout(timerId));
+    sceneTransitionTimersRef.current = [];
+
+    const transitionType = currentSceneTimeline.transitionType;
+    const durationMs = Math.max(0, currentSceneTimeline.transitionDurationMs);
+    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (transitionType === "cut" || durationMs === 0 || reduceMotion) {
+      if (!previewOnly) activate();
+      setSceneTransitionRuntime(null);
+      return;
+    }
+
+    const runtime: SceneTransitionRuntimeState = {
+      id: Date.now(),
+      type: transitionType,
+      durationMs,
+    };
+    setSceneTransitionRuntime(runtime);
+
+    const switchTimer = window.setTimeout(() => {
+      if (!previewOnly) activate();
+    }, Math.round(durationMs * 0.5));
+    const finishTimer = window.setTimeout(() => {
+      setSceneTransitionRuntime(current => current?.id === runtime.id ? null : current);
+      sceneTransitionTimersRef.current = [];
+    }, durationMs);
+    sceneTransitionTimersRef.current = [switchTimer, finishTimer];
+  };
+
+  const activateFlowTarget = (targetNodeId: string, runAnimation = true, connectionKind?: string) => {
+    const targetScene = startUiSceneOptions.find(sceneOption => sceneOption.id === targetNodeId);
+    if (targetScene) {
+      playSceneTransition(() => loadSavedScene(targetScene));
+      return true;
+    }
+    const targetAnimationScene = animationScenes.find(sceneOption => sceneOption.id === targetNodeId);
+    if (targetAnimationScene) {
+      playSceneTransition(() => loadAnimationScene(targetAnimationScene, runAnimation));
+      return true;
+    }
+    const targetStartUi = startUis.find(startUi => startUi.id === targetNodeId);
+    if (targetStartUi) {
+      playSceneTransition(() => {
+        setActiveStartUiId(targetStartUi.id);
+        setTab("start-ui");
+        setNotice(`${connectionKind === "ui-overlay" ? "UI overlay" : "UI opened"}: ${targetStartUi.title}`);
+      });
+      return true;
+    }
+    return false;
+  };
+
+  const runStartUiAction = (actionId: StartUiRuntimeActionId) => {
+    const outgoingConnections = flowGraph.connections.filter(connection => connection.sourceNodeId === activeStartUi.id);
+    const explicitConnection = outgoingConnections.find(connection => connection.sourceRefId === actionId);
+    const fallbackConnection = actionId === "primary-action"
+      ? outgoingConnections.find(connection => (
+          connection.kind === "ui-navigation"
+          && (startUiSceneOptions.some(sceneOption => sceneOption.id === connection.targetNodeId)
+            || animationScenes.some(sceneOption => sceneOption.id === connection.targetNodeId))
+        ))
+      : undefined;
+    const targetNodeId = explicitConnection?.targetNodeId
+      || fallbackConnection?.targetNodeId
+      || (actionId === "primary-action" ? activeStartUi.initialSceneId : undefined);
+
+    if (targetNodeId && activateFlowTarget(targetNodeId, true, explicitConnection?.kind)) return;
+
+    setNotice(`No target connected for ${actionId.replace("-action", "")}.`);
+  };
+  const runNextAnimationConnection = (completedScene: AnimationScene) => {
+    const outgoingConnections = flowGraph.connections.filter(item => (
+      item.sourceNodeId === completedScene.id && item.kind === "scene-transition"
+    ));
+    const connection = outgoingConnections.find(item => item.trigger === "auto") || outgoingConnections[0];
+    if (connection && activateFlowTarget(connection.targetNodeId, true, connection.kind)) return;
+    setNotice(`Animation finished: ${completedScene.name}. Connect its output to choose what runs next.`);
+  };
   const sceneFrameCount = useMemo(() => {
     return scene.layers.reduce((maxFrameCount, layer) => {
       if (!layer.visible || !isSceneVisualLayer(layer)) return maxFrameCount;
@@ -534,6 +703,7 @@ export default function App() {
     heldDirection,
     interactionToast,
     loadSavedScene,
+    openSceneLinkTarget: targetId => activateFlowTarget(targetId, true),
     nearbyInteraction,
     sceneStateRef,
     scenes,
@@ -617,7 +787,15 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const hasBuiltInSceneKitLayer = scene.layers.some(layer => layer.assetId && BUILT_IN_SCENE_KIT_ASSET_IDS.has(layer.assetId));
+    const hasBuiltInSceneKitLayer = scene.layers.some(layer => (
+      layer.assetId
+      && BUILT_IN_SCENE_KIT_ASSET_IDS.has(layer.assetId)
+      && layer.interaction?.preset !== "light-zone"
+      && layer.interaction?.preset !== "audio-zone"
+      && layer.interaction?.preset !== "camera-zone"
+      && layer.interaction?.preset !== "dialogue-zone"
+      && !layer.id.startsWith("layer_reusable_zone_")
+    ));
     if (!hasBuiltInSceneKitLayer) return;
     setScene(prev => prepareSceneForEditor(prev));
     setIsBackpackOpen(false);
@@ -638,14 +816,25 @@ export default function App() {
       if (Array.isArray(libraryData.assets)) setAssets(libraryData.assets);
       setRepositoryImages(generatedFiles);
       const normalizedStartUis = normalizeStartUiCollection(libraryData.startUis, libraryData.startUi, libraryData.scenes || []);
+      const normalizedScenes = Array.isArray(libraryData.scenes)
+        ? libraryData.scenes.map(prepareSceneForEditor)
+        : [];
+      const normalizedAnimationScenes = Array.isArray(libraryData.animationScenes)
+        ? libraryData.animationScenes.map(normalizeAnimationScene)
+        : [];
       setStartUis(normalizedStartUis);
+      setAnimationScenes(normalizedAnimationScenes);
+      if (normalizedAnimationScenes.length) setAnimationScene(normalizedAnimationScenes[0]);
+      setFlowGraph(libraryData.flowGraph
+        ? normalizeGameFlowGraph(libraryData.flowGraph)
+        : inferGameFlowGraph(normalizedScenes, normalizedStartUis));
       setActiveStartUiId(current => normalizedStartUis.some(settings => settings.id === current)
         ? current
         : normalizedStartUis[0]?.id || "start_ui_main");
-      if (Array.isArray(libraryData.scenes) && libraryData.scenes.length) {
-        const firstScene = libraryData.scenes[0];
-        setScenes(libraryData.scenes.map(prepareSceneForEditor));
-        setScene(prepareSceneForEditor(firstScene));
+      if (normalizedScenes.length) {
+        const firstScene = normalizedScenes[0];
+        setScenes(normalizedScenes);
+        setScene(firstScene);
         setSelectedLayerId("");
       }
     });
@@ -753,8 +942,11 @@ export default function App() {
 
   return (
     <Fragment>
-      <div className={`blueprint-app ${tab === "scenes" || tab === "scene" || tab === "start-ui" ? "core-mode" : ""}`}>
-      <main className={`game-workspace ${tab === "scenes" || tab === "scene" || tab === "start-ui" ? "simple-workspace" : ""}`}>
+      <div
+        className={`blueprint-app ${tab === "scenes" || tab === "scene" || tab === "animation-scene" || tab === "start-ui" ? "core-mode" : ""} ${sceneTransitionRuntime?.type === "dissolve" ? "scene-transition-dissolve" : ""}`}
+        style={sceneTransitionRuntime?.type === "dissolve" ? { animationDuration: `${sceneTransitionRuntime.durationMs}ms` } : undefined}
+      >
+      <main className={`game-workspace ${tab === "scenes" || tab === "scene" || tab === "animation-scene" || tab === "start-ui" ? "simple-workspace" : ""}`}>
         <aside className="panel left-panel utility-panel">
           <CurrentActionPanel
             activeFrame={activeFrame}
@@ -827,7 +1019,9 @@ export default function App() {
                 setTab("sheet");
                 if (!activeSprite.spritesheetPng && !sheetDataUrl) await compileSheet();
               }}
+              onSaveAnimationScene={saveCurrentAnimationScene}
               onSaveScene={saveScene}
+              onStartNewAnimationScene={createAnimationSceneNode}
               onStartNewScene={startNewScene}
               onTabChange={setTab}
               onViewportHeightChange={height => updateSceneFrame({ viewportHeight: height, viewportPreset: "custom" })}
@@ -840,13 +1034,20 @@ export default function App() {
 
             {tab === "scenes" && (
               <SceneFlowCanvas
+                connections={flowGraph.connections}
+                nodeLayouts={flowGraph.nodeLayouts}
                 nodes={sceneFlowNodes}
+                onConnectionsChange={updateFlowConnections}
+                onCreateAnimationScene={createAnimationSceneNode}
                 onCreateScene={startNewScene}
                 onCreateStartUi={createStartUiNode}
+                onDeleteAnimationScene={deleteAnimationSceneNode}
                 onDeleteScene={deleteSceneNode}
                 onDeleteStartUi={deleteStartUiNode}
+                onDuplicateAnimationScene={duplicateAnimationSceneNode}
                 onDuplicateScene={duplicateSceneNode}
                 onDuplicateStartUi={duplicateStartUiNode}
+                onOpenAnimationScene={sceneToOpen => loadAnimationScene(sceneToOpen)}
                 onOpenStartUi={settings => {
                   setActiveStartUiId(settings.id);
                   setTab("start-ui");
@@ -859,6 +1060,7 @@ export default function App() {
                   if (node.scene && !node.isCurrent) loadSavedScene(node.scene);
                   setTab("scene");
                 }}
+                onNodeLayoutsChange={updateFlowNodeLayouts}
                 onPasteScene={pasteSceneNode}
                 onSaveCurrent={saveCompletedScene}
                 onStatus={setNotice}
@@ -870,7 +1072,26 @@ export default function App() {
                 isSaving={isSavingStartUi}
                 scenes={startUiSceneOptions}
                 settings={activeStartUi}
+                onRunAction={runStartUiAction}
                 onSave={saveStartUiSettings}
+              />
+            )}
+
+            {tab === "animation-scene" && (
+              <AnimationSceneEditor
+                assets={assets}
+                backgroundOptions={animationBackgroundOptions}
+                repositoryImages={repositoryImages}
+                isSaving={isSavingAnimationScene}
+                runToken={animationRunToken}
+                scene={animationScene}
+                onChange={nextScene => {
+                  setAnimationScene(nextScene);
+                  setAnimationScenes(current => current.map(item => item.id === nextScene.id ? nextScene : item));
+                }}
+                onRunRequestConsumed={() => setAnimationRunToken(0)}
+                onRunComplete={runNextAnimationConnection}
+                onSave={saveCurrentAnimationScene}
               />
             )}
 
@@ -1089,6 +1310,7 @@ export default function App() {
                     onDownloadSpritePng={() => selectedLayerSpriteSource && selectedLayerSprite && downloadUrl(selectedLayerSpriteSource, `spritesheet_${safeName(selectedLayerSprite.characterName)}.png`)}
                     onPlayingChange={setIsPlaying}
                     onPlaybackModeChange={updateScenePlaybackMode}
+                    onPreviewTransition={() => playSceneTransition(() => undefined, true)}
                     onRebuildSpriteGrid={rebuildSelectedSpritesheetGrid}
                     onRestartSpritePreview={() => {
                       if (!selectedLayerSprite) return;
@@ -1233,8 +1455,8 @@ export default function App() {
                 actionBindingText={`${triggerLabels[binding.triggerType]} / ${binding.triggerValue} / ${binding.gameState}`}
                 assetCount={assets.length}
                 currentActionText={`${activeSprite.characterName} / ${activeSprite.frames.length} frames / ${frameW} x ${frameH}`}
-                sceneCount={scenes.length}
-                onExportLibrary={() => downloadJson({ assets, scenes: [scene] }, "game_asset_library_export.json")}
+                sceneCount={scenes.length + animationScenes.length}
+                onExportLibrary={() => downloadJson({ assets, scenes: [scene], animationScenes, flowGraph, startUis }, "game_asset_library_export.json")}
               />
             )}
           </div>
@@ -1296,7 +1518,7 @@ export default function App() {
             sceneHeight={scene.height}
             sceneState={scene.state || {}}
             sceneWidth={scene.width}
-            scenes={scenes}
+            scenes={[...startUiSceneOptions, ...animationScenes]}
             selectedLayer={selectedLayer}
             selectedLayerAsset={selectedLayerAsset}
             selectedLayerClip={selectedLayerClip}
@@ -1358,6 +1580,14 @@ export default function App() {
         />
       )}
       </div>
+      {sceneTransitionRuntime && sceneTransitionRuntime.type !== "dissolve" && (
+        <div
+          key={sceneTransitionRuntime.id}
+          aria-hidden="true"
+          className={`scene-transition-overlay ${sceneTransitionRuntime.type}`}
+          style={{ animationDuration: `${sceneTransitionRuntime.durationMs}ms` }}
+        />
+      )}
       <CommunityHelp />
     </Fragment>
   );

@@ -447,6 +447,9 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
 }
+.scene-mode-toggle.single {
+  grid-template-columns: minmax(0, 1fr);
+}
 .scene-mode-toggle button {
   min-height: 34px;
   padding: 0 8px;
@@ -476,6 +479,74 @@
   color: #263746;
   font-size: 10px;
   font-weight: 850;
+}
+.scene-transition-presets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.scene-transition-presets button {
+  min-height: 48px;
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  gap: 2px;
+  padding: 6px 8px;
+  border: 1px solid #7f8993;
+  border-radius: 0;
+  background: #fff;
+  color: #17202a;
+  text-align: left;
+}
+.scene-transition-presets button:hover {
+  transform: none;
+  border-color: #17202a;
+}
+.scene-transition-presets button.active {
+  border-color: #17202a;
+  background: #17202a;
+  color: #fff;
+}
+.scene-transition-presets button strong {
+  font-size: 11px;
+}
+.scene-transition-presets button span {
+  font-size: 9px;
+  font-weight: 750;
+  opacity: .72;
+}
+.scene-transition-duration {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+}
+.scene-transition-duration input {
+  min-width: 0;
+}
+.scene-transition-duration b {
+  min-width: 36px;
+  color: #586675;
+  font-size: 10px;
+  text-align: right;
+}
+.scene-transition-preview-button {
+  min-height: 32px;
+  border: 1px solid #333;
+  border-radius: 0;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 850;
+}
+.scene-transition-preview-button:hover {
+  transform: none;
+  background: #f0f0f0;
+}
+.scene-transition-layer-count {
+  color: #66727e;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 .compact-dual-fields {
   display: grid;
