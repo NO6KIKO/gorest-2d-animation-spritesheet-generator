@@ -4,6 +4,9 @@ An open-source, no-UI 2D game and animation generative platform for turning conc
 
 We open-sourced this 2D platform to make game creation simpler, and we will keep improving it in public. We welcome your support, feedback, and contributions.
 
+> [!TIP]
+> **Don't want to set up a local environment?** Use the hosted version at **[sprite.gorest.ai](https://sprite.gorest.ai/)** — sign in and generate game-ready, transparent spritesheets directly in your browser. No installation, no API keys, no configuration.
+
 > **Tip for Codex users:** You do not need to connect an extra API to customize this tool. Open this repo in Codex and point it at this document or the codebase, then describe what you want to change. Codex can update the software directly.
 >
 > This is a combination of dynamic software and a no-UI workflow: instead of operating fixed controls inside an interface, you describe the tool or workflow you need, and the agent changes the tool to match.
@@ -17,6 +20,8 @@ We open-sourced this 2D platform to make game creation simpler, and we will keep
 </p>
 
 <div align="center">
+  <a href="https://sprite.gorest.ai/"><strong>Try It Online</strong></a>
+  &nbsp;|&nbsp;
   <a href="https://gorest.ai/"><strong>Official Website</strong></a>
   &nbsp;|&nbsp;
   <a href="https://discord.gg/6xjFbau6T"><strong>Join the Gorest Discord</strong></a>
@@ -360,5 +365,20 @@ A: Follow the 'Quick Start' section in the README to install Node.js, clone the 
 **Q: Can I use this project for commercial purposes?**  
 A: The source code is available under the MIT License. The included media assets are demo/project preview materials and are not licensed for separate commercial reuse unless explicitly stated otherwise.
 
+**Q: I'm not comfortable setting up a local dev environment. Is there an easier way?**  
+A: Yes. The hosted version at [sprite.gorest.ai](https://sprite.gorest.ai/) runs entirely in the browser — sign in and start generating spritesheets without installing anything.
+
 **Q: How can I report a bug?**  
 A: Please open an issue in the GitHub repository with a detailed description of the bug and steps to reproduce it.
+
+## Star History
+
+If this project helps you, please consider giving it a ⭐ — it really helps the project grow.
+
+<a href="https://www.star-history.com/#NO6KIKO/gorest-2d-animation-spritesheet-generator&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=Date" />
+  </picture>
+</a>
