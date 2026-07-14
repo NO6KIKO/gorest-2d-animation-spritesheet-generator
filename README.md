@@ -384,11 +384,3 @@ A: Please open an issue in the GitHub repository with a detailed description of 
 ## Star History
 
 If this project helps you, please consider giving it a ⭐ — it really helps the project grow.
-
-<a href="https://www.star-history.com/#NO6KIKO/gorest-2d-animation-spritesheet-generator&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NO6KIKO/gorest-2d-animation-spritesheet-generator&type=Date" />
-  </picture>
-</a>
