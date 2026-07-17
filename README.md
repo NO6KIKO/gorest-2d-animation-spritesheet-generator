@@ -24,7 +24,7 @@ We open-sourced this 2D platform to make game creation simpler, and we will keep
   &nbsp;|&nbsp;
   <a href="https://gorest.ai/"><strong>Official Website</strong></a>
   &nbsp;|&nbsp;
-  <a href="https://discord.gg/6xjFbau6T"><strong>Join the Gorest Discord</strong></a>
+  <a href="https://discord.gg/rBS93CV6N"><strong>Join the Gorest Discord</strong></a>
 </div>
 
 ## Star History

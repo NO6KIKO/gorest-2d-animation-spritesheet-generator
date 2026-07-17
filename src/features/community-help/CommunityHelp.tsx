@@ -2,7 +2,7 @@ import { HelpCircle, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 import "./community-help.css";
 
-const DISCORD_URL = "https://discord.gg/6xjFbau6T";
+const DISCORD_URL = "https://discord.gg/rBS93CV6N";
 
 export function CommunityHelp() {
   const [isOpen, setIsOpen] = useState(false);
