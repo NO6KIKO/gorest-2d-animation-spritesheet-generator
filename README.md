@@ -123,11 +123,26 @@ npm install
 
 ### 4. Optional Environment File
 
-The current local workflow does not require an API key. If you later enable cloud image generation, copy the example env file and add your own key:
+The current local workflow does not require an API key. To use the optional Atlas Cloud spritesheet API, copy the example env file and add your own key:
 
 ```bash
 cp .env.example .env.local
 ```
+
+Set `ATLASCLOUD_API_KEY` in `.env.local`, then request one complete 12-frame or
+16-frame sheet through the existing server endpoint:
+
+```bash
+curl -X POST http://localhost:3000/api/spritesheet/generate \
+  -H "Content-Type: application/json" \
+  -d '{"provider":"atlas-cloud","prompt":"a knight running","style":"painted game sprite","frameCount":12}'
+```
+
+The server submits and polls Atlas Cloud's asynchronous image API, downloads
+the finished PNG into `public/generated/`, and returns the same `frames` and
+`spritesheetSvg` response fields as local generation. Atlas Cloud generation
+currently accepts text prompts only; reference-image requests should continue
+to use the default local provider.
 
 On Windows PowerShell:
 
@@ -382,5 +397,4 @@ A: Yes. The hosted version at [sprite.gorest.ai](https://sprite.gorest.ai/) runs
 
 **Q: How can I report a bug?**  
 A: Please open an issue in the GitHub repository with a detailed description of the bug and steps to reproduce it.
-
 
