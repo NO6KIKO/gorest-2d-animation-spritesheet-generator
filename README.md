@@ -192,6 +192,48 @@ This project is organized around a game-scene authoring workflow rather than a s
 8. Save the completed scene.
    Save the scene once the background, character, props, spritesheets, and metadata feel correct.
 
+## Fake 3D Object Rotation
+
+Gorest can present a 2D spritesheet like a rotatable 3D object. This is a **Fake 3D** workflow: it does not load a real-time 3D model. Instead, it switches between pre-rendered views of the same object as the user drags the preview. This keeps the result lightweight, transparent-background friendly, and ready for 2D games.
+
+To try the included example:
+
+1. Open the `Spritesheet Only` gallery.
+2. Select `Cute Gray Raccoon / Three-Row Turntable 48 Views`.
+3. Hold the left mouse button over the large preview.
+4. Drag left or right to rotate through the object's horizontal angles.
+5. Drag up or down to change the camera elevation.
+6. Select `Auto rotate` to play the current elevation as a continuous turntable animation. Select `Stop rotate` to return to manual control.
+
+The preview HUD shows the active azimuth and elevation. The included raccoon uses 16 horizontal angles at each of three elevations (`+30°`, `0°`, and `-30°`), for a total of 48 views. The download menu can export the spritesheet, a GIF, or a video.
+
+### Fake 3D Asset Metadata
+
+An asset becomes draggable in the Fake 3D viewer when its sprite metadata uses `viewMode: "object-rotate"`. The frames are ordered by elevation row, with all horizontal angles for one elevation placed before the next row.
+
+```json
+{
+  "frameCount": 48,
+  "gridColumns": 16,
+  "viewMode": "object-rotate",
+  "viewAzimuthFrames": 16,
+  "viewElevationFrames": 3,
+  "viewElevationAngles": [30, 0, -30],
+  "viewInitialAzimuth": 0,
+  "viewInitialElevation": 1,
+  "viewDragSensitivity": 18,
+  "viewVerticalDragSensitivity": 58
+}
+```
+
+- `viewAzimuthFrames` sets the number of horizontal rotation views in each row.
+- `viewElevationFrames` sets the number of camera-elevation rows.
+- `viewElevationAngles` supplies the displayed angle for each row, in row order.
+- `viewInitialAzimuth` and `viewInitialElevation` choose the initial view.
+- The two sensitivity values control how far the pointer must move before the viewer changes frames.
+
+For the cleanest rotation, keep the object identity, scale, lighting, center anchor, and ground contact consistent in every frame. Use equal frame dimensions and preserve transparent padding around the complete silhouette.
+
 ## Prompt Examples for Codex
 
 These prompts are written for Codex. They describe the scene, the spritesheet, the visual mood, and the exact editor changes Codex should make.
