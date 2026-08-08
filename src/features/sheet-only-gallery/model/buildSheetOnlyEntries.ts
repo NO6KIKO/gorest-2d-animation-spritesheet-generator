@@ -29,8 +29,9 @@ export function buildSheetOnlyEntries({
     return true;
   };
   const addSprite = (sprite: AnimationSprite | undefined, title: string, meta: string, asset?: GameAsset) => {
-    if (!sprite?.frames?.length) return;
+    if (!sprite || spriteFrameTotal(sprite) <= 0) return;
     const source = sprite.rawSpritesheetPng || sprite.spritesheetPng;
+    if (!source && !sprite.frames?.length) return;
     if (!remember([`sprite:${sprite.id}`, source ? `url:${source}` : undefined])) return;
     entries.push({
       key: `sprite_${sprite.id}`,
@@ -54,11 +55,24 @@ export function buildSheetOnlyEntries({
       });
       return;
     }
-    addSprite(asset.sprite, asset.name, `${asset.role} / ${spriteFrameTotal(asset.sprite)} frames`, asset);
+    addSprite(
+      asset.sprite,
+      asset.name,
+      asset.sprite.viewMode === "object-rotate"
+        ? `${(asset.sprite.viewElevationFrames || 1) > 1 ? "720° full-view" : "360° rotate"} / ${spriteFrameTotal(asset.sprite)} views`
+        : `${asset.role} / ${spriteFrameTotal(asset.sprite)} frames`,
+      asset
+    );
   });
 
   sprites.forEach(sprite => {
-    addSprite(sprite, sprite.characterName, `${spriteFrameTotal(sprite)} frames`);
+    addSprite(
+      sprite,
+      sprite.characterName,
+      sprite.viewMode === "object-rotate"
+        ? `${(sprite.viewElevationFrames || 1) > 1 ? "720° full-view" : "360° rotate"} / ${spriteFrameTotal(sprite)} views`
+        : `${spriteFrameTotal(sprite)} frames`
+    );
   });
 
   repositoryImages.forEach(image => {

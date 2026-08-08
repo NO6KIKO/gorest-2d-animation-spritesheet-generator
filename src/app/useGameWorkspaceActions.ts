@@ -45,7 +45,7 @@ import {
   reorderSceneLayerStack,
   type SceneObjectTarget,
 } from "../domain/scene/sceneLayerOperations";
-import { getFrameSize, spriteFrame } from "../domain/sprites/spriteUtils";
+import { getFrameSize, spriteFrame, spriteFrameTotal } from "../domain/sprites/spriteUtils";
 import { compileSpritesheetImage } from "../domain/sprites/spriteCanvas";
 import { deleteGameAsset, saveGameAsset } from "../services/gameLibraryApi";
 import { saveGeneratedImage, type RepositoryGeneratedImage } from "../services/generatedAssetsApi";
@@ -617,7 +617,7 @@ export function useGameWorkspaceActions({
   };
 
   const selectSheetOnlySprite = (previewSprite: AnimationSprite, title = previewSprite.characterName, asset?: GameAsset) => {
-    if (!previewSprite?.frames.length) return;
+    if (!previewSprite || spriteFrameTotal(previewSprite) <= 0) return;
     const defaultClip = asset?.animations?.find(clip => clip.id === asset.defaultAnimationId) || asset?.animations?.[0];
     setActiveSprite(previewSprite);
     setActiveFrame(0);
@@ -626,7 +626,7 @@ export function useGameWorkspaceActions({
     setSheetOnlySelectionKind("sprite");
     setSheetOnlySelectionTitle(title);
     setSheetOnlySelectedAssetId(asset?.id || null);
-    setSheetColumns(previewSprite.gridColumns || Math.min(4, previewSprite.frames.length || 4));
+    setSheetColumns(previewSprite.gridColumns || Math.min(4, spriteFrameTotal(previewSprite) || 4));
     setSheetDataUrl(previewSprite.spritesheetPng || previewSprite.rawSpritesheetPng || null);
     if (asset) {
       setRole(asset.role);

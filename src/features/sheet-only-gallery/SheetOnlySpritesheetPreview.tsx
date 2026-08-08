@@ -1,5 +1,5 @@
 import { ChevronDown, Download, FileImage, Film, Pause, Play, RotateCcw, Trash2, Video } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { downloadUrl } from "../../app/downloads";
 import {
   getFrameSize,
@@ -22,6 +22,14 @@ type SheetSize = {
 type ViewportSize = {
   width: number;
   height: number;
+};
+
+type ObjectRotateDrag = {
+  pointerId: number;
+  startX: number;
+  startY: number;
+  startAzimuth: number;
+  startElevation: number;
 };
 
 type SheetOnlySpritesheetPreviewProps = {
@@ -49,6 +57,21 @@ export type SheetOnlyRecolorSaveRequest = {
 };
 
 const SOURCE_PREVIEW_MAX_HEIGHT = 296;
+
+function wrapIndex(value: number, total: number) {
+  const safeTotal = Math.max(1, total);
+  return ((value % safeTotal) + safeTotal) % safeTotal;
+}
+
+function objectRotateInitialFrame(sprite?: AnimationSprite) {
+  if (sprite?.viewMode !== "object-rotate") return 0;
+  const frameTotal = Math.max(1, spriteFrameTotal(sprite));
+  const azimuthFrames = Math.max(1, Math.min(frameTotal, Math.round(sprite.viewAzimuthFrames || frameTotal)));
+  const elevationFrames = Math.max(1, Math.min(Math.ceil(frameTotal / azimuthFrames), Math.round(sprite.viewElevationFrames || 1)));
+  const azimuth = wrapIndex(Math.round(sprite.viewInitialAzimuth || 0), azimuthFrames);
+  const elevation = Math.max(0, Math.min(elevationFrames - 1, Math.round(sprite.viewInitialElevation || 0)));
+  return Math.min(frameTotal - 1, elevation * azimuthFrames + azimuth);
+}
 
 function clampFrameSize(value: number, max: number) {
   if (!Number.isFinite(value)) return 1;
@@ -190,14 +213,16 @@ export function SheetOnlySpritesheetPreview({
   const [sheetSize, setSheetSize] = useState<SheetSize | null>(() => spriteSheetSize(sprite));
   const [frameWidth, setFrameWidth] = useState(initialFrameSize[0]);
   const [frameHeight, setFrameHeight] = useState(initialFrameSize[1]);
-  const [frameIndex, setFrameIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [frameIndex, setFrameIndex] = useState(() => objectRotateInitialFrame(sprite));
+  const [isPlaying, setIsPlaying] = useState(() => sprite?.viewMode !== "object-rotate");
+  const [isObjectRotateDragging, setIsObjectRotateDragging] = useState(false);
   const [isDownloadMenuOpen, setIsDownloadMenuOpen] = useState(false);
   const [exportStatus, setExportStatus] = useState<"" | "gif" | "video">("");
   const [downloadError, setDownloadError] = useState("");
   const [viewportSize, setViewportSize] = useState<ViewportSize>({ width: 0, height: 0 });
   const [recolorPreviewUrl, setRecolorPreviewUrl] = useState<string | null>(null);
   const [recolorChanges, setRecolorChanges] = useState<SpritePaletteChange[]>([]);
+  const objectRotateDragRef = useRef<ObjectRotateDrag | null>(null);
 
   useEffect(() => {
     const nextSheetSize = spriteSheetSize(sprite);
@@ -205,8 +230,10 @@ export function SheetOnlySpritesheetPreview({
     setSheetSize(nextSheetSize);
     setFrameWidth(nextFrameWidth);
     setFrameHeight(nextFrameHeight);
-    setFrameIndex(0);
-    setIsPlaying(true);
+    setFrameIndex(objectRotateInitialFrame(sprite));
+    setIsPlaying(sprite?.viewMode !== "object-rotate");
+    setIsObjectRotateDragging(false);
+    objectRotateDragRef.current = null;
     setIsDownloadMenuOpen(false);
     setDownloadError("");
     setRecolorPreviewUrl(null);
@@ -268,6 +295,24 @@ export function SheetOnlySpritesheetPreview({
   const knownSpriteTotal = spriteFrameTotal(sprite);
   const frameTotal = knownSpriteTotal ? Math.min(knownSpriteTotal, sheetFrameTotal) : sheetFrameTotal;
   const activeFrameIndex = Math.min(frameIndex, Math.max(0, frameTotal - 1));
+  const isObjectRotate = sprite?.viewMode === "object-rotate";
+  const objectRotateAzimuthFrames = isObjectRotate
+    ? Math.max(1, Math.min(frameTotal, Math.round(sprite.viewAzimuthFrames || frameTotal)))
+    : frameTotal;
+  const objectRotateElevationFrames = isObjectRotate
+    ? Math.max(1, Math.min(Math.ceil(frameTotal / objectRotateAzimuthFrames), Math.round(sprite.viewElevationFrames || 1)))
+    : 1;
+  const objectRotateAzimuth = activeFrameIndex % objectRotateAzimuthFrames;
+  const objectRotateElevation = Math.min(
+    objectRotateElevationFrames - 1,
+    Math.floor(activeFrameIndex / objectRotateAzimuthFrames)
+  );
+  const objectRotateAzimuthDegrees = Math.round(objectRotateAzimuth / objectRotateAzimuthFrames * 360);
+  const objectRotateElevationDegrees = sprite?.viewElevationAngles?.[objectRotateElevation]
+    ?? (objectRotateElevationFrames <= 1
+      ? 0
+      : Math.round(60 - objectRotateElevation / (objectRotateElevationFrames - 1) * 120));
+  const objectRotateElevationLabel = `${objectRotateElevationDegrees > 0 ? "+" : ""}${objectRotateElevationDegrees}°`;
   const frameColumn = activeFrameIndex % columns;
   const frameRow = Math.floor(activeFrameIndex / columns);
   const previewSize = viewportSize.width && viewportSize.height
@@ -277,7 +322,53 @@ export function SheetOnlySpritesheetPreview({
   const downloadSourceUrl = displayedSheetDataUrl || sprite?.rawSpritesheetPng || sprite?.spritesheetPng || "";
   const downloadBaseName = safeFilename(title || sprite?.characterName || "spritesheet");
   const activeSpriteFrame = !recolorPreviewUrl && sprite ? spriteFrame(sprite, activeFrameIndex) : "";
-  const canDeleteFrame = Boolean(sprite && onDeleteFrame && frameTotal > 1);
+  const canDeleteFrame = Boolean(sprite?.frames?.length && onDeleteFrame && frameTotal > 1);
+
+  const handleObjectRotatePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!isObjectRotate || frameTotal <= 1 || event.button !== 0) return;
+    event.preventDefault();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    objectRotateDragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      startAzimuth: objectRotateAzimuth,
+      startElevation: objectRotateElevation,
+    };
+    setIsPlaying(false);
+    setIsObjectRotateDragging(true);
+  };
+
+  const handleObjectRotatePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = objectRotateDragRef.current;
+    if (!isObjectRotate || !drag || drag.pointerId !== event.pointerId) return;
+    event.preventDefault();
+    const horizontalSensitivity = Math.max(4, Math.round(sprite?.viewDragSensitivity || 18));
+    const verticalSensitivity = Math.max(
+      12,
+      Math.round(sprite?.viewVerticalDragSensitivity || horizontalSensitivity * 3)
+    );
+    const azimuthStep = Math.round((event.clientX - drag.startX) / horizontalSensitivity);
+    // Turntable dragging follows direct manipulation: moving the pointer up
+    // moves toward the lower sheet rows, while moving it down moves upward.
+    const elevationStep = -Math.round((event.clientY - drag.startY) / verticalSensitivity);
+    const nextAzimuth = wrapIndex(drag.startAzimuth + azimuthStep, objectRotateAzimuthFrames);
+    const nextElevation = Math.max(
+      0,
+      Math.min(objectRotateElevationFrames - 1, drag.startElevation + elevationStep)
+    );
+    setFrameIndex(Math.min(frameTotal - 1, nextElevation * objectRotateAzimuthFrames + nextAzimuth));
+  };
+
+  const finishObjectRotateDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const drag = objectRotateDragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture?.(event.pointerId);
+    }
+    objectRotateDragRef.current = null;
+    setIsObjectRotateDragging(false);
+  };
 
   useEffect(() => {
     setFrameIndex(value => Math.min(value, Math.max(0, frameTotal - 1)));
@@ -286,10 +377,18 @@ export function SheetOnlySpritesheetPreview({
   useEffect(() => {
     if (!isPlaying || frameTotal <= 1 || !displayedSheetDataUrl) return;
     const id = window.setInterval(() => {
-      setFrameIndex(value => (value + 1) % frameTotal);
+      setFrameIndex(value => {
+        if (!isObjectRotate) return (value + 1) % frameTotal;
+        const elevation = Math.min(
+          objectRotateElevationFrames - 1,
+          Math.floor(value / objectRotateAzimuthFrames)
+        );
+        const azimuth = wrapIndex(value + 1, objectRotateAzimuthFrames);
+        return Math.min(frameTotal - 1, elevation * objectRotateAzimuthFrames + azimuth);
+      });
     }, Math.max(80, Math.round(1000 / Math.max(1, sprite?.fps || 8))));
     return () => window.clearInterval(id);
-  }, [displayedSheetDataUrl, frameTotal, isPlaying, sprite?.fps]);
+  }, [displayedSheetDataUrl, frameTotal, isObjectRotate, isPlaying, objectRotateAzimuthFrames, objectRotateElevationFrames, sprite?.fps]);
 
   const previewImageStyle: CSSProperties | undefined = displayedSheetDataUrl && sheetSize ? {
     height: `${(sheetSize.height / safeFrameHeight) * 100}%`,
@@ -373,13 +472,18 @@ export function SheetOnlySpritesheetPreview({
       <section className="sheet-only-preview-stage" aria-label="Spritesheet frame preview">
         {displayedSheetDataUrl ? (
           <div
-            className="sheet-only-frame-preview"
+            className={`sheet-only-frame-preview ${isObjectRotate ? "object-rotate" : ""} ${isObjectRotateDragging ? "dragging" : ""}`}
+            onPointerDown={handleObjectRotatePointerDown}
+            onPointerMove={handleObjectRotatePointerMove}
+            onPointerUp={finishObjectRotateDrag}
+            onPointerCancel={finishObjectRotateDrag}
             style={{
               ...checkerStyle,
               aspectRatio: `${safeFrameWidth} / ${safeFrameHeight}`,
               height: previewSize ? `${previewSize.height}px` : undefined,
               width: previewSize ? `${previewSize.width}px` : undefined,
             }}
+            title={isObjectRotate ? "Hold the left mouse button and drag to rotate" : undefined}
           >
             {activeSpriteFrame ? (
               <div className="sheet-only-frame-svg" dangerouslySetInnerHTML={{ __html: activeSpriteFrame }} />
@@ -387,6 +491,12 @@ export function SheetOnlySpritesheetPreview({
               <img src={displayedSheetDataUrl} alt={`${title} frame ${activeFrameIndex + 1}`} style={previewImageStyle} />
             ) : (
               <img src={displayedSheetDataUrl} alt={`${title} spritesheet`} />
+            )}
+            {isObjectRotate && (
+              <div className="sheet-only-object-rotate-hud" aria-hidden="true">
+                <span>Drag ↔ / ↕ to rotate</span>
+                <strong>{objectRotateAzimuthDegrees}° · {objectRotateElevationLabel}</strong>
+              </div>
             )}
           </div>
         ) : (
@@ -472,7 +582,11 @@ export function SheetOnlySpritesheetPreview({
         <section className="sheet-only-controls" aria-label="Spritesheet slicing controls">
           <div className="sheet-only-preview-copy">
             <strong>{title}</strong>
-            <span>{activeFrameIndex + 1} / {frameTotal} frames / {columns} x {rows} grid</span>
+            <span>
+              {isObjectRotate
+                ? `${activeFrameIndex + 1} / ${frameTotal} views / ${objectRotateAzimuthDegrees}° azimuth / ${objectRotateElevationLabel} elevation`
+                : `${activeFrameIndex + 1} / ${frameTotal} frames / ${columns} x ${rows} grid`}
+            </span>
           </div>
           <div className="sheet-only-download-control">
             <button
@@ -505,7 +619,7 @@ export function SheetOnlySpritesheetPreview({
           </div>
           <button type="button" className="sheet-only-icon-button" onClick={() => setIsPlaying(value => !value)}>
             {isPlaying ? <Pause size={15} /> : <Play size={15} />}
-            {isPlaying ? "Pause" : "Play"}
+            {isObjectRotate ? (isPlaying ? "Stop rotate" : "Auto rotate") : (isPlaying ? "Pause" : "Play")}
           </button>
           <button type="button" className="sheet-only-icon-button" onClick={handleAutoSize} disabled={!sheetSize}>
             <RotateCcw size={15} /> Auto

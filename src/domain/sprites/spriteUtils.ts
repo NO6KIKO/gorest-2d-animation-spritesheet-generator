@@ -12,7 +12,19 @@ export function getFrameSize(sprite: AnimationSprite): [number, number] {
 
 export function spriteFrame(sprite: AnimationSprite, frameIndex: number) {
   const frames = sprite.frames || [];
-  return frames[frameIndex % Math.max(1, frames.length)] || frames[0] || "";
+  const storedFrame = frames[frameIndex % Math.max(1, frames.length)] || frames[0];
+  if (storedFrame) return storedFrame;
+
+  const source = sprite.rawSpritesheetPng || sprite.spritesheetPng;
+  const total = sprite.frameCount || 0;
+  const [frameWidth, frameHeight] = getFrameSize(sprite);
+  const [sheetWidth, sheetHeight] = sprite.sheetSize || [];
+  if (!source || total <= 0 || !sheetWidth || !sheetHeight) return "";
+  const columns = spriteGridColumns(sprite);
+  const safeIndex = ((frameIndex % total) + total) % total;
+  const x = (safeIndex % columns) * frameWidth;
+  const y = Math.floor(safeIndex / columns) * frameHeight;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${frameWidth}" height="${frameHeight}" viewBox="${x} ${y} ${frameWidth} ${frameHeight}" overflow="hidden"><image href="${source}" x="0" y="0" width="${sheetWidth}" height="${sheetHeight}" preserveAspectRatio="none"/></svg>`;
 }
 
 export function spriteFrameTotal(sprite?: AnimationSprite) {

@@ -1,6 +1,87 @@
 {
   "assets": [
     {
+      "id": "asset_cute_gray_raccoon_720_rotate_48v",
+      "name": "Cute Gray Raccoon / Three-Row Turntable 48 Views",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-08-06T12:00:00.000Z",
+      "updatedTime": "2026-08-06T18:30:00.000Z",
+      "sprite": {
+        "id": "sprite_cute_gray_raccoon_720_rotate_48v",
+        "characterName": "Cute Gray Raccoon / Three-Row Turntable",
+        "description": "A cute chubby gray raccoon arranged as three long turntable rows, each containing 16 continuous horizontal azimuth views at a distinct camera elevation.",
+        "frameCount": 48,
+        "style": "polished cute stylized 3D game-character render, soft gray sculpted fur, crisp transparent silhouette",
+        "prompt": "Use the cute gray raccoon reference as a strict identity anchor. Render three independently drawn elevation layers at +30, 0, and -30 degrees. Each long row contains 16 unique horizontal azimuth views ordered from 0 through 337.5 degrees in 22.5-degree steps. Preserve identity, proportions, pose, materials, lighting, scale, and stable frame registration; prohibit duplicated or skipped horizontal angles. Keep the complete silhouette, including ears, feet, and tail, within about 75% of every source cell and preserve at least 12% flat chroma-key background on all four sides; never touch or cross a cell boundary.",
+        "frames": [],
+        "createdTime": "2026-08-06T12:00:00.000Z",
+        "updatedTime": "2026-08-06T18:30:00.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/cute_gray_raccoon_720_80v.png",
+        "rawSpritesheetPng": "/generated/cute_gray_raccoon_720_80v.png",
+        "generationMode": "object-rotate",
+        "artSourcePolicy": "All visible raccoon art in the five elevation layers was rendered by image generation from a strict identity reference. Code only removed chroma key, cleaned small alpha remnants, measured cells, applied one global uniform scale, normalized anchors, and packed the final sheet.",
+        "qualityPolicy": "Three drawn raster elevation layers are arranged as three long rows. Horizontal slots follow a declared 22.5-degree manifest, vertical rows visibly change camera elevation without code-based warping or rotation, and the final packed frames retain at least 28px transparent padding.",
+        "proportionPolicy": "one_global_uniform_scale_0.824281_preserve_generated_proportions",
+        "normalization": "Three selected drawn elevation layers (+30, 0, -30) -> fixed head/body anchor x=160 and baseline y=289 -> minimum measured final margins left=49, top=28, right=50, bottom=29 -> 48 fixed 320x320 frames packed as a long 16x3 turntable.",
+        "inputReferenceInvariant": "Same round gray raccoon head, charcoal eye mask, large friendly eyes, pale muzzle and belly, short paws, chubby proportions, striped tail, stripe count, palette, neutral pose, lighting, and sculpted-fur render style across all three elevations.",
+        "rootAnchorPolicy": "head_body_axis_x_160_and_visible_baseline_y_289_in_all_48_frames",
+        "safePadding": 28,
+        "safeFramePolicy": "global_uniform_scale_around_shared_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "Reject future generated source cells within 2px of a detected cell edge; regenerate because normalization cannot restore missing art. This legacy source records 25 risks in its manifest.",
+        "sourceEdgeRiskCount": 25,
+        "gridDetection": "Each 1254x1254 source uses proportional 4x4 cell bounds followed by per-cell alpha bbox and top-body weighted center measurement; see /generated/cute_gray_raccoon_720_80v_manifest.json.",
+        "rawElevationSheets": [
+          "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_p30_raw.png",
+          "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_0_raw.png",
+          "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_n30_raw.png"
+        ],
+        "fps": 8,
+        "gridColumns": 16,
+        "frameSize": [
+          320,
+          320
+        ],
+        "sheetSize": [
+          5120,
+          960
+        ],
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "viewMode": "object-rotate",
+        "viewAzimuthFrames": 16,
+        "viewElevationFrames": 3,
+        "viewElevationAngles": [
+          30,
+          0,
+          -30
+        ],
+        "viewInitialAzimuth": 0,
+        "viewInitialElevation": 1,
+        "viewDragSensitivity": 18,
+        "viewVerticalDragSensitivity": 58
+      },
+      "binding": {
+        "actionName": "rotate-view",
+        "triggerType": "mouse",
+        "triggerValue": "left-drag",
+        "gameState": "spritesheet-only",
+        "notes": "Hold the left mouse button over the preview. Drag horizontally through 16 azimuth slots and vertically through three camera-elevation rows."
+      },
+      "tags": [
+        "raccoon",
+        "cute",
+        "gray",
+        "720-view",
+        "80-views",
+        "object-rotate",
+        "spritesheet"
+      ]
+    },
+    {
       "id": "asset_fox_girl_front_left_arm_talking_hair_flow_16f",
       "name": "Fox-Eared Ink Girl / Front Talking, Left Arm Extended 16f",
       "role": "npc",

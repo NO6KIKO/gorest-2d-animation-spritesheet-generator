@@ -1,0 +1,2731 @@
+{
+  "version": 3,
+  "frameCount": 48,
+  "azimuthFrames": 16,
+  "elevationAngles": [
+    30,
+    0,
+    -30
+  ],
+  "frameSize": [
+    320,
+    320
+  ],
+  "packColumns": 16,
+  "sheetSize": [
+    5120,
+    960
+  ],
+  "globalScale": 0.8242811501597445,
+  "headAnchorX": 160.0,
+  "baselineY": 289.0,
+  "rawSheets": [
+    {
+      "elevation": 60,
+      "path": "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_p60_raw.png"
+    },
+    {
+      "elevation": 30,
+      "path": "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_p30_raw.png"
+    },
+    {
+      "elevation": 0,
+      "path": "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_0_raw.png"
+    },
+    {
+      "elevation": -30,
+      "path": "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_n30_raw.png"
+    },
+    {
+      "elevation": -60,
+      "path": "/generated/sources/cute_gray_raccoon_720/cute_gray_raccoon_720_elev_n60_raw.png"
+    }
+  ],
+  "frames": [
+    {
+      "elevation": 30,
+      "azimuth": 0.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "bbox": [
+        87,
+        75,
+        260,
+        307
+      ],
+      "headAnchorX": 173.15105636334937,
+      "normalizedPlacement": [
+        88,
+        96,
+        146,
+        195
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        0,
+        0,
+        320,
+        320
+      ],
+      "sourceMargins": {
+        "left": 87,
+        "top": 75,
+        "right": 54,
+        "bottom": 7
+      },
+      "sourceEdgeRisk": false,
+      "frame": 0,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20281,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 22.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "bbox": [
+        46,
+        74,
+        240,
+        313
+      ],
+      "headAnchorX": 157.2023044718815,
+      "normalizedPlacement": [
+        68,
+        89,
+        164,
+        200
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        320,
+        0,
+        640,
+        320
+      ],
+      "sourceMargins": {
+        "left": 46,
+        "top": 74,
+        "right": 73,
+        "bottom": 1
+      },
+      "sourceEdgeRisk": true,
+      "frame": 1,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21616,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 45.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "bbox": [
+        20,
+        66,
+        218,
+        314
+      ],
+      "headAnchorX": 142.22979470648204,
+      "normalizedPlacement": [
+        59,
+        82,
+        166,
+        209
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        640,
+        0,
+        960,
+        320
+      ],
+      "sourceMargins": {
+        "left": 20,
+        "top": 66,
+        "right": 95,
+        "bottom": 0
+      },
+      "sourceEdgeRisk": true,
+      "frame": 2,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21243,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 67.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "bbox": [
+        18,
+        64,
+        218,
+        314
+      ],
+      "headAnchorX": 146.55948545816864,
+      "normalizedPlacement": [
+        53,
+        80,
+        169,
+        211
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        960,
+        0,
+        1280,
+        320
+      ],
+      "sourceMargins": {
+        "left": 18,
+        "top": 64,
+        "right": 96,
+        "bottom": 0
+      },
+      "sourceEdgeRisk": true,
+      "frame": 3,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 21192,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 90.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "bbox": [
+        49,
+        43,
+        251,
+        308
+      ],
+      "headAnchorX": 170.7694079891355,
+      "normalizedPlacement": [
+        59,
+        69,
+        170,
+        222
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1280,
+        0,
+        1600,
+        320
+      ],
+      "sourceMargins": {
+        "left": 49,
+        "top": 43,
+        "right": 63,
+        "bottom": 5
+      },
+      "sourceEdgeRisk": false,
+      "frame": 4,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 19944,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 112.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "bbox": [
+        28,
+        45,
+        212,
+        311
+      ],
+      "headAnchorX": 129.49297264907904,
+      "normalizedPlacement": [
+        75,
+        67,
+        155,
+        224
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1600,
+        0,
+        1920,
+        320
+      ],
+      "sourceMargins": {
+        "left": 28,
+        "top": 45,
+        "right": 101,
+        "bottom": 2
+      },
+      "sourceEdgeRisk": true,
+      "frame": 5,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21569,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 135.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "bbox": [
+        32,
+        45,
+        206,
+        312
+      ],
+      "headAnchorX": 128.03617397374433,
+      "normalizedPlacement": [
+        79,
+        66,
+        148,
+        225
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1920,
+        0,
+        2240,
+        320
+      ],
+      "sourceMargins": {
+        "left": 32,
+        "top": 45,
+        "right": 107,
+        "bottom": 1
+      },
+      "sourceEdgeRisk": true,
+      "frame": 6,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21437,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 157.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "bbox": [
+        22,
+        0,
+        214,
+        311
+      ],
+      "headAnchorX": 130.15177632006996,
+      "normalizedPlacement": [
+        68,
+        30,
+        164,
+        261
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2240,
+        0,
+        2560,
+        320
+      ],
+      "sourceMargins": {
+        "left": 22,
+        "top": 0,
+        "right": 100,
+        "bottom": 2
+      },
+      "sourceEdgeRisk": true,
+      "frame": 7,
+      "repackComponentCleanup": {
+        "componentCount": 4,
+        "mainComponentPixels": 21604,
+        "removedComponentPixels": 58
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 180.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "bbox": [
+        84,
+        44,
+        257,
+        302
+      ],
+      "headAnchorX": 170.37585481250693,
+      "normalizedPlacement": [
+        88,
+        74,
+        146,
+        217
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2560,
+        0,
+        2880,
+        320
+      ],
+      "sourceMargins": {
+        "left": 84,
+        "top": 44,
+        "right": 57,
+        "bottom": 11
+      },
+      "sourceEdgeRisk": false,
+      "frame": 8,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 22174,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 202.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "bbox": [
+        65,
+        36,
+        246,
+        290
+      ],
+      "headAnchorX": 144.50691973576838,
+      "normalizedPlacement": [
+        94,
+        77,
+        153,
+        214
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2880,
+        0,
+        3200,
+        320
+      ],
+      "sourceMargins": {
+        "left": 65,
+        "top": 36,
+        "right": 67,
+        "bottom": 23
+      },
+      "sourceEdgeRisk": false,
+      "frame": 9,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 22060,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 225.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "bbox": [
+        57,
+        33,
+        240,
+        296
+      ],
+      "headAnchorX": 136.46550053311276,
+      "normalizedPlacement": [
+        94,
+        69,
+        154,
+        222
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3200,
+        0,
+        3520,
+        320
+      ],
+      "sourceMargins": {
+        "left": 57,
+        "top": 33,
+        "right": 73,
+        "bottom": 17
+      },
+      "sourceEdgeRisk": false,
+      "frame": 10,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 21983,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 247.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "bbox": [
+        47,
+        38,
+        244,
+        300
+      ],
+      "headAnchorX": 126.88734646103559,
+      "normalizedPlacement": [
+        92,
+        70,
+        167,
+        221
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3520,
+        0,
+        3840,
+        320
+      ],
+      "sourceMargins": {
+        "left": 47,
+        "top": 38,
+        "right": 70,
+        "bottom": 13
+      },
+      "sourceEdgeRisk": false,
+      "frame": 11,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20891,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 270.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "bbox": [
+        86,
+        11,
+        291,
+        276
+      ],
+      "headAnchorX": 165.12627368816723,
+      "normalizedPlacement": [
+        94,
+        69,
+        173,
+        222
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3840,
+        0,
+        4160,
+        320
+      ],
+      "sourceMargins": {
+        "left": 86,
+        "top": 11,
+        "right": 23,
+        "bottom": 38
+      },
+      "sourceEdgeRisk": false,
+      "frame": 12,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 20477,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 292.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "bbox": [
+        77,
+        12,
+        257,
+        275
+      ],
+      "headAnchorX": 148.66107277662704,
+      "normalizedPlacement": [
+        99,
+        69,
+        154,
+        222
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4160,
+        0,
+        4480,
+        320
+      ],
+      "sourceMargins": {
+        "left": 77,
+        "top": 12,
+        "right": 56,
+        "bottom": 39
+      },
+      "sourceEdgeRisk": false,
+      "frame": 13,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 21260,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 315.0,
+      "sourceKey": "p30",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "bbox": [
+        70,
+        19,
+        237,
+        268
+      ],
+      "headAnchorX": 152.24212594135355,
+      "normalizedPlacement": [
+        91,
+        82,
+        142,
+        209
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4480,
+        0,
+        4800,
+        320
+      ],
+      "sourceMargins": {
+        "left": 70,
+        "top": 19,
+        "right": 76,
+        "bottom": 46
+      },
+      "sourceEdgeRisk": false,
+      "frame": 14,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21176,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 30,
+      "azimuth": 337.5,
+      "sourceKey": "p30",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "bbox": [
+        59,
+        23,
+        236,
+        265
+      ],
+      "headAnchorX": 146.8542365217258,
+      "normalizedPlacement": [
+        86,
+        86,
+        150,
+        205
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4800,
+        0,
+        5120,
+        320
+      ],
+      "sourceMargins": {
+        "left": 59,
+        "top": 23,
+        "right": 78,
+        "bottom": 49
+      },
+      "sourceEdgeRisk": false,
+      "frame": 15,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 21452,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 0.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "bbox": [
+        81,
+        43,
+        258,
+        311
+      ],
+      "headAnchorX": 168.39800590831433,
+      "normalizedPlacement": [
+        87,
+        65,
+        148,
+        226
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        0,
+        320,
+        320,
+        640
+      ],
+      "sourceMargins": {
+        "left": 81,
+        "top": 43,
+        "right": 56,
+        "bottom": 3
+      },
+      "sourceEdgeRisk": false,
+      "frame": 16,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 23899,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 22.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "bbox": [
+        58,
+        49,
+        259,
+        311
+      ],
+      "headAnchorX": 175.54714697455168,
+      "normalizedPlacement": [
+        61,
+        71,
+        171,
+        220
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        320,
+        320,
+        640,
+        640
+      ],
+      "sourceMargins": {
+        "left": 58,
+        "top": 49,
+        "right": 54,
+        "bottom": 3
+      },
+      "sourceEdgeRisk": false,
+      "frame": 17,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 24143,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 45.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "bbox": [
+        35,
+        49,
+        237,
+        312
+      ],
+      "headAnchorX": 162.4681250211592,
+      "normalizedPlacement": [
+        53,
+        70,
+        172,
+        221
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        640,
+        320,
+        960,
+        640
+      ],
+      "sourceMargins": {
+        "left": 35,
+        "top": 49,
+        "right": 76,
+        "bottom": 2
+      },
+      "sourceEdgeRisk": true,
+      "frame": 18,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 23078,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 67.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "bbox": [
+        40,
+        50,
+        239,
+        313
+      ],
+      "headAnchorX": 162.48015924509525,
+      "normalizedPlacement": [
+        57,
+        70,
+        168,
+        219
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        960,
+        320,
+        1280,
+        640
+      ],
+      "sourceMargins": {
+        "left": 40,
+        "top": 50,
+        "right": 75,
+        "bottom": 1
+      },
+      "sourceEdgeRisk": true,
+      "frame": 19,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21493,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 90.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "bbox": [
+        61,
+        40,
+        256,
+        298
+      ],
+      "headAnchorX": 177.13353451253025,
+      "normalizedPlacement": [
+        62,
+        74,
+        165,
+        215
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1280,
+        320,
+        1600,
+        640
+      ],
+      "sourceMargins": {
+        "left": 61,
+        "top": 40,
+        "right": 58,
+        "bottom": 15
+      },
+      "sourceEdgeRisk": false,
+      "frame": 20,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20328,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 112.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "bbox": [
+        42,
+        42,
+        240,
+        295
+      ],
+      "headAnchorX": 163.7936658806786,
+      "normalizedPlacement": [
+        59,
+        78,
+        167,
+        213
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1600,
+        320,
+        1920,
+        640
+      ],
+      "sourceMargins": {
+        "left": 42,
+        "top": 42,
+        "right": 73,
+        "bottom": 18
+      },
+      "sourceEdgeRisk": false,
+      "frame": 21,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 21283,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 135.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "bbox": [
+        47,
+        44,
+        225,
+        294
+      ],
+      "headAnchorX": 150.93009821123724,
+      "normalizedPlacement": [
+        72,
+        81,
+        152,
+        210
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1920,
+        320,
+        2240,
+        640
+      ],
+      "sourceMargins": {
+        "left": 47,
+        "top": 44,
+        "right": 88,
+        "bottom": 19
+      },
+      "sourceEdgeRisk": false,
+      "frame": 22,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 20917,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 157.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "bbox": [
+        39,
+        45,
+        211,
+        294
+      ],
+      "headAnchorX": 135.13067762951857,
+      "normalizedPlacement": [
+        79,
+        81,
+        147,
+        210
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2240,
+        320,
+        2560,
+        640
+      ],
+      "sourceMargins": {
+        "left": 39,
+        "top": 45,
+        "right": 103,
+        "bottom": 19
+      },
+      "sourceEdgeRisk": false,
+      "frame": 23,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20809,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 180.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "bbox": [
+        85,
+        32,
+        253,
+        287
+      ],
+      "headAnchorX": 168.03503170525914,
+      "normalizedPlacement": [
+        90,
+        77,
+        143,
+        214
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2560,
+        320,
+        2880,
+        640
+      ],
+      "sourceMargins": {
+        "left": 85,
+        "top": 32,
+        "right": 61,
+        "bottom": 26
+      },
+      "sourceEdgeRisk": false,
+      "frame": 24,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21727,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 202.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "bbox": [
+        69,
+        33,
+        255,
+        288
+      ],
+      "headAnchorX": 145.61349119639704,
+      "normalizedPlacement": [
+        95,
+        76,
+        158,
+        215
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2880,
+        320,
+        3200,
+        640
+      ],
+      "sourceMargins": {
+        "left": 69,
+        "top": 33,
+        "right": 58,
+        "bottom": 25
+      },
+      "sourceEdgeRisk": false,
+      "frame": 25,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 22633,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 225.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "bbox": [
+        65,
+        31,
+        256,
+        288
+      ],
+      "headAnchorX": 141.5598868774461,
+      "normalizedPlacement": [
+        95,
+        77,
+        163,
+        214
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3200,
+        320,
+        3520,
+        640
+      ],
+      "sourceMargins": {
+        "left": 65,
+        "top": 31,
+        "right": 57,
+        "bottom": 25
+      },
+      "sourceEdgeRisk": false,
+      "frame": 26,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 22466,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 247.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "bbox": [
+        55,
+        30,
+        256,
+        291
+      ],
+      "headAnchorX": 131.5113721141384,
+      "normalizedPlacement": [
+        95,
+        71,
+        171,
+        220
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3520,
+        320,
+        3840,
+        640
+      ],
+      "sourceMargins": {
+        "left": 55,
+        "top": 30,
+        "right": 58,
+        "bottom": 22
+      },
+      "sourceEdgeRisk": false,
+      "frame": 27,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 20836,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 270.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "bbox": [
+        88,
+        12,
+        288,
+        276
+      ],
+      "headAnchorX": 165.52212678538805,
+      "normalizedPlacement": [
+        95,
+        68,
+        169,
+        223
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3840,
+        320,
+        4160,
+        640
+      ],
+      "sourceMargins": {
+        "left": 88,
+        "top": 12,
+        "right": 26,
+        "bottom": 38
+      },
+      "sourceEdgeRisk": false,
+      "frame": 28,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21594,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 292.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "bbox": [
+        69,
+        12,
+        251,
+        276
+      ],
+      "headAnchorX": 142.28783133461934,
+      "normalizedPlacement": [
+        98,
+        69,
+        155,
+        222
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4160,
+        320,
+        4480,
+        640
+      ],
+      "sourceMargins": {
+        "left": 69,
+        "top": 12,
+        "right": 62,
+        "bottom": 38
+      },
+      "sourceEdgeRisk": false,
+      "frame": 29,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21979,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 315.0,
+      "sourceKey": "0",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "bbox": [
+        58,
+        14,
+        227,
+        275
+      ],
+      "headAnchorX": 141.59959863792145,
+      "normalizedPlacement": [
+        89,
+        71,
+        144,
+        220
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4480,
+        320,
+        4800,
+        640
+      ],
+      "sourceMargins": {
+        "left": 58,
+        "top": 14,
+        "right": 86,
+        "bottom": 39
+      },
+      "sourceEdgeRisk": false,
+      "frame": 30,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 22262,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": 0,
+      "azimuth": 337.5,
+      "sourceKey": "0",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "bbox": [
+        50,
+        14,
+        230,
+        274
+      ],
+      "headAnchorX": 139.3721082228992,
+      "normalizedPlacement": [
+        85,
+        72,
+        153,
+        219
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4800,
+        320,
+        5120,
+        640
+      ],
+      "sourceMargins": {
+        "left": 50,
+        "top": 14,
+        "right": 84,
+        "bottom": 40
+      },
+      "sourceEdgeRisk": false,
+      "frame": 31,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 23159,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 0.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "bbox": [
+        95,
+        43,
+        263,
+        299
+      ],
+      "headAnchorX": 178.05313021927452,
+      "normalizedPlacement": [
+        91,
+        75,
+        143,
+        214
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        0,
+        640,
+        320,
+        960
+      ],
+      "sourceMargins": {
+        "left": 95,
+        "top": 43,
+        "right": 51,
+        "bottom": 15
+      },
+      "sourceEdgeRisk": false,
+      "frame": 32,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 21736,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 22.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        314,
+        0,
+        627,
+        314
+      ],
+      "bbox": [
+        68,
+        48,
+        243,
+        299
+      ],
+      "headAnchorX": 160.77831917531344,
+      "normalizedPlacement": [
+        82,
+        79,
+        149,
+        212
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        320,
+        640,
+        640,
+        960
+      ],
+      "sourceMargins": {
+        "left": 68,
+        "top": 48,
+        "right": 70,
+        "bottom": 15
+      },
+      "sourceEdgeRisk": false,
+      "frame": 33,
+      "repackComponentCleanup": {
+        "componentCount": 3,
+        "mainComponentPixels": 21624,
+        "removedComponentPixels": 3
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 45.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        627,
+        0,
+        940,
+        314
+      ],
+      "bbox": [
+        53,
+        49,
+        230,
+        299
+      ],
+      "headAnchorX": 155.8744980996636,
+      "normalizedPlacement": [
+        73,
+        80,
+        151,
+        211
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        640,
+        640,
+        960,
+        960
+      ],
+      "sourceMargins": {
+        "left": 53,
+        "top": 49,
+        "right": 83,
+        "bottom": 15
+      },
+      "sourceEdgeRisk": false,
+      "frame": 34,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20525,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 67.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        940,
+        0,
+        1254,
+        314
+      ],
+      "bbox": [
+        43,
+        53,
+        211,
+        300
+      ],
+      "headAnchorX": 142.13233420115517,
+      "normalizedPlacement": [
+        76,
+        83,
+        144,
+        208
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        960,
+        640,
+        1280,
+        960
+      ],
+      "sourceMargins": {
+        "left": 43,
+        "top": 53,
+        "right": 103,
+        "bottom": 14
+      },
+      "sourceEdgeRisk": false,
+      "frame": 35,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 18921,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 90.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        0,
+        314,
+        314,
+        627
+      ],
+      "bbox": [
+        68,
+        32,
+        245,
+        285
+      ],
+      "headAnchorX": 172.11614625768374,
+      "normalizedPlacement": [
+        72,
+        77,
+        151,
+        212
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1280,
+        640,
+        1600,
+        960
+      ],
+      "sourceMargins": {
+        "left": 68,
+        "top": 32,
+        "right": 69,
+        "bottom": 28
+      },
+      "sourceEdgeRisk": false,
+      "frame": 36,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 18491,
+        "removedComponentPixels": 3
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 112.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        314,
+        314,
+        627,
+        627
+      ],
+      "bbox": [
+        21,
+        29,
+        229,
+        285
+      ],
+      "headAnchorX": 153.61625817672004,
+      "normalizedPlacement": [
+        49,
+        77,
+        176,
+        212
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1600,
+        640,
+        1920,
+        960
+      ],
+      "sourceMargins": {
+        "left": 21,
+        "top": 29,
+        "right": 84,
+        "bottom": 28
+      },
+      "sourceEdgeRisk": false,
+      "frame": 37,
+      "repackComponentCleanup": {
+        "componentCount": 4,
+        "mainComponentPixels": 19652,
+        "removedComponentPixels": 3
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 135.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        627,
+        314,
+        940,
+        627
+      ],
+      "bbox": [
+        18,
+        29,
+        211,
+        284
+      ],
+      "headAnchorX": 139.82404647920725,
+      "normalizedPlacement": [
+        59,
+        76,
+        163,
+        215
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        1920,
+        640,
+        2240,
+        960
+      ],
+      "sourceMargins": {
+        "left": 18,
+        "top": 29,
+        "right": 102,
+        "bottom": 29
+      },
+      "sourceEdgeRisk": false,
+      "frame": 38,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20072,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 157.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        940,
+        314,
+        1254,
+        627
+      ],
+      "bbox": [
+        11,
+        29,
+        192,
+        285
+      ],
+      "headAnchorX": 122.43112223231445,
+      "normalizedPlacement": [
+        66,
+        75,
+        152,
+        216
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2240,
+        640,
+        2560,
+        960
+      ],
+      "sourceMargins": {
+        "left": 11,
+        "top": 29,
+        "right": 122,
+        "bottom": 28
+      },
+      "sourceEdgeRisk": false,
+      "frame": 39,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 20769,
+        "removedComponentPixels": 3
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 180.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        0,
+        627,
+        314,
+        940
+      ],
+      "bbox": [
+        86,
+        19,
+        245,
+        313
+      ],
+      "headAnchorX": 165.2619942382369,
+      "normalizedPlacement": [
+        94,
+        44,
+        132,
+        247
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2560,
+        640,
+        2880,
+        960
+      ],
+      "sourceMargins": {
+        "left": 86,
+        "top": 19,
+        "right": 69,
+        "bottom": 0
+      },
+      "sourceEdgeRisk": true,
+      "frame": 40,
+      "repackComponentCleanup": {
+        "componentCount": 3,
+        "mainComponentPixels": 19764,
+        "removedComponentPixels": 397
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 202.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        314,
+        627,
+        627,
+        940
+      ],
+      "bbox": [
+        62,
+        24,
+        221,
+        313
+      ],
+      "headAnchorX": 141.54383438021455,
+      "normalizedPlacement": [
+        94,
+        48,
+        133,
+        243
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        2880,
+        640,
+        3200,
+        960
+      ],
+      "sourceMargins": {
+        "left": 62,
+        "top": 24,
+        "right": 92,
+        "bottom": 0
+      },
+      "sourceEdgeRisk": true,
+      "frame": 41,
+      "repackComponentCleanup": {
+        "componentCount": 7,
+        "mainComponentPixels": 20304,
+        "removedComponentPixels": 304
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 225.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        627,
+        627,
+        940,
+        940
+      ],
+      "bbox": [
+        55,
+        20,
+        227,
+        313
+      ],
+      "headAnchorX": 128.2480386706587,
+      "normalizedPlacement": [
+        99,
+        44,
+        145,
+        247
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3200,
+        640,
+        3520,
+        960
+      ],
+      "sourceMargins": {
+        "left": 55,
+        "top": 20,
+        "right": 86,
+        "bottom": 0
+      },
+      "sourceEdgeRisk": true,
+      "frame": 42,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 21455,
+        "removedComponentPixels": 76
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 247.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        940,
+        627,
+        1254,
+        940
+      ],
+      "bbox": [
+        46,
+        19,
+        247,
+        281
+      ],
+      "headAnchorX": 120.1284630729102,
+      "normalizedPlacement": [
+        97,
+        70,
+        171,
+        221
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3520,
+        640,
+        3840,
+        960
+      ],
+      "sourceMargins": {
+        "left": 46,
+        "top": 19,
+        "right": 67,
+        "bottom": 32
+      },
+      "sourceEdgeRisk": false,
+      "frame": 43,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 19825,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 270.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        0,
+        940,
+        314,
+        1254
+      ],
+      "bbox": [
+        82,
+        0,
+        280,
+        245
+      ],
+      "headAnchorX": 154.75428698618626,
+      "normalizedPlacement": [
+        98,
+        85,
+        168,
+        204
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        3840,
+        640,
+        4160,
+        960
+      ],
+      "sourceMargins": {
+        "left": 82,
+        "top": 0,
+        "right": 34,
+        "bottom": 69
+      },
+      "sourceEdgeRisk": true,
+      "frame": 44,
+      "repackComponentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 19307,
+        "removedComponentPixels": 1
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 292.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        314,
+        940,
+        627,
+        1254
+      ],
+      "bbox": [
+        53,
+        0,
+        240,
+        249
+      ],
+      "headAnchorX": 122.56322323379698,
+      "normalizedPlacement": [
+        103,
+        81,
+        157,
+        210
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4160,
+        640,
+        4480,
+        960
+      ],
+      "sourceMargins": {
+        "left": 53,
+        "top": 0,
+        "right": 73,
+        "bottom": 65
+      },
+      "sourceEdgeRisk": true,
+      "frame": 45,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20325,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 315.0,
+      "sourceKey": "n30",
+      "sourceCell": [
+        627,
+        940,
+        940,
+        1254
+      ],
+      "bbox": [
+        55,
+        0,
+        210,
+        252
+      ],
+      "headAnchorX": 131.6446969227757,
+      "normalizedPlacement": [
+        95,
+        78,
+        132,
+        213
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4480,
+        640,
+        4800,
+        960
+      ],
+      "sourceMargins": {
+        "left": 55,
+        "top": 0,
+        "right": 103,
+        "bottom": 62
+      },
+      "sourceEdgeRisk": true,
+      "frame": 46,
+      "repackComponentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 20510,
+        "removedComponentPixels": 0
+      }
+    },
+    {
+      "elevation": -30,
+      "azimuth": 337.5,
+      "sourceKey": "n30",
+      "sourceCell": [
+        940,
+        940,
+        1254,
+        1254
+      ],
+      "bbox": [
+        57,
+        0,
+        224,
+        254
+      ],
+      "headAnchorX": 139.8520799863676,
+      "normalizedPlacement": [
+        90,
+        77,
+        143,
+        214
+      ],
+      "normalizedHeadAnchor": [
+        160.0,
+        null
+      ],
+      "normalizedBaselineY": 289.0,
+      "packedCell": [
+        4800,
+        640,
+        5120,
+        960
+      ],
+      "sourceMargins": {
+        "left": 57,
+        "top": 0,
+        "right": 90,
+        "bottom": 60
+      },
+      "sourceEdgeRisk": true,
+      "frame": 47,
+      "repackComponentCleanup": {
+        "componentCount": 4,
+        "mainComponentPixels": 21347,
+        "removedComponentPixels": 3
+      }
+    }
+  ],
+  "safePadding": 28,
+  "safeFramePolicy": "global_uniform_scale_around_shared_anchor_with_minimum_edge_padding",
+  "sourceEdgePolicy": "source_edge_contact_requires_regeneration_to_restore_missing_art",
+  "sourceEdgeThreshold": 2,
+  "safePaddingTransform": {
+    "appliedScale": 0.8958333333333334,
+    "resampleGuard": 3,
+    "sourceAnchor": [
+      160.0,
+      302.0
+    ],
+    "targetAnchor": [
+      160.0,
+      289.0
+    ]
+  },
+  "sourceEdgeRisks": [
+    {
+      "frame": 17,
+      "elevation": 30,
+      "azimuth": 22.5,
+      "margins": {
+        "left": 46,
+        "top": 74,
+        "right": 73,
+        "bottom": 1
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 18,
+      "elevation": 30,
+      "azimuth": 45.0,
+      "margins": {
+        "left": 20,
+        "top": 66,
+        "right": 95,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 19,
+      "elevation": 30,
+      "azimuth": 67.5,
+      "margins": {
+        "left": 18,
+        "top": 64,
+        "right": 96,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 21,
+      "elevation": 30,
+      "azimuth": 112.5,
+      "margins": {
+        "left": 28,
+        "top": 45,
+        "right": 101,
+        "bottom": 2
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 22,
+      "elevation": 30,
+      "azimuth": 135.0,
+      "margins": {
+        "left": 32,
+        "top": 45,
+        "right": 107,
+        "bottom": 1
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 23,
+      "elevation": 30,
+      "azimuth": 157.5,
+      "margins": {
+        "left": 22,
+        "top": 0,
+        "right": 100,
+        "bottom": 2
+      },
+      "edges": [
+        "top",
+        "bottom"
+      ]
+    },
+    {
+      "frame": 34,
+      "elevation": 0,
+      "azimuth": 45.0,
+      "margins": {
+        "left": 35,
+        "top": 49,
+        "right": 76,
+        "bottom": 2
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 35,
+      "elevation": 0,
+      "azimuth": 67.5,
+      "margins": {
+        "left": 40,
+        "top": 50,
+        "right": 75,
+        "bottom": 1
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 56,
+      "elevation": -30,
+      "azimuth": 180.0,
+      "margins": {
+        "left": 86,
+        "top": 19,
+        "right": 69,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 57,
+      "elevation": -30,
+      "azimuth": 202.5,
+      "margins": {
+        "left": 62,
+        "top": 24,
+        "right": 92,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 58,
+      "elevation": -30,
+      "azimuth": 225.0,
+      "margins": {
+        "left": 55,
+        "top": 20,
+        "right": 86,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 60,
+      "elevation": -30,
+      "azimuth": 270.0,
+      "margins": {
+        "left": 82,
+        "top": 0,
+        "right": 34,
+        "bottom": 69
+      },
+      "edges": [
+        "top"
+      ]
+    },
+    {
+      "frame": 61,
+      "elevation": -30,
+      "azimuth": 292.5,
+      "margins": {
+        "left": 53,
+        "top": 0,
+        "right": 73,
+        "bottom": 65
+      },
+      "edges": [
+        "top"
+      ]
+    },
+    {
+      "frame": 62,
+      "elevation": -30,
+      "azimuth": 315.0,
+      "margins": {
+        "left": 55,
+        "top": 0,
+        "right": 103,
+        "bottom": 62
+      },
+      "edges": [
+        "top"
+      ]
+    },
+    {
+      "frame": 63,
+      "elevation": -30,
+      "azimuth": 337.5,
+      "margins": {
+        "left": 57,
+        "top": 0,
+        "right": 90,
+        "bottom": 60
+      },
+      "edges": [
+        "top"
+      ]
+    },
+    {
+      "frame": 65,
+      "elevation": -60,
+      "azimuth": 22.5,
+      "margins": {
+        "left": 69,
+        "top": 54,
+        "right": 70,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 66,
+      "elevation": -60,
+      "azimuth": 45.0,
+      "margins": {
+        "left": 44,
+        "top": 54,
+        "right": 88,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 67,
+      "elevation": -60,
+      "azimuth": 67.5,
+      "margins": {
+        "left": 32,
+        "top": 54,
+        "right": 105,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 68,
+      "elevation": -60,
+      "azimuth": 90.0,
+      "margins": {
+        "left": 73,
+        "top": 45,
+        "right": 58,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 69,
+      "elevation": -60,
+      "azimuth": 112.5,
+      "margins": {
+        "left": 25,
+        "top": 41,
+        "right": 83,
+        "bottom": 0
+      },
+      "edges": [
+        "bottom"
+      ]
+    },
+    {
+      "frame": 70,
+      "elevation": -60,
+      "azimuth": 135.0,
+      "margins": {
+        "left": 23,
+        "top": 0,
+        "right": 101,
+        "bottom": 0
+      },
+      "edges": [
+        "top",
+        "bottom"
+      ]
+    },
+    {
+      "frame": 71,
+      "elevation": -60,
+      "azimuth": 157.5,
+      "margins": {
+        "left": 24,
+        "top": 0,
+        "right": 113,
+        "bottom": 0
+      },
+      "edges": [
+        "top",
+        "bottom"
+      ]
+    },
+    {
+      "frame": 73,
+      "elevation": -60,
+      "azimuth": 202.5,
+      "margins": {
+        "left": 71,
+        "top": 0,
+        "right": 87,
+        "bottom": 7
+      },
+      "edges": [
+        "top"
+      ]
+    },
+    {
+      "frame": 74,
+      "elevation": -60,
+      "azimuth": 225.0,
+      "margins": {
+        "left": 58,
+        "top": 0,
+        "right": 76,
+        "bottom": 1
+      },
+      "edges": [
+        "top",
+        "bottom"
+      ]
+    },
+    {
+      "frame": 75,
+      "elevation": -60,
+      "azimuth": 247.5,
+      "margins": {
+        "left": 45,
+        "top": 0,
+        "right": 73,
+        "bottom": 0
+      },
+      "edges": [
+        "top",
+        "bottom"
+      ]
+    }
+  ],
+  "finalMinimumMargins": {
+    "left": 49,
+    "top": 28,
+    "right": 50,
+    "bottom": 29
+  },
+  "layout": "three_long_turntable_rows",
+  "sourceLayers": []
+}

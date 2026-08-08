@@ -22,6 +22,18 @@
   sheetSize?: number[];
   rootAnchorPolicy?: string;
   adaptiveFramePolicy?: string;
+  safePadding?: number;
+  safeFramePolicy?: string;
+  sourceEdgePolicy?: string;
+  sourceEdgeRiskCount?: number;
+  viewMode?: "object-rotate";
+  viewAzimuthFrames?: number;
+  viewElevationFrames?: number;
+  viewElevationAngles?: number[];
+  viewInitialAzimuth?: number;
+  viewInitialElevation?: number;
+  viewDragSensitivity?: number;
+  viewVerticalDragSensitivity?: number;
 }
 
 export type ActionTriggerType = "mouse" | "keyboard" | "auto" | "state";

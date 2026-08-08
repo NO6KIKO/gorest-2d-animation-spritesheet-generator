@@ -142,11 +142,52 @@
 }
 
 .sheet-only-frame-preview {
+  position: relative;
   width: min(70vw, 640px);
   max-width: calc(100vw - 68px);
   overflow: hidden;
   border: 1px solid #8b8b8b;
   background-color: #fff;
+}
+
+.sheet-only-frame-preview.object-rotate {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.sheet-only-frame-preview.object-rotate.dragging {
+  cursor: grabbing;
+}
+
+.sheet-only-frame-preview.object-rotate img,
+.sheet-only-frame-preview.object-rotate .sheet-only-frame-svg {
+  pointer-events: none;
+  user-select: none;
+}
+
+.sheet-only-object-rotate-hud {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 7px;
+  color: #fff;
+  background: rgba(15, 15, 17, .72);
+  backdrop-filter: blur(8px);
+  font-size: 12px;
+  letter-spacing: .02em;
+  pointer-events: none;
+}
+
+.sheet-only-object-rotate-hud strong {
+  font-variant-numeric: tabular-nums;
 }
 
 .sheet-only-frame-preview img {

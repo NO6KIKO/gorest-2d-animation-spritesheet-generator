@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import statistics
 import time
 from pathlib import Path
 from PIL import Image
@@ -25,6 +24,8 @@ from PIL import Image
 PROPORTION_POLICY = "uniform_scale_preserve_input_character_proportions"
 ROOT_ANCHOR_POLICY = "fixed_upper_body_centroid_anchor_character_position_stable"
 GRID_POLICY = "auto_detect_grid_from_sprite_distances_then_fallback_proportional"
+SAFE_FRAME_POLICY = "global_uniform_scale_preserve_anchor_with_minimum_edge_padding"
+SOURCE_EDGE_POLICY = "flag_source_cells_whose_alpha_touches_or_nears_a_detected_cell_edge"
 
 
 def remove_chroma_key(img: Image.Image) -> Image.Image:
@@ -94,19 +95,20 @@ def projection_runs(counts: list[int], threshold: int, merge_gap: int, min_size:
 def boundaries_from_runs(runs: list[tuple[int, int]], expected: int, size: int) -> list[int] | None:
     if len(runs) != expected:
         return None
-    centers = [(a + b) / 2 for a, b in runs]
-    if len(centers) == 1:
+    if len(runs) == 1:
         return [0, size]
-    distances = [centers[i + 1] - centers[i] for i in range(len(centers) - 1)]
-    median_distance = statistics.median(distances)
-    if median_distance <= 0:
-        return None
-    bounds = [round(centers[0] - median_distance / 2)]
-    for i in range(len(centers) - 1):
-        bounds.append(round((centers[i] + centers[i + 1]) / 2))
-    bounds.append(round(centers[-1] + median_distance / 2))
-    bounds[0] = max(0, bounds[0])
-    bounds[-1] = min(size, bounds[-1])
+    # The generated subjects can have different silhouette sizes and offsets.
+    # A midpoint between subject centers therefore cuts too close to the larger
+    # subject. Split at the midpoint of the actual transparent gap instead, and
+    # keep the full outer canvas so first/last cells retain their padding.
+    bounds = [0]
+    for current, following in zip(runs, runs[1:]):
+        gap_start = current[1]
+        gap_end = following[0]
+        if gap_end <= gap_start:
+            return None
+        bounds.append(round((gap_start + gap_end) / 2))
+    bounds.append(size)
     if any(bounds[i + 1] <= bounds[i] for i in range(len(bounds) - 1)):
         return None
     return bounds
@@ -177,7 +179,19 @@ def upper_body_anchor(alpha: Image.Image, bbox: tuple[int, int, int, int]) -> tu
     return (bx0 + bx1) / 2, by0 + bh * 0.32
 
 
-def normalize_sheet(input_path: Path, output_path: Path, columns: int, rows: int, frame_width: int, frame_height: int, image_href: str, force_proportional: bool = False):
+def normalize_sheet(
+    input_path: Path,
+    output_path: Path,
+    columns: int,
+    rows: int,
+    frame_width: int,
+    frame_height: int,
+    image_href: str,
+    force_proportional: bool = False,
+    safe_padding: int | None = None,
+    source_edge_threshold: int = 2,
+    reject_source_edge_touch: bool = True,
+):
     img = remove_chroma_key(Image.open(input_path))
     w, h = img.size
     frame_count = columns * rows
@@ -210,19 +224,60 @@ def normalize_sheet(input_path: Path, output_path: Path, columns: int, rows: int
     if not valid:
         raise RuntimeError("No visible sprite pixels found after chroma removal")
 
-    max_w = max(box[2] - box[0] for box in valid)
-    max_h = max(box[3] - box[1] for box in valid)
-    # One uniform scale only. The frame can be rectangular; the character never gets distorted.
-    scale = min((frame_width - 12) / max_w, (frame_height - 12) / max_h)
+    resolved_padding = safe_padding
+    if resolved_padding is None:
+        resolved_padding = max(4, round(min(frame_width, frame_height) * 0.09))
+    if resolved_padding < 0 or resolved_padding * 2 >= min(frame_width, frame_height):
+        raise ValueError("safe padding must be non-negative and smaller than half the frame")
 
-    scaled_anchor_offsets = []
+    source_edge_risks = []
+    for idx, (cell, bbox) in enumerate(zip(cells, boxes)):
+        if not bbox:
+            continue
+        left, top, right, bottom = bbox
+        margins = {
+            "left": left,
+            "top": top,
+            "right": cell.width - right,
+            "bottom": cell.height - bottom,
+        }
+        touching_edges = [edge for edge, margin in margins.items() if margin <= source_edge_threshold]
+        if touching_edges:
+            source_edge_risks.append({
+                "frame": idx,
+                "margins": margins,
+                "edges": touching_edges,
+            })
+    if reject_source_edge_touch and source_edge_risks:
+        risky = ", ".join(str(item["frame"]) for item in source_edge_risks[:12])
+        suffix = "..." if len(source_edge_risks) > 12 else ""
+        raise RuntimeError(
+            f"Source sprites touch detected cell edges in frames {risky}{suffix}; regenerate with more per-cell padding."
+        )
+
+    target_anchor = (frame_width / 2, frame_height * 0.305)
+    # One pixel covers resize rounding and the edge of the Lanczos filter.
+    effective_padding = resolved_padding + 1
+    # Derive one scale from every frame and every side of the fixed anchor. This
+    # guarantees the requested safe area without per-frame clamping or drift.
+    scale_limits = [1.0]
     for bbox, anchor in zip(boxes, anchors):
         if not bbox or not anchor:
             continue
-        bx0, by0, _, _ = bbox
+        bx0, by0, bx1, by1 = bbox
         ax, ay = anchor
-        scaled_anchor_offsets.append(((ax - bx0) * scale, (ay - by0) * scale))
-    target_anchor = (frame_width / 2, frame_height * 0.305)
+        extents = (
+            (ax - bx0, target_anchor[0] - effective_padding),
+            (bx1 - ax, frame_width - effective_padding - target_anchor[0]),
+            (ay - by0, target_anchor[1] - effective_padding),
+            (by1 - ay, frame_height - effective_padding - target_anchor[1]),
+        )
+        for extent, available in extents:
+            if extent > 0:
+                scale_limits.append(available / extent)
+    scale = min(scale_limits)
+    if scale <= 0:
+        raise RuntimeError("Safe padding leaves no room for the requested fixed anchor")
 
     sheet = Image.new("RGBA", (frame_width * columns, frame_height * rows), (0, 0, 0, 0))
     frame_bboxes = []
@@ -245,14 +300,6 @@ def normalize_sheet(input_path: Path, output_path: Path, columns: int, rows: int
         anchor_y = (ay - by0) * scale
         local_x = round(target_anchor[0] - anchor_x)
         local_y = round(target_anchor[1] - anchor_y)
-        if nw <= frame_width - 8:
-            local_x = max(4, min(frame_width - nw - 4, local_x))
-        else:
-            local_x = (frame_width - nw) // 2
-        if nh <= frame_height - 8:
-            local_y = max(4, min(frame_height - nh - 4, local_y))
-        else:
-            local_y = (frame_height - nh) // 2
         px = col * frame_width + local_x
         py = row * frame_height + local_y
         sheet.alpha_composite(sprite, (px, py))
@@ -281,6 +328,12 @@ def normalize_sheet(input_path: Path, output_path: Path, columns: int, rows: int
         "sheetSize": [frame_width * columns, frame_height * rows],
         "sourceSheetSize": [img.size[0], img.size[1]],
         "sourceCells": source_cells,
+        "globalScale": scale,
+        "safePadding": resolved_padding,
+        "safeFramePolicy": SAFE_FRAME_POLICY,
+        "sourceEdgePolicy": SOURCE_EDGE_POLICY,
+        "sourceEdgeThreshold": source_edge_threshold,
+        "sourceEdgeRisks": source_edge_risks,
         "frameBboxes": frame_bboxes,
         "rootAnchors": root_anchors,
         "gridPolicy": GRID_POLICY,
@@ -304,12 +357,27 @@ def main() -> None:
     parser.add_argument("--frame-width", type=int)
     parser.add_argument("--frame-height", type=int)
     parser.add_argument("--force-proportional-grid", action="store_true")
+    parser.add_argument("--safe-padding", type=int, help="Minimum transparent pixels kept around every normalized frame (default: 9%% of the shorter frame edge).")
+    parser.add_argument("--source-edge-threshold", type=int, default=2, help="Flag source alpha this many pixels or less from a detected cell edge.")
+    parser.add_argument("--allow-source-edge-touch", action="store_true", help="Continue despite source-edge risks. Missing source art cannot be restored by normalization.")
     parser.add_argument("--manifest-out", type=Path)
     args = parser.parse_args()
 
     frame_width = args.frame_width or args.cell_size
     frame_height = args.frame_height or args.cell_size
-    meta = normalize_sheet(args.input, args.output, args.columns, args.rows, frame_width, frame_height, args.image_href, args.force_proportional_grid)
+    meta = normalize_sheet(
+        args.input,
+        args.output,
+        args.columns,
+        args.rows,
+        frame_width,
+        frame_height,
+        args.image_href,
+        args.force_proportional_grid,
+        args.safe_padding,
+        args.source_edge_threshold,
+        not args.allow_source_edge_touch,
+    )
     if args.manifest_out:
         args.manifest_out.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(meta, ensure_ascii=False))
