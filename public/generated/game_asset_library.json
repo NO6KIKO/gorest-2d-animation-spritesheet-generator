@@ -1,6 +1,98 @@
 {
   "assets": [
     {
+      "id": "asset_silver_denim_boy_fake3d_face_hd_48v",
+      "name": "Silver-Haired Denim Boy / HD Face Turntable 48 Views",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-08-08T12:00:00.000Z",
+      "updatedTime": "2026-08-08T12:00:00.000Z",
+      "sprite": {
+        "id": "sprite_silver_denim_boy_fake3d_face_hd_48v",
+        "characterName": "Silver-Haired Denim Boy / HD Face Turntable",
+        "description": "A high-definition stylized 3D face-and-shoulders redraw of the supplied silver-haired anime boy, arranged as 16 horizontal angles at each of three camera elevations for a complete 48-view Fake 3D portrait.",
+        "frameCount": 48,
+        "style": "premium high-detail stylized 3D anime game-character portrait with modeled facial volume, crisp silver hair locks, sharp red eyes, translucent tears, and detailed denim and knit materials",
+        "prompt": "Use the supplied face close-up as the strict face, red-eye, silver-hair, tear-streak, expression, and portrait-framing anchor. Use the supplied front-and-back full-body design to preserve the rear hairstyle and denim jacket, gray V-neck sweater, white shirt, and black tie construction. Render three independently drawn camera-elevation layers at +30, 0, and -30 degrees. Each elevation contains a complete horizontal turntable in 16 declared 22.5-degree azimuth slots. Preserve identity, sad neutral expression, hair topology, outfit, materials, lighting, head size, face anchor, and shoulder baseline across all views.",
+        "frames": [],
+        "createdTime": "2026-08-08T12:00:00.000Z",
+        "updatedTime": "2026-08-08T12:00:00.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/silver_denim_boy_fake3d_face_hd_48v.png",
+        "rawSpritesheetPng": "/generated/silver_denim_boy_fake3d_face_hd_48v.png",
+        "generationMode": "object-rotate",
+        "artSourcePolicy": "All visible face, eyes, tears, hair, ears, neck, shirt, tie, sweater, and jacket art was rendered by image generation using the supplied close-up and front/back design as identity references. Code only removed the flat chroma key, removed disconnected alpha fragments, reordered already drawn angle cells, measured cells, applied one global uniform scale, normalized a shared face/head pivot, and packed the transparent sheet.",
+        "qualityPolicy": "Six high-resolution 4 x 2 raster source sheets provide 48 genuinely rendered portrait viewpoints across three visibly different camera elevations. No character view was created by programmatic rotation, mirroring, warping, overlay, or procedural drawing. The final 512px frames preserve sharp eyes, hair, tears, fabric detail, clean alpha edges, and at least 48px requested safety padding.",
+        "proportionPolicy": "one_global_uniform_scale_preserve_generated_proportions",
+        "normalization": "Six generated 4 x 2 chroma-key portrait sheets -> soft-matte chroma removal and despill -> detached-fragment cleanup -> manual ordering of already drawn angle cells -> three 4 x 4 elevation layers -> one shared face/head pivot -> one global uniform scale 0.828086 -> 48 fixed 512 x 512 frames packed as a 16 x 3 turntable. Final minimum margins: left 68, top 50, right 50, bottom 94.",
+        "inputReferenceInvariant": "Same pale young man with short layered silver-gray hair and long bangs, deep red eyes, subdued sad expression, fine tear tracks, dark indigo denim jacket, gray V-neck knit sweater, white shirt, and narrow black tie across all 48 views. The front/back reference supplies rear hair and jacket construction.",
+        "rootAnchorPolicy": "shared_face_head_upper_body_alpha_centroid_xy_object_rotation_pivot",
+        "safePadding": 48,
+        "safeFramePolicy": "global_uniform_scale_around_shared_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "Reject any future source cell whose real foreground touches or comes within 2 px of a detected cell edge.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Auto-detected foreground clusters from three ordered 2048 x 2048 elevation layers assembled from six independently generated high-resolution 4 x 2 source sheets; see /generated/silver_denim_boy_fake3d_face_hd_48v_manifest.json and the ordered-layer manifest.",
+        "sourceImages": [
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_p30_a_chroma.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_p30_b_chroma.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_0_a_chroma.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_0_b_chroma.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_n30_a_chroma.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_n30_b_chroma.png"
+        ],
+        "rawElevationSheets": [
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_p30_ordered_alpha.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_0_ordered_alpha.png",
+          "/generated/sources/silver_denim_boy_fake3d_face_hd/elev_n30_ordered_alpha.png"
+        ],
+        "fps": 8,
+        "gridColumns": 16,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          8192,
+          1536
+        ],
+        "sourceSize": [
+          1719,
+          915
+        ],
+        "viewMode": "object-rotate",
+        "viewAzimuthFrames": 16,
+        "viewElevationFrames": 3,
+        "viewElevationAngles": [
+          30,
+          0,
+          -30
+        ],
+        "viewInitialAzimuth": 0,
+        "viewInitialElevation": 1,
+        "viewDragSensitivity": 18,
+        "viewVerticalDragSensitivity": 58
+      },
+      "binding": {
+        "actionName": "rotate-view",
+        "triggerType": "mouse",
+        "triggerValue": "left-drag",
+        "gameState": "spritesheet-only",
+        "notes": "Hold the left mouse button over the preview. Drag horizontally through 16 azimuth slots and vertically through the +30, 0, and -30 degree camera-elevation rows."
+      },
+      "tags": [
+        "silver-haired-boy",
+        "denim",
+        "stylized-3d",
+        "fake3d",
+        "object-rotate",
+        "face-closeup",
+        "high-definition",
+        "48-views",
+        "three-elevations",
+        "spritesheet"
+      ]
+    },
+    {
       "id": "asset_cute_gray_raccoon_720_rotate_48v",
       "name": "Cute Gray Raccoon / Three-Row Turntable 48 Views",
       "role": "npc",

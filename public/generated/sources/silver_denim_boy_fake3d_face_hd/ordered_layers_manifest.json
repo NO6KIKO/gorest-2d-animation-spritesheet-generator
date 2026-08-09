@@ -1,0 +1,844 @@
+{
+  "version": 1,
+  "cellSize": [
+    512,
+    512
+  ],
+  "sourceGrid": [
+    4,
+    2
+  ],
+  "layers": [
+    {
+      "id": "p30",
+      "elevation": 30,
+      "output": "elev_p30_ordered_alpha.png",
+      "sourceA": {
+        "path": "elev_p30_a_alpha.png",
+        "size": [
+          1719,
+          915
+        ]
+      },
+      "sourceB": {
+        "path": "elev_p30_b_alpha.png",
+        "size": [
+          1719,
+          915
+        ]
+      },
+      "frames": [
+        {
+          "frame": 0,
+          "azimuth": 0.0,
+          "sourceHalf": "a",
+          "sourceFrame": 0,
+          "sourceBounds": [
+            0,
+            0,
+            430,
+            458
+          ],
+          "packedOffset": [
+            41,
+            27
+          ]
+        },
+        {
+          "frame": 1,
+          "azimuth": 22.5,
+          "sourceHalf": "a",
+          "sourceFrame": 1,
+          "sourceBounds": [
+            430,
+            0,
+            860,
+            458
+          ],
+          "packedOffset": [
+            553,
+            27
+          ]
+        },
+        {
+          "frame": 2,
+          "azimuth": 45.0,
+          "sourceHalf": "a",
+          "sourceFrame": 2,
+          "sourceBounds": [
+            860,
+            0,
+            1289,
+            458
+          ],
+          "packedOffset": [
+            1065,
+            27
+          ]
+        },
+        {
+          "frame": 3,
+          "azimuth": 67.5,
+          "sourceHalf": "a",
+          "sourceFrame": 3,
+          "sourceBounds": [
+            1289,
+            0,
+            1719,
+            458
+          ],
+          "packedOffset": [
+            1577,
+            27
+          ]
+        },
+        {
+          "frame": 4,
+          "azimuth": 90.0,
+          "sourceHalf": "a",
+          "sourceFrame": 4,
+          "sourceBounds": [
+            0,
+            458,
+            430,
+            915
+          ],
+          "packedOffset": [
+            41,
+            539
+          ]
+        },
+        {
+          "frame": 5,
+          "azimuth": 112.5,
+          "sourceHalf": "a",
+          "sourceFrame": 5,
+          "sourceBounds": [
+            430,
+            458,
+            860,
+            915
+          ],
+          "packedOffset": [
+            553,
+            539
+          ]
+        },
+        {
+          "frame": 6,
+          "azimuth": 135.0,
+          "sourceHalf": "a",
+          "sourceFrame": 6,
+          "sourceBounds": [
+            860,
+            458,
+            1289,
+            915
+          ],
+          "packedOffset": [
+            1065,
+            539
+          ]
+        },
+        {
+          "frame": 7,
+          "azimuth": 157.5,
+          "sourceHalf": "a",
+          "sourceFrame": 7,
+          "sourceBounds": [
+            1289,
+            458,
+            1719,
+            915
+          ],
+          "packedOffset": [
+            1577,
+            539
+          ]
+        },
+        {
+          "frame": 8,
+          "azimuth": 180.0,
+          "sourceHalf": "b",
+          "sourceFrame": 4,
+          "sourceBounds": [
+            0,
+            458,
+            430,
+            915
+          ],
+          "packedOffset": [
+            41,
+            1051
+          ]
+        },
+        {
+          "frame": 9,
+          "azimuth": 202.5,
+          "sourceHalf": "b",
+          "sourceFrame": 5,
+          "sourceBounds": [
+            430,
+            458,
+            860,
+            915
+          ],
+          "packedOffset": [
+            553,
+            1051
+          ]
+        },
+        {
+          "frame": 10,
+          "azimuth": 225.0,
+          "sourceHalf": "b",
+          "sourceFrame": 6,
+          "sourceBounds": [
+            860,
+            458,
+            1289,
+            915
+          ],
+          "packedOffset": [
+            1065,
+            1051
+          ]
+        },
+        {
+          "frame": 11,
+          "azimuth": 247.5,
+          "sourceHalf": "b",
+          "sourceFrame": 3,
+          "sourceBounds": [
+            1289,
+            0,
+            1719,
+            458
+          ],
+          "packedOffset": [
+            1577,
+            1051
+          ]
+        },
+        {
+          "frame": 12,
+          "azimuth": 270.0,
+          "sourceHalf": "b",
+          "sourceFrame": 2,
+          "sourceBounds": [
+            860,
+            0,
+            1289,
+            458
+          ],
+          "packedOffset": [
+            41,
+            1563
+          ]
+        },
+        {
+          "frame": 13,
+          "azimuth": 292.5,
+          "sourceHalf": "b",
+          "sourceFrame": 1,
+          "sourceBounds": [
+            430,
+            0,
+            860,
+            458
+          ],
+          "packedOffset": [
+            553,
+            1563
+          ]
+        },
+        {
+          "frame": 14,
+          "azimuth": 315.0,
+          "sourceHalf": "b",
+          "sourceFrame": 0,
+          "sourceBounds": [
+            0,
+            0,
+            430,
+            458
+          ],
+          "packedOffset": [
+            1065,
+            1563
+          ]
+        },
+        {
+          "frame": 15,
+          "azimuth": 337.5,
+          "sourceHalf": "b",
+          "sourceFrame": 7,
+          "sourceBounds": [
+            1289,
+            458,
+            1719,
+            915
+          ],
+          "packedOffset": [
+            1577,
+            1563
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0",
+      "elevation": 0,
+      "output": "elev_0_ordered_alpha.png",
+      "sourceA": {
+        "path": "elev_0_a_alpha.png",
+        "size": [
+          1717,
+          916
+        ]
+      },
+      "sourceB": {
+        "path": "elev_0_b_alpha.png",
+        "size": [
+          1719,
+          915
+        ]
+      },
+      "frames": [
+        {
+          "frame": 0,
+          "azimuth": 0.0,
+          "sourceHalf": "a",
+          "sourceFrame": 0,
+          "sourceBounds": [
+            0,
+            0,
+            429,
+            458
+          ],
+          "packedOffset": [
+            41,
+            27
+          ]
+        },
+        {
+          "frame": 1,
+          "azimuth": 22.5,
+          "sourceHalf": "a",
+          "sourceFrame": 1,
+          "sourceBounds": [
+            429,
+            0,
+            858,
+            458
+          ],
+          "packedOffset": [
+            553,
+            27
+          ]
+        },
+        {
+          "frame": 2,
+          "azimuth": 45.0,
+          "sourceHalf": "a",
+          "sourceFrame": 2,
+          "sourceBounds": [
+            858,
+            0,
+            1288,
+            458
+          ],
+          "packedOffset": [
+            1065,
+            27
+          ]
+        },
+        {
+          "frame": 3,
+          "azimuth": 67.5,
+          "sourceHalf": "a",
+          "sourceFrame": 3,
+          "sourceBounds": [
+            1288,
+            0,
+            1717,
+            458
+          ],
+          "packedOffset": [
+            1577,
+            27
+          ]
+        },
+        {
+          "frame": 4,
+          "azimuth": 90.0,
+          "sourceHalf": "a",
+          "sourceFrame": 4,
+          "sourceBounds": [
+            0,
+            458,
+            429,
+            916
+          ],
+          "packedOffset": [
+            41,
+            539
+          ]
+        },
+        {
+          "frame": 5,
+          "azimuth": 112.5,
+          "sourceHalf": "a",
+          "sourceFrame": 5,
+          "sourceBounds": [
+            429,
+            458,
+            858,
+            916
+          ],
+          "packedOffset": [
+            553,
+            539
+          ]
+        },
+        {
+          "frame": 6,
+          "azimuth": 135.0,
+          "sourceHalf": "a",
+          "sourceFrame": 6,
+          "sourceBounds": [
+            858,
+            458,
+            1288,
+            916
+          ],
+          "packedOffset": [
+            1065,
+            539
+          ]
+        },
+        {
+          "frame": 7,
+          "azimuth": 157.5,
+          "sourceHalf": "a",
+          "sourceFrame": 7,
+          "sourceBounds": [
+            1288,
+            458,
+            1717,
+            916
+          ],
+          "packedOffset": [
+            1577,
+            539
+          ]
+        },
+        {
+          "frame": 8,
+          "azimuth": 180.0,
+          "sourceHalf": "b",
+          "sourceFrame": 0,
+          "sourceBounds": [
+            0,
+            0,
+            430,
+            458
+          ],
+          "packedOffset": [
+            41,
+            1051
+          ]
+        },
+        {
+          "frame": 9,
+          "azimuth": 202.5,
+          "sourceHalf": "b",
+          "sourceFrame": 1,
+          "sourceBounds": [
+            430,
+            0,
+            860,
+            458
+          ],
+          "packedOffset": [
+            553,
+            1051
+          ]
+        },
+        {
+          "frame": 10,
+          "azimuth": 225.0,
+          "sourceHalf": "b",
+          "sourceFrame": 2,
+          "sourceBounds": [
+            860,
+            0,
+            1289,
+            458
+          ],
+          "packedOffset": [
+            1065,
+            1051
+          ]
+        },
+        {
+          "frame": 11,
+          "azimuth": 247.5,
+          "sourceHalf": "b",
+          "sourceFrame": 4,
+          "sourceBounds": [
+            0,
+            458,
+            430,
+            915
+          ],
+          "packedOffset": [
+            1577,
+            1051
+          ]
+        },
+        {
+          "frame": 12,
+          "azimuth": 270.0,
+          "sourceHalf": "b",
+          "sourceFrame": 3,
+          "sourceBounds": [
+            1289,
+            0,
+            1719,
+            458
+          ],
+          "packedOffset": [
+            41,
+            1563
+          ]
+        },
+        {
+          "frame": 13,
+          "azimuth": 292.5,
+          "sourceHalf": "b",
+          "sourceFrame": 5,
+          "sourceBounds": [
+            430,
+            458,
+            860,
+            915
+          ],
+          "packedOffset": [
+            553,
+            1563
+          ]
+        },
+        {
+          "frame": 14,
+          "azimuth": 315.0,
+          "sourceHalf": "b",
+          "sourceFrame": 6,
+          "sourceBounds": [
+            860,
+            458,
+            1289,
+            915
+          ],
+          "packedOffset": [
+            1065,
+            1563
+          ]
+        },
+        {
+          "frame": 15,
+          "azimuth": 337.5,
+          "sourceHalf": "b",
+          "sourceFrame": 7,
+          "sourceBounds": [
+            1289,
+            458,
+            1719,
+            915
+          ],
+          "packedOffset": [
+            1577,
+            1563
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n30",
+      "elevation": -30,
+      "output": "elev_n30_ordered_alpha.png",
+      "sourceA": {
+        "path": "elev_n30_a_alpha.png",
+        "size": [
+          1719,
+          915
+        ]
+      },
+      "sourceB": {
+        "path": "elev_n30_b_alpha.png",
+        "size": [
+          1719,
+          915
+        ]
+      },
+      "frames": [
+        {
+          "frame": 0,
+          "azimuth": 0.0,
+          "sourceHalf": "a",
+          "sourceFrame": 0,
+          "sourceBounds": [
+            0,
+            0,
+            430,
+            458
+          ],
+          "packedOffset": [
+            41,
+            27
+          ]
+        },
+        {
+          "frame": 1,
+          "azimuth": 22.5,
+          "sourceHalf": "a",
+          "sourceFrame": 1,
+          "sourceBounds": [
+            430,
+            0,
+            860,
+            458
+          ],
+          "packedOffset": [
+            553,
+            27
+          ]
+        },
+        {
+          "frame": 2,
+          "azimuth": 45.0,
+          "sourceHalf": "a",
+          "sourceFrame": 2,
+          "sourceBounds": [
+            860,
+            0,
+            1289,
+            458
+          ],
+          "packedOffset": [
+            1065,
+            27
+          ]
+        },
+        {
+          "frame": 3,
+          "azimuth": 67.5,
+          "sourceHalf": "a",
+          "sourceFrame": 3,
+          "sourceBounds": [
+            1289,
+            0,
+            1719,
+            458
+          ],
+          "packedOffset": [
+            1577,
+            27
+          ]
+        },
+        {
+          "frame": 4,
+          "azimuth": 90.0,
+          "sourceHalf": "a",
+          "sourceFrame": 4,
+          "sourceBounds": [
+            0,
+            458,
+            430,
+            915
+          ],
+          "packedOffset": [
+            41,
+            539
+          ]
+        },
+        {
+          "frame": 5,
+          "azimuth": 112.5,
+          "sourceHalf": "a",
+          "sourceFrame": 5,
+          "sourceBounds": [
+            430,
+            458,
+            860,
+            915
+          ],
+          "packedOffset": [
+            553,
+            539
+          ]
+        },
+        {
+          "frame": 6,
+          "azimuth": 135.0,
+          "sourceHalf": "a",
+          "sourceFrame": 6,
+          "sourceBounds": [
+            860,
+            458,
+            1289,
+            915
+          ],
+          "packedOffset": [
+            1065,
+            539
+          ]
+        },
+        {
+          "frame": 7,
+          "azimuth": 157.5,
+          "sourceHalf": "a",
+          "sourceFrame": 7,
+          "sourceBounds": [
+            1289,
+            458,
+            1719,
+            915
+          ],
+          "packedOffset": [
+            1577,
+            539
+          ]
+        },
+        {
+          "frame": 8,
+          "azimuth": 180.0,
+          "sourceHalf": "b",
+          "sourceFrame": 0,
+          "sourceBounds": [
+            0,
+            0,
+            430,
+            458
+          ],
+          "packedOffset": [
+            41,
+            1051
+          ]
+        },
+        {
+          "frame": 9,
+          "azimuth": 202.5,
+          "sourceHalf": "b",
+          "sourceFrame": 1,
+          "sourceBounds": [
+            430,
+            0,
+            860,
+            458
+          ],
+          "packedOffset": [
+            553,
+            1051
+          ]
+        },
+        {
+          "frame": 10,
+          "azimuth": 225.0,
+          "sourceHalf": "b",
+          "sourceFrame": 2,
+          "sourceBounds": [
+            860,
+            0,
+            1289,
+            458
+          ],
+          "packedOffset": [
+            1065,
+            1051
+          ]
+        },
+        {
+          "frame": 11,
+          "azimuth": 247.5,
+          "sourceHalf": "b",
+          "sourceFrame": 3,
+          "sourceBounds": [
+            1289,
+            0,
+            1719,
+            458
+          ],
+          "packedOffset": [
+            1577,
+            1051
+          ]
+        },
+        {
+          "frame": 12,
+          "azimuth": 270.0,
+          "sourceHalf": "b",
+          "sourceFrame": 4,
+          "sourceBounds": [
+            0,
+            458,
+            430,
+            915
+          ],
+          "packedOffset": [
+            41,
+            1563
+          ]
+        },
+        {
+          "frame": 13,
+          "azimuth": 292.5,
+          "sourceHalf": "b",
+          "sourceFrame": 5,
+          "sourceBounds": [
+            430,
+            458,
+            860,
+            915
+          ],
+          "packedOffset": [
+            553,
+            1563
+          ]
+        },
+        {
+          "frame": 14,
+          "azimuth": 315.0,
+          "sourceHalf": "b",
+          "sourceFrame": 6,
+          "sourceBounds": [
+            860,
+            458,
+            1289,
+            915
+          ],
+          "packedOffset": [
+            1065,
+            1563
+          ]
+        },
+        {
+          "frame": 15,
+          "azimuth": 337.5,
+          "sourceHalf": "b",
+          "sourceFrame": 7,
+          "sourceBounds": [
+            1289,
+            458,
+            1719,
+            915
+          ],
+          "packedOffset": [
+            1577,
+            1563
+          ]
+        }
+      ]
+    }
+  ]
+}
