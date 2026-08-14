@@ -7,6 +7,12 @@ import { spawn } from "node:child_process";
 import dotenv from "dotenv";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type } from "@google/genai";
+import {
+  ATLAS_CLOUD_IMAGE_MODEL,
+  ATLAS_CLOUD_MEDIA_API_BASE,
+  buildRasterSpritesheetResponse,
+  generateAtlasCloudSpritesheet
+} from "./src/services/atlasCloudGeneration";
 
 dotenv.config({ path: ".env.local" });
 dotenv.config();
@@ -1215,7 +1221,7 @@ function bundleFramesToSpritesheet(frames: string[], frameCount: number, columns
 
 // Spritesheet Generator Endpoint
 app.post("/api/spritesheet/generate", async (req, res) => {
-  const { prompt = "", referenceImage, frameCount = 12, style = "Local Sprite" } = req.body;
+  const { prompt = "", referenceImage, frameCount = 12, style = "Local Sprite", provider = "local" } = req.body;
   const actualFrameCount = frameCount === 12 || frameCount === 16 ? frameCount : 12;
   const sheetColumns = 4;
   const sheetRows = Math.ceil(actualFrameCount / sheetColumns);
@@ -1225,10 +1231,55 @@ app.post("/api/spritesheet/generate", async (req, res) => {
       return res.status(400).json({ error: "prompt or referenceImage is required" });
     }
 
-    let result: { characterName: string; description: string; spritesheetSvg: string; frames: string[] };
+    if (provider !== "local" && provider !== "atlas-cloud") {
+      return res.status(400).json({ error: "provider must be local or atlas-cloud" });
+    }
+    if (provider === "atlas-cloud" && referenceImage) {
+      return res.status(400).json({ error: "Atlas Cloud spritesheet generation currently supports text prompts only" });
+    }
 
-    if (referenceImage && typeof referenceImage === "string" && referenceImage.includes(";base64,")) {
+    let result: { characterName: string; description: string; spritesheetSvg: string; frames: string[] };
+    let generationMode: string;
+    let generationModel: string | undefined;
+
+    if (provider === "atlas-cloud") {
+      const apiKey = process.env.ATLASCLOUD_API_KEY?.trim();
+      if (!apiKey) {
+        return res.status(503).json({ error: "ATLASCLOUD_API_KEY is required for Atlas Cloud generation" });
+      }
+      const generation = await generateAtlasCloudSpritesheet({
+        apiKey,
+        prompt,
+        style,
+        frameCount: actualFrameCount,
+        model: process.env.ATLASCLOUD_IMAGE_MODEL?.trim() || ATLAS_CLOUD_IMAGE_MODEL,
+        baseUrl: process.env.ATLASCLOUD_MEDIA_API_BASE?.trim() || ATLAS_CLOUD_MEDIA_API_BASE
+      });
+      const imageResponse = await fetch(generation.outputUrl);
+      const contentType = imageResponse.headers.get("content-type") || "";
+      if (!imageResponse.ok || !contentType.startsWith("image/")) {
+        throw new Error(`Atlas Cloud output download failed (${imageResponse.status})`);
+      }
+      const imageBytes = Buffer.from(await imageResponse.arrayBuffer());
+      if (imageBytes.length === 0 || imageBytes.length > 25 * 1024 * 1024) {
+        throw new Error("Atlas Cloud output image has an invalid size");
+      }
+      fs.mkdirSync(GENERATED_DIR, { recursive: true });
+      const filename = `atlas_cloud_spritesheet_${Date.now()}.png`;
+      fs.writeFileSync(path.join(GENERATED_DIR, filename), imageBytes);
+      const sourceUrl = `/generated/${filename}`;
+      const raster = buildRasterSpritesheetResponse(sourceUrl, actualFrameCount);
+      result = {
+        characterName: "Atlas Cloud Sprite",
+        description: `Atlas Cloud ${actualFrameCount}-frame spritesheet generated as one consistent image.`,
+        frames: raster.frames,
+        spritesheetSvg: raster.spritesheetSvg
+      };
+      generationMode = "atlas_cloud_spritesheet";
+      generationModel = generation.model;
+    } else if (referenceImage && typeof referenceImage === "string" && referenceImage.includes(";base64,")) {
       result = localImageSpritesheet(referenceImage, prompt, style, actualFrameCount, sheetColumns);
+      generationMode = "local_reference_image_spritesheet";
     } else {
       const fallbackResult = generateProceduralFallback(prompt || "local idle sprite", style, actualFrameCount);
       const frames = fallbackResult.frames.slice(0, actualFrameCount);
@@ -1241,6 +1292,7 @@ app.post("/api/spritesheet/generate", async (req, res) => {
         frames,
         spritesheetSvg: bundleFramesToSpritesheet(frames, actualFrameCount, sheetColumns)
       };
+      generationMode = "local_procedural_spritesheet";
     }
 
     const responsePayload = {
@@ -1253,7 +1305,9 @@ app.post("/api/spritesheet/generate", async (req, res) => {
       style,
       frameCount: result.frames.length,
       isFallback: false,
-      generationMode: referenceImage ? "local_reference_image_spritesheet" : "local_procedural_spritesheet"
+      generationMode,
+      provider,
+      ...(generationModel ? { model: generationModel } : {})
     };
     latestGeneratedSprite = {
       id: `latest_${Date.now()}`,
@@ -1309,7 +1363,6 @@ async function startServer() {
 }
 
 startServer();
-
 
 
 
