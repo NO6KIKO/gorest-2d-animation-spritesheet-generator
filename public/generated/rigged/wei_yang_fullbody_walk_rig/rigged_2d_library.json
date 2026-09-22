@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "rigs": [
+    {
+      "id": "wei_yang_fullbody_walk_rig",
+      "name": "Wei Yang / Full-Body Walk Rig",
+      "characterName": "Wei Yang",
+      "description": "Eight registered, fully drawn side-view frames form a seamless full-body walk cycle with a locked head scale and foot baseline.",
+      "focus": "full-body-walk",
+      "thumbnailUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/wei-yang-walk-rig.png",
+      "rigManifestUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/rig.json",
+      "spineJsonUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/wei-yang-walk-rig.json",
+      "spineAtlasUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/wei-yang-walk-rig.atlas",
+      "spineTextureUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/wei-yang-walk-rig.png",
+      "frameSize": [
+        640,
+        1152
+      ],
+      "frameCount": 8,
+      "fps": 12,
+      "animations": [
+        {
+          "name": "walk_right",
+          "loop": true
+        }
+      ],
+      "defaultAnimation": "walk_right",
+      "updatedTime": "2026-09-03T00:00:00.000Z",
+      "tags": [
+        "wei-yang",
+        "silver-hair",
+        "green-school-uniform",
+        "full-body",
+        "walk-cycle",
+        "frame-attachments",
+        "spine-4.2"
+      ]
+    }
+  ]
+}

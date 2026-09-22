@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "rigs": [
+    {
+      "id": "silver_schoolgirl_face_rig",
+      "name": "Silver Schoolgirl / Expressive Feature Rig",
+      "characterName": "Wei Yang",
+      "description": "32 registered portrait and facial attachments with multi-track gaze, expressions, speech, random blink, and pivoted portrait motion.",
+      "focus": "face-closeup",
+      "thumbnailUrl": "/generated/rigged/silver_schoolgirl_face_rig/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/silver_schoolgirl_face_rig/pure_feature_preview_sheet.png",
+      "rigManifestUrl": "/generated/rigged/silver_schoolgirl_face_rig/rig.json",
+      "spineJsonUrl": "/generated/rigged/silver_schoolgirl_face_rig/silver-face-pure-rig.json",
+      "spineAtlasUrl": "/generated/rigged/silver_schoolgirl_face_rig/silver-face-pure-rig.atlas",
+      "spineTextureUrl": "/generated/rigged/silver_schoolgirl_face_rig/silver-face-pure-rig.png",
+      "frameSize": [
+        512,
+        512
+      ],
+      "frameCount": 16,
+      "fps": 12,
+      "animations": [
+        {
+          "name": "idle_blink",
+          "loop": false
+        },
+        {
+          "name": "talk_soft",
+          "loop": true
+        },
+        {
+          "name": "blink",
+          "loop": false
+        },
+        {
+          "name": "wink_left",
+          "loop": false
+        },
+        {
+          "name": "wink_right",
+          "loop": false
+        },
+        {
+          "name": "talk",
+          "loop": true
+        },
+        {
+          "name": "talk_emphasis",
+          "loop": true
+        },
+        {
+          "name": "gaze_left",
+          "loop": true
+        },
+        {
+          "name": "gaze_right",
+          "loop": true
+        },
+        {
+          "name": "gaze_up",
+          "loop": true
+        },
+        {
+          "name": "gaze_down",
+          "loop": true
+        },
+        {
+          "name": "brow_raise",
+          "loop": true
+        },
+        {
+          "name": "brow_frown",
+          "loop": true
+        },
+        {
+          "name": "brow_worried",
+          "loop": true
+        },
+        {
+          "name": "emotion_happy",
+          "loop": true
+        },
+        {
+          "name": "emotion_surprised",
+          "loop": true
+        },
+        {
+          "name": "emotion_angry",
+          "loop": true
+        },
+        {
+          "name": "emotion_sad",
+          "loop": true
+        },
+        {
+          "name": "head_nod",
+          "loop": false
+        },
+        {
+          "name": "head_shake",
+          "loop": false
+        },
+        {
+          "name": "head_tilt",
+          "loop": false
+        }
+      ],
+      "defaultAnimation": "idle_blink",
+      "updatedTime": "2026-08-16T05:30:00.000Z",
+      "tags": [
+        "silver-hair",
+        "school-uniform",
+        "face-closeup",
+        "pure-features",
+        "expressions",
+        "gaze",
+        "random-blink",
+        "bone-motion",
+        "spine-4.2"
+      ]
+    },
+    {
+      "id": "wei_yang_front_cutout_walk_rig",
+      "name": "Wei Yang / Front Cutout Walk Spine",
+      "characterName": "Wei Yang",
+      "description": "Sixteen separately drawn body attachments on eighteen parented bones, animated as a front-facing walk cycle.",
+      "focus": "front-cutout-walk",
+      "thumbnailUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/neutral_composite.png",
+      "rigManifestUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/rig.json",
+      "spineJsonUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/wei-yang-front-cutout-rig.json",
+      "spineAtlasUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/wei-yang-front-cutout-rig.atlas",
+      "spineTextureUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/wei-yang-front-cutout-rig.png",
+      "frameSize": [
+        640,
+        1152
+      ],
+      "frameCount": 8,
+      "fps": 12,
+      "animations": [
+        {
+          "name": "walk_front",
+          "loop": true
+        }
+      ],
+      "defaultAnimation": "walk_front",
+      "updatedTime": "2026-09-03T00:00:00.000Z",
+      "tags": [
+        "wei-yang",
+        "silver-hair",
+        "green-school-uniform",
+        "front-view",
+        "cutout",
+        "separated-bones",
+        "full-body",
+        "walk-cycle",
+        "spine-4.2"
+      ]
+    }
+  ]
+}

@@ -49,6 +49,7 @@ type SceneVisualLayerProps = {
     handle: ResizeHandle
   ) => void;
   onLayerContextMenu: (event: MouseEvent<HTMLElement>, layer: SceneLayer) => void;
+  onLayerInteractionClick: (layer: SceneLayer, sprite: AnimationSprite) => void;
   onLayerPointerDown: (event: PointerEvent<HTMLDivElement>, layer: SceneLayer) => void;
   onLayerResizeStart: (
     event: PointerEvent<HTMLSpanElement>,
@@ -82,6 +83,7 @@ export function SceneVisualLayer({
   onInteractionZoneDragStart,
   onInteractionZoneResizeStart,
   onLayerContextMenu,
+  onLayerInteractionClick,
   onLayerPointerDown,
   onLayerResizeStart,
   onLayerSelect,
@@ -105,6 +107,15 @@ export function SceneVisualLayer({
   const zonePresetClass = interaction?.preset ? `zone-preset-${interaction.preset}` : "";
   const zoneShapeClass = interaction?.zoneShape ? `zone-shape-${interaction.zoneShape}` : "";
   const shouldShowInteractionZone = Boolean(zone && interaction?.enabled && (isSelected || isZoneSelected));
+  const targetInteractionClip = interaction?.targetAnimationId
+    ? asset.animations?.find(clip => clip.id === interaction.targetAnimationId)
+    : asset.animations?.find(clip => clip.id === asset.defaultAnimationId) || asset.animations?.[0];
+  const supportsDirectClick = Boolean(
+    zone
+    && interaction?.enabled
+    && interaction.triggerMode === "near-click"
+    && targetInteractionClip?.binding?.triggerType === "mouse"
+  );
 
   return (
     <>
@@ -176,6 +187,27 @@ export function SceneVisualLayer({
           </>
         )}
       </div>
+      {supportsDirectClick && zone && interaction && !isZoneSelected && (
+        <button
+          type="button"
+          className="scene-direct-interaction-target"
+          aria-label={interaction.promptText || `Interact with ${layer.name}`}
+          title={interaction.promptText || `Interact with ${layer.name}`}
+          style={{
+            left: (zone.left - sceneCameraX * (layer.parallax ?? 1)) * stageScaleX,
+            top: (zone.top - sceneCameraY * (layer.parallax ?? 1)) * stageScaleY,
+            width: zone.width * stageScaleX,
+            height: zone.height * stageScaleY,
+            zIndex: layer.zIndex + 6,
+          }}
+          onPointerDown={event => event.stopPropagation()}
+          onClick={event => {
+            event.stopPropagation();
+            onLayerInteractionClick(layer, sprite);
+          }}
+          onContextMenu={event => onZoneContextMenu(event, layer)}
+        />
+      )}
       {shouldShowInteractionZone && zone && interaction && (
         <div
           className={`interaction-zone-outline ${zonePresetClass} ${zoneShapeClass} ${isLightZone ? "light-zone" : ""} ${interaction.zoneShape === "circle" ? "circle-zone" : ""} ${isZoneSelected ? "selected" : ""} ${isSelected ? "owner-selected" : ""}`}

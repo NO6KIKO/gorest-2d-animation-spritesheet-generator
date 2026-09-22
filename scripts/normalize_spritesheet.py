@@ -179,6 +179,23 @@ def upper_body_anchor(alpha: Image.Image, bbox: tuple[int, int, int, int]) -> tu
     return (bx0 + bx1) / 2, by0 + bh * 0.32
 
 
+def feet_baseline_anchor(alpha: Image.Image, bbox: tuple[int, int, int, int]) -> tuple[float, float]:
+    """Anchor a paired full-body sprite from its lower silhouettes and shared baseline."""
+    bx0, by0, bx1, by1 = bbox
+    bh = by1 - by0
+    lower_y0 = by0 + int(bh * 0.62)
+    pix = alpha.load()
+    xs = total = 0.0
+    for y in range(lower_y0, by1):
+        for x in range(bx0, bx1):
+            a = pix[x, y]
+            if a > 24:
+                xs += x * a
+                total += a
+    anchor_x = xs / total if total else (bx0 + bx1) / 2
+    return anchor_x, float(by1)
+
+
 def normalize_sheet(
     input_path: Path,
     output_path: Path,
@@ -191,6 +208,7 @@ def normalize_sheet(
     safe_padding: int | None = None,
     source_edge_threshold: int = 2,
     reject_source_edge_touch: bool = True,
+    anchor_mode: str = "upper-body",
 ):
     img = remove_chroma_key(Image.open(input_path))
     w, h = img.size
@@ -218,7 +236,12 @@ def normalize_sheet(
             cells.append(cell)
             boxes.append(bbox)
             source_cells.append([crop_x0, crop_y0, crop_x1, crop_y1])
-            anchors.append(upper_body_anchor(alpha, bbox) if bbox else None)
+            if not bbox:
+                anchors.append(None)
+            elif anchor_mode == "feet-baseline":
+                anchors.append(feet_baseline_anchor(alpha, bbox))
+            else:
+                anchors.append(upper_body_anchor(alpha, bbox))
 
     valid = [box for box in boxes if box]
     if not valid:
@@ -255,9 +278,13 @@ def normalize_sheet(
             f"Source sprites touch detected cell edges in frames {risky}{suffix}; regenerate with more per-cell padding."
         )
 
-    target_anchor = (frame_width / 2, frame_height * 0.305)
     # One pixel covers resize rounding and the edge of the Lanczos filter.
     effective_padding = resolved_padding + 1
+    target_anchor = (
+        (frame_width / 2, frame_height - effective_padding)
+        if anchor_mode == "feet-baseline"
+        else (frame_width / 2, frame_height * 0.305)
+    )
     # Derive one scale from every frame and every side of the fixed anchor. This
     # guarantees the requested safe area without per-frame clamping or drift.
     scale_limits = [1.0]
@@ -339,8 +366,16 @@ def normalize_sheet(
         "gridPolicy": GRID_POLICY,
         "gridDetection": grid_detection,
         "proportionPolicy": PROPORTION_POLICY,
-        "rootAnchorPolicy": ROOT_ANCHOR_POLICY,
-        "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling",
+        "rootAnchorPolicy": (
+            "fixed_lower_body_centroid_x_and_shared_feet_baseline"
+            if anchor_mode == "feet-baseline"
+            else ROOT_ANCHOR_POLICY
+        ),
+        "normalization": (
+            "global_uniform_scale_fixed_feet_baseline_auto_grid_no_nonuniform_scaling"
+            if anchor_mode == "feet-baseline"
+            else "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling"
+        ),
         "createdTime": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "frames": frames,
     }
@@ -360,6 +395,12 @@ def main() -> None:
     parser.add_argument("--safe-padding", type=int, help="Minimum transparent pixels kept around every normalized frame (default: 9%% of the shorter frame edge).")
     parser.add_argument("--source-edge-threshold", type=int, default=2, help="Flag source alpha this many pixels or less from a detected cell edge.")
     parser.add_argument("--allow-source-edge-touch", action="store_true", help="Continue despite source-edge risks. Missing source art cannot be restored by normalization.")
+    parser.add_argument(
+        "--anchor-mode",
+        choices=("upper-body", "feet-baseline"),
+        default="upper-body",
+        help="Registration anchor. Use feet-baseline for full-body characters whose arms animate.",
+    )
     parser.add_argument("--manifest-out", type=Path)
     args = parser.parse_args()
 
@@ -377,6 +418,7 @@ def main() -> None:
         args.safe_padding,
         args.source_edge_threshold,
         not args.allow_source_edge_touch,
+        args.anchor_mode,
     )
     if args.manifest_out:
         args.manifest_out.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")

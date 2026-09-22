@@ -1,0 +1,22 @@
+silver-face-rig.png
+size: 2048, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+portrait_base
+bounds: 0, 0, 512, 512
+eyes_open
+bounds: 512, 0, 512, 512
+eyes_half
+bounds: 1024, 0, 512, 512
+eyes_closed
+bounds: 1536, 0, 512, 512
+mouth_closed
+bounds: 0, 512, 512, 512
+mouth_small
+bounds: 512, 512, 512, 512
+mouth_medium
+bounds: 1024, 512, 512, 512
+mouth_wide
+bounds: 1536, 512, 512, 512

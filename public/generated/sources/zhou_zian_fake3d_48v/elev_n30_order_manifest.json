@@ -1,0 +1,51 @@
+{
+  "sourceEven": "C:\\Users\\Zhang\\Documents\\Codex\\2026-08-10\\d-steamlibrary-gorest-2d-animation-spritesheet-2\\work\\zhou_zian_fake3d\\elev_n30_even_alpha.png",
+  "sourceOdd": "C:\\Users\\Zhang\\Documents\\Codex\\2026-08-10\\d-steamlibrary-gorest-2d-animation-spritesheet-2\\work\\zhou_zian_fake3d\\elev_n30_odd_alpha.png",
+  "sourceSizes": [
+    [
+      1536,
+      1024
+    ],
+    [
+      1448,
+      1086
+    ]
+  ],
+  "cellSizes": [
+    [
+      384,
+      512
+    ],
+    [
+      362,
+      543
+    ]
+  ],
+  "assemblyCellSize": [
+    384,
+    543
+  ],
+  "assemblyPolicy": "translation_only_centered_no_resizing",
+  "order": [
+    0.0,
+    22.5,
+    45.0,
+    67.5,
+    90.0,
+    112.5,
+    135.0,
+    157.5,
+    180.0,
+    202.5,
+    225.0,
+    247.5,
+    270.0,
+    292.5,
+    315.0,
+    337.5
+  ],
+  "outputSize": [
+    1536,
+    2172
+  ]
+}

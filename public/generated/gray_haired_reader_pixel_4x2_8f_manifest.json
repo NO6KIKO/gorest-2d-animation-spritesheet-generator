@@ -1,0 +1,223 @@
+{
+  "assetId": "asset_gray_haired_girl_pixel_sitting_reading_8f",
+  "spriteId": "sprite_gray_haired_girl_pixel_sitting_reading_8f",
+  "name": "Gray-haired Girl Pixel / Sitting Reading 8f",
+  "generationMode": "spritesheet",
+  "fps": 8,
+  "loop": true,
+  "gridColumns": 4,
+  "spritesheetPng": "/generated/gray_haired_reader_pixel_4x2_8f_sheet.png",
+  "sourceMasterPng": "/generated/sources/gray_haired_reader_pixel_8f/gray_haired_reader_pixel_4x2_chroma.png",
+  "frameCount": 8,
+  "cellSize": 256,
+  "frameSize": [
+    256,
+    256
+  ],
+  "sheetSize": [
+    1024,
+    512
+  ],
+  "sourceSheetSize": [
+    1774,
+    887
+  ],
+  "sourceCells": [
+    [
+      4,
+      4,
+      440,
+      450
+    ],
+    [
+      448,
+      4,
+      883,
+      450
+    ],
+    [
+      891,
+      4,
+      1326,
+      450
+    ],
+    [
+      1334,
+      4,
+      1770,
+      450
+    ],
+    [
+      4,
+      458,
+      440,
+      883
+    ],
+    [
+      448,
+      458,
+      883,
+      883
+    ],
+    [
+      891,
+      458,
+      1326,
+      883
+    ],
+    [
+      1334,
+      458,
+      1770,
+      883
+    ]
+  ],
+  "globalScale": 0.5868945868945868,
+  "safePadding": 24,
+  "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+  "sourceEdgePolicy": "flag_source_cells_whose_alpha_touches_or_nears_a_detected_cell_edge",
+  "sourceEdgeThreshold": 2,
+  "sourceEdgeRisks": [],
+  "frameBboxes": [
+    [
+      52,
+      27,
+      151,
+      204
+    ],
+    [
+      52,
+      27,
+      151,
+      204
+    ],
+    [
+      52,
+      27,
+      151,
+      204
+    ],
+    [
+      52,
+      27,
+      151,
+      204
+    ],
+    [
+      52,
+      25,
+      151,
+      206
+    ],
+    [
+      52,
+      27,
+      151,
+      204
+    ],
+    [
+      52,
+      27,
+      151,
+      204
+    ],
+    [
+      52,
+      27,
+      151,
+      204
+    ]
+  ],
+  "rootAnchors": [
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ],
+    [
+      128.0,
+      231
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "auto_detected",
+    "xRuns": [
+      [
+        93,
+        351
+      ],
+      [
+        536,
+        794
+      ],
+      [
+        980,
+        1238
+      ],
+      [
+        1423,
+        1681
+      ]
+    ],
+    "yRuns": [
+      [
+        61,
+        408
+      ],
+      [
+        500,
+        851
+      ]
+    ],
+    "xBounds": [
+      0,
+      444,
+      887,
+      1330,
+      1774
+    ],
+    "yBounds": [
+      0,
+      454,
+      887
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_lower_body_centroid_x_and_shared_feet_baseline",
+  "normalization": "global_uniform_scale_fixed_feet_baseline_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-09-09T09:05:05",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

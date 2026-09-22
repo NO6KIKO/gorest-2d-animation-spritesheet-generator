@@ -97,7 +97,7 @@
 
 .mode-choice-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 4vw, 32px);
   align-items: stretch;
 }
@@ -125,6 +125,22 @@
 
 .mode-choice-card span {
   display: block;
+}
+
+.mode-choice-card small {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 780;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .58;
+}
+
+@media (max-width: 980px) {
+  .mode-choice-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {

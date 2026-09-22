@@ -1,0 +1,2862 @@
+{
+  "version": 1,
+  "frameCount": 48,
+  "azimuthFrames": 16,
+  "elevationAngles": [
+    30,
+    0,
+    -30
+  ],
+  "frameSize": [
+    384,
+    384
+  ],
+  "packColumns": 16,
+  "sheetSize": [
+    6144,
+    1152
+  ],
+  "layout": "three_long_turntable_rows",
+  "globalScale": 0.6638098948188547,
+  "sourceScaleCorrections": {
+    "elevation_-30_odd_intermediate_views": 1.1049304677623262
+  },
+  "safePadding": 34,
+  "normalizedPortraitAnchor": [
+    192.0,
+    138.24
+  ],
+  "rootAnchorPolicy": "upper_head_hat_alpha_centroid_x_and_relative_head_y",
+  "proportionPolicy": "one_global_uniform_scale_after_documented_low_angle_intermediate_source_scale_correction",
+  "componentPolicy": "keep_largest_connected_subject_component_and_one_pixel_alpha_fringe",
+  "sourceGrid": [
+    4,
+    2
+  ],
+  "sourceSheets": [
+    {
+      "elevation": 30,
+      "parity": "even",
+      "path": "/generated/sources/spiral_eye_detective_720/elev_p30_even_alpha.png"
+    },
+    {
+      "elevation": 30,
+      "parity": "odd",
+      "path": "/generated/sources/spiral_eye_detective_720/elev_p30_odd_alpha.png"
+    },
+    {
+      "elevation": 0,
+      "parity": "even",
+      "path": "/generated/sources/spiral_eye_detective_720/elev_0_even_alpha.png"
+    },
+    {
+      "elevation": 0,
+      "parity": "odd",
+      "path": "/generated/sources/spiral_eye_detective_720/elev_0_odd_alpha.png"
+    },
+    {
+      "elevation": -30,
+      "parity": "even",
+      "path": "/generated/sources/spiral_eye_detective_720/elev_n30_even_alpha.png"
+    },
+    {
+      "elevation": -30,
+      "parity": "odd",
+      "path": "/generated/sources/spiral_eye_detective_720/elev_n30_odd_alpha.png"
+    }
+  ],
+  "sourceEdgeRiskCount": 0,
+  "finalMinimumMargins": {
+    "left": 73,
+    "top": 36,
+    "right": 65,
+    "bottom": 47
+  },
+  "imageHref": "/generated/spiral_eye_detective_720_48v.png",
+  "frames": [
+    {
+      "frame": 0,
+      "elevation": 30,
+      "azimuth": 0.0,
+      "sourceParity": "even",
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        410,
+        540
+      ],
+      "sourceBbox": [
+        32,
+        56,
+        382,
+        505
+      ],
+      "sourceMargins": {
+        "left": 32,
+        "top": 56,
+        "right": 28,
+        "bottom": 35
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        206.4230708044717,
+        208.66000000000003
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 97276,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        76,
+        37,
+        232,
+        298
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 76,
+        "top": 37,
+        "right": 76,
+        "bottom": 49
+      },
+      "packedCell": [
+        0,
+        0,
+        384,
+        384
+      ]
+    },
+    {
+      "frame": 1,
+      "elevation": 30,
+      "azimuth": 22.5,
+      "sourceParity": "odd",
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        404,
+        529
+      ],
+      "sourceBbox": [
+        47,
+        51,
+        375,
+        501
+      ],
+      "sourceMargins": {
+        "left": 47,
+        "top": 51,
+        "right": 29,
+        "bottom": 28
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        201.1326422805321,
+        204.0
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 97764,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        90,
+        37,
+        218,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 90,
+        "top": 37,
+        "right": 76,
+        "bottom": 48
+      },
+      "packedCell": [
+        384,
+        0,
+        768,
+        384
+      ]
+    },
+    {
+      "frame": 2,
+      "elevation": 30,
+      "azimuth": 45.0,
+      "sourceParity": "even",
+      "sourceFrame": 1,
+      "sourceCell": [
+        386,
+        0,
+        798,
+        540
+      ],
+      "sourceBbox": [
+        48,
+        56,
+        381,
+        506
+      ],
+      "sourceMargins": {
+        "left": 48,
+        "top": 56,
+        "right": 31,
+        "bottom": 34
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        201.2285910871133,
+        209.0
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 100285,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        90,
+        37,
+        221,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 90,
+        "top": 37,
+        "right": 73,
+        "bottom": 48
+      },
+      "packedCell": [
+        768,
+        0,
+        1152,
+        384
+      ]
+    },
+    {
+      "frame": 3,
+      "elevation": 30,
+      "azimuth": 67.5,
+      "sourceParity": "odd",
+      "sourceFrame": 1,
+      "sourceCell": [
+        380,
+        0,
+        782,
+        529
+      ],
+      "sourceBbox": [
+        65,
+        58,
+        376,
+        501
+      ],
+      "sourceMargins": {
+        "left": 65,
+        "top": 58,
+        "right": 26,
+        "bottom": 28
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        206.09312186556147,
+        208.62
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 95349,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        98,
+        38,
+        206,
+        294
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 98,
+        "top": 38,
+        "right": 80,
+        "bottom": 52
+      },
+      "packedCell": [
+        1152,
+        0,
+        1536,
+        384
+      ]
+    },
+    {
+      "frame": 4,
+      "elevation": 30,
+      "azimuth": 90.0,
+      "sourceParity": "even",
+      "sourceFrame": 2,
+      "sourceCell": [
+        774,
+        0,
+        1126,
+        540
+      ],
+      "sourceBbox": [
+        34,
+        57,
+        322,
+        505
+      ],
+      "sourceMargins": {
+        "left": 34,
+        "top": 57,
+        "right": 30,
+        "bottom": 35
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        195.29724290390678,
+        209.32000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 85131,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        85,
+        37,
+        191,
+        297
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 85,
+        "top": 37,
+        "right": 108,
+        "bottom": 50
+      },
+      "packedCell": [
+        1536,
+        0,
+        1920,
+        384
+      ]
+    },
+    {
+      "frame": 5,
+      "elevation": 30,
+      "azimuth": 112.5,
+      "sourceParity": "odd",
+      "sourceFrame": 2,
+      "sourceCell": [
+        758,
+        0,
+        1132,
+        529
+      ],
+      "sourceBbox": [
+        55,
+        51,
+        335,
+        504
+      ],
+      "sourceMargins": {
+        "left": 55,
+        "top": 51,
+        "right": 39,
+        "bottom": 25
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        208.2728058766415,
+        205.02
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 85650,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        90,
+        36,
+        186,
+        301
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 90,
+        "top": 36,
+        "right": 108,
+        "bottom": 47
+      },
+      "packedCell": [
+        1920,
+        0,
+        2304,
+        384
+      ]
+    },
+    {
+      "frame": 6,
+      "elevation": 30,
+      "azimuth": 135.0,
+      "sourceParity": "even",
+      "sourceFrame": 3,
+      "sourceCell": [
+        1102,
+        0,
+        1536,
+        540
+      ],
+      "sourceBbox": [
+        60,
+        61,
+        390,
+        507
+      ],
+      "sourceMargins": {
+        "left": 60,
+        "top": 61,
+        "right": 44,
+        "bottom": 33
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        218.6678356786681,
+        212.64000000000001
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 94749,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        87,
+        38,
+        219,
+        296
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 87,
+        "top": 38,
+        "right": 78,
+        "bottom": 50
+      },
+      "packedCell": [
+        2304,
+        0,
+        2688,
+        384
+      ]
+    },
+    {
+      "frame": 7,
+      "elevation": 30,
+      "azimuth": 157.5,
+      "sourceParity": "odd",
+      "sourceFrame": 3,
+      "sourceCell": [
+        1108,
+        0,
+        1536,
+        529
+      ],
+      "sourceBbox": [
+        75,
+        60,
+        390,
+        502
+      ],
+      "sourceMargins": {
+        "left": 75,
+        "top": 60,
+        "right": 38,
+        "bottom": 27
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        220.41300711256707,
+        210.28
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 92827,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        95,
+        38,
+        209,
+        293
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 95,
+        "top": 38,
+        "right": 80,
+        "bottom": 53
+      },
+      "packedCell": [
+        2688,
+        0,
+        3072,
+        384
+      ]
+    },
+    {
+      "frame": 8,
+      "elevation": 30,
+      "azimuth": 180.0,
+      "sourceParity": "even",
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        516,
+        410,
+        1024
+      ],
+      "sourceBbox": [
+        35,
+        31,
+        366,
+        464
+      ],
+      "sourceMargins": {
+        "left": 35,
+        "top": 31,
+        "right": 44,
+        "bottom": 44
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        202.48655712377757,
+        178.22
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 87077,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        81,
+        41,
+        220,
+        287
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 81,
+        "top": 41,
+        "right": 83,
+        "bottom": 56
+      },
+      "packedCell": [
+        3072,
+        0,
+        3456,
+        384
+      ]
+    },
+    {
+      "frame": 9,
+      "elevation": 30,
+      "azimuth": 202.5,
+      "sourceParity": "odd",
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        505,
+        404,
+        1024
+      ],
+      "sourceBbox": [
+        30,
+        30,
+        333,
+        473
+      ],
+      "sourceMargins": {
+        "left": 30,
+        "top": 30,
+        "right": 71,
+        "bottom": 46
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        177.5813473119374,
+        180.62
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 90707,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        94,
+        38,
+        201,
+        294
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 94,
+        "top": 38,
+        "right": 89,
+        "bottom": 52
+      },
+      "packedCell": [
+        3456,
+        0,
+        3840,
+        384
+      ]
+    },
+    {
+      "frame": 10,
+      "elevation": 30,
+      "azimuth": 225.0,
+      "sourceParity": "even",
+      "sourceFrame": 5,
+      "sourceCell": [
+        386,
+        516,
+        798,
+        1024
+      ],
+      "sourceBbox": [
+        29,
+        32,
+        327,
+        464
+      ],
+      "sourceMargins": {
+        "left": 29,
+        "top": 32,
+        "right": 85,
+        "bottom": 44
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        168.13235395051365,
+        178.88000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 85418,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        100,
+        41,
+        198,
+        287
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 100,
+        "top": 41,
+        "right": 86,
+        "bottom": 56
+      },
+      "packedCell": [
+        3840,
+        0,
+        4224,
+        384
+      ]
+    },
+    {
+      "frame": 11,
+      "elevation": 30,
+      "azimuth": 247.5,
+      "sourceParity": "odd",
+      "sourceFrame": 5,
+      "sourceCell": [
+        380,
+        505,
+        782,
+        1024
+      ],
+      "sourceBbox": [
+        30,
+        25,
+        292,
+        476
+      ],
+      "sourceMargins": {
+        "left": 30,
+        "top": 25,
+        "right": 110,
+        "bottom": 43
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        171.93169926581862,
+        178.34
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 80747,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        98,
+        36,
+        174,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 98,
+        "top": 36,
+        "right": 112,
+        "bottom": 49
+      },
+      "packedCell": [
+        4224,
+        0,
+        4608,
+        384
+      ]
+    },
+    {
+      "frame": 12,
+      "elevation": 30,
+      "azimuth": 270.0,
+      "sourceParity": "even",
+      "sourceFrame": 6,
+      "sourceCell": [
+        774,
+        516,
+        1126,
+        1024
+      ],
+      "sourceBbox": [
+        30,
+        31,
+        301,
+        465
+      ],
+      "sourceMargins": {
+        "left": 30,
+        "top": 31,
+        "right": 51,
+        "bottom": 43
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        150.30922621795224,
+        178.56
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 77511,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        112,
+        40,
+        180,
+        288
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 112,
+        "top": 40,
+        "right": 92,
+        "bottom": 56
+      },
+      "packedCell": [
+        4608,
+        0,
+        4992,
+        384
+      ]
+    },
+    {
+      "frame": 13,
+      "elevation": 30,
+      "azimuth": 292.5,
+      "sourceParity": "odd",
+      "sourceFrame": 6,
+      "sourceCell": [
+        758,
+        505,
+        1132,
+        1024
+      ],
+      "sourceBbox": [
+        26,
+        25,
+        306,
+        474
+      ],
+      "sourceMargins": {
+        "left": 26,
+        "top": 25,
+        "right": 68,
+        "bottom": 45
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        165.69500326447687,
+        177.66000000000003
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 88536,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        99,
+        37,
+        186,
+        298
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 99,
+        "top": 37,
+        "right": 99,
+        "bottom": 49
+      },
+      "packedCell": [
+        4992,
+        0,
+        5376,
+        384
+      ]
+    },
+    {
+      "frame": 14,
+      "elevation": 30,
+      "azimuth": 315.0,
+      "sourceParity": "even",
+      "sourceFrame": 7,
+      "sourceCell": [
+        1102,
+        516,
+        1536,
+        1024
+      ],
+      "sourceBbox": [
+        31,
+        32,
+        357,
+        465
+      ],
+      "sourceMargins": {
+        "left": 31,
+        "top": 32,
+        "right": 77,
+        "bottom": 43
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        207.95114251292947,
+        179.22
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 91571,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        75,
+        41,
+        216,
+        287
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 75,
+        "top": 41,
+        "right": 93,
+        "bottom": 56
+      },
+      "packedCell": [
+        5376,
+        0,
+        5760,
+        384
+      ]
+    },
+    {
+      "frame": 15,
+      "elevation": 30,
+      "azimuth": 337.5,
+      "sourceParity": "odd",
+      "sourceFrame": 7,
+      "sourceCell": [
+        1108,
+        505,
+        1536,
+        1024
+      ],
+      "sourceBbox": [
+        38,
+        32,
+        360,
+        474
+      ],
+      "sourceMargins": {
+        "left": 38,
+        "top": 32,
+        "right": 68,
+        "bottom": 45
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        202.84254636750796,
+        182.28
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 93114,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        83,
+        38,
+        214,
+        293
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 83,
+        "top": 38,
+        "right": 87,
+        "bottom": 53
+      },
+      "packedCell": [
+        5760,
+        0,
+        6144,
+        384
+      ]
+    },
+    {
+      "frame": 16,
+      "elevation": 0,
+      "azimuth": 0.0,
+      "sourceParity": "even",
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        412,
+        534
+      ],
+      "sourceBbox": [
+        27,
+        55,
+        388,
+        503
+      ],
+      "sourceMargins": {
+        "left": 27,
+        "top": 55,
+        "right": 24,
+        "bottom": 31
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        206.28358250990095,
+        207.32000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 97796,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        73,
+        37,
+        240,
+        297
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 73,
+        "top": 37,
+        "right": 71,
+        "bottom": 50
+      },
+      "packedCell": [
+        0,
+        384,
+        384,
+        768
+      ]
+    },
+    {
+      "frame": 17,
+      "elevation": 0,
+      "azimuth": 22.5,
+      "sourceParity": "odd",
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        422,
+        538
+      ],
+      "sourceBbox": [
+        44,
+        57,
+        387,
+        504
+      ],
+      "sourceMargins": {
+        "left": 44,
+        "top": 57,
+        "right": 35,
+        "bottom": 34
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        206.75609518856172,
+        208.98000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 98259,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        84,
+        37,
+        228,
+        297
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 84,
+        "top": 37,
+        "right": 72,
+        "bottom": 50
+      },
+      "packedCell": [
+        384,
+        384,
+        768,
+        768
+      ]
+    },
+    {
+      "frame": 18,
+      "elevation": 0,
+      "azimuth": 45.0,
+      "sourceParity": "even",
+      "sourceFrame": 1,
+      "sourceCell": [
+        388,
+        0,
+        799,
+        534
+      ],
+      "sourceBbox": [
+        42,
+        52,
+        383,
+        503
+      ],
+      "sourceMargins": {
+        "left": 42,
+        "top": 52,
+        "right": 28,
+        "bottom": 31
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        199.38976887466615,
+        205.34
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 100511,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        88,
+        36,
+        226,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 88,
+        "top": 36,
+        "right": 70,
+        "bottom": 49
+      },
+      "packedCell": [
+        768,
+        384,
+        1152,
+        768
+      ]
+    },
+    {
+      "frame": 19,
+      "elevation": 0,
+      "azimuth": 67.5,
+      "sourceParity": "odd",
+      "sourceFrame": 1,
+      "sourceCell": [
+        398,
+        0,
+        792,
+        538
+      ],
+      "sourceBbox": [
+        40,
+        56,
+        356,
+        504
+      ],
+      "sourceMargins": {
+        "left": 40,
+        "top": 56,
+        "right": 38,
+        "bottom": 34
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        186.84645309417076,
+        208.32000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 95326,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        95,
+        37,
+        210,
+        297
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 95,
+        "top": 37,
+        "right": 79,
+        "bottom": 50
+      },
+      "packedCell": [
+        1152,
+        384,
+        1536,
+        768
+      ]
+    },
+    {
+      "frame": 20,
+      "elevation": 0,
+      "azimuth": 90.0,
+      "sourceParity": "even",
+      "sourceFrame": 2,
+      "sourceCell": [
+        775,
+        0,
+        1129,
+        534
+      ],
+      "sourceBbox": [
+        32,
+        52,
+        326,
+        502
+      ],
+      "sourceMargins": {
+        "left": 32,
+        "top": 52,
+        "right": 28,
+        "bottom": 32
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        194.69351451420667,
+        205.0
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 86146,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        84,
+        37,
+        195,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 84,
+        "top": 37,
+        "right": 105,
+        "bottom": 48
+      },
+      "packedCell": [
+        1536,
+        384,
+        1920,
+        768
+      ]
+    },
+    {
+      "frame": 21,
+      "elevation": 0,
+      "azimuth": 112.5,
+      "sourceParity": "odd",
+      "sourceFrame": 2,
+      "sourceCell": [
+        768,
+        0,
+        1124,
+        538
+      ],
+      "sourceBbox": [
+        38,
+        55,
+        322,
+        505
+      ],
+      "sourceMargins": {
+        "left": 38,
+        "top": 55,
+        "right": 34,
+        "bottom": 33
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        195.30066442045046,
+        208.0
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 85182,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        88,
+        37,
+        189,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 88,
+        "top": 37,
+        "right": 107,
+        "bottom": 48
+      },
+      "packedCell": [
+        1920,
+        384,
+        2304,
+        768
+      ]
+    },
+    {
+      "frame": 22,
+      "elevation": 0,
+      "azimuth": 135.0,
+      "sourceParity": "even",
+      "sourceFrame": 3,
+      "sourceCell": [
+        1105,
+        0,
+        1536,
+        534
+      ],
+      "sourceBbox": [
+        53,
+        57,
+        399,
+        503
+      ],
+      "sourceMargins": {
+        "left": 53,
+        "top": 57,
+        "right": 32,
+        "bottom": 31
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        218.12701451669827,
+        208.64000000000001
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 94862,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        82,
+        38,
+        230,
+        296
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 82,
+        "top": 38,
+        "right": 72,
+        "bottom": 50
+      },
+      "packedCell": [
+        2304,
+        384,
+        2688,
+        768
+      ]
+    },
+    {
+      "frame": 23,
+      "elevation": 0,
+      "azimuth": 157.5,
+      "sourceParity": "odd",
+      "sourceFrame": 3,
+      "sourceCell": [
+        1100,
+        0,
+        1536,
+        538
+      ],
+      "sourceBbox": [
+        58,
+        58,
+        391,
+        506
+      ],
+      "sourceMargins": {
+        "left": 58,
+        "top": 58,
+        "right": 45,
+        "bottom": 32
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        217.83169522042368,
+        210.32000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 94430,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        86,
+        37,
+        221,
+        297
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 86,
+        "top": 37,
+        "right": 77,
+        "bottom": 50
+      },
+      "packedCell": [
+        2688,
+        384,
+        3072,
+        768
+      ]
+    },
+    {
+      "frame": 24,
+      "elevation": 0,
+      "azimuth": 180.0,
+      "sourceParity": "even",
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        510,
+        412,
+        1024
+      ],
+      "sourceBbox": [
+        32,
+        35,
+        371,
+        463
+      ],
+      "sourceMargins": {
+        "left": 32,
+        "top": 35,
+        "right": 41,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        201.57317258600065,
+        180.52
+      ],
+      "componentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 86422,
+        "removedComponentPixels": 3
+      },
+      "normalizedPlacement": [
+        79,
+        42,
+        225,
+        284
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 79,
+        "top": 42,
+        "right": 80,
+        "bottom": 58
+      },
+      "packedCell": [
+        3072,
+        384,
+        3456,
+        768
+      ]
+    },
+    {
+      "frame": 25,
+      "elevation": 0,
+      "azimuth": 202.5,
+      "sourceParity": "odd",
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        514,
+        422,
+        1024
+      ],
+      "sourceBbox": [
+        34,
+        31,
+        367,
+        459
+      ],
+      "sourceMargins": {
+        "left": 34,
+        "top": 31,
+        "right": 55,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        201.53463092243186,
+        176.52
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 85522,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        81,
+        42,
+        221,
+        284
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 81,
+        "top": 42,
+        "right": 82,
+        "bottom": 58
+      },
+      "packedCell": [
+        3456,
+        384,
+        3840,
+        768
+      ]
+    },
+    {
+      "frame": 26,
+      "elevation": 0,
+      "azimuth": 225.0,
+      "sourceParity": "even",
+      "sourceFrame": 5,
+      "sourceCell": [
+        388,
+        510,
+        799,
+        1024
+      ],
+      "sourceBbox": [
+        23,
+        35,
+        331,
+        462
+      ],
+      "sourceMargins": {
+        "left": 23,
+        "top": 35,
+        "right": 80,
+        "bottom": 52
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        165.55671770990995,
+        180.18
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 85234,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        97,
+        42,
+        204,
+        283
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 97,
+        "top": 42,
+        "right": 83,
+        "bottom": 59
+      },
+      "packedCell": [
+        3840,
+        384,
+        4224,
+        768
+      ]
+    },
+    {
+      "frame": 27,
+      "elevation": 0,
+      "azimuth": 247.5,
+      "sourceParity": "odd",
+      "sourceFrame": 5,
+      "sourceCell": [
+        398,
+        514,
+        792,
+        1024
+      ],
+      "sourceBbox": [
+        33,
+        33,
+        331,
+        459
+      ],
+      "sourceMargins": {
+        "left": 33,
+        "top": 33,
+        "right": 63,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        171.8207289536989,
+        177.84
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 84990,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        100,
+        42,
+        198,
+        283
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 100,
+        "top": 42,
+        "right": 86,
+        "bottom": 59
+      },
+      "packedCell": [
+        4224,
+        384,
+        4608,
+        768
+      ]
+    },
+    {
+      "frame": 28,
+      "elevation": 0,
+      "azimuth": 270.0,
+      "sourceParity": "even",
+      "sourceFrame": 6,
+      "sourceCell": [
+        775,
+        510,
+        1129,
+        1024
+      ],
+      "sourceBbox": [
+        27,
+        31,
+        305,
+        463
+      ],
+      "sourceMargins": {
+        "left": 27,
+        "top": 31,
+        "right": 49,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        151.941235153938,
+        177.88000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 78140,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        109,
+        41,
+        185,
+        287
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 109,
+        "top": 41,
+        "right": 90,
+        "bottom": 56
+      },
+      "packedCell": [
+        4608,
+        384,
+        4992,
+        768
+      ]
+    },
+    {
+      "frame": 29,
+      "elevation": 0,
+      "azimuth": 292.5,
+      "sourceParity": "odd",
+      "sourceFrame": 6,
+      "sourceCell": [
+        768,
+        514,
+        1124,
+        1024
+      ],
+      "sourceBbox": [
+        37,
+        31,
+        311,
+        459
+      ],
+      "sourceMargins": {
+        "left": 37,
+        "top": 31,
+        "right": 45,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        165.85011051298397,
+        176.52
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 80122,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        106,
+        42,
+        182,
+        284
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 106,
+        "top": 42,
+        "right": 96,
+        "bottom": 58
+      },
+      "packedCell": [
+        4992,
+        384,
+        5376,
+        768
+      ]
+    },
+    {
+      "frame": 30,
+      "elevation": 0,
+      "azimuth": 315.0,
+      "sourceParity": "even",
+      "sourceFrame": 7,
+      "sourceCell": [
+        1105,
+        510,
+        1536,
+        1024
+      ],
+      "sourceBbox": [
+        28,
+        32,
+        364,
+        463
+      ],
+      "sourceMargins": {
+        "left": 28,
+        "top": 32,
+        "right": 67,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        205.73798247763895,
+        178.54000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 91684,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        74,
+        41,
+        223,
+        286
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 74,
+        "top": 41,
+        "right": 87,
+        "bottom": 57
+      },
+      "packedCell": [
+        5376,
+        384,
+        5760,
+        768
+      ]
+    },
+    {
+      "frame": 31,
+      "elevation": 0,
+      "azimuth": 337.5,
+      "sourceParity": "odd",
+      "sourceFrame": 7,
+      "sourceCell": [
+        1100,
+        514,
+        1536,
+        1024
+      ],
+      "sourceBbox": [
+        33,
+        32,
+        368,
+        460
+      ],
+      "sourceMargins": {
+        "left": 33,
+        "top": 32,
+        "right": 68,
+        "bottom": 50
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        209.16210671111,
+        177.52
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 90172,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        75,
+        42,
+        222,
+        284
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 75,
+        "top": 42,
+        "right": 87,
+        "bottom": 58
+      },
+      "packedCell": [
+        5760,
+        384,
+        6144,
+        768
+      ]
+    },
+    {
+      "frame": 32,
+      "elevation": -30,
+      "azimuth": 0.0,
+      "sourceParity": "even",
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        414,
+        535
+      ],
+      "sourceBbox": [
+        31,
+        53,
+        390,
+        503
+      ],
+      "sourceMargins": {
+        "left": 31,
+        "top": 53,
+        "right": 24,
+        "bottom": 32
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        209.72768698084155,
+        206.0
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 97384,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        73,
+        37,
+        238,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 73,
+        "top": 37,
+        "right": 73,
+        "bottom": 48
+      },
+      "packedCell": [
+        0,
+        768,
+        384,
+        1152
+      ]
+    },
+    {
+      "frame": 33,
+      "elevation": -30,
+      "azimuth": 22.5,
+      "sourceParity": "odd",
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        422,
+        532
+      ],
+      "sourceBbox": [
+        60,
+        78,
+        387,
+        481
+      ],
+      "sourceMargins": {
+        "left": 60,
+        "top": 78,
+        "right": 35,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        213.75788490889403,
+        215.02
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 82453,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        79,
+        38,
+        240,
+        296
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 79,
+        "top": 38,
+        "right": 65,
+        "bottom": 50
+      },
+      "packedCell": [
+        384,
+        768,
+        768,
+        1152
+      ]
+    },
+    {
+      "frame": 34,
+      "elevation": -30,
+      "azimuth": 45.0,
+      "sourceParity": "even",
+      "sourceFrame": 1,
+      "sourceCell": [
+        390,
+        0,
+        797,
+        535
+      ],
+      "sourceBbox": [
+        40,
+        52,
+        372,
+        502
+      ],
+      "sourceMargins": {
+        "left": 40,
+        "top": 52,
+        "right": 35,
+        "bottom": 33
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        193.31644504445157,
+        205.0
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 97699,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        90,
+        37,
+        220,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 90,
+        "top": 37,
+        "right": 74,
+        "bottom": 48
+      },
+      "packedCell": [
+        768,
+        768,
+        1152,
+        1152
+      ]
+    },
+    {
+      "frame": 35,
+      "elevation": -30,
+      "azimuth": 67.5,
+      "sourceParity": "odd",
+      "sourceFrame": 1,
+      "sourceCell": [
+        398,
+        0,
+        784,
+        532
+      ],
+      "sourceBbox": [
+        38,
+        76,
+        345,
+        480
+      ],
+      "sourceMargins": {
+        "left": 38,
+        "top": 76,
+        "right": 41,
+        "bottom": 52
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        176.7573907243555,
+        213.36
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 82252,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        90,
+        37,
+        225,
+        296
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 90,
+        "top": 37,
+        "right": 69,
+        "bottom": 51
+      },
+      "packedCell": [
+        1152,
+        768,
+        1536,
+        1152
+      ]
+    },
+    {
+      "frame": 36,
+      "elevation": -30,
+      "azimuth": 90.0,
+      "sourceParity": "even",
+      "sourceFrame": 2,
+      "sourceCell": [
+        773,
+        0,
+        1129,
+        535
+      ],
+      "sourceBbox": [
+        38,
+        52,
+        324,
+        503
+      ],
+      "sourceMargins": {
+        "left": 38,
+        "top": 52,
+        "right": 32,
+        "bottom": 32
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        196.1045613482279,
+        205.34
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 84510,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        87,
+        36,
+        190,
+        299
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 87,
+        "top": 36,
+        "right": 107,
+        "bottom": 49
+      },
+      "packedCell": [
+        1536,
+        768,
+        1920,
+        1152
+      ]
+    },
+    {
+      "frame": 37,
+      "elevation": -30,
+      "azimuth": 112.5,
+      "sourceParity": "odd",
+      "sourceFrame": 2,
+      "sourceCell": [
+        760,
+        0,
+        1114,
+        532
+      ],
+      "sourceBbox": [
+        44,
+        75,
+        308,
+        481
+      ],
+      "sourceMargins": {
+        "left": 44,
+        "top": 75,
+        "right": 46,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        189.87912479556644,
+        213.04000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 70444,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        85,
+        37,
+        194,
+        298
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 85,
+        "top": 37,
+        "right": 105,
+        "bottom": 49
+      },
+      "packedCell": [
+        1920,
+        768,
+        2304,
+        1152
+      ]
+    },
+    {
+      "frame": 38,
+      "elevation": -30,
+      "azimuth": 135.0,
+      "sourceParity": "even",
+      "sourceFrame": 3,
+      "sourceCell": [
+        1105,
+        0,
+        1536,
+        535
+      ],
+      "sourceBbox": [
+        55,
+        61,
+        388,
+        503
+      ],
+      "sourceMargins": {
+        "left": 55,
+        "top": 61,
+        "right": 43,
+        "bottom": 32
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        210.95246065066934,
+        211.28
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 91654,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        88,
+        38,
+        221,
+        293
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 88,
+        "top": 38,
+        "right": 75,
+        "bottom": 53
+      },
+      "packedCell": [
+        2304,
+        768,
+        2688,
+        1152
+      ]
+    },
+    {
+      "frame": 39,
+      "elevation": -30,
+      "azimuth": 157.5,
+      "sourceParity": "odd",
+      "sourceFrame": 3,
+      "sourceCell": [
+        1090,
+        0,
+        1536,
+        532
+      ],
+      "sourceBbox": [
+        68,
+        80,
+        381,
+        481
+      ],
+      "sourceMargins": {
+        "left": 68,
+        "top": 80,
+        "right": 65,
+        "bottom": 51
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        219.52042643605077,
+        216.34
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 77529,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        81,
+        38,
+        230,
+        294
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 81,
+        "top": 38,
+        "right": 73,
+        "bottom": 52
+      },
+      "packedCell": [
+        2688,
+        768,
+        3072,
+        1152
+      ]
+    },
+    {
+      "frame": 40,
+      "elevation": -30,
+      "azimuth": 180.0,
+      "sourceParity": "even",
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        511,
+        414,
+        1024
+      ],
+      "sourceBbox": [
+        34,
+        33,
+        369,
+        464
+      ],
+      "sourceMargins": {
+        "left": 34,
+        "top": 33,
+        "right": 45,
+        "bottom": 49
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        203.07717100016123,
+        179.54000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 87103,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        80,
+        41,
+        222,
+        286
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 80,
+        "top": 41,
+        "right": 82,
+        "bottom": 57
+      },
+      "packedCell": [
+        3072,
+        768,
+        3456,
+        1152
+      ]
+    },
+    {
+      "frame": 41,
+      "elevation": -30,
+      "azimuth": 202.5,
+      "sourceParity": "odd",
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        508,
+        422,
+        1024
+      ],
+      "sourceBbox": [
+        44,
+        66,
+        342,
+        446
+      ],
+      "sourceMargins": {
+        "left": 44,
+        "top": 66,
+        "right": 80,
+        "bottom": 70
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        194.89166157158746,
+        195.20000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 68548,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        81,
+        43,
+        219,
+        279
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 81,
+        "top": 43,
+        "right": 84,
+        "bottom": 62
+      },
+      "packedCell": [
+        3456,
+        768,
+        3840,
+        1152
+      ]
+    },
+    {
+      "frame": 42,
+      "elevation": -30,
+      "azimuth": 225.0,
+      "sourceParity": "even",
+      "sourceFrame": 5,
+      "sourceCell": [
+        390,
+        511,
+        797,
+        1024
+      ],
+      "sourceBbox": [
+        24,
+        34,
+        329,
+        464
+      ],
+      "sourceMargins": {
+        "left": 24,
+        "top": 34,
+        "right": 78,
+        "bottom": 49
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        164.58492876892313,
+        180.20000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 84422,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        99,
+        41,
+        202,
+        285
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 99,
+        "top": 41,
+        "right": 83,
+        "bottom": 58
+      },
+      "packedCell": [
+        3840,
+        768,
+        4224,
+        1152
+      ]
+    },
+    {
+      "frame": 43,
+      "elevation": -30,
+      "azimuth": 247.5,
+      "sourceParity": "odd",
+      "sourceFrame": 5,
+      "sourceCell": [
+        398,
+        508,
+        784,
+        1024
+      ],
+      "sourceBbox": [
+        36,
+        64,
+        310,
+        445
+      ],
+      "sourceMargins": {
+        "left": 36,
+        "top": 64,
+        "right": 76,
+        "bottom": 71
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        162.45387154353946,
+        193.54000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 67754,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        99,
+        43,
+        201,
+        279
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 99,
+        "top": 43,
+        "right": 84,
+        "bottom": 62
+      },
+      "packedCell": [
+        4224,
+        768,
+        4608,
+        1152
+      ]
+    },
+    {
+      "frame": 44,
+      "elevation": -30,
+      "azimuth": 270.0,
+      "sourceParity": "even",
+      "sourceFrame": 6,
+      "sourceCell": [
+        773,
+        511,
+        1129,
+        1024
+      ],
+      "sourceBbox": [
+        35,
+        31,
+        306,
+        463
+      ],
+      "sourceMargins": {
+        "left": 35,
+        "top": 31,
+        "right": 50,
+        "bottom": 50
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        157.5818576426265,
+        177.88000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 77272,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        111,
+        41,
+        180,
+        287
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 111,
+        "top": 41,
+        "right": 93,
+        "bottom": 56
+      },
+      "packedCell": [
+        4608,
+        768,
+        4992,
+        1152
+      ]
+    },
+    {
+      "frame": 45,
+      "elevation": -30,
+      "azimuth": 292.5,
+      "sourceParity": "odd",
+      "sourceFrame": 6,
+      "sourceCell": [
+        760,
+        508,
+        1114,
+        1024
+      ],
+      "sourceBbox": [
+        41,
+        51,
+        287,
+        441
+      ],
+      "sourceMargins": {
+        "left": 41,
+        "top": 51,
+        "right": 67,
+        "bottom": 75
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        152.55828740564223,
+        183.60000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 62661,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        110,
+        41,
+        180,
+        286
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 110,
+        "top": 41,
+        "right": 94,
+        "bottom": 57
+      },
+      "packedCell": [
+        4992,
+        768,
+        5376,
+        1152
+      ]
+    },
+    {
+      "frame": 46,
+      "elevation": -30,
+      "azimuth": 315.0,
+      "sourceParity": "even",
+      "sourceFrame": 7,
+      "sourceCell": [
+        1105,
+        511,
+        1536,
+        1024
+      ],
+      "sourceBbox": [
+        32,
+        34,
+        357,
+        464
+      ],
+      "sourceMargins": {
+        "left": 32,
+        "top": 34,
+        "right": 74,
+        "bottom": 49
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.0,
+      "sourceAnchor": [
+        202.66512018639915,
+        180.20000000000002
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 88366,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        79,
+        41,
+        216,
+        285
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 79,
+        "top": 41,
+        "right": 89,
+        "bottom": 58
+      },
+      "packedCell": [
+        5376,
+        768,
+        5760,
+        1152
+      ]
+    },
+    {
+      "frame": 47,
+      "elevation": -30,
+      "azimuth": 337.5,
+      "sourceParity": "odd",
+      "sourceFrame": 7,
+      "sourceCell": [
+        1090,
+        508,
+        1536,
+        1024
+      ],
+      "sourceBbox": [
+        44,
+        56,
+        345,
+        442
+      ],
+      "sourceMargins": {
+        "left": 44,
+        "top": 56,
+        "right": 101,
+        "bottom": 74
+      },
+      "gridDetection": "auto_detected_transparent_gaps",
+      "sourceScaleCorrection": 1.1049304677623262,
+      "sourceAnchor": [
+        205.4569082379001,
+        187.24
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 73461,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        74,
+        42,
+        221,
+        283
+      ],
+      "normalizedAnchor": [
+        192.0,
+        138.24
+      ],
+      "finalMargins": {
+        "left": 74,
+        "top": 42,
+        "right": 89,
+        "bottom": 59
+      },
+      "packedCell": [
+        5760,
+        768,
+        6144,
+        1152
+      ]
+    }
+  ]
+}

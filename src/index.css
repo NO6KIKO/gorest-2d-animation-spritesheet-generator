@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./features/mode-picker/mode-picker.css";
+@import "./features/rigged-2d/rigged-2d.css";
 @import "./features/scene-flow/scene-flow.css";
 @import "./features/scene-flow/scene-flow-graph.css";
 @import "./features/scene-flow/scene-animation.css";

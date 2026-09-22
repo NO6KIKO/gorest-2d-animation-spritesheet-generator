@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "rigs": [
+    {
+      "id": "wei_yang_front_cutout_walk_rig",
+      "name": "Wei Yang / Front Cutout Walk Spine",
+      "characterName": "Wei Yang",
+      "description": "Sixteen separately drawn body attachments on eighteen parented bones, animated as a front-facing walk cycle.",
+      "focus": "front-cutout-walk",
+      "thumbnailUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/neutral_composite.png",
+      "rigManifestUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/rig.json",
+      "spineJsonUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/wei-yang-front-cutout-rig.json",
+      "spineAtlasUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/wei-yang-front-cutout-rig.atlas",
+      "spineTextureUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/wei-yang-front-cutout-rig.png",
+      "frameSize": [
+        640,
+        1152
+      ],
+      "frameCount": 8,
+      "fps": 12,
+      "animations": [
+        {
+          "name": "walk_front",
+          "loop": true
+        }
+      ],
+      "defaultAnimation": "walk_front",
+      "updatedTime": "2026-09-03T00:00:00.000Z",
+      "tags": [
+        "wei-yang",
+        "silver-hair",
+        "green-school-uniform",
+        "front-view",
+        "cutout",
+        "separated-bones",
+        "full-body",
+        "walk-cycle",
+        "spine-4.2"
+      ]
+    }
+  ]
+}

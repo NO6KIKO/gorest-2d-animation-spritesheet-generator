@@ -85,6 +85,7 @@ import {
 import { SceneContextMenu } from "./features/scene-context-menu";
 import { SceneSpritesheetCard, SceneSpritesheetsEmptyState, SceneSpritesheetsHeader, type SceneSpritesheetEntry } from "./features/scene-spritesheets";
 import { ModePicker } from "./features/mode-picker";
+import { Rigged2DWorkspace } from "./features/rigged-2d";
 import { buildSheetOnlyEntries, SheetOnlyGallery, type SheetOnlyRecolorSaveRequest } from "./features/sheet-only-gallery";
 import { SpritesheetImporterPanel } from "./features/spritesheet-importer";
 import { WorkspaceStageHeader } from "./features/workspace-stage-header";
@@ -905,7 +906,7 @@ export default function App() {
   if (appMode === "home") {
     return (
       <Fragment>
-        <ModePicker onOpenGame={openGameMode} onOpenSheetOnly={openSheetOnlyMode} />
+        <ModePicker onOpenGame={openGameMode} onOpenRigged2D={() => setAppMode("rigged-2d")} onOpenSheetOnly={openSheetOnlyMode} />
         <CommunityHelp />
       </Fragment>
     );
@@ -935,6 +936,15 @@ export default function App() {
             setSheetOnlySelectedAssetId(null);
           }}
         />
+        <CommunityHelp />
+      </Fragment>
+    );
+  }
+
+  if (appMode === "rigged-2d") {
+    return (
+      <Fragment>
+        <Rigged2DWorkspace onBack={returnToModePicker} />
         <CommunityHelp />
       </Fragment>
     );
@@ -1239,6 +1249,19 @@ export default function App() {
                     onInteractionZoneDragStart={startInteractionZoneDrag}
                     onInteractionZoneResizeStart={startInteractionZoneResize}
                     onLayerContextMenu={openSceneLayerContextMenu}
+                    onLayerInteractionClick={targetLayer => {
+                      const targetAsset = targetLayer.assetId ? assetById.get(targetLayer.assetId) : undefined;
+                      const interaction = targetAsset ? layerInteractionSettings(targetLayer, targetAsset) : null;
+                      if (!targetAsset || !interaction) return;
+                      setSelectedLayerId("");
+                      setSelectedInteractionZoneLayerId(null);
+                      triggerNearbyInteraction({
+                        layer: targetLayer,
+                        asset: targetAsset,
+                        interaction,
+                        bounds: interactionZoneBounds(targetLayer, targetAsset, interaction),
+                      });
+                    }}
                     onLayerPointerDown={stagePointerDown}
                     onLayerResizeStart={startLayerResize}
                     onLayerSelect={(targetLayer, sprite) => {

@@ -1,0 +1,22 @@
+wei-yang-walk-rig.png
+size: 2560, 2304
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+walk_right_00
+bounds: 0, 0, 640, 1152
+walk_right_01
+bounds: 640, 0, 640, 1152
+walk_right_02
+bounds: 1280, 0, 640, 1152
+walk_right_03
+bounds: 1920, 0, 640, 1152
+walk_right_04
+bounds: 0, 1152, 640, 1152
+walk_right_05
+bounds: 640, 1152, 640, 1152
+walk_right_06
+bounds: 1280, 1152, 640, 1152
+walk_right_07
+bounds: 1920, 1152, 640, 1152

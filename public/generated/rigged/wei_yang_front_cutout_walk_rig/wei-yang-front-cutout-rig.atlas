@@ -1,0 +1,38 @@
+wei-yang-front-cutout-rig.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+bag
+bounds: 374, 328, 124, 120
+foot_r
+bounds: 502, 328, 109, 120
+shin_r
+bounds: 214, 0, 65, 237
+thigh_r
+bounds: 352, 0, 88, 221
+foot_l
+bounds: 615, 328, 101, 120
+shin_l
+bounds: 283, 0, 65, 237
+thigh_l
+bounds: 444, 0, 88, 216
+hand_l
+bounds: 720, 328, 47, 93
+forearm_l
+bounds: 306, 328, 64, 177
+upper_arm_l
+bounds: 536, 0, 70, 214
+hand_r
+bounds: 771, 328, 48, 93
+forearm_r
+bounds: 238, 328, 64, 186
+upper_arm_r
+bounds: 610, 0, 73, 214
+torso
+bounds: 0, 0, 210, 324
+skirt
+bounds: 0, 328, 234, 198
+head
+bounds: 687, 0, 179, 206

@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "sourceGrid": [
+    4,
+    2
+  ],
+  "targetGrid": [
+    4,
+    4
+  ],
+  "targetCellSize": [
+    512,
+    512
+  ],
+  "targetSize": [
+    2048,
+    2048
+  ],
+  "policy": "source pixels translated only; no redraw, resize, mirror, warp, or rotation",
+  "frames": [
+    {
+      "frame": 0,
+      "azimuth": 0.0,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "targetCell": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 1,
+      "azimuth": 22.5,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        384,
+        0,
+        768,
+        512
+      ],
+      "targetCell": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 2,
+      "azimuth": 45.0,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        768,
+        0,
+        1152,
+        512
+      ],
+      "targetCell": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 3,
+      "azimuth": 67.5,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        1152,
+        0,
+        1536,
+        512
+      ],
+      "targetCell": [
+        1536,
+        0,
+        2048,
+        512
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 4,
+      "azimuth": 90.0,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        0,
+        512,
+        384,
+        1024
+      ],
+      "targetCell": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 5,
+      "azimuth": 112.5,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        384,
+        512,
+        768,
+        1024
+      ],
+      "targetCell": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 6,
+      "azimuth": 135.0,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        768,
+        512,
+        1152,
+        1024
+      ],
+      "targetCell": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 7,
+      "azimuth": 157.5,
+      "source": "first_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_a_alpha.png",
+      "sourceCell": [
+        1152,
+        512,
+        1536,
+        1024
+      ],
+      "targetCell": [
+        1536,
+        512,
+        2048,
+        1024
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 8,
+      "azimuth": 180.0,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        0,
+        0,
+        384,
+        512
+      ],
+      "targetCell": [
+        0,
+        1024,
+        512,
+        1536
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 9,
+      "azimuth": 202.5,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        384,
+        0,
+        768,
+        512
+      ],
+      "targetCell": [
+        512,
+        1024,
+        1024,
+        1536
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 10,
+      "azimuth": 225.0,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        768,
+        0,
+        1152,
+        512
+      ],
+      "targetCell": [
+        1024,
+        1024,
+        1536,
+        1536
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 11,
+      "azimuth": 247.5,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        1152,
+        0,
+        1536,
+        512
+      ],
+      "targetCell": [
+        1536,
+        1024,
+        2048,
+        1536
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 12,
+      "azimuth": 270.0,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        0,
+        512,
+        384,
+        1024
+      ],
+      "targetCell": [
+        0,
+        1536,
+        512,
+        2048
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 13,
+      "azimuth": 292.5,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        384,
+        512,
+        768,
+        1024
+      ],
+      "targetCell": [
+        512,
+        1536,
+        1024,
+        2048
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 14,
+      "azimuth": 315.0,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        768,
+        512,
+        1152,
+        1024
+      ],
+      "targetCell": [
+        1024,
+        1536,
+        1536,
+        2048
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    },
+    {
+      "frame": 15,
+      "azimuth": 337.5,
+      "source": "second_half",
+      "sourcePath": "public/generated/sources/wei_yang_fake3d_48v/elev_p30_b_alpha.png",
+      "sourceCell": [
+        1152,
+        512,
+        1536,
+        1024
+      ],
+      "targetCell": [
+        1536,
+        1536,
+        2048,
+        2048
+      ],
+      "sourcePixelTransform": "translate_only_no_resize_no_mirror_no_warp_no_rotation"
+    }
+  ]
+}

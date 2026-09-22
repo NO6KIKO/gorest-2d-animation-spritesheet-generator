@@ -1,6 +1,915 @@
 {
   "assets": [
     {
+      "id": "asset_center_part_black_hair_woman_tie_firelight_closeup_8f",
+      "name": "Center-Part Black-Haired Woman / Firelight Close-up 8f",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-09-10T15:30:33.584Z",
+      "updatedTime": "2026-09-10T15:40:07.506Z",
+      "sprite": {
+        "id": "sprite_center_part_black_hair_woman_tie_firelight_closeup_8f",
+        "characterName": "Center-Part Black-Haired Woman",
+        "description": "Eight registered close-up frames of a black-haired woman in a white shirt and black tie while warm firelight rises across her face and recedes into a seamless loop.",
+        "frameCount": 8,
+        "style": "cinematic hand-drawn anime-inspired cel portrait with dark ink contours, restrained mature features, deep brown shadows, and warm amber-orange firelight",
+        "prompt": "Draw exactly eight registered close-up frames of the same young adult woman wearing a white collared shirt and narrow black tie, with shoulder-length black hair and center-parted curtain bangs. Lock her face, expression, pose, camera, scale, and silhouette. Animate only warm firelight rising from dim amber to bright gold-orange across her cheek, hair, collar, and tie, then receding smoothly toward frame one. Use a strict 4 x 2 grid with generous per-cell padding and no visible flames, scenery, text, logos, UI, borders, or watermark.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 0 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1024 0 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1536 0 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 512 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 512 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1024 512 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1536 512 512 512\" width=\"512\" height=\"512\"><image href=\"/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-09-10T15:30:33.584Z",
+        "updatedTime": "2026-09-10T15:30:33.584Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png",
+        "rawSpritesheetPng": "/generated/center_part_black_hair_woman_tie_firelight_closeup_4x2_8f_sheet.png",
+        "generationMode": "spritesheet",
+        "artSourcePolicy": "All visible character, hair, clothing, line work, shading, and frame-to-frame firelight changes were drawn by built-in ImageGen from the user-supplied visual mood reference. Code only removed the flat chroma background, preserved alpha edges, detected the declared grid, applied one shared uniform scale and upper-body anchor, and packed the transparent sheet.",
+        "qualityPolicy": "Eight uniquely rendered firelight stages preserve the same face, center-parted hairstyle, white shirt, black tie, expression, camera, proportions, and registration with clean transparent padding.",
+        "proportionPolicy": "one_global_uniform_scale_0.816292_preserve_generated_character_proportions",
+        "normalization": "Auto-detected the 4 x 2 sprite runs in the 1774 x 887 magenta source, removed the chroma key, applied one shared 0.816292 scale, fixed the upper-body anchor at x=256 and y=156.16, and packed eight 512 x 512 transparent frames.",
+        "rootAnchorPolicy": "fixed_upper_body_centroid_x_256_y_156_16_character_position_stable",
+        "fps": 8,
+        "loop": true,
+        "gridColumns": 4,
+        "cellSize": 512,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          2048,
+          1024
+        ],
+        "safePadding": 48,
+        "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "All eight generated silhouettes remain clear of detected source-cell edges at a four-pixel inspection threshold.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Auto-detected four foreground runs per row and two row runs after chroma removal."
+      },
+      "binding": {
+        "actionName": "firelight_flicker",
+        "triggerType": "auto",
+        "triggerValue": "preview-loop",
+        "gameState": "character.center_part_black_hair_woman.firelight",
+        "notes": "Auto preview loop for the face-lighting flicker spritesheet."
+      },
+      "tags": [
+        "spritesheet",
+        "anime-inspired",
+        "portrait",
+        "close-up",
+        "female-character",
+        "black-hair",
+        "center-part",
+        "white-shirt",
+        "black-tie",
+        "firelight",
+        "lighting-loop",
+        "transparent",
+        "8-frame",
+        "4x2"
+      ]
+    },
+    {
+      "id": "asset_ink_wash_wuxia_drinking_8f",
+      "name": "Ink-Wash Wuxia Man / Drinking Wine Loop",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-09-10T01:07:15.082Z",
+      "updatedTime": "2026-09-10T01:07:15.082Z",
+      "sprite": {
+        "id": "sprite_ink_wash_wuxia_drinking_8f",
+        "characterName": "Ink-Wash Wuxia Man",
+        "description": "Eight registered upper-body frames of a long-haired ancient Chinese swordsman calmly raising a dark ceramic cup, drinking, lowering it, and settling back into a restrained smile.",
+        "frameCount": 8,
+        "style": "extremely high-clarity hand-drawn Chinese ink-wash anime portrait with crisp eyes, individual black hair strands, clean hand anatomy, a dark ceramic wine cup, detailed layered robes, and subtle grayscale watercolor texture",
+        "prompt": "Draw exactly eight sequential registered frames of the same adult Chinese wuxia man drinking from one small dark ceramic wine cup. Preserve his long half-tied black hair, loose strands, narrow face, dark layered robe, calm expression, right-hand grip, proportions, fixed front-facing upper-body camera, scale, and anchor. Sequence: cup at chest, raise, approach lips, first sip, drink with subtle head tilt, begin lowering, lower with faint smile, settle toward the first pose. Use extremely clear hand-drawn grayscale Chinese ink-wash anime art on a uniform #FF00FF chroma background. No scenery, borders, text, extra people, extra hands, extra cups, logos, or watermark.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-09-10T01:07:15.082Z",
+        "updatedTime": "2026-09-10T01:07:15.082Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png",
+        "rawSpritesheetPng": "/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png",
+        "sourceMasterPng": "/generated/sources/ink_wash_wuxia_drinking_8f/ink_wash_wuxia_drinking_4x2_chroma.png",
+        "generationMode": "spritesheet",
+        "artSourcePolicy": "All visible face, eyes, hair, hands, wine cup, clothing, poses, line work, shading, and frame-to-frame action changes were drawn by built-in ImageGen from the user-supplied visual reference. Code only removed the flat chroma background, cleaned alpha edges, split the declared grid, applied one global uniform scale, aligned one shared upper-body anchor, and packed the transparent sheet.",
+        "qualityPolicy": "Eight uniquely drawn high-detail ink-wash frames preserve the same identity, outfit, cup, camera, and portrait scale. Crisp eyes, hair strands, fingers, cup rim, robe folds, and clean alpha edges remain readable; no pose was made by mirroring, warping, puppetry, or procedural redrawing.",
+        "proportionPolicy": "one_global_uniform_scale_0.594992_preserve_generated_character_proportions",
+        "normalization": "1774 x 887 magenta source split as a proportional 4 x 2 grid, chroma removed, alpha edges cleaned, one global 0.594992 scale applied, shared upper-body anchor fixed at x=192 and y=117.12, then packed into eight 384 x 384 transparent frames.",
+        "rootAnchorPolicy": "fixed_upper_body_centroid_x_192_y_117_12_character_position_stable",
+        "fps": 6,
+        "loop": true,
+        "gridColumns": 4,
+        "cellSize": 384,
+        "frameSize": [
+          384,
+          384
+        ],
+        "sheetSize": [
+          1536,
+          768
+        ],
+        "safePadding": 36,
+        "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "All eight generated silhouettes remain clear of the proportional source-cell edges at a four-pixel inspection threshold.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Strict proportional 4 x 2 source grid; see /generated/ink_wash_wuxia_drinking_4x2_8f_manifest.json."
+      },
+      "animations": [
+        {
+          "id": "clip_ink_wash_wuxia_drink_loop",
+          "name": "Raise Cup and Drink Loop",
+          "actionName": "drink-wine",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_ink_wash_wuxia_drinking_8f",
+            "characterName": "Ink-Wash Wuxia Man",
+            "description": "Eight registered upper-body frames: hold the cup, raise it, sip, lower it, smile faintly, and settle into a seamless calm loop.",
+            "frameCount": 8,
+            "style": "extremely high-clarity hand-drawn Chinese ink-wash anime portrait with crisp eyes, individual black hair strands, clean hand anatomy, a dark ceramic wine cup, detailed layered robes, and subtle grayscale watercolor texture",
+            "prompt": "Draw exactly eight sequential registered frames of the same adult Chinese wuxia man drinking from one small dark ceramic wine cup. Preserve his long half-tied black hair, loose strands, narrow face, dark layered robe, calm expression, right-hand grip, proportions, fixed front-facing upper-body camera, scale, and anchor. Sequence: cup at chest, raise, approach lips, first sip, drink with subtle head tilt, begin lowering, lower with faint smile, settle toward the first pose. Use extremely clear hand-drawn grayscale Chinese ink-wash anime art on a uniform #FF00FF chroma background. No scenery, borders, text, extra people, extra hands, extra cups, logos, or watermark.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-09-10T01:07:15.082Z",
+            "updatedTime": "2026-09-10T01:07:15.082Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png",
+            "sourceMasterPng": "/generated/sources/ink_wash_wuxia_drinking_8f/ink_wash_wuxia_drinking_4x2_chroma.png",
+            "generationMode": "spritesheet",
+            "artSourcePolicy": "All eight drinking poses were drawn directly by built-in ImageGen. Code performed chroma removal, alpha cleanup, one uniform scale, upper-body registration, and row-major packing only.",
+            "qualityPolicy": "The face, hairstyle, robe, hand, cup, camera, proportions, scale, and ink-wash rendering remain consistent through eight unique drinking stages.",
+            "proportionPolicy": "one_global_uniform_scale_0.594992_preserve_generated_character_proportions",
+            "normalization": "1774 x 887 magenta source split as a proportional 4 x 2 grid, chroma removed, alpha edges cleaned, one global 0.594992 scale applied, shared upper-body anchor fixed at x=192 and y=117.12, then packed into eight 384 x 384 transparent frames.",
+            "rootAnchorPolicy": "fixed_upper_body_centroid_x_192_y_117_12_character_position_stable",
+            "fps": 6,
+            "loop": true,
+            "gridColumns": 4,
+            "cellSize": 384,
+            "frameSize": [
+              384,
+              384
+            ],
+            "sheetSize": [
+              1536,
+              768
+            ],
+            "safePadding": 36,
+            "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+            "sourceEdgePolicy": "All eight generated silhouettes remain clear of the proportional source-cell edges at a four-pixel inspection threshold.",
+            "sourceEdgeRiskCount": 0,
+            "gridDetection": "Strict proportional 4 x 2 source grid; see /generated/ink_wash_wuxia_drinking_4x2_8f_manifest.json."
+          },
+          "binding": {
+            "actionName": "drink-wine",
+            "triggerType": "auto",
+            "triggerValue": "scene-start",
+            "gameState": "wuxia.drinking",
+            "notes": "Automatically loop the complete raise-cup, sip, lower-cup sequence while the palace-terrace scene is open."
+          },
+          "loop": true,
+          "fps": 6
+        }
+      ],
+      "defaultAnimationId": "clip_ink_wash_wuxia_drink_loop",
+      "binding": {
+        "actionName": "drink-wine",
+        "triggerType": "auto",
+        "triggerValue": "scene-start",
+        "gameState": "wuxia.drinking",
+        "notes": "Automatic drinking loop for the standalone ink-wash palace-terrace scene."
+      },
+      "tags": [
+        "wuxia",
+        "ancient-chinese",
+        "male-character",
+        "long-black-hair",
+        "ink-wash",
+        "wine-cup",
+        "drinking",
+        "upper-body",
+        "auto-loop",
+        "transparent",
+        "spritesheet",
+        "8-frame",
+        "4x2"
+      ],
+      "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"384\" height=\"384\" viewBox=\"0 0 384 384\" overflow=\"hidden\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+      "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1536\" height=\"768\" viewBox=\"0 0 1536 768\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+      "description": "Transparent 4 x 2 high-detail ink-wash spritesheet of a long-haired wuxia man raising a ceramic cup, drinking, lowering it, and returning to a calm looping pose."
+    },
+    {
+      "id": "asset_spade_king_duel_pair",
+      "name": "Spade King Duel Pair / Auto Raise-Guns Loop",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-09-02T23:21:13.663Z",
+      "updatedTime": "2026-09-02T23:21:13.663Z",
+      "sprite": {
+        "id": "sprite_spade_king_duel_pair_rest",
+        "characterName": "Spade King Duel Pair",
+        "description": "Two original black-clad men face one another inside a sepia playing card, both resting with their pistols lowered.",
+        "frameCount": 1,
+        "style": "high-detail sepia charcoal and engraved-ink game illustration on aged ivory, with crisp silhouettes and restrained noir contrast",
+        "prompt": "Draw the same original full-body pair in profile: a slim suited man at left and a taller long-coated man at right, facing one another with pistols lowered. Preserve their identities, clothing, scale, spacing, baseline, etched line work, and sepia palette.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-09-02T23:21:13.663Z",
+        "updatedTime": "2026-09-02T23:21:13.663Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png",
+        "rawSpritesheetPng": "/generated/sources/spade_king_duel_pair_raise_8f/spade_king_duel_pair_raise_4x2_chroma.png",
+        "generationMode": "spritesheet",
+        "fps": 8,
+        "gridColumns": 4,
+        "frameSize": [
+          384,
+          512
+        ],
+        "sheetSize": [
+          1536,
+          1024
+        ],
+        "artSourcePolicy": "All visible people, faces, hair, clothing, hands, pistols, poses, engraved line work, and shading were drawn by built-in image generation. Code only removed the flat chroma key, cleaned edge spill, applied one global uniform scale, aligned the shared lower-body center and feet baseline, and packed the final transparent sheet.",
+        "qualityPolicy": "Eight genuine drawn poses form a synchronized lowered-to-aiming action. No frame was made by mirroring, warping, skeletal puppetry, or procedural redrawing; every silhouette retains at least 36 pixels of transparent safety padding.",
+        "proportionPolicy": "one_global_uniform_scale_0.880624_preserve_generated_pair_proportions",
+        "normalization": "4 x 2 magenta chroma source to clean RGBA, forced proportional source grid, one global 0.880624 scale, shared lower-body X registration, fixed feet baseline y=475, and fixed 384 x 512 frame packing",
+        "rootAnchorPolicy": "fixed_lower_body_centroid_x_192_and_shared_feet_baseline_y_475",
+        "safePadding": 36,
+        "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "All eight generated pair silhouettes remain clear of the proportional source-cell edges at a four-pixel inspection threshold.",
+        "sourceEdgeRiskCount": 0
+      },
+      "animations": [
+        {
+          "id": "clip_spade_king_duel_pair_raise_loop",
+          "name": "Synchronized Gun Raise Loop",
+          "actionName": "raise-guns",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_spade_king_duel_pair_raise_8f",
+            "characterName": "Spade King Duel Pair",
+            "description": "Eight registered frames in which both men synchronously raise lowered pistols into a mutual aimed stance without firing.",
+            "frameCount": 8,
+            "style": "high-detail sepia charcoal and engraved-ink game illustration on aged ivory, with crisp silhouettes and restrained noir contrast",
+            "prompt": "Draw eight sequential, registered frames of the exact same two original full-body men. Both synchronously move from lowered pistols through low-ready and chest level to fully extended mutual aim, then settle. Preserve identity, clothing, weapons, proportions, positions, scale, feet baseline, lighting, and etched sepia rendering. No firing, muzzle flash, recoil, injury, blood, or gore.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-09-02T23:21:13.663Z",
+            "updatedTime": "2026-09-02T23:21:13.663Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/sources/spade_king_duel_pair_raise_8f/spade_king_duel_pair_raise_4x2_chroma.png",
+            "generationMode": "spritesheet",
+            "fps": 8,
+            "gridColumns": 4,
+            "frameSize": [
+              384,
+              512
+            ],
+            "sheetSize": [
+              1536,
+              1024
+            ],
+            "artSourcePolicy": "All eight poses were drawn directly by built-in image generation; code performed alpha cleanup, one uniform scale, feet-baseline registration, and packing only.",
+            "qualityPolicy": "The two identities, outfits, weapon designs, opposing positions, and full-body silhouettes remain consistent while the arm pose advances through eight unique stages.",
+            "proportionPolicy": "one_global_uniform_scale_0.880624_preserve_generated_pair_proportions",
+            "normalization": "4 x 2 magenta chroma source to clean RGBA, forced proportional source grid, one global 0.880624 scale, shared lower-body X registration, fixed feet baseline y=475, and fixed 384 x 512 frame packing",
+            "rootAnchorPolicy": "fixed_lower_body_centroid_x_192_and_shared_feet_baseline_y_475",
+            "safePadding": 36,
+            "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+            "sourceEdgePolicy": "All eight generated pair silhouettes remain clear of the proportional source-cell edges at a four-pixel inspection threshold.",
+            "sourceEdgeRiskCount": 0
+          },
+          "binding": {
+            "actionName": "raise-guns",
+            "triggerType": "auto",
+            "triggerValue": "loop",
+            "gameState": "spade_king.duel_raising",
+            "notes": "Automatically loop the synchronized gun-raise animation while the scene is open."
+          },
+          "loop": true,
+          "fps": 8
+        }
+      ],
+      "defaultAnimationId": "clip_spade_king_duel_pair_raise_loop",
+      "binding": {
+        "actionName": "raise-guns",
+        "triggerType": "auto",
+        "triggerValue": "loop",
+        "gameState": "spade_king.duel_raising",
+        "notes": "Automatic paired-character loop for the standalone Spade King scene."
+      },
+      "tags": [
+        "npc-pair",
+        "playing-card",
+        "king-of-spades",
+        "gun-raise",
+        "auto-loop",
+        "sepia",
+        "transparent",
+        "spritesheet",
+        "8-frame",
+        "4x2"
+      ]
+    },
+    {
+      "id": "asset_clock_tower_bell",
+      "name": "Old Clock Tower Bell / Click to Ring",
+      "role": "prop",
+      "confirmed": true,
+      "savedTime": "2026-09-02T15:42:41.320Z",
+      "updatedTime": "2026-09-02T15:42:41.320Z",
+      "sprite": {
+        "id": "sprite_clock_tower_bell_idle",
+        "characterName": "Old Clock Tower Bell",
+        "description": "A hand-painted antique bronze bell, wooden yoke, clapper, and striking hammer resting in the dusk clock tower.",
+        "frameCount": 1,
+        "style": "refined hand-painted 2D narrative adventure prop with aged bronze, verdigris, dark wood, crisp painterly edges, and warm dusk rim light",
+        "prompt": "Draw the approved antique bronze clock-tower bell in its fixed resting pose, preserving the wooden yoke, internal clapper, side hammer, patina, ornament, dusk palette, and top-center suspension anchor.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-09-02T15:42:41.320Z",
+        "updatedTime": "2026-09-02T15:42:41.320Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/clock_tower_bell_strike_4x2_8f_sheet.png",
+        "rawSpritesheetPng": "/generated/sources/clock_tower_bell_strike_8f/clock_tower_bell_strike_4x2_chroma.png",
+        "generationMode": "spritesheet",
+        "fps": 10,
+        "gridColumns": 4,
+        "frameSize": [
+          384,
+          512
+        ],
+        "sheetSize": [
+          1536,
+          1024
+        ],
+        "proportionPolicy": "one_global_uniform_scale_preserve_generated_prop_proportions",
+        "normalization": "4 x 2 magenta chroma source to clean RGBA, auto-detected inter-frame gaps, one shared upper-yoke anchor, one global 0.785473 scale, and fixed 384 x 512 frame packing",
+        "rootAnchorPolicy": "fixed_upper_yoke_anchor_x_192_y_156_16",
+        "safePadding": 32,
+        "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "all eight generated prop silhouettes remain clear of detected source-cell edges",
+        "sourceEdgeRiskCount": 0
+      },
+      "animations": [
+        {
+          "id": "clip_clock_tower_bell_strike_once",
+          "name": "Bell Strike Once",
+          "actionName": "ring",
+          "direction": "none",
+          "sprite": {
+            "id": "sprite_clock_tower_bell_strike_8f",
+            "characterName": "Old Clock Tower Bell",
+            "description": "Eight hand-painted frames: hammer draw-back, impact, bell and clapper oscillation, then a return to rest.",
+            "frameCount": 8,
+            "style": "refined hand-painted 2D narrative adventure prop with aged bronze, verdigris, dark wood, crisp painterly edges, and warm dusk rim light",
+            "prompt": "Draw the same antique bronze bell across eight registered frames: rest, hammer draw-back, acceleration, impact glint, rebound and bell swing, clapper contact, diminishing oscillation, and exact return to rest. Keep the yoke fixed and preserve identity, scale, patina, lighting, and top anchor.",
+            "frames": [
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+            ],
+            "createdTime": "2026-09-02T15:42:41.320Z",
+            "updatedTime": "2026-09-02T15:42:41.320Z",
+            "isPreset": false,
+            "spritesheetPng": "/generated/clock_tower_bell_strike_4x2_8f_sheet.png",
+            "rawSpritesheetPng": "/generated/sources/clock_tower_bell_strike_8f/clock_tower_bell_strike_4x2_chroma.png",
+            "generationMode": "spritesheet",
+            "fps": 10,
+            "gridColumns": 4,
+            "frameSize": [
+              384,
+              512
+            ],
+            "sheetSize": [
+              1536,
+              1024
+            ],
+            "proportionPolicy": "one_global_uniform_scale_preserve_generated_prop_proportions",
+            "normalization": "4 x 2 magenta chroma source to clean RGBA, auto-detected inter-frame gaps, one shared upper-yoke anchor, one global 0.785473 scale, and fixed 384 x 512 frame packing",
+            "rootAnchorPolicy": "fixed_upper_yoke_anchor_x_192_y_156_16",
+            "safePadding": 32,
+            "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+            "sourceEdgePolicy": "all eight generated prop silhouettes remain clear of detected source-cell edges",
+            "sourceEdgeRiskCount": 0
+          },
+          "binding": {
+            "actionName": "ring",
+            "triggerType": "mouse",
+            "triggerValue": "click",
+            "gameState": "clock_tower.bell_ringing",
+            "notes": "Click the bell hotspot to play one complete strike, then return to the resting frame."
+          },
+          "loop": false,
+          "fps": 10
+        }
+      ],
+      "defaultAnimationId": "clip_clock_tower_bell_strike_once",
+      "binding": {
+        "actionName": "ring",
+        "triggerType": "mouse",
+        "triggerValue": "click",
+        "gameState": "clock_tower.bell_ringing",
+        "notes": "Direct-click animated prop for the standalone old clock-tower scene."
+      },
+      "tags": [
+        "animated-prop",
+        "bell",
+        "clock-tower",
+        "clickable",
+        "hand-painted",
+        "narrative-adventure",
+        "transparent",
+        "spritesheet",
+        "8-frame",
+        "4x2"
+      ]
+    },
+    {
+      "id": "asset_spiral_eye_detective_720_48v",
+      "name": "Spiral-Eye Detective Girl / 720° Faux-3D 48 Views",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-08-12T18:00:00.000Z",
+      "updatedTime": "2026-08-12T18:00:00.000Z",
+      "sprite": {
+        "id": "sprite_spiral_eye_detective_720_48v",
+        "characterName": "Spiral-Eye Detective Girl / 720° Faux-3D",
+        "description": "A high-detail waist-up 2D faux-3D turnaround of the black-haired detective girl with amber spiral eyes, brown plaid deerstalker and matching coat, rendered at 16 azimuths across three camera elevations.",
+        "frameCount": 48,
+        "style": "extremely detailed hand-drawn manga and anime portrait with polished 2D faux-3D cel shading, crisp black line work, layered hair strands, luminous amber spiral eyes, and fine brown plaid fabric",
+        "prompt": "Use the supplied detective-girl close-up as the strict face, spiral-eye, black-bob, ponytail, deerstalker-hat, plaid-clothing, palette, and drawing-style reference. Redesign it as a stable waist-up neutral turnaround with arms lowered. Draw three independently rendered camera elevations at +30, 0, and -30 degrees, each containing 16 genuine horizontal azimuths from 0 through 337.5 degrees at 22.5-degree intervals. Preserve identity, proportions, hat construction, hair, spiral irises, coat, collar, tie, lighting, scale, torso cutoff, and portrait anchor across all views.",
+        "frames": [],
+        "createdTime": "2026-08-12T18:00:00.000Z",
+        "updatedTime": "2026-08-12T18:00:00.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/spiral_eye_detective_720_48v.png",
+        "rawSpritesheetPng": "/generated/spiral_eye_detective_720_48v.png",
+        "generationMode": "object-rotate",
+        "artSourcePolicy": "All visible faces, spiral eyes, hair, hat, bow, ponytail, collar, tie, coat, shoulders, line work, shading, and plaid texture were drawn by image generation from the supplied character reference. Code only removed chroma key, detected cell gaps, removed disconnected debris, interleaved already drawn half-step azimuths, applied one global uniform scale, aligned one shared portrait anchor, and packed the final transparent sheet.",
+        "qualityPolicy": "Six high-resolution 4 x 2 drawn raster source sheets provide 48 genuine portrait viewpoints across three camera elevations. No final view was created by programmatic rotation, mirroring, warping, overlay, or procedural drawing. The final 384px frames preserve sharp amber spiral eyes, fine hair strands, deerstalker seams and bow, crisp manga line work, readable plaid, clean alpha edges, and at least 34px safety padding.",
+        "proportionPolicy": "one_global_uniform_scale_0.663810_after_documented_low_angle_intermediate_source_scale_correction_1.10493",
+        "normalization": "Six 4 x 2 chroma sources -> soft-matte chroma removal -> transparent-gap grid detection -> even/odd azimuth interleave -> documented 1.10493 uniform correction for one undersized regenerated low-angle intermediate source group -> one shared final uniform scale -> upper head/hat portrait anchor x=192 and y=138.24 -> 48 fixed 384 x 384 frames packed as three long 16-frame elevation rows.",
+        "inputReferenceInvariant": "Same pale young detective face, straight black bob with blunt bangs and long side locks, small low ponytail, amber concentric spiral irises, calm faint smile, brown plaid deerstalker with top bow and two brims, matching plaid coat/cape, white collar, black tie, neutral waist-up pose, and high-detail manga rendering across all views.",
+        "rootAnchorPolicy": "upper_head_hat_alpha_centroid_x_192_and_relative_portrait_y_138_24_in_all_48_frames",
+        "safePadding": 34,
+        "safeFramePolicy": "one_global_uniform_scale_around_shared_portrait_anchor_with_minimum_final_margins_left_73_top_36_right_65_bottom_47",
+        "sourceEdgePolicy": "Every complete generated silhouette retained more than 2px source-cell margin after declared-grid and transparent-gap analysis; a low-angle intermediate source was regenerated when two views crossed proportional cell boundaries.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Auto-detected transparent foreground runs and gap midpoints when available, with declared 4 x 2 bounds and bounded measurement overlap for antialiased silhouettes; see /generated/spiral_eye_detective_720_48v_manifest.json.",
+        "rawElevationSheets": [
+          "/generated/sources/spiral_eye_detective_720/elev_p30_even_chroma.png",
+          "/generated/sources/spiral_eye_detective_720/elev_p30_odd_chroma.png",
+          "/generated/sources/spiral_eye_detective_720/elev_0_even_chroma.png",
+          "/generated/sources/spiral_eye_detective_720/elev_0_odd_chroma.png",
+          "/generated/sources/spiral_eye_detective_720/elev_n30_even_chroma.png",
+          "/generated/sources/spiral_eye_detective_720/elev_n30_odd_chroma.png"
+        ],
+        "orderedElevationSheets": [
+          "/generated/sources/spiral_eye_detective_720/elev_p30_ordered_alpha.png",
+          "/generated/sources/spiral_eye_detective_720/elev_0_ordered_alpha.png",
+          "/generated/sources/spiral_eye_detective_720/elev_n30_ordered_alpha.png"
+        ],
+        "fps": 8,
+        "gridColumns": 16,
+        "frameSize": [
+          384,
+          384
+        ],
+        "sheetSize": [
+          6144,
+          1152
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "viewMode": "object-rotate",
+        "viewAzimuthFrames": 16,
+        "viewElevationFrames": 3,
+        "viewElevationAngles": [
+          30,
+          0,
+          -30
+        ],
+        "viewInitialAzimuth": 0,
+        "viewInitialElevation": 1,
+        "viewDragSensitivity": 18,
+        "viewVerticalDragSensitivity": 58
+      },
+      "binding": {
+        "actionName": "rotate-view",
+        "triggerType": "mouse",
+        "triggerValue": "left-drag",
+        "gameState": "spritesheet-only",
+        "notes": "Hold the left mouse button over the preview. Drag horizontally through 16 azimuths and vertically through three camera elevations."
+      },
+      "tags": [
+        "detective-girl",
+        "spiral-eyes",
+        "deerstalker",
+        "plaid",
+        "anime",
+        "2d-painted",
+        "faux-3d",
+        "object-rotate",
+        "720-full-view",
+        "48-views",
+        "three-elevations",
+        "spritesheet"
+      ]
+    },
+    {
+      "id": "asset_pseudo3d_raccoon_720_48v",
+      "name": "2D Faux-3D Raccoon / 720° Full View 48 Views",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-08-12T16:30:00.000Z",
+      "updatedTime": "2026-08-12T16:30:00.000Z",
+      "sprite": {
+        "id": "sprite_pseudo3d_raccoon_720_48v",
+        "characterName": "2D Faux-3D Raccoon / 720° Full View",
+        "description": "The newly generated hand-painted 2D faux-3D baby raccoon, arranged as 16 horizontal azimuths at three camera elevations for 48 drag-to-inspect views.",
+        "frameCount": 48,
+        "style": "polished hand-painted 2D game illustration with faux-3D volume, crisp layered fur shapes, warm cel shading, clear silhouette, and transparent background",
+        "prompt": "Use the approved 2D faux-3D baby raccoon as the strict identity anchor. Draw three independent camera-elevation layers at +30, 0, and -30 degrees. In every layer, draw 16 genuine horizontal turntable views ordered from 0 through 337.5 degrees in 22.5-degree steps. Preserve the same quadruped pose, expressive brown eyes, charcoal mask, silver-gray and warm-brown fur, cream muzzle and chest, rounded ears, short legs, oversized striped tail, proportions, lighting, scale, and registration. Do not duplicate, mirror, rotate, warp, or procedurally redraw any view.",
+        "frames": [],
+        "createdTime": "2026-08-12T16:30:00.000Z",
+        "updatedTime": "2026-08-12T16:30:00.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/pseudo3d_raccoon_720_48v.png",
+        "rawSpritesheetPng": "/generated/pseudo3d_raccoon_720_48v.png",
+        "generationMode": "object-rotate",
+        "artSourcePolicy": "All visible raccoon views were drawn by image generation from the newly approved 2D faux-3D raccoon reference. Code only removed the flat chroma key, detected real transparent gaps, removed disconnected debris, interleaved already drawn half-step azimuths, applied one global uniform scale, aligned one shared lower-body root anchor, and packed the final transparent sheet.",
+        "qualityPolicy": "Six high-resolution 4 x 2 drawn raster source sheets provide 48 genuine viewpoints across three camera elevations. No final view was created by programmatic rotation, mirroring, warping, overlay, or procedural drawing. The final 320px frames preserve crisp eyes, mask markings, painted fur layers, paws, tail stripes, clean alpha edges, and at least 28px safety padding.",
+        "proportionPolicy": "one_global_uniform_scale_0.652852_preserve_generated_proportions",
+        "normalization": "Six 4 x 2 chroma sources -> soft-matte chroma removal -> auto-detected transparent grid gaps -> even/odd azimuth interleave -> lower-body root anchor x=160 and visible baseline y=290 -> 48 fixed 320 x 320 frames packed as three long 16-frame elevation rows.",
+        "inputReferenceInvariant": "Same expressive brown eyes, charcoal eye mask, silver-gray and warm-brown fur, cream muzzle and chest, rounded ears, quadruped baby proportions, short sturdy legs, oversized fluffy striped tail, neutral standing pose, warm upper-left lighting, and hand-painted 2D faux-3D rendering across all views.",
+        "rootAnchorPolicy": "lower_body_alpha_centroid_x_160_and_visible_baseline_y_290_in_all_48_frames",
+        "safePadding": 28,
+        "safeFramePolicy": "one_global_uniform_scale_around_shared_root_anchor_with_minimum_final_margins_left_36_top_56_right_30_bottom_30",
+        "sourceEdgePolicy": "Source cells were split at auto-detected transparent gaps. Every complete generated silhouette retained more than 2px source-cell margin before normalization.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Auto-detected transparent foreground runs and gap midpoints in each 1536 x 1024 source sheet; see /generated/pseudo3d_raccoon_720_48v_manifest.json.",
+        "rawElevationSheets": [
+          "/generated/sources/pseudo3d_raccoon_720/elev_p30_even_chroma.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_p30_odd_chroma.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_0_even_chroma.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_0_odd_chroma.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_n30_even_chroma.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_n30_odd_chroma.png"
+        ],
+        "orderedElevationSheets": [
+          "/generated/sources/pseudo3d_raccoon_720/elev_p30_ordered_alpha.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_0_ordered_alpha.png",
+          "/generated/sources/pseudo3d_raccoon_720/elev_n30_ordered_alpha.png"
+        ],
+        "fps": 8,
+        "gridColumns": 16,
+        "frameSize": [
+          320,
+          320
+        ],
+        "sheetSize": [
+          5120,
+          960
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "viewMode": "object-rotate",
+        "viewAzimuthFrames": 16,
+        "viewElevationFrames": 3,
+        "viewElevationAngles": [
+          30,
+          0,
+          -30
+        ],
+        "viewInitialAzimuth": 0,
+        "viewInitialElevation": 1,
+        "viewDragSensitivity": 18,
+        "viewVerticalDragSensitivity": 58
+      },
+      "binding": {
+        "actionName": "rotate-view",
+        "triggerType": "mouse",
+        "triggerValue": "left-drag",
+        "gameState": "spritesheet-only",
+        "notes": "Hold the left mouse button over the preview. Drag horizontally through 16 azimuths and vertically through three camera elevations."
+      },
+      "tags": [
+        "raccoon",
+        "2d-painted",
+        "faux-3d",
+        "object-rotate",
+        "720-full-view",
+        "48-views",
+        "three-elevations",
+        "spritesheet"
+      ]
+    },
+    {
+      "id": "asset_zhou_zian_fake3d_48v",
+      "name": "周子安 / 720° 伪 3D 48 视角",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-08-11T00:00:00.000Z",
+      "updatedTime": "2026-08-11T00:00:00.000Z",
+      "sprite": {
+        "id": "sprite_zhou_zian_fake3d_48v",
+        "characterName": "周子安 / 720° 伪 3D",
+        "description": "基于角色设定图精细重绘的半写实 3D 动漫角色，包含三个相机俯仰层、每层 16 个水平角度，共 48 个可拖拽查看的伪 3D 视角。",
+        "frameCount": 48,
+        "style": "premium high-detail stylized 3D anime game character with soft cel-shaded PBR materials, crisp wavy brown hair, round gold wire glasses, burgundy-black plaid overshirt, black T-shirt, loose dark denim, silver chain, and chunky black shoes",
+        "prompt": "Use the supplied 周子安 character sheet as the strict identity, face, wavy dark-brown hair, round gold wire glasses, earring, body proportion, burgundy-black plaid overshirt, black T-shirt, necklace, loose dark jeans, wallet chain, and chunky shoe anchor. Render three independently drawn camera elevations at +30, 0, and -30 degrees, each with a complete 16-slot horizontal turntable at 22.5-degree intervals. Preserve neutral pose, garment construction, lighting, scale, foot baseline, and body pivot across all 48 views.",
+        "frames": [],
+        "createdTime": "2026-08-11T00:00:00.000Z",
+        "updatedTime": "2026-08-11T00:00:00.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/zhou_zian_fake3d_48v.png",
+        "rawSpritesheetPng": "/generated/zhou_zian_fake3d_48v.png",
+        "generationMode": "object-rotate",
+        "artSourcePolicy": "All visible face, eyes, hair, skin, hands, glasses, jewelry, plaid overshirt, T-shirt, denim, chain, and shoes were rendered by image generation using the supplied character sheet as the strict reference. Code only removed the flat chroma key, interleaved already drawn angle cells without resizing or mirroring, measured cells, applied one global uniform scale, normalized one shared upper-body pivot, and packed the transparent sheet.",
+        "qualityPolicy": "Six high-resolution 4 x 2 raster source sheets provide 48 genuinely rendered full-body viewpoints across three camera elevations. No view was created by programmatic rotation, mirroring, warping, overlay, or procedural drawing. Final 512px frames preserve facial identity, glasses, hair locks, plaid texture, hands, necklace, denim, chain, shoes, clean alpha edges, and at least 48px safety padding.",
+        "proportionPolicy": "one_global_uniform_scale_preserve_generated_proportions",
+        "normalization": "Six generated 4 x 2 green chroma-key source sheets -> soft-matte chroma removal and despill -> translation-only even/odd azimuth interleave into three 4 x 4 elevation layers -> one shared upper-body pivot -> one global uniform scale 0.778352 -> 48 fixed 512 x 512 frames packed as a 16 x 3 turntable. Final minimum margins: left 198, top 50, right 197, bottom 50.",
+        "inputReferenceInvariant": "Same slim young man with tousled wavy dark-brown hair and subtle red highlights, round gold wire glasses, small hoop earring, calm neutral expression, open burgundy-black plaid overshirt, loose black T-shirt, silver pendant necklace, dark blue loose jeans, silver wallet chain, and chunky black shoes across all 48 views.",
+        "rootAnchorPolicy": "shared_upper_body_alpha_centroid_xy_object_rotation_pivot",
+        "safePadding": 48,
+        "safeFramePolicy": "global_uniform_scale_around_shared_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "Reject any future source cell whose real foreground touches or comes within 2 px of a detected cell edge.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Declared 4 x 2 source grids interleaved without source-pixel scaling into three ordered 4 x 4 elevation layers; final normalization used foreground analysis. See /generated/zhou_zian_fake3d_48v_manifest.json.",
+        "sourceImages": [
+          "/generated/sources/zhou_zian_fake3d_48v/elev_p30_even_chroma.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_p30_odd_chroma.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_0_even_chroma.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_0_odd_chroma.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_n30_even_chroma.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_n30_odd_chroma.png"
+        ],
+        "rawElevationSheets": [
+          "/generated/sources/zhou_zian_fake3d_48v/elev_p30_ordered_alpha.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_0_ordered_alpha.png",
+          "/generated/sources/zhou_zian_fake3d_48v/elev_n30_ordered_alpha.png"
+        ],
+        "fps": 8,
+        "gridColumns": 16,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          8192,
+          1536
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "viewMode": "object-rotate",
+        "viewAzimuthFrames": 16,
+        "viewElevationFrames": 3,
+        "viewElevationAngles": [
+          30,
+          0,
+          -30
+        ],
+        "viewInitialAzimuth": 0,
+        "viewInitialElevation": 1,
+        "viewDragSensitivity": 18,
+        "viewVerticalDragSensitivity": 58
+      },
+      "binding": {
+        "actionName": "rotate-view",
+        "triggerType": "mouse",
+        "triggerValue": "left-drag",
+        "gameState": "spritesheet-only",
+        "notes": "在大预览中按住鼠标左键：水平拖拽切换 16 个方向，垂直拖拽切换 +30°、0°、-30° 三个俯仰层。"
+      },
+      "tags": [
+        "周子安",
+        "zhou-zian",
+        "glasses",
+        "plaid-shirt",
+        "denim",
+        "stylized-3d",
+        "fake3d",
+        "object-rotate",
+        "720-full-view",
+        "48-views",
+        "three-elevations",
+        "spritesheet"
+      ]
+    },
+    {
+      "id": "asset_orange_pajama_girl_diary_closeup_8f",
+      "name": "Orange Pajama Girl / Diary Writing Close-up",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-08-09T12:00:00.000Z",
+      "updatedTime": "2026-08-09T12:00:00.000Z",
+      "sprite": {
+        "id": "sprite_orange_pajama_girl_diary_closeup_8f",
+        "characterName": "Orange Pajama Girl",
+        "description": "Pixel-art close-up loop of the orange twin-tail pajama girl hugging an open diary, writing, pausing to think, blinking, and resuming.",
+        "frameCount": 8,
+        "style": "high-detail anime pixel-art portrait with crisp eyes, hair locks, hands, diary edges, and striped pajama fabric",
+        "prompt": "Preserve the canonical orange twin-tail girl and blue-white striped pajamas in a fixed close-up camera. Draw eight unique frames of her hugging an open brown diary while writing: pen contact, small writing strokes, a thoughtful pause, a soft blink, and a smooth return to writing.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"0 0 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"444 0 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"888 0 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"1332 0 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"0 444 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"444 444 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"888 444 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"444\" height=\"444\" viewBox=\"1332 444 444 444\" overflow=\"hidden\"><image href=\"/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png\" x=\"0\" y=\"0\" width=\"1776\" height=\"888\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-08-09T12:00:00.000Z",
+        "updatedTime": "2026-08-09T12:00:00.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png",
+        "rawSpritesheetPng": "/generated/orange_pajama_girl_diary_closeup_4x2_headlocked_v4.png",
+        "sourceMasterPng": "/generated/orange_pajama_girl_diary_closeup_4x2_raw_normalized_v3.png",
+        "generationMode": "spritesheet",
+        "gridColumns": 4,
+        "frameSize": [
+          444,
+          444
+        ],
+        "sheetSize": [
+          1776,
+          888
+        ],
+        "fps": 8,
+        "loop": true,
+        "artSourcePolicy": "All visible character, face, hair, hands, pajamas, pen, diary, and animation changes were rendered by image generation. Code only removed the flat chroma-key background.",
+        "qualityPolicy": "Eight uniquely drawn high-detail pixel-art frames with stable identity, fixed camera, readable hands and diary, clean alpha edges, and translation-only head-anchor normalization to remove whole-character drift.",
+        "proportionPolicy": "preserve_generated_proportions_and_fixed_head_scale",
+        "normalization": "Detected the 4 x 2 transparent source cells, preserved every drawn pixel and proportion, then applied translation-only per-cell offsets [-35,-20], [-8,-20], [12,-20], [40,-20], [-28,18], [-4,18], [20,17], [46,18] to align one shared upper-hair/head silhouette anchor. Final alpha bboxes stay within x 82-360 and y 73-373.",
+        "rootAnchorPolicy": "shared_upper_hair_and_head_silhouette_anchor_xy_translation_only",
+        "safePadding": 53,
+        "sourceEdgeRiskCount": 0
+      },
+      "binding": {
+        "actionName": "write_diary",
+        "triggerType": "auto",
+        "triggerValue": "preview-loop",
+        "gameState": "character.orange_pajama_girl.write_diary",
+        "notes": "Auto preview loop for the diary-writing close-up."
+      },
+      "tags": [
+        "spritesheet",
+        "pixel art",
+        "portrait",
+        "close-up",
+        "orange hair",
+        "pajamas",
+        "diary",
+        "writing",
+        "transparent",
+        "8 frames",
+        "4x2"
+      ]
+    },
+    {
+      "id": "asset_wei_yang_fake3d_48v",
+      "name": "Wei Yang / 720° Fake 3D 48 Views",
+      "role": "player",
+      "confirmed": true,
+      "savedTime": "2026-08-09T01:19:01.000Z",
+      "updatedTime": "2026-08-09T01:19:01.000Z",
+      "sprite": {
+        "id": "sprite_wei_yang_fake3d_48v",
+        "characterName": "Wei Yang / 720° Fake 3D",
+        "description": "A high-detail stylized 3D anime redraw of Wei Yang in her green school uniform, arranged as a complete 16-angle turntable at three camera elevations for 48-view 720-degree Fake 3D inspection.",
+        "frameCount": 48,
+        "style": "premium high-detail stylized 3D anime game character with soft cel-shaded PBR materials, crisp silver bob hair, mauve-red eyes, tailored dark green uniform, gray pleated skirt, brass details, leather satchel, knee socks, and loafers",
+        "prompt": "Use the supplied full-body front and left-profile Wei Yang references as strict identity, face, silver-bob hairstyle, body-proportion, uniform, sleeve-badge, crossbody-strap, satchel, skirt, socks, and shoe anchors. Render three independently drawn camera-elevation layers at +30, 0, and -30 degrees. Each layer contains a complete horizontal turntable in 16 declared 22.5-degree azimuth slots. Preserve her calm neutral expression, relaxed standing pose, outfit construction, left-sleeve badge placement, bag routing, materials, lighting, scale, foot baseline, and body pivot across all 48 views.",
+        "frames": [],
+        "createdTime": "2026-08-09T01:19:01.000Z",
+        "updatedTime": "2026-08-09T01:19:01.000Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/wei_yang_fake3d_48v.png",
+        "rawSpritesheetPng": "/generated/wei_yang_fake3d_48v.png",
+        "generationMode": "object-rotate",
+        "artSourcePolicy": "All visible face, eyes, hair, skin, hands, uniform, sleeve badge, buttons, tie, sweater vest, skirt, crossbody bag, socks, and shoes were rendered by image generation using the supplied front and profile designs as strict references. Code only removed the flat chroma key, translated already drawn cells into ordered layers without resizing or mirroring, measured cells, applied one global uniform scale, normalized one shared upper-body pivot, and packed the transparent sheet.",
+        "qualityPolicy": "Six high-resolution 4 x 2 raster source sheets provide 48 genuinely rendered full-body viewpoints across three visibly different camera elevations. No character view was created by programmatic rotation, mirroring, warping, overlay, or procedural drawing. The final 512px frames preserve the face, silver hair locks, uniform seams, sleeve badge, brass buttons, pleats, hands, bag, socks, shoes, clean alpha edges, and at least 48px requested safety padding.",
+        "proportionPolicy": "one_global_uniform_scale_preserve_generated_proportions",
+        "normalization": "Six generated 1536 x 1024 4 x 2 magenta chroma-key source sheets -> soft-matte chroma removal and despill -> declared 4 x 2 cell split -> translation-only ordering into three 2048 x 2048 4 x 4 elevation layers -> one shared upper-body pivot -> one global uniform scale 0.842479 -> 48 fixed 512 x 512 frames packed as a 16 x 3 turntable. Final minimum margins: left 198, top 50, right 196, bottom 50.",
+        "inputReferenceInvariant": "Same pale young woman with a chin-length straight silver-white bob and blunt bangs, mauve-red eyes, calm neutral expression, dark forest-green double-breasted blazer with six brass buttons, white collar and cuffs, charcoal V-neck sweater vest, narrow dark tie, gold leaf shield badge only on the left upper sleeve, gray pleated skirt, dark brown crossbody satchel, black knee socks, and black double-strap loafers across all 48 views.",
+        "rootAnchorPolicy": "shared_upper_body_alpha_centroid_xy_object_rotation_pivot",
+        "safePadding": 48,
+        "safeFramePolicy": "global_uniform_scale_around_shared_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "Reject any future source cell whose real foreground touches or comes within 2 px of a detected cell edge.",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Auto-detected foreground clusters from three ordered 2048 x 2048 elevation layers assembled without source-pixel scaling from six high-resolution 4 x 2 source sheets; see /generated/wei_yang_fake3d_48v_manifest.json and the per-layer order manifests.",
+        "sourceImages": [
+          "/generated/sources/wei_yang_fake3d_48v/elev_p30_a_chroma.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_p30_b_chroma.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_0_a_chroma.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_0_b_chroma.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_n30_a_chroma.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_n30_b_chroma.png"
+        ],
+        "rawElevationSheets": [
+          "/generated/sources/wei_yang_fake3d_48v/elev_p30_ordered_alpha.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_0_ordered_alpha.png",
+          "/generated/sources/wei_yang_fake3d_48v/elev_n30_ordered_alpha.png"
+        ],
+        "fps": 8,
+        "gridColumns": 16,
+        "frameSize": [
+          512,
+          512
+        ],
+        "sheetSize": [
+          8192,
+          1536
+        ],
+        "sourceSize": [
+          1536,
+          1024
+        ],
+        "viewMode": "object-rotate",
+        "viewAzimuthFrames": 16,
+        "viewElevationFrames": 3,
+        "viewElevationAngles": [
+          30,
+          0,
+          -30
+        ],
+        "viewInitialAzimuth": 0,
+        "viewInitialElevation": 1,
+        "viewDragSensitivity": 18,
+        "viewVerticalDragSensitivity": 58
+      },
+      "binding": {
+        "actionName": "rotate-view",
+        "triggerType": "mouse",
+        "triggerValue": "left-drag",
+        "gameState": "spritesheet-only",
+        "notes": "Hold the left mouse button over the preview. Drag horizontally through 16 azimuth slots and vertically through the +30, 0, and -30 degree camera-elevation rows."
+      },
+      "tags": [
+        "wei-yang",
+        "schoolgirl",
+        "silver-bob",
+        "green-uniform",
+        "crossbody-satchel",
+        "stylized-3d",
+        "fake3d",
+        "object-rotate",
+        "720-full-view",
+        "48-views",
+        "three-elevations",
+        "spritesheet"
+      ]
+    },
+    {
       "id": "asset_silver_denim_boy_fake3d_face_hd_48v",
       "name": "Silver-Haired Denim Boy / HD Face Turntable 48 Views",
       "role": "npc",
@@ -9134,9 +10043,430 @@
       ],
       "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"512\" height=\"512\" viewBox=\"0 0 512 512\" overflow=\"hidden\"><image href=\"/generated/wei_yang_crying_closeup_16f_sheet.png\" x=\"0\" y=\"0\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>",
       "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2048\" height=\"2048\" viewBox=\"0 0 2048 2048\"><image href=\"/generated/wei_yang_crying_closeup_16f_sheet.png\" width=\"2048\" height=\"2048\" preserveAspectRatio=\"none\"/></svg>"
+    },
+    {
+      "id": "asset_gray_haired_girl_pixel_sitting_reading_8f",
+      "name": "Gray-haired Girl Pixel / Sitting Reading 8f",
+      "role": "npc",
+      "confirmed": true,
+      "savedTime": "2026-09-09T16:05:57Z",
+      "updatedTime": "2026-09-09T16:05:57Z",
+      "sprite": {
+        "id": "sprite_gray_haired_girl_pixel_sitting_reading_8f",
+        "characterName": "Gray-haired Girl Pixel",
+        "description": "Eight-frame pixel-art idle loop of a gray-haired girl sitting with folded legs and quietly reading an open book.",
+        "frameCount": 8,
+        "style": "crisp hand-pixeled small character sprite with silver-gray bob hair, muted navy clothing, a charcoal skirt, and a warm brown book",
+        "prompt": "Built-in image generation: draw one exact 4 x 2, eight-frame pixel-art spritesheet of the same petite gray-haired girl sitting with folded legs and reading an open brown book. Animate a subtle breath, eye tracking, a blink, a finger shift, and a small page turn. Preserve identity, outfit, proportions, three-quarter camera, scale, and registration; keep every silhouette inside generous cell padding; no scenery, floor, shadow, text, borders, logos, or watermark.",
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"256 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"512 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 256 256 256\" width=\"256\" height=\"256\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>"
+        ],
+        "createdTime": "2026-09-09T16:05:57Z",
+        "updatedTime": "2026-09-09T16:05:57Z",
+        "isPreset": false,
+        "spritesheetPng": "/generated/gray_haired_reader_pixel_4x2_8f_sheet.png",
+        "sourceMasterPng": "/generated/sources/gray_haired_reader_pixel_8f/gray_haired_reader_pixel_4x2_chroma.png",
+        "generationMode": "spritesheet",
+        "artSourcePolicy": "All visible character, face, hair, hands, clothing, book, pages, and animation changes were produced by image generation. Code only removed the chroma background, cleaned alpha edges, detected cells, applied one shared scale and root anchor, packed frames, and wrote metadata.",
+        "qualityPolicy": "Eight uniquely drawn pixel-art frames with stable identity, crisp readable facial and book details, clean alpha edges, and no procedural character drawing.",
+        "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+        "normalization": "Auto-detected the real 4 x 2 sprite runs in the 1774 x 887 chroma source, removed the key color, applied one shared 0.586895 scale, fixed the seated lower-body centroid and baseline, and packed eight transparent 256 x 256 frames.",
+        "rootAnchorPolicy": "fixed_lower_body_centroid_x_and_shared_feet_baseline",
+        "fps": 8,
+        "loop": true,
+        "gridColumns": 4,
+        "cellSize": 256,
+        "frameSize": [
+          256,
+          256
+        ],
+        "sheetSize": [
+          1024,
+          512
+        ],
+        "safePadding": 24,
+        "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+        "sourceEdgePolicy": "all eight generated silhouettes remain clear of detected source-cell edges",
+        "sourceEdgeRiskCount": 0,
+        "gridDetection": "Auto-detected four foreground runs per row and two row runs after chroma removal; see /generated/gray_haired_reader_pixel_4x2_8f_manifest.json."
+      },
+      "binding": {
+        "actionName": "reading_idle",
+        "triggerType": "auto",
+        "triggerValue": "preview-loop",
+        "gameState": "character.gray_haired_girl.reading",
+        "notes": "Auto preview loop for the seated reading sprite."
+      },
+      "tags": [
+        "spritesheet",
+        "pixel-art",
+        "small-character",
+        "gray-hair",
+        "girl",
+        "sitting",
+        "reading",
+        "book",
+        "transparent",
+        "8-frame",
+        "4x2"
+      ],
+      "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"256\" height=\"256\" viewBox=\"0 0 256 256\" overflow=\"hidden\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+      "spritesheetSvg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1024\" height=\"512\" viewBox=\"0 0 1024 512\"><image href=\"/generated/gray_haired_reader_pixel_4x2_8f_sheet.png\" width=\"1024\" height=\"512\" preserveAspectRatio=\"none\"/></svg>",
+      "description": "Transparent 4 x 2 pixel-art spritesheet of a gray-haired girl sitting and reading, with a subtle eight-frame blink-and-page-turn idle loop."
     }
   ],
   "scenes": [
+    {
+      "id": "scene_ink_wash_wuxia_palace_terrace_drinking",
+      "name": "Ink-Wash Palace Terrace - Drinking Wine",
+      "playbackMode": "game",
+      "width": 1672,
+      "height": 941,
+      "viewportWidth": 1672,
+      "viewportHeight": 941,
+      "viewportPreset": "custom",
+      "cameraX": 0,
+      "cameraY": 0,
+      "groundY": 900,
+      "background": "ink_wash_palace_terrace",
+      "lighting": {
+        "preset": "none",
+        "brightness": 0.96,
+        "contrast": 1.04,
+        "saturate": 0.82,
+        "ambience": 0.94,
+        "vignette": 0.08,
+        "glow": 0
+      },
+      "state": {
+        "ink_wash_palace_terrace": true,
+        "wuxia.drinking": true
+      },
+      "savedTime": "2026-09-10T01:07:15.082Z",
+      "updatedTime": "2026-09-10T01:07:15.082Z",
+      "layers": [
+        {
+          "id": "layer_ink_wash_palace_terrace_background",
+          "name": "Ink-Wash Palace Terrace and Distant City",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 941,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 1672,
+          "height": 941,
+          "color": "#d9dade",
+          "imageUrl": "/generated/ink_wash_palace_terrace_background_1672x941.png",
+          "fit": "stretch",
+          "position": "center center"
+        },
+        {
+          "id": "layer_ink_wash_wuxia_drinking",
+          "name": "Wuxia Man Drinking Wine",
+          "type": "sprite",
+          "visible": true,
+          "locked": false,
+          "assetId": "asset_ink_wash_wuxia_drinking_8f",
+          "activeAnimationId": "clip_ink_wash_wuxia_drink_loop",
+          "x": 260,
+          "y": 1186,
+          "scale": 3,
+          "zIndex": 30,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0, 0, 0, 0.45)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0.58,
+            "height": 0.05,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 0.98,
+            "contrast": 1.02,
+            "saturate": 0.9,
+            "edgeLightColor": "#e4e6e9",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#6f6963",
+            "rimLightOpacity": 0
+          }
+        },
+        {
+          "id": "layer_ink_wash_palace_terrace_foreground",
+          "name": "Foreground Stone Parapet and Terrace",
+          "type": "foreground",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 941,
+          "scale": 1,
+          "zIndex": 40,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 1672,
+          "height": 241,
+          "color": "#343536",
+          "imageUrl": "/generated/ink_wash_palace_terrace_foreground_1672x241.png",
+          "fit": "stretch",
+          "position": "center center"
+        }
+      ]
+    },
+    {
+      "id": "scene_spade_king_duel_card",
+      "name": "Spade King - Automatic Gun Raise",
+      "playbackMode": "game",
+      "width": 1080,
+      "height": 1440,
+      "viewportWidth": 1080,
+      "viewportHeight": 1440,
+      "viewportPreset": "custom",
+      "cameraX": 0,
+      "cameraY": 0,
+      "groundY": 1308,
+      "background": "spade_king_retro_corridor_card",
+      "lighting": {
+        "preset": "none",
+        "brightness": 1,
+        "contrast": 1,
+        "saturate": 1,
+        "ambience": 1,
+        "vignette": 0,
+        "glow": 0
+      },
+      "state": {
+        "spade_king_scene": true,
+        "spade_king.duel_raising": false
+      },
+      "savedTime": "2026-09-02T23:21:13.663Z",
+      "updatedTime": "2026-09-02T23:21:13.663Z",
+      "layers": [
+        {
+          "id": "layer_spade_king_duel_background",
+          "name": "Aged Spade King Retro Corridor Card",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 1440,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 1080,
+          "height": 1440,
+          "color": "#050505",
+          "imageUrl": "/generated/spade_king_duel_card_background_1080x1440.png",
+          "fit": "stretch",
+          "position": "center center"
+        },
+        {
+          "id": "layer_spade_king_duel_pair",
+          "name": "Two Men Raising Pistols",
+          "type": "sprite",
+          "visible": true,
+          "locked": true,
+          "assetId": "asset_spade_king_duel_pair",
+          "activeAnimationId": "clip_spade_king_duel_pair_raise_loop",
+          "x": 127,
+          "y": 1308,
+          "scale": 2.15,
+          "zIndex": 30,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0, 0, 0, 0.6)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0.6,
+            "height": 0.06,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#d2b982",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#17130e",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": false,
+            "preset": "animated",
+            "triggerMode": "near-click",
+            "actionType": "play-animation",
+            "promptKey": "",
+            "promptText": "Raise the guns",
+            "subtitle": "Both figures draw into a silent standoff.",
+            "failSubtitle": "The figures remain still.",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.88,
+            "promptStyle": "minimal",
+            "triggerRadius": 360,
+            "offsetX": 0,
+            "offsetY": -100,
+            "zoneShape": "rect",
+            "zoneWidth": 830,
+            "zoneHeight": 1060,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": -15,
+            "repeatMode": "cooldown",
+            "cooldownMs": 1100,
+            "debugVisible": false,
+            "targetLayerId": "layer_spade_king_duel_pair",
+            "targetAnimationId": "clip_spade_king_duel_pair_raise_loop",
+            "hotspotVisible": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene_clock_tower_bell",
+      "name": "Old Clock Tower - Click the Bell",
+      "playbackMode": "game",
+      "width": 1920,
+      "height": 1080,
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "viewportPreset": "custom",
+      "cameraX": 0,
+      "cameraY": 0,
+      "groundY": 960,
+      "background": "clock_tower_interior_dusk",
+      "lighting": {
+        "preset": "none",
+        "brightness": 1,
+        "contrast": 1,
+        "saturate": 1,
+        "ambience": 1,
+        "vignette": 0,
+        "glow": 0
+      },
+      "state": {
+        "clock_tower_visited": true,
+        "clock_tower.bell_ringing": false
+      },
+      "savedTime": "2026-09-02T15:42:41.320Z",
+      "updatedTime": "2026-09-02T15:42:41.320Z",
+      "layers": [
+        {
+          "id": "layer_clock_tower_background",
+          "name": "Old Clock Tower Interior at Dusk",
+          "type": "background",
+          "visible": true,
+          "locked": true,
+          "x": 0,
+          "y": 1080,
+          "scale": 1,
+          "zIndex": 0,
+          "opacity": 1,
+          "parallax": 1,
+          "width": 1920,
+          "height": 1080,
+          "color": "#0a0d0d",
+          "imageUrl": "/generated/clock_tower_interior_background_1920x1080.png",
+          "fit": "stretch",
+          "position": "center center"
+        },
+        {
+          "id": "layer_clock_tower_ground_reference",
+          "name": "Clock Tower Platform Guide",
+          "type": "ground",
+          "visible": false,
+          "locked": true,
+          "x": 0,
+          "y": 960,
+          "scale": 1,
+          "zIndex": 10,
+          "opacity": 0.2,
+          "parallax": 1,
+          "color": "#4b645c"
+        },
+        {
+          "id": "layer_clock_tower_bell",
+          "name": "Antique Bronze Bell",
+          "type": "sprite",
+          "visible": true,
+          "locked": true,
+          "assetId": "asset_clock_tower_bell",
+          "activeAnimationId": "clip_clock_tower_bell_strike_once",
+          "x": 614,
+          "y": 955,
+          "scale": 1.8,
+          "zIndex": 30,
+          "opacity": 1,
+          "parallax": 1,
+          "shadow": {
+            "enabled": false,
+            "color": "rgba(0, 0, 0, 0.6)",
+            "opacity": 0,
+            "blur": 0,
+            "width": 0.6,
+            "height": 0.06,
+            "offsetX": 0,
+            "offsetY": 0
+          },
+          "lighting": {
+            "preset": "none",
+            "brightness": 1,
+            "contrast": 1,
+            "saturate": 1,
+            "edgeLightColor": "#d6a15d",
+            "edgeLightOpacity": 0,
+            "rimLightColor": "#203a39",
+            "rimLightOpacity": 0
+          },
+          "interaction": {
+            "enabled": true,
+            "preset": "animated",
+            "triggerMode": "near-click",
+            "actionType": "play-animation",
+            "promptKey": "",
+            "promptText": "Ring the bell",
+            "subtitle": "The bronze note rolls across the rooftops.",
+            "failSubtitle": "The bell remains still.",
+            "showText": false,
+            "fontSize": 11,
+            "promptScale": 0.88,
+            "promptStyle": "minimal",
+            "triggerRadius": 240,
+            "offsetX": 0,
+            "offsetY": -120,
+            "zoneShape": "rect",
+            "zoneWidth": 470,
+            "zoneHeight": 440,
+            "zoneOffsetX": 0,
+            "zoneOffsetY": -90,
+            "repeatMode": "cooldown",
+            "cooldownMs": 850,
+            "debugVisible": false,
+            "targetLayerId": "layer_clock_tower_bell",
+            "targetAnimationId": "clip_clock_tower_bell_strike_once",
+            "hotspotVisible": true
+          }
+        }
+      ]
+    },
     {
       "id": "scene_smile_graduation_dark_classroom_topdown_wasd",
       "name": "Smile Graduation - Dark Classroom WASD",
@@ -12258,13 +13588,13 @@
         "width": 8.33333478655134
       },
       "animation_scene_1783667243113": {
-        "x": 13.40476117815291,
-        "y": 18.45833206176758,
+        "x": 6.976188659667979,
+        "y": 15.91666412353516,
         "width": 10
       },
       "scene_dark_classroom_psych_ward_topdown": {
-        "x": 20.809524536132812,
-        "y": 31.250000000000004,
+        "x": 29.047620500837056,
+        "y": 13.958332061767582,
         "width": 9
       },
       "scene_draft_1782692392237": {
@@ -12273,7 +13603,7 @@
         "width": 9
       }
     },
-    "updatedTime": "2026-07-13T16:14:00.955Z"
+    "updatedTime": "2026-09-09T21:11:22.250Z"
   },
-  "updatedTime": "2026-07-13T16:14:00.955Z"
+  "updatedTime": "2026-09-10T15:40:07.507Z"
 }

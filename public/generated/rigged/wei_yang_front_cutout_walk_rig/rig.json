@@ -1,0 +1,2789 @@
+{
+  "schemaVersion": 5,
+  "id": "wei_yang_front_cutout_walk_rig",
+  "name": "Wei Yang / Front Cutout Walk Spine",
+  "characterName": "Wei Yang",
+  "focus": "front-cutout-walk",
+  "runtime": "gorest-attachment-bone-mixer-v3",
+  "spineStatus": "spine-4.2-cutout-region-attachment-bundle",
+  "previewSheetUrl": "/generated/rigged/wei_yang_front_cutout_walk_rig/neutral_composite.png",
+  "frameSize": [
+    640,
+    1152
+  ],
+  "frameCount": 8,
+  "fps": 12,
+  "attachments": {
+    "head": {
+      "file": "attachments/head.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        245
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "torso": {
+      "file": "attachments/torso.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        528
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "skirt": {
+      "file": "attachments/skirt.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        603
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "bag": {
+      "file": "attachments/bag.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        425,
+        470
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "upper_arm_r": {
+      "file": "attachments/upper_arm_r.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        242,
+        275
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "forearm_l": {
+      "file": "attachments/forearm_l.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        420,
+        432
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "hand_l": {
+      "file": "attachments/hand_l.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        433,
+        566
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "upper_arm_l": {
+      "file": "attachments/upper_arm_l.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        398,
+        275
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "forearm_r": {
+      "file": "attachments/forearm_r.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        220,
+        432
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "hand_r": {
+      "file": "attachments/hand_r.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        207,
+        566
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "thigh_l": {
+      "file": "attachments/thigh_l.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        355,
+        607
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "shin_l": {
+      "file": "attachments/shin_l.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        358,
+        790
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "foot_r": {
+      "file": "attachments/foot_r.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        277,
+        988
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "thigh_r": {
+      "file": "attachments/thigh_r.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        285,
+        607
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "shin_r": {
+      "file": "attachments/shin_r.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        282,
+        790
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    },
+    "foot_l": {
+      "file": "attachments/foot_l.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        363,
+        988
+      ],
+      "transformBaked": true,
+      "content": "independently drawn and registered front cutout part"
+    }
+  },
+  "slots": [
+    {
+      "name": "bag",
+      "bone": "bag",
+      "attachment": "bag"
+    },
+    {
+      "name": "foot_r",
+      "bone": "foot_r",
+      "attachment": "foot_r"
+    },
+    {
+      "name": "shin_r",
+      "bone": "shin_r",
+      "attachment": "shin_r"
+    },
+    {
+      "name": "thigh_r",
+      "bone": "thigh_r",
+      "attachment": "thigh_r"
+    },
+    {
+      "name": "foot_l",
+      "bone": "foot_l",
+      "attachment": "foot_l"
+    },
+    {
+      "name": "shin_l",
+      "bone": "shin_l",
+      "attachment": "shin_l"
+    },
+    {
+      "name": "thigh_l",
+      "bone": "thigh_l",
+      "attachment": "thigh_l"
+    },
+    {
+      "name": "hand_l",
+      "bone": "hand_l",
+      "attachment": "hand_l"
+    },
+    {
+      "name": "forearm_l",
+      "bone": "forearm_l",
+      "attachment": "forearm_l"
+    },
+    {
+      "name": "upper_arm_l",
+      "bone": "upper_arm_l",
+      "attachment": "upper_arm_l"
+    },
+    {
+      "name": "hand_r",
+      "bone": "hand_r",
+      "attachment": "hand_r"
+    },
+    {
+      "name": "forearm_r",
+      "bone": "forearm_r",
+      "attachment": "forearm_r"
+    },
+    {
+      "name": "upper_arm_r",
+      "bone": "upper_arm_r",
+      "attachment": "upper_arm_r"
+    },
+    {
+      "name": "torso",
+      "bone": "torso",
+      "attachment": "torso"
+    },
+    {
+      "name": "skirt",
+      "bone": "skirt",
+      "attachment": "skirt"
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "attachment": "head"
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "pivot": [
+        320,
+        1090
+      ]
+    },
+    {
+      "name": "pelvis",
+      "parent": "root",
+      "pivot": [
+        320,
+        603
+      ]
+    },
+    {
+      "name": "torso",
+      "parent": "pelvis",
+      "pivot": [
+        320,
+        528
+      ]
+    },
+    {
+      "name": "skirt",
+      "parent": "pelvis",
+      "pivot": [
+        320,
+        603
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "pivot": [
+        320,
+        245
+      ]
+    },
+    {
+      "name": "bag",
+      "parent": "torso",
+      "pivot": [
+        425,
+        470
+      ]
+    },
+    {
+      "name": "upper_arm_r",
+      "parent": "torso",
+      "pivot": [
+        242,
+        275
+      ]
+    },
+    {
+      "name": "forearm_r",
+      "parent": "upper_arm_r",
+      "pivot": [
+        220,
+        432
+      ]
+    },
+    {
+      "name": "hand_r",
+      "parent": "forearm_r",
+      "pivot": [
+        207,
+        566
+      ]
+    },
+    {
+      "name": "upper_arm_l",
+      "parent": "torso",
+      "pivot": [
+        398,
+        275
+      ]
+    },
+    {
+      "name": "forearm_l",
+      "parent": "upper_arm_l",
+      "pivot": [
+        420,
+        432
+      ]
+    },
+    {
+      "name": "hand_l",
+      "parent": "forearm_l",
+      "pivot": [
+        433,
+        566
+      ]
+    },
+    {
+      "name": "thigh_r",
+      "parent": "pelvis",
+      "pivot": [
+        285,
+        607
+      ]
+    },
+    {
+      "name": "shin_r",
+      "parent": "thigh_r",
+      "pivot": [
+        282,
+        790
+      ]
+    },
+    {
+      "name": "foot_r",
+      "parent": "shin_r",
+      "pivot": [
+        277,
+        988
+      ]
+    },
+    {
+      "name": "thigh_l",
+      "parent": "pelvis",
+      "pivot": [
+        355,
+        607
+      ]
+    },
+    {
+      "name": "shin_l",
+      "parent": "thigh_l",
+      "pivot": [
+        358,
+        790
+      ]
+    },
+    {
+      "name": "foot_l",
+      "parent": "shin_l",
+      "pivot": [
+        363,
+        988
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "name": "walk_front",
+      "category": "Locomotion",
+      "duration": 0.666667,
+      "loop": true,
+      "boneTimelines": {
+        "pelvis": {
+          "translate": [
+            [
+              0.0,
+              0,
+              0
+            ],
+            [
+              0.083333,
+              4,
+              7
+            ],
+            [
+              0.166667,
+              6,
+              3
+            ],
+            [
+              0.25,
+              4,
+              -4
+            ],
+            [
+              0.333333,
+              0,
+              0
+            ],
+            [
+              0.416667,
+              -4,
+              7
+            ],
+            [
+              0.5,
+              -6,
+              3
+            ],
+            [
+              0.583333,
+              -4,
+              -4
+            ],
+            [
+              0.666667,
+              0,
+              0
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              -1
+            ],
+            [
+              0.166667,
+              -1.8
+            ],
+            [
+              0.25,
+              -1
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              1
+            ],
+            [
+              0.5,
+              1.8
+            ],
+            [
+              0.583333,
+              1
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "torso": {
+          "translate": [
+            [
+              0.0,
+              0,
+              0
+            ],
+            [
+              0.083333,
+              -1,
+              0
+            ],
+            [
+              0.166667,
+              -2,
+              0
+            ],
+            [
+              0.25,
+              -1,
+              0
+            ],
+            [
+              0.333333,
+              0,
+              0
+            ],
+            [
+              0.416667,
+              1,
+              0
+            ],
+            [
+              0.5,
+              2,
+              0
+            ],
+            [
+              0.583333,
+              1,
+              0
+            ],
+            [
+              0.666667,
+              0,
+              0
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0.6
+            ],
+            [
+              0.166667,
+              1.1
+            ],
+            [
+              0.25,
+              0.6
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              -0.6
+            ],
+            [
+              0.5,
+              -1.1
+            ],
+            [
+              0.583333,
+              -0.6
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "head": {
+          "translate": [
+            [
+              0.0,
+              0,
+              0
+            ],
+            [
+              0.083333,
+              0,
+              -1
+            ],
+            [
+              0.166667,
+              0,
+              0
+            ],
+            [
+              0.25,
+              0,
+              1
+            ],
+            [
+              0.333333,
+              0,
+              0
+            ],
+            [
+              0.416667,
+              0,
+              -1
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0.583333,
+              0,
+              1
+            ],
+            [
+              0.666667,
+              0,
+              0
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0.3
+            ],
+            [
+              0.166667,
+              0.6
+            ],
+            [
+              0.25,
+              0.3
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              -0.3
+            ],
+            [
+              0.5,
+              -0.6
+            ],
+            [
+              0.583333,
+              -0.3
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "skirt": {
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0.4
+            ],
+            [
+              0.166667,
+              1
+            ],
+            [
+              0.25,
+              1.4
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              -0.4
+            ],
+            [
+              0.5,
+              -1
+            ],
+            [
+              0.583333,
+              -1.4
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "bag": {
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0.8
+            ],
+            [
+              0.166667,
+              2
+            ],
+            [
+              0.25,
+              1.2
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              -0.8
+            ],
+            [
+              0.5,
+              -2
+            ],
+            [
+              0.583333,
+              -1.2
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "upper_arm_l": {
+          "rotate": [
+            [
+              0.0,
+              -8
+            ],
+            [
+              0.083333,
+              -5
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              5
+            ],
+            [
+              0.333333,
+              8
+            ],
+            [
+              0.416667,
+              5
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              -5
+            ],
+            [
+              0.666667,
+              -8
+            ]
+          ],
+          "translate": [
+            [
+              0.0,
+              0,
+              -2
+            ],
+            [
+              0.083333,
+              0,
+              -1
+            ],
+            [
+              0.166667,
+              0,
+              0
+            ],
+            [
+              0.25,
+              0,
+              1
+            ],
+            [
+              0.333333,
+              0,
+              2
+            ],
+            [
+              0.416667,
+              0,
+              1
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0.583333,
+              0,
+              -1
+            ],
+            [
+              0.666667,
+              0,
+              -2
+            ]
+          ],
+          "scale": [
+            [
+              0.0,
+              1,
+              0.99
+            ],
+            [
+              0.083333,
+              1,
+              0.995
+            ],
+            [
+              0.166667,
+              1,
+              1
+            ],
+            [
+              0.25,
+              1,
+              1.005
+            ],
+            [
+              0.333333,
+              1,
+              1.01
+            ],
+            [
+              0.416667,
+              1,
+              1.005
+            ],
+            [
+              0.5,
+              1,
+              1
+            ],
+            [
+              0.583333,
+              1,
+              0.995
+            ],
+            [
+              0.666667,
+              1,
+              0.99
+            ]
+          ]
+        },
+        "forearm_l": {
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0
+            ],
+            [
+              0.166667,
+              2
+            ],
+            [
+              0.25,
+              5
+            ],
+            [
+              0.333333,
+              8
+            ],
+            [
+              0.416667,
+              5
+            ],
+            [
+              0.5,
+              2
+            ],
+            [
+              0.583333,
+              0
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "hand_l": {
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0
+            ],
+            [
+              0.166667,
+              -0.5
+            ],
+            [
+              0.25,
+              -1
+            ],
+            [
+              0.333333,
+              -2
+            ],
+            [
+              0.416667,
+              -1
+            ],
+            [
+              0.5,
+              -0.5
+            ],
+            [
+              0.583333,
+              0
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "upper_arm_r": {
+          "rotate": [
+            [
+              0.0,
+              -8
+            ],
+            [
+              0.083333,
+              -5
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              5
+            ],
+            [
+              0.333333,
+              8
+            ],
+            [
+              0.416667,
+              5
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              -5
+            ],
+            [
+              0.666667,
+              -8
+            ]
+          ],
+          "translate": [
+            [
+              0.0,
+              0,
+              2
+            ],
+            [
+              0.083333,
+              0,
+              1
+            ],
+            [
+              0.166667,
+              0,
+              0
+            ],
+            [
+              0.25,
+              0,
+              -1
+            ],
+            [
+              0.333333,
+              0,
+              -2
+            ],
+            [
+              0.416667,
+              0,
+              -1
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0.583333,
+              0,
+              1
+            ],
+            [
+              0.666667,
+              0,
+              2
+            ]
+          ],
+          "scale": [
+            [
+              0.0,
+              1,
+              1.01
+            ],
+            [
+              0.083333,
+              1,
+              1.005
+            ],
+            [
+              0.166667,
+              1,
+              1
+            ],
+            [
+              0.25,
+              1,
+              0.995
+            ],
+            [
+              0.333333,
+              1,
+              0.99
+            ],
+            [
+              0.416667,
+              1,
+              0.995
+            ],
+            [
+              0.5,
+              1,
+              1
+            ],
+            [
+              0.583333,
+              1,
+              1.005
+            ],
+            [
+              0.666667,
+              1,
+              1.01
+            ]
+          ]
+        },
+        "forearm_r": {
+          "rotate": [
+            [
+              0.0,
+              -8
+            ],
+            [
+              0.083333,
+              -5
+            ],
+            [
+              0.166667,
+              -2
+            ],
+            [
+              0.25,
+              0
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              0
+            ],
+            [
+              0.5,
+              -2
+            ],
+            [
+              0.583333,
+              -5
+            ],
+            [
+              0.666667,
+              -8
+            ]
+          ]
+        },
+        "hand_r": {
+          "rotate": [
+            [
+              0.0,
+              2
+            ],
+            [
+              0.083333,
+              1
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              0
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              0
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              1
+            ],
+            [
+              0.666667,
+              2
+            ]
+          ]
+        },
+        "thigh_l": {
+          "translate": [
+            [
+              0.0,
+              0,
+              2
+            ],
+            [
+              0.083333,
+              0,
+              -6
+            ],
+            [
+              0.166667,
+              0,
+              -2
+            ],
+            [
+              0.25,
+              0,
+              0
+            ],
+            [
+              0.333333,
+              0,
+              -3
+            ],
+            [
+              0.416667,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              1
+            ],
+            [
+              0.583333,
+              0,
+              2
+            ],
+            [
+              0.666667,
+              0,
+              2
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              6
+            ],
+            [
+              0.083333,
+              4
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              -4
+            ],
+            [
+              0.333333,
+              -6
+            ],
+            [
+              0.416667,
+              -4
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              4
+            ],
+            [
+              0.666667,
+              6
+            ]
+          ],
+          "scale": [
+            [
+              0.0,
+              1,
+              1.008
+            ],
+            [
+              0.083333,
+              1,
+              1.004
+            ],
+            [
+              0.166667,
+              1,
+              1
+            ],
+            [
+              0.25,
+              1,
+              0.994
+            ],
+            [
+              0.333333,
+              1,
+              0.988
+            ],
+            [
+              0.416667,
+              1,
+              0.994
+            ],
+            [
+              0.5,
+              1,
+              1
+            ],
+            [
+              0.583333,
+              1,
+              1.004
+            ],
+            [
+              0.666667,
+              1,
+              1.008
+            ]
+          ]
+        },
+        "shin_l": {
+          "translate": [
+            [
+              0.0,
+              0,
+              0
+            ],
+            [
+              0.083333,
+              0,
+              0
+            ],
+            [
+              0.166667,
+              0,
+              0
+            ],
+            [
+              0.25,
+              0,
+              -2
+            ],
+            [
+              0.333333,
+              0,
+              0
+            ],
+            [
+              0.416667,
+              0,
+              -4
+            ],
+            [
+              0.5,
+              0,
+              -14
+            ],
+            [
+              0.583333,
+              0,
+              -9
+            ],
+            [
+              0.666667,
+              0,
+              0
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              2
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              5
+            ],
+            [
+              0.5,
+              18
+            ],
+            [
+              0.583333,
+              11
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "foot_l": {
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              0
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              -2
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              -3
+            ],
+            [
+              0.5,
+              -8
+            ],
+            [
+              0.583333,
+              -5
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "thigh_r": {
+          "translate": [
+            [
+              0.0,
+              0,
+              -3
+            ],
+            [
+              0.083333,
+              0,
+              0
+            ],
+            [
+              0.166667,
+              0,
+              1
+            ],
+            [
+              0.25,
+              0,
+              2
+            ],
+            [
+              0.333333,
+              0,
+              2
+            ],
+            [
+              0.416667,
+              0,
+              -6
+            ],
+            [
+              0.5,
+              0,
+              -2
+            ],
+            [
+              0.583333,
+              0,
+              0
+            ],
+            [
+              0.666667,
+              0,
+              -3
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              6
+            ],
+            [
+              0.083333,
+              4
+            ],
+            [
+              0.166667,
+              0
+            ],
+            [
+              0.25,
+              -4
+            ],
+            [
+              0.333333,
+              -6
+            ],
+            [
+              0.416667,
+              -4
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              4
+            ],
+            [
+              0.666667,
+              6
+            ]
+          ],
+          "scale": [
+            [
+              0.0,
+              1,
+              0.988
+            ],
+            [
+              0.083333,
+              1,
+              0.994
+            ],
+            [
+              0.166667,
+              1,
+              1
+            ],
+            [
+              0.25,
+              1,
+              1.004
+            ],
+            [
+              0.333333,
+              1,
+              1.008
+            ],
+            [
+              0.416667,
+              1,
+              1.004
+            ],
+            [
+              0.5,
+              1,
+              1
+            ],
+            [
+              0.583333,
+              1,
+              0.994
+            ],
+            [
+              0.666667,
+              1,
+              0.988
+            ]
+          ]
+        },
+        "shin_r": {
+          "translate": [
+            [
+              0.0,
+              0,
+              0
+            ],
+            [
+              0.083333,
+              0,
+              -4
+            ],
+            [
+              0.166667,
+              0,
+              -14
+            ],
+            [
+              0.25,
+              0,
+              -9
+            ],
+            [
+              0.333333,
+              0,
+              0
+            ],
+            [
+              0.416667,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0.583333,
+              0,
+              -2
+            ],
+            [
+              0.666667,
+              0,
+              0
+            ]
+          ],
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              -5
+            ],
+            [
+              0.166667,
+              -18
+            ],
+            [
+              0.25,
+              -11
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              0
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              -2
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        },
+        "foot_r": {
+          "rotate": [
+            [
+              0.0,
+              0
+            ],
+            [
+              0.083333,
+              3
+            ],
+            [
+              0.166667,
+              8
+            ],
+            [
+              0.25,
+              5
+            ],
+            [
+              0.333333,
+              0
+            ],
+            [
+              0.416667,
+              0
+            ],
+            [
+              0.5,
+              0
+            ],
+            [
+              0.583333,
+              2
+            ],
+            [
+              0.666667,
+              0
+            ]
+          ]
+        }
+      },
+      "drawOrderTimeline": [
+        [
+          0,
+          [
+            "bag",
+            "foot_r",
+            "shin_r",
+            "thigh_r",
+            "foot_l",
+            "shin_l",
+            "thigh_l",
+            "hand_l",
+            "forearm_l",
+            "upper_arm_l",
+            "hand_r",
+            "forearm_r",
+            "upper_arm_r",
+            "torso",
+            "skirt",
+            "head"
+          ]
+        ],
+        [
+          0.166667,
+          [
+            "bag",
+            "foot_l",
+            "shin_l",
+            "thigh_l",
+            "foot_r",
+            "shin_r",
+            "thigh_r",
+            "hand_l",
+            "forearm_l",
+            "upper_arm_l",
+            "hand_r",
+            "forearm_r",
+            "upper_arm_r",
+            "torso",
+            "skirt",
+            "head"
+          ]
+        ],
+        [
+          0.5,
+          [
+            "bag",
+            "foot_r",
+            "shin_r",
+            "thigh_r",
+            "foot_l",
+            "shin_l",
+            "thigh_l",
+            "hand_l",
+            "forearm_l",
+            "upper_arm_l",
+            "hand_r",
+            "forearm_r",
+            "upper_arm_r",
+            "torso",
+            "skirt",
+            "head"
+          ]
+        ],
+        [
+          0.666667,
+          [
+            "bag",
+            "foot_r",
+            "shin_r",
+            "thigh_r",
+            "foot_l",
+            "shin_l",
+            "thigh_l",
+            "hand_l",
+            "forearm_l",
+            "upper_arm_l",
+            "hand_r",
+            "forearm_r",
+            "upper_arm_r",
+            "torso",
+            "skirt",
+            "head"
+          ]
+        ]
+      ],
+      "playback": {
+        "mode": "loop",
+        "speed": 1,
+        "autoStart": true
+      }
+    }
+  ],
+  "editorTransforms": {
+    "bag": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "foot_r": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "shin_r": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "thigh_r": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "foot_l": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "shin_l": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "thigh_l": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "hand_l": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "forearm_l": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "upper_arm_l": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "hand_r": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "forearm_r": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "upper_arm_r": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "torso": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "skirt": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "head": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    }
+  },
+  "generationMode": "identity-preserving-imagegen-front-cutout-spine",
+  "sourceComponentAtlas": "/generated/rigged/wei_yang_front_cutout_walk_rig/sources/wei_yang_front_cutout_parts_raw.png",
+  "identityReference": "/generated/wei_yang_idle_front_source_clean.png",
+  "rootAnchorPolicy": "ground root plus explicit anatomical joint pivots on a shared 640x1152 canvas",
+  "proportionPolicy": "uniform scaling per independently generated cutout component; no non-uniform bitmap stretch",
+  "qualityPolicy": "Every visible body part was redrawn by ImageGen from the canonical front reference with hidden joint overlap. Code removes the baked neutral checker, preserves aspect ratio, registers each transparent part, packs the atlas, and wires parent-child bone timelines.",
+  "componentReports": {
+    "head": {
+      "source": {
+        "name": "head",
+        "sourceCellIndex": 0,
+        "sourceCell": [
+          0,
+          0,
+          314,
+          314
+        ],
+        "sourceCrop": [
+          91,
+          23,
+          294,
+          258
+        ],
+        "extractedSize": [
+          203,
+          235
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          230,
+          52,
+          180,
+          198
+        ],
+        "uniformScale": 0.842553,
+        "registeredPlacement": [
+          234,
+          52
+        ],
+        "registeredSize": [
+          171,
+          198
+        ],
+        "alphaBounds": [
+          234,
+          52,
+          405,
+          250
+        ],
+        "sha256Pixels": "c324f13face6668c4b72ece5db9c8211bc2ff924d0ef70cbc8f36cdd50b867a0"
+      },
+      "bone": "head"
+    },
+    "torso": {
+      "source": {
+        "name": "torso",
+        "sourceCellIndex": 1,
+        "sourceCell": [
+          314,
+          0,
+          627,
+          314
+        ],
+        "sourceCrop": [
+          45,
+          8,
+          236,
+          306
+        ],
+        "extractedSize": [
+          191,
+          298
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          218,
+          238,
+          204,
+          318
+        ],
+        "uniformScale": 1.067114,
+        "registeredPlacement": [
+          218,
+          238
+        ],
+        "registeredSize": [
+          204,
+          318
+        ],
+        "alphaBounds": [
+          219,
+          239,
+          421,
+          555
+        ],
+        "sha256Pixels": "b09c4a3f42ea5a72932802e5325f8e58045e5f242da1af05c72bcd2032392f9b"
+      },
+      "bone": "torso"
+    },
+    "skirt": {
+      "source": {
+        "name": "skirt",
+        "sourceCellIndex": 2,
+        "sourceCell": [
+          627,
+          0,
+          940,
+          314
+        ],
+        "sourceCrop": [
+          12,
+          47,
+          300,
+          289
+        ],
+        "extractedSize": [
+          288,
+          242
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          198,
+          520,
+          244,
+          190
+        ],
+        "uniformScale": 0.785124,
+        "registeredPlacement": [
+          207,
+          520
+        ],
+        "registeredSize": [
+          226,
+          190
+        ],
+        "alphaBounds": [
+          207,
+          520,
+          433,
+          710
+        ],
+        "sha256Pixels": "2f879dfeb21336403bb608243bfd6b48c7cc8fb89673def9388471a84bb26b74"
+      },
+      "bone": "skirt"
+    },
+    "bag": {
+      "source": {
+        "name": "bag",
+        "sourceCellIndex": 3,
+        "sourceCell": [
+          940,
+          0,
+          1254,
+          314
+        ],
+        "sourceCrop": [
+          53,
+          132,
+          222,
+          295
+        ],
+        "extractedSize": [
+          169,
+          163
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          390,
+          438,
+          116,
+          132
+        ],
+        "uniformScale": 0.686391,
+        "registeredPlacement": [
+          390,
+          438
+        ],
+        "registeredSize": [
+          116,
+          112
+        ],
+        "alphaBounds": [
+          390,
+          438,
+          506,
+          550
+        ],
+        "sha256Pixels": "b31542880afbe0f9eeca90b41ade6522ca7a6b058e70560543057fae685ba099"
+      },
+      "bone": "bag"
+    },
+    "upper_arm_r": {
+      "source": {
+        "name": "upper_arm_r",
+        "sourceCellIndex": 4,
+        "sourceCell": [
+          0,
+          314,
+          314,
+          627
+        ],
+        "sourceCrop": [
+          134,
+          0,
+          229,
+          302
+        ],
+        "extractedSize": [
+          95,
+          302
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          205,
+          252,
+          72,
+          206
+        ],
+        "uniformScale": 0.682119,
+        "registeredPlacement": [
+          208,
+          252
+        ],
+        "registeredSize": [
+          65,
+          206
+        ],
+        "alphaBounds": [
+          208,
+          252,
+          273,
+          458
+        ],
+        "sha256Pixels": "c2f0d4f24ea2be2682299f8e1aa55f0c0fd1c76ec5430af060aafc0ff1e03f43"
+      },
+      "bone": "upper_arm_r"
+    },
+    "forearm_l": {
+      "source": {
+        "name": "forearm_l",
+        "sourceCellIndex": 5,
+        "sourceCell": [
+          314,
+          314,
+          627,
+          627
+        ],
+        "sourceCrop": [
+          87,
+          17,
+          168,
+          262
+        ],
+        "extractedSize": [
+          81,
+          245
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          396,
+          411,
+          56,
+          181
+        ],
+        "uniformScale": 0.691358,
+        "registeredPlacement": [
+          396,
+          411
+        ],
+        "registeredSize": [
+          56,
+          169
+        ],
+        "alphaBounds": [
+          396,
+          411,
+          452,
+          580
+        ],
+        "sha256Pixels": "9319240b237fae54ce7374e87f7a64e6899748c9f800dd1c9fa3db5c8538f80b"
+      },
+      "bone": "forearm_l"
+    },
+    "hand_l": {
+      "source": {
+        "name": "hand_l",
+        "sourceCellIndex": 6,
+        "sourceCell": [
+          627,
+          314,
+          940,
+          627
+        ],
+        "sourceCrop": [
+          52,
+          60,
+          131,
+          231
+        ],
+        "extractedSize": [
+          79,
+          171
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          405,
+          558,
+          44,
+          85
+        ],
+        "uniformScale": 0.497076,
+        "registeredPlacement": [
+          407,
+          558
+        ],
+        "registeredSize": [
+          39,
+          85
+        ],
+        "alphaBounds": [
+          407,
+          558,
+          446,
+          643
+        ],
+        "sha256Pixels": "17b012b4a83003a52466f22530ed40b866586eff36ebb60a5d0205674e2af8cb"
+      },
+      "bone": "hand_l"
+    },
+    "upper_arm_l": {
+      "source": {
+        "name": "upper_arm_l",
+        "sourceCellIndex": 7,
+        "sourceCell": [
+          940,
+          314,
+          1254,
+          627
+        ],
+        "sourceCrop": [
+          78,
+          0,
+          169,
+          303
+        ],
+        "extractedSize": [
+          91,
+          303
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          363,
+          252,
+          72,
+          206
+        ],
+        "uniformScale": 0.679868,
+        "registeredPlacement": [
+          368,
+          252
+        ],
+        "registeredSize": [
+          62,
+          206
+        ],
+        "alphaBounds": [
+          368,
+          252,
+          430,
+          458
+        ],
+        "sha256Pixels": "9254de0709be58e00ca57d7fac80f255b3f6e5d04f229722b3afab0a20b72199"
+      },
+      "bone": "upper_arm_l"
+    },
+    "forearm_r": {
+      "source": {
+        "name": "forearm_r",
+        "sourceCellIndex": 8,
+        "sourceCell": [
+          0,
+          627,
+          314,
+          940
+        ],
+        "sourceCrop": [
+          136,
+          15,
+          204,
+          231
+        ],
+        "extractedSize": [
+          68,
+          216
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          188,
+          411,
+          56,
+          181
+        ],
+        "uniformScale": 0.823529,
+        "registeredPlacement": [
+          188,
+          411
+        ],
+        "registeredSize": [
+          56,
+          178
+        ],
+        "alphaBounds": [
+          188,
+          411,
+          244,
+          589
+        ],
+        "sha256Pixels": "92fd46be216966d7521b4bd9b8c6307b4f3040e284a458656c396947420053e7"
+      },
+      "bone": "forearm_r"
+    },
+    "hand_r": {
+      "source": {
+        "name": "hand_r",
+        "sourceCellIndex": 9,
+        "sourceCell": [
+          314,
+          627,
+          627,
+          940
+        ],
+        "sourceCrop": [
+          93,
+          48,
+          168,
+          207
+        ],
+        "extractedSize": [
+          75,
+          159
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          191,
+          558,
+          44,
+          85
+        ],
+        "uniformScale": 0.534591,
+        "registeredPlacement": [
+          193,
+          558
+        ],
+        "registeredSize": [
+          40,
+          85
+        ],
+        "alphaBounds": [
+          193,
+          558,
+          233,
+          643
+        ],
+        "sha256Pixels": "6d2becbd3e46c2e035d918e0c8d7135d55a150e4e60861b05ad85d4562e646d7"
+      },
+      "bone": "hand_r"
+    },
+    "thigh_l": {
+      "source": {
+        "name": "thigh_l",
+        "sourceCellIndex": 10,
+        "sourceCell": [
+          627,
+          627,
+          940,
+          940
+        ],
+        "sourceCrop": [
+          61,
+          0,
+          152,
+          237
+        ],
+        "extractedSize": [
+          91,
+          237
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          322,
+          586,
+          80,
+          244
+        ],
+        "uniformScale": 0.879121,
+        "registeredPlacement": [
+          322,
+          586
+        ],
+        "registeredSize": [
+          80,
+          208
+        ],
+        "alphaBounds": [
+          322,
+          586,
+          402,
+          794
+        ],
+        "sha256Pixels": "48ef1273300329348a5e567bb7933dc374e0f1818e499eee72cd31e7461d99a7"
+      },
+      "bone": "thigh_l"
+    },
+    "shin_l": {
+      "source": {
+        "name": "shin_l",
+        "sourceCellIndex": 11,
+        "sourceCell": [
+          940,
+          627,
+          1254,
+          940
+        ],
+        "sourceCrop": [
+          76,
+          0,
+          142,
+          265
+        ],
+        "extractedSize": [
+          66,
+          265
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          326,
+          783,
+          70,
+          229
+        ],
+        "uniformScale": 0.864151,
+        "registeredPlacement": [
+          332,
+          783
+        ],
+        "registeredSize": [
+          57,
+          229
+        ],
+        "alphaBounds": [
+          332,
+          783,
+          389,
+          1012
+        ],
+        "sha256Pixels": "aad2e361518129aebadd145d2c33b0e349a5e4322d2e93fb1799c4714a4d07b3"
+      },
+      "bone": "shin_l"
+    },
+    "foot_r": {
+      "source": {
+        "name": "foot_r",
+        "sourceCellIndex": 12,
+        "sourceCell": [
+          0,
+          940,
+          314,
+          1254
+        ],
+        "sourceCrop": [
+          128,
+          58,
+          257,
+          201
+        ],
+        "extractedSize": [
+          129,
+          143
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          207,
+          974,
+          116,
+          112
+        ],
+        "uniformScale": 0.783217,
+        "registeredPlacement": [
+          214,
+          974
+        ],
+        "registeredSize": [
+          101,
+          112
+        ],
+        "alphaBounds": [
+          214,
+          974,
+          315,
+          1086
+        ],
+        "sha256Pixels": "0208e9fc677a7a474ac155662eb599310545427c2ba4d3081ee4e6bded39feb6"
+      },
+      "bone": "foot_r"
+    },
+    "thigh_r": {
+      "source": {
+        "name": "thigh_r",
+        "sourceCellIndex": 13,
+        "sourceCell": [
+          314,
+          940,
+          627,
+          1254
+        ],
+        "sourceCrop": [
+          94,
+          0,
+          185,
+          242
+        ],
+        "extractedSize": [
+          91,
+          242
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          238,
+          586,
+          80,
+          244
+        ],
+        "uniformScale": 0.879121,
+        "registeredPlacement": [
+          238,
+          586
+        ],
+        "registeredSize": [
+          80,
+          213
+        ],
+        "alphaBounds": [
+          238,
+          586,
+          318,
+          799
+        ],
+        "sha256Pixels": "fdef7bac4f96ca74b234512d6b72f900c5b85d17af578e7325cc25c2b6a3cc0f"
+      },
+      "bone": "thigh_r"
+    },
+    "shin_r": {
+      "source": {
+        "name": "shin_r",
+        "sourceCellIndex": 14,
+        "sourceCell": [
+          627,
+          940,
+          940,
+          1254
+        ],
+        "sourceCrop": [
+          75,
+          0,
+          141,
+          264
+        ],
+        "extractedSize": [
+          66,
+          264
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          244,
+          783,
+          70,
+          229
+        ],
+        "uniformScale": 0.867424,
+        "registeredPlacement": [
+          250,
+          783
+        ],
+        "registeredSize": [
+          57,
+          229
+        ],
+        "alphaBounds": [
+          250,
+          783,
+          307,
+          1012
+        ],
+        "sha256Pixels": "f535e6a14701c22886b5b2eac38b2736adacb7898e051942bbce3bdac233901b"
+      },
+      "bone": "shin_r"
+    },
+    "foot_l": {
+      "source": {
+        "name": "foot_l",
+        "sourceCellIndex": 15,
+        "sourceCell": [
+          940,
+          940,
+          1254,
+          1254
+        ],
+        "sourceCrop": [
+          38,
+          87,
+          160,
+          234
+        ],
+        "extractedSize": [
+          122,
+          147
+        ],
+        "sourceBackground": "baked neutral checker removed by connected foreground extraction"
+      },
+      "registered": {
+        "targetBox": [
+          317,
+          974,
+          116,
+          112
+        ],
+        "uniformScale": 0.761905,
+        "registeredPlacement": [
+          328,
+          974
+        ],
+        "registeredSize": [
+          93,
+          112
+        ],
+        "alphaBounds": [
+          328,
+          974,
+          421,
+          1086
+        ],
+        "sha256Pixels": "6bb3d698a1bad05553b2663d9b383915adf669bbd2946f66595c0bc49abfe3b4"
+      },
+      "bone": "foot_l"
+    }
+  },
+  "limitations": [
+    "The Gorest browser preview supports translate, rotate, and scale bone timelines but not weighted mesh deformation or IK.",
+    "The front walk swaps the leading leg draw order at the two passing phases.",
+    "The downloadable Spine package uses independent tight-cropped region attachments on eighteen parented bones.",
+    "Validate the download with a licensed Spine 4.2 runtime before shipping."
+  ]
+}

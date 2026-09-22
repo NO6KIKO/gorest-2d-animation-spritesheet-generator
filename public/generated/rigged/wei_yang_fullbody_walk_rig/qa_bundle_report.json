@@ -1,0 +1,323 @@
+{
+  "bundle": "/generated/rigged/wei_yang_fullbody_walk_rig",
+  "sourceSheet": "/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png",
+  "identityReference": "/generated/wei_yang_idle_front_source_clean.png",
+  "frameCount": 8,
+  "fps": 12,
+  "duration": 0.666667,
+  "registeredFrameSize": [
+    640,
+    1152
+  ],
+  "rootAnchor": [
+    320,
+    1072
+  ],
+  "minimumSafePaddingPx": 57,
+  "uniqueFrameHashes": 8,
+  "checks": {
+    "attachmentCount": true,
+    "allFrameFilesExist": true,
+    "allFramesUnique": true,
+    "noSourceCellEdgeRisks": true,
+    "safePaddingAtLeastEightPercent": true,
+    "timelineReferencesAttachments": true,
+    "timelineReturnsToFirstFrame": true,
+    "timelineEndsAtDuration": true,
+    "spineSkinEqualsAtlas": true,
+    "spineAnimationNamesMatchManifest": true,
+    "rootAnchorWithinCanvas": true,
+    "rootLibraryContainsRig": true
+  },
+  "pass": true,
+  "frames": [
+    {
+      "index": 0,
+      "name": "walk_right_00",
+      "sourceCell": [
+        0,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        105,
+        10,
+        516,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        121,
+        58,
+        532,
+        1069
+      ],
+      "safePadding": {
+        "left": 121,
+        "top": 58,
+        "right": 108,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6174,
+        "fullyRemovedPixels": 4532,
+        "partiallyCleanedPixels": 1642
+      },
+      "sha256Pixels": "4decb992f43c6cfd8008994926089150a60b1d8f569c761fc489fd7b56a39fcb"
+    },
+    {
+      "index": 1,
+      "name": "walk_right_01",
+      "sourceCell": [
+        608,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        95,
+        10,
+        444,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        111,
+        58,
+        460,
+        1069
+      ],
+      "safePadding": {
+        "left": 111,
+        "top": 58,
+        "right": 180,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6504,
+        "fullyRemovedPixels": 4875,
+        "partiallyCleanedPixels": 1629
+      },
+      "sha256Pixels": "6bb1c584950a9a34b2f21760402b99a75ff31ba0a6862b51b02caa484cf00c18"
+    },
+    {
+      "index": 2,
+      "name": "walk_right_02",
+      "sourceCell": [
+        1216,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        101,
+        10,
+        433,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        117,
+        58,
+        449,
+        1069
+      ],
+      "safePadding": {
+        "left": 117,
+        "top": 58,
+        "right": 191,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6039,
+        "fullyRemovedPixels": 4563,
+        "partiallyCleanedPixels": 1476
+      },
+      "sha256Pixels": "5c49f20ccd76cc69f1a932fca99c9c5502ec9ce8d1a3befe1b6eb33ead4888bb"
+    },
+    {
+      "index": 3,
+      "name": "walk_right_03",
+      "sourceCell": [
+        1824,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        150,
+        10,
+        445,
+        1019
+      ],
+      "registeredAlphaBounds": [
+        166,
+        58,
+        461,
+        1067
+      ],
+      "safePadding": {
+        "left": 166,
+        "top": 58,
+        "right": 179,
+        "bottom": 85
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 5361,
+        "fullyRemovedPixels": 3947,
+        "partiallyCleanedPixels": 1414
+      },
+      "sha256Pixels": "2c8b5905b72090fd1a2e3896d6002f87feecbb79eca6e5d13a9552d30a659371"
+    },
+    {
+      "index": 4,
+      "name": "walk_right_04",
+      "sourceCell": [
+        0,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        45,
+        11,
+        466,
+        1020
+      ],
+      "registeredAlphaBounds": [
+        61,
+        59,
+        482,
+        1068
+      ],
+      "safePadding": {
+        "left": 61,
+        "top": 59,
+        "right": 158,
+        "bottom": 84
+      },
+      "minSafePadding": 59,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6549,
+        "fullyRemovedPixels": 5344,
+        "partiallyCleanedPixels": 1205
+      },
+      "sha256Pixels": "4adac3768a0fd5c0bd2373e1895558f092b8bba2c60dddc2823b1d3736361f2e"
+    },
+    {
+      "index": 5,
+      "name": "walk_right_05",
+      "sourceCell": [
+        608,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        103,
+        9,
+        407,
+        1023
+      ],
+      "registeredAlphaBounds": [
+        119,
+        57,
+        423,
+        1071
+      ],
+      "safePadding": {
+        "left": 119,
+        "top": 57,
+        "right": 217,
+        "bottom": 81
+      },
+      "minSafePadding": 57,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 5398,
+        "fullyRemovedPixels": 4420,
+        "partiallyCleanedPixels": 978
+      },
+      "sha256Pixels": "cc1a0ce627f0305514a1fc5acc7ba412fa2c1fb722462e9848e05cb3f78d908a"
+    },
+    {
+      "index": 6,
+      "name": "walk_right_06",
+      "sourceCell": [
+        1216,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        62,
+        10,
+        499,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        78,
+        58,
+        515,
+        1069
+      ],
+      "safePadding": {
+        "left": 78,
+        "top": 58,
+        "right": 125,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6272,
+        "fullyRemovedPixels": 5111,
+        "partiallyCleanedPixels": 1161
+      },
+      "sha256Pixels": "3ad54f4e2c96a05bba2e3eedfb19b3da2e22b66a46f3437969736f728b8d318c"
+    },
+    {
+      "index": 7,
+      "name": "walk_right_07",
+      "sourceCell": [
+        1824,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        156,
+        10,
+        401,
+        1024
+      ],
+      "registeredAlphaBounds": [
+        172,
+        58,
+        417,
+        1072
+      ],
+      "safePadding": {
+        "left": 172,
+        "top": 58,
+        "right": 223,
+        "bottom": 80
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 5258,
+        "fullyRemovedPixels": 4197,
+        "partiallyCleanedPixels": 1061
+      },
+      "sha256Pixels": "b72f59fb97f05b7ba1ecd5d7f83fb5e7c6ada84d0c469b9abe12315bff445ad9"
+    }
+  ]
+}

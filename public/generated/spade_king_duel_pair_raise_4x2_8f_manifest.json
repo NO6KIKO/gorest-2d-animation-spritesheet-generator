@@ -1,0 +1,188 @@
+{
+  "frameCount": 8,
+  "cellSize": null,
+  "frameSize": [
+    384,
+    512
+  ],
+  "sheetSize": [
+    1536,
+    1024
+  ],
+  "sourceSheetSize": [
+    1536,
+    1024
+  ],
+  "sourceCells": [
+    [
+      4,
+      4,
+      380,
+      508
+    ],
+    [
+      388,
+      4,
+      764,
+      508
+    ],
+    [
+      772,
+      4,
+      1148,
+      508
+    ],
+    [
+      1156,
+      4,
+      1532,
+      508
+    ],
+    [
+      4,
+      516,
+      380,
+      1020
+    ],
+    [
+      388,
+      516,
+      764,
+      1020
+    ],
+    [
+      772,
+      516,
+      1148,
+      1020
+    ],
+    [
+      1156,
+      516,
+      1532,
+      1020
+    ]
+  ],
+  "globalScale": 0.8806239780691616,
+  "safePadding": 36,
+  "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+  "sourceEdgePolicy": "flag_source_cells_whose_alpha_touches_or_nears_a_detected_cell_edge",
+  "sourceEdgeThreshold": 4,
+  "sourceEdgeRisks": [],
+  "frameBboxes": [
+    [
+      54,
+      148,
+      252,
+      327
+    ],
+    [
+      54,
+      147,
+      249,
+      328
+    ],
+    [
+      54,
+      150,
+      250,
+      325
+    ],
+    [
+      54,
+      153,
+      251,
+      322
+    ],
+    [
+      54,
+      149,
+      252,
+      326
+    ],
+    [
+      49,
+      149,
+      263,
+      326
+    ],
+    [
+      38,
+      153,
+      281,
+      322
+    ],
+    [
+      37,
+      154,
+      284,
+      321
+    ]
+  ],
+  "rootAnchors": [
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ],
+    [
+      192.0,
+      475
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "proportional_forced",
+    "xRuns": [],
+    "yRuns": [],
+    "xBounds": [
+      0,
+      384,
+      768,
+      1152,
+      1536
+    ],
+    "yBounds": [
+      0,
+      512,
+      1024
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_lower_body_centroid_x_and_shared_feet_baseline",
+  "normalization": "global_uniform_scale_fixed_feet_baseline_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-09-02T16:20:50",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/spade_king_duel_pair_raise_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

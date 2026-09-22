@@ -283,6 +283,20 @@
 .interaction-hotspot-layer {
   mix-blend-mode: screen;
 }
+.scene-direct-interaction-target {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.scene-direct-interaction-target:focus-visible {
+  outline: 2px solid rgba(214, 161, 93, .92);
+  outline-offset: 3px;
+}
 .scene-interaction-light {
   position: absolute;
   pointer-events: none;

@@ -1,0 +1,214 @@
+{
+  "frameCount": 8,
+  "cellSize": null,
+  "frameSize": [
+    384,
+    512
+  ],
+  "sheetSize": [
+    1536,
+    1024
+  ],
+  "sourceSheetSize": [
+    1536,
+    1024
+  ],
+  "sourceCells": [
+    [
+      4,
+      4,
+      407,
+      492
+    ],
+    [
+      415,
+      4,
+      776,
+      492
+    ],
+    [
+      784,
+      4,
+      1132,
+      492
+    ],
+    [
+      1140,
+      4,
+      1532,
+      492
+    ],
+    [
+      4,
+      500,
+      407,
+      1020
+    ],
+    [
+      415,
+      500,
+      776,
+      1020
+    ],
+    [
+      784,
+      500,
+      1132,
+      1020
+    ],
+    [
+      1140,
+      500,
+      1532,
+      1020
+    ]
+  ],
+  "globalScale": 0.7854729820760166,
+  "safePadding": 32,
+  "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+  "sourceEdgePolicy": "flag_source_cells_whose_alpha_touches_or_nears_a_detected_cell_edge",
+  "sourceEdgeThreshold": 2,
+  "sourceEdgeRisks": [],
+  "frameBboxes": [
+    [
+      101,
+      78,
+      174,
+      273
+    ],
+    [
+      75,
+      74,
+      276,
+      273
+    ],
+    [
+      80,
+      78,
+      199,
+      272
+    ],
+    [
+      94,
+      78,
+      178,
+      273
+    ],
+    [
+      89,
+      77,
+      249,
+      269
+    ],
+    [
+      77,
+      79,
+      234,
+      269
+    ],
+    [
+      81,
+      79,
+      233,
+      267
+    ],
+    [
+      99,
+      78,
+      176,
+      272
+    ]
+  ],
+  "rootAnchors": [
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ],
+    [
+      192.0,
+      156.16
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "auto_detected",
+    "xRuns": [
+      [
+        86,
+        403
+      ],
+      [
+        419,
+        769
+      ],
+      [
+        792,
+        1089
+      ],
+      [
+        1183,
+        1410
+      ]
+    ],
+    "yRuns": [
+      [
+        83,
+        433
+      ],
+      [
+        559,
+        908
+      ]
+    ],
+    "xBounds": [
+      0,
+      411,
+      780,
+      1136,
+      1536
+    ],
+    "yBounds": [
+      0,
+      496,
+      1024
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+  "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-09-02T08:47:42",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 512 384 512\" width=\"384\" height=\"512\"><image href=\"/generated/clock_tower_bell_strike_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"1024\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

@@ -1,0 +1,70 @@
+silver-face-pure-rig.png
+size: 4096, 2048
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+portrait_torso
+bounds: 0, 0, 512, 512
+portrait_head
+bounds: 512, 0, 512, 512
+left_brow
+bounds: 1024, 0, 512, 512
+left_brow_raised
+bounds: 1536, 0, 512, 512
+left_brow_frown
+bounds: 2048, 0, 512, 512
+left_brow_worried
+bounds: 2560, 0, 512, 512
+right_brow
+bounds: 3072, 0, 512, 512
+right_brow_raised
+bounds: 3584, 0, 512, 512
+right_brow_frown
+bounds: 0, 512, 512, 512
+right_brow_worried
+bounds: 512, 512, 512, 512
+left_eye_open
+bounds: 1024, 512, 512, 512
+left_eye_half
+bounds: 1536, 512, 512, 512
+left_eye_closed
+bounds: 2048, 512, 512, 512
+left_eye_gaze_left
+bounds: 2560, 512, 512, 512
+left_eye_gaze_right
+bounds: 3072, 512, 512, 512
+left_eye_gaze_up
+bounds: 3584, 512, 512, 512
+left_eye_gaze_down
+bounds: 0, 1024, 512, 512
+right_eye_open
+bounds: 512, 1024, 512, 512
+right_eye_half
+bounds: 1024, 1024, 512, 512
+right_eye_closed
+bounds: 1536, 1024, 512, 512
+right_eye_gaze_left
+bounds: 2048, 1024, 512, 512
+right_eye_gaze_right
+bounds: 2560, 1024, 512, 512
+right_eye_gaze_up
+bounds: 3072, 1024, 512, 512
+right_eye_gaze_down
+bounds: 3584, 1024, 512, 512
+nose
+bounds: 0, 1536, 512, 512
+mouth_closed
+bounds: 512, 1536, 512, 512
+mouth_small
+bounds: 1024, 1536, 512, 512
+mouth_medium
+bounds: 1536, 1536, 512, 512
+mouth_wide
+bounds: 2048, 1536, 512, 512
+mouth_smile
+bounds: 2560, 1536, 512, 512
+mouth_angry
+bounds: 3072, 1536, 512, 512
+mouth_sad
+bounds: 3584, 1536, 512, 512

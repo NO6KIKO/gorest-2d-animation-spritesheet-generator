@@ -1,4 +1,5 @@
 import type { SceneLayer } from "../../types";
+import { MAX_LAYER_SCALE, MIN_LAYER_SCALE } from "../../shared/math";
 
 type SceneInspectorTransformSectionProps = {
   selectedInteractionZoneLayerId: string | null;
@@ -19,8 +20,8 @@ export function SceneInspectorTransformSection({
       <label>Scale {selectedLayer.scale.toFixed(2)}</label>
       <input
         type="range"
-        min="0.05"
-        max="2.5"
+        min={MIN_LAYER_SCALE}
+        max={MAX_LAYER_SCALE}
         step="0.01"
         value={selectedLayer.scale}
         onChange={event => onUpdateLayer(selectedLayer.id, { scale: Number(event.target.value) })}

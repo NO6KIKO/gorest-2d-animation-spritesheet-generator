@@ -1,0 +1,2863 @@
+{
+  "version": 2,
+  "frameCount": 48,
+  "azimuthFrames": 16,
+  "elevationAngles": [
+    30.0,
+    0.0,
+    -30.0
+  ],
+  "frameSize": [
+    512,
+    512
+  ],
+  "packColumns": 16,
+  "sheetSize": [
+    8192,
+    1536
+  ],
+  "globalScale": 0.7783518117228365,
+  "safePadding": 48,
+  "normalizedPivot": [
+    256.0,
+    187.81848950016678
+  ],
+  "pivotPolicy": "shared_upper_body_alpha_centroid_xy_object_rotation_pivot",
+  "proportionPolicy": "one_global_uniform_scale_preserve_generated_proportions",
+  "componentPolicy": "keep_largest_connected_subject_component_and_one_pixel_alpha_fringe",
+  "sourceLayers": [
+    {
+      "elevation": 30.0,
+      "path": "C:/Users/Zhang/Documents/Codex/2026-08-10/d-steamlibrary-gorest-2d-animation-spritesheet-2/work/zhou_zian_fake3d/elev_p30_ordered_alpha.png",
+      "sourceSize": [
+        1536,
+        2172
+      ],
+      "gridDetection": {
+        "mode": "auto_detected",
+        "xRuns": [
+          [
+            97,
+            313
+          ],
+          [
+            494,
+            686
+          ],
+          [
+            835,
+            1039
+          ],
+          [
+            1227,
+            1421
+          ]
+        ],
+        "yRuns": [
+          [
+            39,
+            524
+          ],
+          [
+            583,
+            1063
+          ],
+          [
+            1110,
+            1581
+          ],
+          [
+            1654,
+            2123
+          ]
+        ],
+        "xBounds": [
+          0,
+          404,
+          760,
+          1133,
+          1536
+        ],
+        "yBounds": [
+          0,
+          554,
+          1086,
+          1618,
+          2172
+        ]
+      }
+    },
+    {
+      "elevation": 0.0,
+      "path": "C:/Users/Zhang/Documents/Codex/2026-08-10/d-steamlibrary-gorest-2d-animation-spritesheet-2/work/zhou_zian_fake3d/elev_0_ordered_alpha.png",
+      "sourceSize": [
+        1536,
+        2172
+      ],
+      "gridDetection": {
+        "mode": "auto_detected",
+        "xRuns": [
+          [
+            138,
+            288
+          ],
+          [
+            479,
+            672
+          ],
+          [
+            872,
+            1034
+          ],
+          [
+            1231,
+            1398
+          ]
+        ],
+        "yRuns": [
+          [
+            16,
+            531
+          ],
+          [
+            560,
+            1069
+          ],
+          [
+            1094,
+            1605
+          ],
+          [
+            1638,
+            2150
+          ]
+        ],
+        "xBounds": [
+          0,
+          384,
+          772,
+          1132,
+          1536
+        ],
+        "yBounds": [
+          0,
+          546,
+          1082,
+          1622,
+          2172
+        ]
+      }
+    },
+    {
+      "elevation": -30.0,
+      "path": "C:/Users/Zhang/Documents/Codex/2026-08-10/d-steamlibrary-gorest-2d-animation-spritesheet-2/work/zhou_zian_fake3d/elev_n30_ordered_alpha.png",
+      "sourceSize": [
+        1536,
+        2172
+      ],
+      "gridDetection": {
+        "mode": "auto_detected",
+        "xRuns": [
+          [
+            117,
+            299
+          ],
+          [
+            490,
+            704
+          ],
+          [
+            839,
+            1023
+          ],
+          [
+            1210,
+            1426
+          ]
+        ],
+        "yRuns": [
+          [
+            11,
+            535
+          ],
+          [
+            555,
+            1078
+          ],
+          [
+            1094,
+            1620
+          ],
+          [
+            1636,
+            2162
+          ]
+        ],
+        "xBounds": [
+          0,
+          394,
+          772,
+          1116,
+          1536
+        ],
+        "yBounds": [
+          0,
+          545,
+          1086,
+          1628,
+          2172
+        ]
+      }
+    }
+  ],
+  "sourceEdgeRiskCount": 0,
+  "finalMinimumMargins": {
+    "left": 198,
+    "top": 50,
+    "right": 197,
+    "bottom": 50
+  },
+  "imageHref": "/generated/zhou_zian_fake3d_48v.png",
+  "frames": [
+    {
+      "frame": 0,
+      "elevation": 30.0,
+      "azimuth": 0.0,
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        404,
+        554
+      ],
+      "sourceBbox": [
+        174,
+        39,
+        314,
+        504
+      ],
+      "sourceMargins": {
+        "left": 174,
+        "top": 39,
+        "right": 90,
+        "bottom": 50
+      },
+      "sourcePivot": [
+        243.86482791587997,
+        196.74485714751228
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 41513,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        202,
+        65,
+        109,
+        362
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 202,
+        "top": 65,
+        "right": 201,
+        "bottom": 85
+      },
+      "packedCell": [
+        0,
+        0,
+        512,
+        512
+      ]
+    },
+    {
+      "frame": 1,
+      "elevation": 30.0,
+      "azimuth": 22.5,
+      "sourceFrame": 1,
+      "sourceCell": [
+        404,
+        0,
+        760,
+        554
+      ],
+      "sourceBbox": [
+        146,
+        44,
+        283,
+        522
+      ],
+      "sourceMargins": {
+        "left": 146,
+        "top": 44,
+        "right": 73,
+        "bottom": 32
+      },
+      "sourcePivot": [
+        214.30821918513325,
+        205.40881196015184
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 43037,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        203,
+        62,
+        107,
+        372
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 203,
+        "top": 62,
+        "right": 202,
+        "bottom": 78
+      },
+      "packedCell": [
+        512,
+        0,
+        1024,
+        512
+      ]
+    },
+    {
+      "frame": 2,
+      "elevation": 30.0,
+      "azimuth": 45.0,
+      "sourceFrame": 2,
+      "sourceCell": [
+        760,
+        0,
+        1133,
+        554
+      ],
+      "sourceBbox": [
+        148,
+        39,
+        279,
+        507
+      ],
+      "sourceMargins": {
+        "left": 148,
+        "top": 39,
+        "right": 94,
+        "bottom": 47
+      },
+      "sourcePivot": [
+        218.13547764770175,
+        194.3563605134077
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 38872,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        201,
+        67,
+        102,
+        364
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 201,
+        "top": 67,
+        "right": 209,
+        "bottom": 81
+      },
+      "packedCell": [
+        1024,
+        0,
+        1536,
+        512
+      ]
+    },
+    {
+      "frame": 3,
+      "elevation": 30.0,
+      "azimuth": 67.5,
+      "sourceFrame": 3,
+      "sourceCell": [
+        1133,
+        0,
+        1536,
+        554
+      ],
+      "sourceBbox": [
+        156,
+        44,
+        290,
+        524
+      ],
+      "sourceMargins": {
+        "left": 156,
+        "top": 44,
+        "right": 113,
+        "bottom": 30
+      },
+      "sourcePivot": [
+        219.0303317532658,
+        205.84366560235722
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 41939,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        207,
+        62,
+        104,
+        374
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 207,
+        "top": 62,
+        "right": 201,
+        "bottom": 76
+      },
+      "packedCell": [
+        1536,
+        0,
+        2048,
+        512
+      ]
+    },
+    {
+      "frame": 4,
+      "elevation": 30.0,
+      "azimuth": 90.0,
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        554,
+        404,
+        1086
+      ],
+      "sourceBbox": [
+        110,
+        28,
+        237,
+        498
+      ],
+      "sourceMargins": {
+        "left": 110,
+        "top": 28,
+        "right": 167,
+        "bottom": 34
+      },
+      "sourcePivot": [
+        181.50055127898,
+        181.45903813814215
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 37482,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        200,
+        68,
+        99,
+        366
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 200,
+        "top": 68,
+        "right": 213,
+        "bottom": 78
+      },
+      "packedCell": [
+        2048,
+        0,
+        2560,
+        512
+      ]
+    },
+    {
+      "frame": 5,
+      "elevation": 30.0,
+      "azimuth": 112.5,
+      "sourceFrame": 5,
+      "sourceCell": [
+        404,
+        554,
+        760,
+        1086
+      ],
+      "sourceBbox": [
+        95,
+        33,
+        211,
+        510
+      ],
+      "sourceMargins": {
+        "left": 95,
+        "top": 33,
+        "right": 145,
+        "bottom": 22
+      },
+      "sourcePivot": [
+        158.0241784016876,
+        187.7030355304047
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 36423,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        207,
+        67,
+        90,
+        371
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 207,
+        "top": 67,
+        "right": 215,
+        "bottom": 74
+      },
+      "packedCell": [
+        2560,
+        0,
+        3072,
+        512
+      ]
+    },
+    {
+      "frame": 6,
+      "elevation": 30.0,
+      "azimuth": 135.0,
+      "sourceFrame": 6,
+      "sourceCell": [
+        760,
+        554,
+        1133,
+        1086
+      ],
+      "sourceBbox": [
+        90,
+        28,
+        199,
+        499
+      ],
+      "sourceMargins": {
+        "left": 90,
+        "top": 28,
+        "right": 174,
+        "bottom": 33
+      },
+      "sourcePivot": [
+        151.58885022798412,
+        177.95435050400116
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 33918,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        208,
+        71,
+        85,
+        367
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 208,
+        "top": 71,
+        "right": 219,
+        "bottom": 74
+      },
+      "packedCell": [
+        3072,
+        0,
+        3584,
+        512
+      ]
+    },
+    {
+      "frame": 7,
+      "elevation": 30.0,
+      "azimuth": 157.5,
+      "sourceFrame": 7,
+      "sourceCell": [
+        1133,
+        554,
+        1536,
+        1086
+      ],
+      "sourceBbox": [
+        92,
+        33,
+        220,
+        503
+      ],
+      "sourceMargins": {
+        "left": 92,
+        "top": 33,
+        "right": 183,
+        "bottom": 29
+      },
+      "sourcePivot": [
+        164.4249704534787,
+        188.61830137129513
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 38895,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        200,
+        67,
+        100,
+        366
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 200,
+        "top": 67,
+        "right": 212,
+        "bottom": 79
+      },
+      "packedCell": [
+        3584,
+        0,
+        4096,
+        512
+      ]
+    },
+    {
+      "frame": 8,
+      "elevation": 30.0,
+      "azimuth": 180.0,
+      "sourceFrame": 8,
+      "sourceCell": [
+        0,
+        1086,
+        404,
+        1618
+      ],
+      "sourceBbox": [
+        199,
+        31,
+        278,
+        495
+      ],
+      "sourceMargins": {
+        "left": 199,
+        "top": 31,
+        "right": 126,
+        "bottom": 37
+      },
+      "sourcePivot": [
+        241.08696105365448,
+        173.2824887043935
+      ],
+      "componentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 26276,
+        "removedComponentPixels": 1
+      },
+      "normalizedPlacement": [
+        223,
+        77,
+        61,
+        361
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 223,
+        "top": 77,
+        "right": 228,
+        "bottom": 74
+      },
+      "packedCell": [
+        4096,
+        0,
+        4608,
+        512
+      ]
+    },
+    {
+      "frame": 9,
+      "elevation": 30.0,
+      "azimuth": 202.5,
+      "sourceFrame": 9,
+      "sourceCell": [
+        404,
+        1086,
+        760,
+        1618
+      ],
+      "sourceBbox": [
+        129,
+        23,
+        258,
+        495
+      ],
+      "sourceMargins": {
+        "left": 129,
+        "top": 23,
+        "right": 98,
+        "bottom": 37
+      },
+      "sourcePivot": [
+        200.6506739324853,
+        179.47613217485423
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 39730,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        200,
+        66,
+        100,
+        367
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 200,
+        "top": 66,
+        "right": 212,
+        "bottom": 79
+      },
+      "packedCell": [
+        4608,
+        0,
+        5120,
+        512
+      ]
+    },
+    {
+      "frame": 10,
+      "elevation": 30.0,
+      "azimuth": 225.0,
+      "sourceFrame": 10,
+      "sourceCell": [
+        760,
+        1086,
+        1133,
+        1618
+      ],
+      "sourceBbox": [
+        137,
+        31,
+        257,
+        488
+      ],
+      "sourceMargins": {
+        "left": 137,
+        "top": 31,
+        "right": 116,
+        "bottom": 44
+      },
+      "sourcePivot": [
+        205.30446480351634,
+        179.64860047300843
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 35153,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        203,
+        72,
+        93,
+        356
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 203,
+        "top": 72,
+        "right": 216,
+        "bottom": 84
+      },
+      "packedCell": [
+        5120,
+        0,
+        5632,
+        512
+      ]
+    },
+    {
+      "frame": 11,
+      "elevation": 30.0,
+      "azimuth": 247.5,
+      "sourceFrame": 11,
+      "sourceCell": [
+        1133,
+        1086,
+        1536,
+        1618
+      ],
+      "sourceBbox": [
+        161,
+        23,
+        281,
+        492
+      ],
+      "sourceMargins": {
+        "left": 161,
+        "top": 23,
+        "right": 122,
+        "bottom": 40
+      },
+      "sourcePivot": [
+        212.8272884154236,
+        177.0795542208791
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 37769,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        216,
+        68,
+        93,
+        365
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 216,
+        "top": 68,
+        "right": 203,
+        "bottom": 79
+      },
+      "packedCell": [
+        5632,
+        0,
+        6144,
+        512
+      ]
+    },
+    {
+      "frame": 12,
+      "elevation": 30.0,
+      "azimuth": 270.0,
+      "sourceFrame": 12,
+      "sourceCell": [
+        0,
+        1618,
+        404,
+        2172
+      ],
+      "sourceBbox": [
+        96,
+        42,
+        227,
+        493
+      ],
+      "sourceMargins": {
+        "left": 96,
+        "top": 42,
+        "right": 177,
+        "bottom": 61
+      },
+      "sourcePivot": [
+        160.6186973113413,
+        194.88504277610795
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 38463,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        206,
+        69,
+        102,
+        351
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 206,
+        "top": 69,
+        "right": 204,
+        "bottom": 92
+      },
+      "packedCell": [
+        6144,
+        0,
+        6656,
+        512
+      ]
+    },
+    {
+      "frame": 13,
+      "elevation": 30.0,
+      "azimuth": 292.5,
+      "sourceFrame": 13,
+      "sourceCell": [
+        404,
+        1618,
+        760,
+        2172
+      ],
+      "sourceBbox": [
+        90,
+        35,
+        217,
+        506
+      ],
+      "sourceMargins": {
+        "left": 90,
+        "top": 35,
+        "right": 139,
+        "bottom": 48
+      },
+      "sourcePivot": [
+        147.62704799826608,
+        191.71365083089853
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 40768,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        211,
+        66,
+        99,
+        367
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 211,
+        "top": 66,
+        "right": 202,
+        "bottom": 79
+      },
+      "packedCell": [
+        6656,
+        0,
+        7168,
+        512
+      ]
+    },
+    {
+      "frame": 14,
+      "elevation": 30.0,
+      "azimuth": 315.0,
+      "sourceFrame": 14,
+      "sourceCell": [
+        760,
+        1618,
+        1133,
+        2172
+      ],
+      "sourceBbox": [
+        75,
+        42,
+        196,
+        499
+      ],
+      "sourceMargins": {
+        "left": 75,
+        "top": 42,
+        "right": 177,
+        "bottom": 55
+      },
+      "sourcePivot": [
+        129.22714418459273,
+        192.51883745517503
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 36436,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        214,
+        71,
+        94,
+        356
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 214,
+        "top": 71,
+        "right": 204,
+        "bottom": 85
+      },
+      "packedCell": [
+        7168,
+        0,
+        7680,
+        512
+      ]
+    },
+    {
+      "frame": 15,
+      "elevation": 30.0,
+      "azimuth": 337.5,
+      "sourceFrame": 15,
+      "sourceCell": [
+        1133,
+        1618,
+        1536,
+        2172
+      ],
+      "sourceBbox": [
+        108,
+        40,
+        230,
+        505
+      ],
+      "sourceMargins": {
+        "left": 108,
+        "top": 40,
+        "right": 173,
+        "bottom": 49
+      },
+      "sourcePivot": [
+        163.53821797025637,
+        194.3700819581963
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 39527,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        213,
+        68,
+        95,
+        362
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 213,
+        "top": 68,
+        "right": 204,
+        "bottom": 82
+      },
+      "packedCell": [
+        7680,
+        0,
+        8192,
+        512
+      ]
+    },
+    {
+      "frame": 16,
+      "elevation": 0.0,
+      "azimuth": 0.0,
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        384,
+        546
+      ],
+      "sourceBbox": [
+        144,
+        29,
+        290,
+        518
+      ],
+      "sourceMargins": {
+        "left": 144,
+        "top": 29,
+        "right": 94,
+        "bottom": 28
+      },
+      "sourcePivot": [
+        216.4610603344626,
+        196.7185975743871
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 46042,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        200,
+        57,
+        114,
+        381
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 200,
+        "top": 57,
+        "right": 198,
+        "bottom": 74
+      },
+      "packedCell": [
+        0,
+        512,
+        512,
+        1024
+      ]
+    },
+    {
+      "frame": 17,
+      "elevation": 0.0,
+      "azimuth": 22.5,
+      "sourceFrame": 1,
+      "sourceCell": [
+        384,
+        0,
+        772,
+        546
+      ],
+      "sourceBbox": [
+        153,
+        16,
+        288,
+        530
+      ],
+      "sourceMargins": {
+        "left": 153,
+        "top": 16,
+        "right": 100,
+        "bottom": 16
+      },
+      "sourcePivot": [
+        221.30473864867056,
+        188.25590240908176
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 47165,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        203,
+        54,
+        105,
+        400
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 203,
+        "top": 54,
+        "right": 204,
+        "bottom": 58
+      },
+      "packedCell": [
+        512,
+        512,
+        1024,
+        1024
+      ]
+    },
+    {
+      "frame": 18,
+      "elevation": 0.0,
+      "azimuth": 45.0,
+      "sourceFrame": 2,
+      "sourceCell": [
+        772,
+        0,
+        1132,
+        546
+      ],
+      "sourceBbox": [
+        129,
+        27,
+        262,
+        521
+      ],
+      "sourceMargins": {
+        "left": 129,
+        "top": 27,
+        "right": 98,
+        "bottom": 25
+      },
+      "sourcePivot": [
+        196.80279816268737,
+        192.25663949061092
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 45218,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        203,
+        59,
+        104,
+        385
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 203,
+        "top": 59,
+        "right": 205,
+        "bottom": 68
+      },
+      "packedCell": [
+        1024,
+        512,
+        1536,
+        1024
+      ]
+    },
+    {
+      "frame": 19,
+      "elevation": 0.0,
+      "azimuth": 67.5,
+      "sourceFrame": 3,
+      "sourceCell": [
+        1132,
+        0,
+        1536,
+        546
+      ],
+      "sourceBbox": [
+        144,
+        15,
+        266,
+        532
+      ],
+      "sourceMargins": {
+        "left": 144,
+        "top": 15,
+        "right": 138,
+        "bottom": 14
+      },
+      "sourcePivot": [
+        210.53688888200628,
+        182.49251420987054
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 42971,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        204,
+        57,
+        95,
+        402
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 204,
+        "top": 57,
+        "right": 213,
+        "bottom": 53
+      },
+      "packedCell": [
+        1536,
+        512,
+        2048,
+        1024
+      ]
+    },
+    {
+      "frame": 20,
+      "elevation": 0.0,
+      "azimuth": 90.0,
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        546,
+        384,
+        1082
+      ],
+      "sourceBbox": [
+        143,
+        24,
+        233,
+        515
+      ],
+      "sourceMargins": {
+        "left": 143,
+        "top": 24,
+        "right": 151,
+        "bottom": 21
+      },
+      "sourcePivot": [
+        192.665567180807,
+        179.54038215714593
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 29855,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        217,
+        67,
+        70,
+        382
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 217,
+        "top": 67,
+        "right": 225,
+        "bottom": 63
+      },
+      "packedCell": [
+        2048,
+        512,
+        2560,
+        1024
+      ]
+    },
+    {
+      "frame": 21,
+      "elevation": 0.0,
+      "azimuth": 112.5,
+      "sourceFrame": 5,
+      "sourceCell": [
+        384,
+        546,
+        772,
+        1082
+      ],
+      "sourceBbox": [
+        102,
+        13,
+        225,
+        523
+      ],
+      "sourceMargins": {
+        "left": 102,
+        "top": 13,
+        "right": 163,
+        "bottom": 13
+      },
+      "sourcePivot": [
+        168.84446606696815,
+        179.87585685599072
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 43623,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        204,
+        58,
+        96,
+        397
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 204,
+        "top": 58,
+        "right": 212,
+        "bottom": 57
+      },
+      "packedCell": [
+        2560,
+        512,
+        3072,
+        1024
+      ]
+    },
+    {
+      "frame": 22,
+      "elevation": 0.0,
+      "azimuth": 135.0,
+      "sourceFrame": 6,
+      "sourceCell": [
+        772,
+        546,
+        1132,
+        1082
+      ],
+      "sourceBbox": [
+        102,
+        24,
+        232,
+        518
+      ],
+      "sourceMargins": {
+        "left": 102,
+        "top": 24,
+        "right": 128,
+        "bottom": 18
+      },
+      "sourcePivot": [
+        170.32350642753877,
+        187.97890347411024
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 43733,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        203,
+        60,
+        101,
+        385
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 203,
+        "top": 60,
+        "right": 208,
+        "bottom": 67
+      },
+      "packedCell": [
+        3072,
+        512,
+        3584,
+        1024
+      ]
+    },
+    {
+      "frame": 23,
+      "elevation": 0.0,
+      "azimuth": 157.5,
+      "sourceFrame": 7,
+      "sourceCell": [
+        1132,
+        546,
+        1536,
+        1082
+      ],
+      "sourceBbox": [
+        105,
+        13,
+        236,
+        523
+      ],
+      "sourceMargins": {
+        "left": 105,
+        "top": 13,
+        "right": 168,
+        "bottom": 13
+      },
+      "sourcePivot": [
+        168.34777777442275,
+        184.30848300513162
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 46791,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        207,
+        54,
+        102,
+        397
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 207,
+        "top": 54,
+        "right": 203,
+        "bottom": 61
+      },
+      "packedCell": [
+        3584,
+        512,
+        4096,
+        1024
+      ]
+    },
+    {
+      "frame": 24,
+      "elevation": 0.0,
+      "azimuth": 180.0,
+      "sourceFrame": 8,
+      "sourceCell": [
+        0,
+        1082,
+        384,
+        1622
+      ],
+      "sourceBbox": [
+        144,
+        29,
+        286,
+        517
+      ],
+      "sourceMargins": {
+        "left": 144,
+        "top": 29,
+        "right": 98,
+        "bottom": 23
+      },
+      "sourcePivot": [
+        214.75664933945322,
+        197.29787430699665
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 45601,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        201,
+        57,
+        111,
+        380
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 201,
+        "top": 57,
+        "right": 200,
+        "bottom": 75
+      },
+      "packedCell": [
+        4096,
+        512,
+        4608,
+        1024
+      ]
+    },
+    {
+      "frame": 25,
+      "elevation": 0.0,
+      "azimuth": 202.5,
+      "sourceFrame": 9,
+      "sourceCell": [
+        384,
+        1082,
+        772,
+        1622
+      ],
+      "sourceBbox": [
+        149,
+        11,
+        272,
+        522
+      ],
+      "sourceMargins": {
+        "left": 149,
+        "top": 11,
+        "right": 116,
+        "bottom": 18
+      },
+      "sourcePivot": [
+        204.81035716290666,
+        178.91971234692653
+      ],
+      "componentCleanup": {
+        "componentCount": 2,
+        "mainComponentPixels": 43798,
+        "removedComponentPixels": 1
+      },
+      "normalizedPlacement": [
+        213,
+        57,
+        96,
+        398
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 213,
+        "top": 57,
+        "right": 203,
+        "bottom": 57
+      },
+      "packedCell": [
+        4608,
+        512,
+        5120,
+        1024
+      ]
+    },
+    {
+      "frame": 26,
+      "elevation": 0.0,
+      "azimuth": 225.0,
+      "sourceFrame": 10,
+      "sourceCell": [
+        772,
+        1082,
+        1132,
+        1622
+      ],
+      "sourceBbox": [
+        129,
+        29,
+        251,
+        517
+      ],
+      "sourceMargins": {
+        "left": 129,
+        "top": 29,
+        "right": 109,
+        "bottom": 23
+      },
+      "sourcePivot": [
+        191.7204957950569,
+        192.92958860095126
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 42747,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        207,
+        60,
+        95,
+        380
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 207,
+        "top": 60,
+        "right": 210,
+        "bottom": 72
+      },
+      "packedCell": [
+        5120,
+        512,
+        5632,
+        1024
+      ]
+    },
+    {
+      "frame": 27,
+      "elevation": 0.0,
+      "azimuth": 247.5,
+      "sourceFrame": 11,
+      "sourceCell": [
+        1132,
+        1082,
+        1536,
+        1622
+      ],
+      "sourceBbox": [
+        146,
+        12,
+        233,
+        523
+      ],
+      "sourceMargins": {
+        "left": 146,
+        "top": 12,
+        "right": 171,
+        "bottom": 17
+      },
+      "sourcePivot": [
+        185.80131139880106,
+        171.80014999932197
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 31972,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        225,
+        63,
+        68,
+        398
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 225,
+        "top": 63,
+        "right": 219,
+        "bottom": 51
+      },
+      "packedCell": [
+        5632,
+        512,
+        6144,
+        1024
+      ]
+    },
+    {
+      "frame": 28,
+      "elevation": 0.0,
+      "azimuth": 270.0,
+      "sourceFrame": 12,
+      "sourceCell": [
+        0,
+        1622,
+        384,
+        2172
+      ],
+      "sourceBbox": [
+        138,
+        32,
+        228,
+        520
+      ],
+      "sourceMargins": {
+        "left": 138,
+        "top": 32,
+        "right": 156,
+        "bottom": 30
+      },
+      "sourcePivot": [
+        177.3248728814224,
+        187.59521011686147
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 30129,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        225,
+        67,
+        70,
+        380
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 225,
+        "top": 67,
+        "right": 217,
+        "bottom": 65
+      },
+      "packedCell": [
+        6144,
+        512,
+        6656,
+        1024
+      ]
+    },
+    {
+      "frame": 29,
+      "elevation": 0.0,
+      "azimuth": 292.5,
+      "sourceFrame": 13,
+      "sourceCell": [
+        384,
+        1622,
+        772,
+        2172
+      ],
+      "sourceBbox": [
+        94,
+        15,
+        223,
+        528
+      ],
+      "sourceMargins": {
+        "left": 94,
+        "top": 15,
+        "right": 165,
+        "bottom": 22
+      },
+      "sourcePivot": [
+        154.64659118894807,
+        183.84599947901805
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 46168,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        209,
+        56,
+        100,
+        399
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 209,
+        "top": 56,
+        "right": 203,
+        "bottom": 57
+      },
+      "packedCell": [
+        6656,
+        512,
+        7168,
+        1024
+      ]
+    },
+    {
+      "frame": 30,
+      "elevation": 0.0,
+      "azimuth": 315.0,
+      "sourceFrame": 14,
+      "sourceCell": [
+        772,
+        1622,
+        1132,
+        2172
+      ],
+      "sourceBbox": [
+        99,
+        32,
+        220,
+        522
+      ],
+      "sourceMargins": {
+        "left": 99,
+        "top": 32,
+        "right": 140,
+        "bottom": 28
+      },
+      "sourcePivot": [
+        153.76926491441574,
+        193.2978286930287
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 39840,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        213,
+        62,
+        94,
+        381
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 213,
+        "top": 62,
+        "right": 205,
+        "bottom": 69
+      },
+      "packedCell": [
+        7168,
+        512,
+        7680,
+        1024
+      ]
+    },
+    {
+      "frame": 31,
+      "elevation": 0.0,
+      "azimuth": 337.5,
+      "sourceFrame": 15,
+      "sourceCell": [
+        1132,
+        1622,
+        1536,
+        2172
+      ],
+      "sourceBbox": [
+        97,
+        17,
+        237,
+        526
+      ],
+      "sourceMargins": {
+        "left": 97,
+        "top": 17,
+        "right": 167,
+        "bottom": 24
+      },
+      "sourcePivot": [
+        168.36344546653024,
+        189.5099678859761
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 47499,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        200,
+        54,
+        109,
+        396
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 200,
+        "top": 54,
+        "right": 203,
+        "bottom": 62
+      },
+      "packedCell": [
+        7680,
+        512,
+        8192,
+        1024
+      ]
+    },
+    {
+      "frame": 32,
+      "elevation": -30.0,
+      "azimuth": 0.0,
+      "sourceFrame": 0,
+      "sourceCell": [
+        0,
+        0,
+        394,
+        545
+      ],
+      "sourceBbox": [
+        158,
+        37,
+        299,
+        503
+      ],
+      "sourceMargins": {
+        "left": 158,
+        "top": 37,
+        "right": 95,
+        "bottom": 42
+      },
+      "sourcePivot": [
+        228.9587306843815,
+        196.43938449895907
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 42208,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        201,
+        64,
+        110,
+        363
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 201,
+        "top": 64,
+        "right": 201,
+        "bottom": 85
+      },
+      "packedCell": [
+        0,
+        1024,
+        512,
+        1536
+      ]
+    },
+    {
+      "frame": 33,
+      "elevation": -30.0,
+      "azimuth": 22.5,
+      "sourceFrame": 1,
+      "sourceCell": [
+        394,
+        0,
+        772,
+        545
+      ],
+      "sourceBbox": [
+        171,
+        10,
+        310,
+        535
+      ],
+      "sourceMargins": {
+        "left": 171,
+        "top": 10,
+        "right": 68,
+        "bottom": 10
+      },
+      "sourcePivot": [
+        241.64485533273543,
+        187.06451944283853
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 49280,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        201,
+        50,
+        108,
+        409
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 201,
+        "top": 50,
+        "right": 203,
+        "bottom": 53
+      },
+      "packedCell": [
+        512,
+        1024,
+        1024,
+        1536
+      ]
+    },
+    {
+      "frame": 34,
+      "elevation": -30.0,
+      "azimuth": 45.0,
+      "sourceFrame": 2,
+      "sourceCell": [
+        772,
+        0,
+        1116,
+        545
+      ],
+      "sourceBbox": [
+        127,
+        34,
+        252,
+        505
+      ],
+      "sourceMargins": {
+        "left": 127,
+        "top": 34,
+        "right": 92,
+        "bottom": 40
+      },
+      "sourcePivot": [
+        193.72929377765672,
+        189.84316018862734
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 39650,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        204,
+        67,
+        97,
+        367
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 204,
+        "top": 67,
+        "right": 211,
+        "bottom": 78
+      },
+      "packedCell": [
+        1024,
+        1024,
+        1536,
+        1536
+      ]
+    },
+    {
+      "frame": 35,
+      "elevation": -30.0,
+      "azimuth": 67.5,
+      "sourceFrame": 3,
+      "sourceCell": [
+        1116,
+        0,
+        1536,
+        545
+      ],
+      "sourceBbox": [
+        177,
+        10,
+        314,
+        535
+      ],
+      "sourceMargins": {
+        "left": 177,
+        "top": 10,
+        "right": 106,
+        "bottom": 10
+      },
+      "sourcePivot": [
+        238.39136556817672,
+        182.8681800529405
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 46660,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        208,
+        53,
+        107,
+        409
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 208,
+        "top": 53,
+        "right": 197,
+        "bottom": 50
+      },
+      "packedCell": [
+        1536,
+        1024,
+        2048,
+        1536
+      ]
+    },
+    {
+      "frame": 36,
+      "elevation": -30.0,
+      "azimuth": 90.0,
+      "sourceFrame": 4,
+      "sourceCell": [
+        0,
+        545,
+        394,
+        1086
+      ],
+      "sourceBbox": [
+        114,
+        33,
+        206,
+        503
+      ],
+      "sourceMargins": {
+        "left": 114,
+        "top": 33,
+        "right": 188,
+        "bottom": 38
+      },
+      "sourcePivot": [
+        164.5961476943877,
+        182.26010642323317
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 30062,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        217,
+        72,
+        72,
+        366
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 217,
+        "top": 72,
+        "right": 223,
+        "bottom": 74
+      },
+      "packedCell": [
+        2048,
+        1024,
+        2560,
+        1536
+      ]
+    },
+    {
+      "frame": 37,
+      "elevation": -30.0,
+      "azimuth": 112.5,
+      "sourceFrame": 5,
+      "sourceCell": [
+        394,
+        545,
+        772,
+        1086
+      ],
+      "sourceBbox": [
+        95,
+        8,
+        232,
+        533
+      ],
+      "sourceMargins": {
+        "left": 95,
+        "top": 8,
+        "right": 146,
+        "bottom": 8
+      },
+      "sourcePivot": [
+        169.43358178137868,
+        180.74089766303962
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 47209,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        198,
+        53,
+        107,
+        409
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 198,
+        "top": 53,
+        "right": 207,
+        "bottom": 50
+      },
+      "packedCell": [
+        2560,
+        1024,
+        3072,
+        1536
+      ]
+    },
+    {
+      "frame": 38,
+      "elevation": -30.0,
+      "azimuth": 135.0,
+      "sourceFrame": 6,
+      "sourceCell": [
+        772,
+        545,
+        1116,
+        1086
+      ],
+      "sourceBbox": [
+        73,
+        34,
+        193,
+        502
+      ],
+      "sourceMargins": {
+        "left": 73,
+        "top": 34,
+        "right": 151,
+        "bottom": 39
+      },
+      "sourcePivot": [
+        138.0658806785299,
+        189.10566494618487
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 38174,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        205,
+        67,
+        93,
+        364
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 205,
+        "top": 67,
+        "right": 214,
+        "bottom": 81
+      },
+      "packedCell": [
+        3072,
+        1024,
+        3584,
+        1536
+      ]
+    },
+    {
+      "frame": 39,
+      "elevation": -30.0,
+      "azimuth": 157.5,
+      "sourceFrame": 7,
+      "sourceCell": [
+        1116,
+        545,
+        1536,
+        1086
+      ],
+      "sourceBbox": [
+        106,
+        10,
+        237,
+        533
+      ],
+      "sourceMargins": {
+        "left": 106,
+        "top": 10,
+        "right": 183,
+        "bottom": 8
+      },
+      "sourcePivot": [
+        167.1067157011005,
+        183.4686640912621
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 46531,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        208,
+        53,
+        102,
+        407
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 208,
+        "top": 53,
+        "right": 202,
+        "bottom": 52
+      },
+      "packedCell": [
+        3584,
+        1024,
+        4096,
+        1536
+      ]
+    },
+    {
+      "frame": 40,
+      "elevation": -30.0,
+      "azimuth": 180.0,
+      "sourceFrame": 8,
+      "sourceCell": [
+        0,
+        1086,
+        394,
+        1628
+      ],
+      "sourceBbox": [
+        159,
+        24,
+        300,
+        492
+      ],
+      "sourceMargins": {
+        "left": 159,
+        "top": 24,
+        "right": 94,
+        "bottom": 50
+      },
+      "sourcePivot": [
+        228.75932237022337,
+        183.51992714295233
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 43172,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        202,
+        64,
+        110,
+        364
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 202,
+        "top": 64,
+        "right": 200,
+        "bottom": 84
+      },
+      "packedCell": [
+        4096,
+        1024,
+        4608,
+        1536
+      ]
+    },
+    {
+      "frame": 41,
+      "elevation": -30.0,
+      "azimuth": 202.5,
+      "sourceFrame": 9,
+      "sourceCell": [
+        394,
+        1086,
+        772,
+        1628
+      ],
+      "sourceBbox": [
+        163,
+        7,
+        300,
+        534
+      ],
+      "sourceMargins": {
+        "left": 163,
+        "top": 7,
+        "right": 78,
+        "bottom": 8
+      },
+      "sourcePivot": [
+        233.61741296122642,
+        182.5235040829586
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 48054,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        201,
+        51,
+        107,
+        410
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 201,
+        "top": 51,
+        "right": 204,
+        "bottom": 51
+      },
+      "packedCell": [
+        4608,
+        1024,
+        5120,
+        1536
+      ]
+    },
+    {
+      "frame": 42,
+      "elevation": -30.0,
+      "azimuth": 225.0,
+      "sourceFrame": 10,
+      "sourceCell": [
+        772,
+        1086,
+        1116,
+        1628
+      ],
+      "sourceBbox": [
+        125,
+        22,
+        245,
+        492
+      ],
+      "sourceMargins": {
+        "left": 125,
+        "top": 22,
+        "right": 99,
+        "bottom": 50
+      },
+      "sourcePivot": [
+        179.48096942238283,
+        177.3161780450641
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 39473,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        214,
+        67,
+        93,
+        366
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 214,
+        "top": 67,
+        "right": 205,
+        "bottom": 79
+      },
+      "packedCell": [
+        5120,
+        1024,
+        5632,
+        1536
+      ]
+    },
+    {
+      "frame": 43,
+      "elevation": -30.0,
+      "azimuth": 247.5,
+      "sourceFrame": 11,
+      "sourceCell": [
+        1116,
+        1086,
+        1536,
+        1628
+      ],
+      "sourceBbox": [
+        168,
+        7,
+        303,
+        533
+      ],
+      "sourceMargins": {
+        "left": 168,
+        "top": 7,
+        "right": 117,
+        "bottom": 9
+      },
+      "sourcePivot": [
+        237.83868402984078,
+        182.53596460900067
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 47898,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        202,
+        51,
+        105,
+        409
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 202,
+        "top": 51,
+        "right": 205,
+        "bottom": 52
+      },
+      "packedCell": [
+        5632,
+        1024,
+        6144,
+        1536
+      ]
+    },
+    {
+      "frame": 44,
+      "elevation": -30.0,
+      "azimuth": 270.0,
+      "sourceFrame": 12,
+      "sourceCell": [
+        0,
+        1628,
+        394,
+        2172
+      ],
+      "sourceBbox": [
+        117,
+        25,
+        214,
+        494
+      ],
+      "sourceMargins": {
+        "left": 117,
+        "top": 25,
+        "right": 180,
+        "bottom": 50
+      },
+      "sourcePivot": [
+        157.58776444223028,
+        175.4558265148671
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 30549,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        224,
+        71,
+        76,
+        365
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 224,
+        "top": 71,
+        "right": 212,
+        "bottom": 76
+      },
+      "packedCell": [
+        6144,
+        1024,
+        6656,
+        1536
+      ]
+    },
+    {
+      "frame": 45,
+      "elevation": -30.0,
+      "azimuth": 292.5,
+      "sourceFrame": 13,
+      "sourceCell": [
+        394,
+        1628,
+        772,
+        2172
+      ],
+      "sourceBbox": [
+        95,
+        8,
+        230,
+        533
+      ],
+      "sourceMargins": {
+        "left": 95,
+        "top": 8,
+        "right": 148,
+        "bottom": 11
+      },
+      "sourcePivot": [
+        159.44951739489724,
+        182.805684435129
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 48119,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        206,
+        52,
+        105,
+        409
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 206,
+        "top": 52,
+        "right": 201,
+        "bottom": 51
+      },
+      "packedCell": [
+        6656,
+        1024,
+        7168,
+        1536
+      ]
+    },
+    {
+      "frame": 46,
+      "elevation": -30.0,
+      "azimuth": 315.0,
+      "sourceFrame": 14,
+      "sourceCell": [
+        772,
+        1628,
+        1116,
+        2172
+      ],
+      "sourceBbox": [
+        67,
+        26,
+        195,
+        494
+      ],
+      "sourceMargins": {
+        "left": 67,
+        "top": 26,
+        "right": 149,
+        "bottom": 50
+      },
+      "sourcePivot": [
+        124.88390821086372,
+        181.90826357061727
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 40129,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        211,
+        66,
+        100,
+        364
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 211,
+        "top": 66,
+        "right": 201,
+        "bottom": 82
+      },
+      "packedCell": [
+        7168,
+        1024,
+        7680,
+        1536
+      ]
+    },
+    {
+      "frame": 47,
+      "elevation": -30.0,
+      "azimuth": 337.5,
+      "sourceFrame": 15,
+      "sourceCell": [
+        1116,
+        1628,
+        1536,
+        2172
+      ],
+      "sourceBbox": [
+        94,
+        7,
+        234,
+        534
+      ],
+      "sourceMargins": {
+        "left": 94,
+        "top": 7,
+        "right": 186,
+        "bottom": 10
+      },
+      "sourcePivot": [
+        158.96380306901133,
+        182.89134199110686
+      ],
+      "componentCleanup": {
+        "componentCount": 1,
+        "mainComponentPixels": 48681,
+        "removedComponentPixels": 0
+      },
+      "normalizedPlacement": [
+        205,
+        51,
+        109,
+        410
+      ],
+      "normalizedPivot": [
+        256.0,
+        187.81848950016678
+      ],
+      "finalMargins": {
+        "left": 205,
+        "top": 51,
+        "right": 198,
+        "bottom": 51
+      },
+      "packedCell": [
+        7680,
+        1024,
+        8192,
+        1536
+      ]
+    }
+  ]
+}

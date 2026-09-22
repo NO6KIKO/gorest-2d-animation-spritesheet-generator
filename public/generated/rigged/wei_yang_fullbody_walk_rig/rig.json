@@ -1,0 +1,589 @@
+{
+  "schemaVersion": 4,
+  "id": "wei_yang_fullbody_walk_rig",
+  "name": "Wei Yang / Full-Body Walk Rig",
+  "characterName": "Wei Yang",
+  "focus": "full-body-walk",
+  "runtime": "gorest-attachment-bone-mixer-v2",
+  "spineStatus": "spine-4.2-region-attachment-bundle",
+  "previewSheetUrl": "/generated/rigged/wei_yang_fullbody_walk_rig/wei-yang-walk-rig.png",
+  "frameSize": [
+    640,
+    1152
+  ],
+  "frameCount": 8,
+  "fps": 12,
+  "attachments": {
+    "walk_right_00": {
+      "file": "frames/walk_right_00.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_01": {
+      "file": "frames/walk_right_01.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_02": {
+      "file": "frames/walk_right_02.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_03": {
+      "file": "frames/walk_right_03.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_04": {
+      "file": "frames/walk_right_04.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_05": {
+      "file": "frames/walk_right_05.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_06": {
+      "file": "frames/walk_right_06.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    },
+    "walk_right_07": {
+      "file": "frames/walk_right_07.png",
+      "canvas": [
+        640,
+        1152
+      ],
+      "anchor": [
+        320,
+        1072
+      ],
+      "transformBaked": true,
+      "content": "registered full-body drawn walk frame"
+    }
+  },
+  "slots": [
+    {
+      "name": "full_body",
+      "bone": "root",
+      "attachment": "walk_right_00",
+      "variants": [
+        "walk_right_01",
+        "walk_right_02",
+        "walk_right_03",
+        "walk_right_04",
+        "walk_right_05",
+        "walk_right_06",
+        "walk_right_07"
+      ]
+    }
+  ],
+  "bones": [
+    {
+      "name": "root",
+      "pivot": [
+        320,
+        1072
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "name": "walk_right",
+      "category": "Locomotion",
+      "duration": 0.666667,
+      "loop": true,
+      "attachmentTimelines": {
+        "full_body": [
+          [
+            0.0,
+            "walk_right_00"
+          ],
+          [
+            0.083333,
+            "walk_right_01"
+          ],
+          [
+            0.166667,
+            "walk_right_02"
+          ],
+          [
+            0.25,
+            "walk_right_03"
+          ],
+          [
+            0.333333,
+            "walk_right_04"
+          ],
+          [
+            0.416667,
+            "walk_right_05"
+          ],
+          [
+            0.5,
+            "walk_right_06"
+          ],
+          [
+            0.583333,
+            "walk_right_07"
+          ],
+          [
+            0.666667,
+            "walk_right_00"
+          ]
+        ]
+      },
+      "playback": {
+        "mode": "loop",
+        "speed": 1,
+        "autoStart": true
+      }
+    }
+  ],
+  "posePresets": [
+    {
+      "id": "contact_a",
+      "name": "Contact A",
+      "attachments": {
+        "full_body": "walk_right_00"
+      }
+    },
+    {
+      "id": "down_a",
+      "name": "Down A",
+      "attachments": {
+        "full_body": "walk_right_01"
+      }
+    },
+    {
+      "id": "passing_a",
+      "name": "Passing A",
+      "attachments": {
+        "full_body": "walk_right_02"
+      }
+    },
+    {
+      "id": "up_a",
+      "name": "Up A",
+      "attachments": {
+        "full_body": "walk_right_03"
+      }
+    },
+    {
+      "id": "contact_b",
+      "name": "Contact B",
+      "attachments": {
+        "full_body": "walk_right_04"
+      }
+    },
+    {
+      "id": "down_b",
+      "name": "Down B",
+      "attachments": {
+        "full_body": "walk_right_05"
+      }
+    },
+    {
+      "id": "passing_b",
+      "name": "Passing B",
+      "attachments": {
+        "full_body": "walk_right_06"
+      }
+    },
+    {
+      "id": "up_b",
+      "name": "Up B",
+      "attachments": {
+        "full_body": "walk_right_07"
+      }
+    }
+  ],
+  "editorTransforms": {
+    "full_body": {
+      "translate": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    }
+  },
+  "generationMode": "spine-frame-attachment-rig-from-existing-drawn-walk-cycle",
+  "sourceSheet": "/generated/wei_yang_walk_right_one_cycle_headlocked_sheet.png",
+  "identityReference": "/generated/wei_yang_idle_front_source_clean.png",
+  "normalization": {
+    "sourceFrameSize": [
+      608,
+      1055
+    ],
+    "registeredFrameSize": [
+      640,
+      1152
+    ],
+    "fixedPadding": [
+      16,
+      48
+    ],
+    "rootAnchor": [
+      320,
+      1072
+    ],
+    "rootAnchorPolicy": "fixed foot baseline and shared full-body canvas; no per-frame recentering",
+    "safePaddingTarget": "at least 8% of the 640 px shorter edge"
+  },
+  "qualityPolicy": "Visible character motion is retained from the existing image-generated Wei Yang walk cycle. Code only removes residual cyan at transparent edges, zeroes hidden RGB, pads every frame onto one fixed canvas, splits frames, packs the atlas, and wires attachment timelines.",
+  "frameQA": [
+    {
+      "index": 0,
+      "name": "walk_right_00",
+      "sourceCell": [
+        0,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        105,
+        10,
+        516,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        121,
+        58,
+        532,
+        1069
+      ],
+      "safePadding": {
+        "left": 121,
+        "top": 58,
+        "right": 108,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6174,
+        "fullyRemovedPixels": 4532,
+        "partiallyCleanedPixels": 1642
+      },
+      "sha256Pixels": "4decb992f43c6cfd8008994926089150a60b1d8f569c761fc489fd7b56a39fcb"
+    },
+    {
+      "index": 1,
+      "name": "walk_right_01",
+      "sourceCell": [
+        608,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        95,
+        10,
+        444,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        111,
+        58,
+        460,
+        1069
+      ],
+      "safePadding": {
+        "left": 111,
+        "top": 58,
+        "right": 180,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6504,
+        "fullyRemovedPixels": 4875,
+        "partiallyCleanedPixels": 1629
+      },
+      "sha256Pixels": "6bb1c584950a9a34b2f21760402b99a75ff31ba0a6862b51b02caa484cf00c18"
+    },
+    {
+      "index": 2,
+      "name": "walk_right_02",
+      "sourceCell": [
+        1216,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        101,
+        10,
+        433,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        117,
+        58,
+        449,
+        1069
+      ],
+      "safePadding": {
+        "left": 117,
+        "top": 58,
+        "right": 191,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6039,
+        "fullyRemovedPixels": 4563,
+        "partiallyCleanedPixels": 1476
+      },
+      "sha256Pixels": "5c49f20ccd76cc69f1a932fca99c9c5502ec9ce8d1a3befe1b6eb33ead4888bb"
+    },
+    {
+      "index": 3,
+      "name": "walk_right_03",
+      "sourceCell": [
+        1824,
+        0,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        150,
+        10,
+        445,
+        1019
+      ],
+      "registeredAlphaBounds": [
+        166,
+        58,
+        461,
+        1067
+      ],
+      "safePadding": {
+        "left": 166,
+        "top": 58,
+        "right": 179,
+        "bottom": 85
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 5361,
+        "fullyRemovedPixels": 3947,
+        "partiallyCleanedPixels": 1414
+      },
+      "sha256Pixels": "2c8b5905b72090fd1a2e3896d6002f87feecbb79eca6e5d13a9552d30a659371"
+    },
+    {
+      "index": 4,
+      "name": "walk_right_04",
+      "sourceCell": [
+        0,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        45,
+        11,
+        466,
+        1020
+      ],
+      "registeredAlphaBounds": [
+        61,
+        59,
+        482,
+        1068
+      ],
+      "safePadding": {
+        "left": 61,
+        "top": 59,
+        "right": 158,
+        "bottom": 84
+      },
+      "minSafePadding": 59,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6549,
+        "fullyRemovedPixels": 5344,
+        "partiallyCleanedPixels": 1205
+      },
+      "sha256Pixels": "4adac3768a0fd5c0bd2373e1895558f092b8bba2c60dddc2823b1d3736361f2e"
+    },
+    {
+      "index": 5,
+      "name": "walk_right_05",
+      "sourceCell": [
+        608,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        103,
+        9,
+        407,
+        1023
+      ],
+      "registeredAlphaBounds": [
+        119,
+        57,
+        423,
+        1071
+      ],
+      "safePadding": {
+        "left": 119,
+        "top": 57,
+        "right": 217,
+        "bottom": 81
+      },
+      "minSafePadding": 57,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 5398,
+        "fullyRemovedPixels": 4420,
+        "partiallyCleanedPixels": 978
+      },
+      "sha256Pixels": "cc1a0ce627f0305514a1fc5acc7ba412fa2c1fb722462e9848e05cb3f78d908a"
+    },
+    {
+      "index": 6,
+      "name": "walk_right_06",
+      "sourceCell": [
+        1216,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        62,
+        10,
+        499,
+        1021
+      ],
+      "registeredAlphaBounds": [
+        78,
+        58,
+        515,
+        1069
+      ],
+      "safePadding": {
+        "left": 78,
+        "top": 58,
+        "right": 125,
+        "bottom": 83
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 6272,
+        "fullyRemovedPixels": 5111,
+        "partiallyCleanedPixels": 1161
+      },
+      "sha256Pixels": "3ad54f4e2c96a05bba2e3eedfb19b3da2e22b66a46f3437969736f728b8d318c"
+    },
+    {
+      "index": 7,
+      "name": "walk_right_07",
+      "sourceCell": [
+        1824,
+        1055,
+        608,
+        1055
+      ],
+      "sourceAlphaBounds": [
+        156,
+        10,
+        401,
+        1024
+      ],
+      "registeredAlphaBounds": [
+        172,
+        58,
+        417,
+        1072
+      ],
+      "safePadding": {
+        "left": 172,
+        "top": 58,
+        "right": 223,
+        "bottom": 80
+      },
+      "minSafePadding": 58,
+      "sourceEdgeRisk": false,
+      "cleanup": {
+        "candidatePixels": 5258,
+        "fullyRemovedPixels": 4197,
+        "partiallyCleanedPixels": 1061
+      },
+      "sha256Pixels": "b72f59fb97f05b7ba1ecd5d7f83fb5e7c6ada84d0c469b9abe12315bff445ad9"
+    }
+  ],
+  "limitations": [
+    "This portable Spine export uses region-attachment frame swapping rather than mesh deformation or IK.",
+    "The browser preview uses Gorest's attachment mixer; validate the download with a licensed Spine 4.2 runtime.",
+    "The bundle contains the genuinely drawn right-facing cycle; engines may flip the actor transform for leftward travel."
+  ]
+}

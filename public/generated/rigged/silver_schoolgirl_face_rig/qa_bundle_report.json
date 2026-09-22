@@ -1,0 +1,970 @@
+{
+  "bundle": "/generated/rigged/silver_schoolgirl_face_rig",
+  "sourceActionSheet": "/generated/rigged/silver_schoolgirl_face_rig/sources/silver_face_actions_4x2_chroma.png",
+  "sourceComponentSheet": "/generated/rigged/silver_schoolgirl_face_rig/sources/silver_face_components_4x3_chroma.png",
+  "normalizedActionSheet": "/generated/rigged/silver_schoolgirl_face_rig/sources/silver_face_actions_4x2_normalized.png",
+  "canvas": [
+    512,
+    512
+  ],
+  "attachments": [
+    "portrait_torso",
+    "portrait_head",
+    "left_brow",
+    "left_brow_raised",
+    "left_brow_frown",
+    "left_brow_worried",
+    "right_brow",
+    "right_brow_raised",
+    "right_brow_frown",
+    "right_brow_worried",
+    "left_eye_open",
+    "left_eye_half",
+    "left_eye_closed",
+    "left_eye_gaze_left",
+    "left_eye_gaze_right",
+    "left_eye_gaze_up",
+    "left_eye_gaze_down",
+    "right_eye_open",
+    "right_eye_half",
+    "right_eye_closed",
+    "right_eye_gaze_left",
+    "right_eye_gaze_right",
+    "right_eye_gaze_up",
+    "right_eye_gaze_down",
+    "nose",
+    "mouth_closed",
+    "mouth_small",
+    "mouth_medium",
+    "mouth_wide",
+    "mouth_smile",
+    "mouth_angry",
+    "mouth_sad"
+  ],
+  "slots": [
+    "portrait_torso",
+    "portrait_head",
+    "left_brow",
+    "right_brow",
+    "left_eye",
+    "right_eye",
+    "nose",
+    "mouth"
+  ],
+  "animations": [
+    "blink",
+    "brow_frown",
+    "brow_raise",
+    "brow_worried",
+    "emotion_angry",
+    "emotion_happy",
+    "emotion_sad",
+    "emotion_surprised",
+    "gaze_down",
+    "gaze_left",
+    "gaze_right",
+    "gaze_up",
+    "head_nod",
+    "head_shake",
+    "head_tilt",
+    "idle_blink",
+    "talk",
+    "talk_emphasis",
+    "talk_soft",
+    "wink_left",
+    "wink_right"
+  ],
+  "newFeatureExtraction": {
+    "left_eye_gaze_left": {
+      "sourceCell": [
+        0,
+        0
+      ],
+      "sourceBbox": [
+        60,
+        192,
+        153,
+        265
+      ],
+      "registeredBbox": [
+        171,
+        200,
+        225,
+        242
+      ],
+      "alphaPixels": 1778
+    },
+    "right_eye_gaze_left": {
+      "sourceCell": [
+        0,
+        0
+      ],
+      "sourceBbox": [
+        50,
+        192,
+        142,
+        265
+      ],
+      "registeredBbox": [
+        270,
+        200,
+        323,
+        242
+      ],
+      "alphaPixels": 1731
+    },
+    "left_eye_gaze_right": {
+      "sourceCell": [
+        0,
+        1
+      ],
+      "sourceBbox": [
+        74,
+        192,
+        165,
+        265
+      ],
+      "registeredBbox": [
+        172,
+        200,
+        224,
+        242
+      ],
+      "alphaPixels": 1725
+    },
+    "right_eye_gaze_right": {
+      "sourceCell": [
+        0,
+        1
+      ],
+      "sourceBbox": [
+        47,
+        192,
+        139,
+        265
+      ],
+      "registeredBbox": [
+        270,
+        200,
+        323,
+        242
+      ],
+      "alphaPixels": 1740
+    },
+    "left_eye_gaze_up": {
+      "sourceCell": [
+        0,
+        2
+      ],
+      "sourceBbox": [
+        62,
+        187,
+        150,
+        263
+      ],
+      "registeredBbox": [
+        174,
+        200,
+        223,
+        242
+      ],
+      "alphaPixels": 1584
+    },
+    "right_eye_gaze_up": {
+      "sourceCell": [
+        0,
+        2
+      ],
+      "sourceBbox": [
+        47,
+        186,
+        138,
+        263
+      ],
+      "registeredBbox": [
+        271,
+        200,
+        321,
+        242
+      ],
+      "alphaPixels": 1603
+    },
+    "left_eye_gaze_down": {
+      "sourceCell": [
+        0,
+        3
+      ],
+      "sourceBbox": [
+        44,
+        222,
+        135,
+        262
+      ],
+      "registeredBbox": [
+        169,
+        208,
+        227,
+        233
+      ],
+      "alphaPixels": 1079
+    },
+    "right_eye_gaze_down": {
+      "sourceCell": [
+        0,
+        3
+      ],
+      "sourceBbox": [
+        34,
+        222,
+        125,
+        263
+      ],
+      "registeredBbox": [
+        267,
+        208,
+        325,
+        234
+      ],
+      "alphaPixels": 1105
+    },
+    "left_brow_raised": {
+      "sourceCell": [
+        1,
+        0
+      ],
+      "sourceBbox": [
+        65,
+        192,
+        151,
+        220
+      ],
+      "registeredBbox": [
+        168,
+        180,
+        223,
+        198
+      ],
+      "alphaPixels": 437
+    },
+    "right_brow_raised": {
+      "sourceCell": [
+        1,
+        0
+      ],
+      "sourceBbox": [
+        49,
+        192,
+        135,
+        220
+      ],
+      "registeredBbox": [
+        268,
+        180,
+        323,
+        198
+      ],
+      "alphaPixels": 439
+    },
+    "left_brow_frown": {
+      "sourceCell": [
+        1,
+        1
+      ],
+      "sourceBbox": [
+        63,
+        196,
+        164,
+        231
+      ],
+      "registeredBbox": [
+        170,
+        184,
+        222,
+        202
+      ],
+      "alphaPixels": 352
+    },
+    "right_brow_frown": {
+      "sourceCell": [
+        1,
+        1
+      ],
+      "sourceBbox": [
+        36,
+        196,
+        136,
+        231
+      ],
+      "registeredBbox": [
+        270,
+        184,
+        321,
+        202
+      ],
+      "alphaPixels": 342
+    },
+    "left_brow_worried": {
+      "sourceCell": [
+        1,
+        2
+      ],
+      "sourceBbox": [
+        75,
+        188,
+        154,
+        220
+      ],
+      "registeredBbox": [
+        174,
+        180,
+        218,
+        198
+      ],
+      "alphaPixels": 311
+    },
+    "right_brow_worried": {
+      "sourceCell": [
+        1,
+        2
+      ],
+      "sourceBbox": [
+        39,
+        188,
+        117,
+        220
+      ],
+      "registeredBbox": [
+        274,
+        180,
+        318,
+        198
+      ],
+      "alphaPixels": 317
+    },
+    "mouth_smile": {
+      "sourceCell": [
+        2,
+        0
+      ],
+      "sourceBbox": [
+        150,
+        113,
+        240,
+        128
+      ],
+      "registeredBbox": [
+        233,
+        280,
+        263,
+        285
+      ],
+      "alphaPixels": 77
+    },
+    "mouth_angry": {
+      "sourceCell": [
+        2,
+        2
+      ],
+      "sourceBbox": [
+        159,
+        122,
+        219,
+        128
+      ],
+      "registeredBbox": [
+        233,
+        280,
+        263,
+        283
+      ],
+      "alphaPixels": 61
+    },
+    "mouth_sad": {
+      "sourceCell": [
+        2,
+        3
+      ],
+      "sourceBbox": [
+        146,
+        120,
+        203,
+        130
+      ],
+      "registeredBbox": [
+        233,
+        280,
+        263,
+        285
+      ],
+      "alphaPixels": 84
+    }
+  },
+  "attachmentStats": {
+    "portrait_torso": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        89,
+        319,
+        422,
+        475
+      ],
+      "alphaPixels": 37027,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 2130
+    },
+    "portrait_head": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        80,
+        37,
+        431,
+        475
+      ],
+      "alphaPixels": 69909,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 47008
+    },
+    "left_brow": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        173,
+        187,
+        218,
+        200
+      ],
+      "alphaPixels": 119,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "left_brow_raised": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        168,
+        180,
+        223,
+        198
+      ],
+      "alphaPixels": 437,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 120
+    },
+    "left_brow_frown": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        170,
+        184,
+        222,
+        202
+      ],
+      "alphaPixels": 352,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 33
+    },
+    "left_brow_worried": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        174,
+        180,
+        218,
+        198
+      ],
+      "alphaPixels": 311,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 44
+    },
+    "right_brow": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        269,
+        187,
+        322,
+        201
+      ],
+      "alphaPixels": 107,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "right_brow_raised": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        268,
+        180,
+        323,
+        198
+      ],
+      "alphaPixels": 439,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 116
+    },
+    "right_brow_frown": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        270,
+        184,
+        321,
+        202
+      ],
+      "alphaPixels": 342,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 50
+    },
+    "right_brow_worried": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        274,
+        180,
+        318,
+        198
+      ],
+      "alphaPixels": 317,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 48
+    },
+    "left_eye_open": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        174,
+        204,
+        222,
+        238
+      ],
+      "alphaPixels": 1012,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 18
+    },
+    "left_eye_half": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        179,
+        224,
+        222,
+        236
+      ],
+      "alphaPixels": 297,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "left_eye_closed": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        180,
+        225,
+        222,
+        234
+      ],
+      "alphaPixels": 210,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 1
+    },
+    "left_eye_gaze_left": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        171,
+        200,
+        225,
+        242
+      ],
+      "alphaPixels": 1778,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 54
+    },
+    "left_eye_gaze_right": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        172,
+        200,
+        224,
+        242
+      ],
+      "alphaPixels": 1725,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 39
+    },
+    "left_eye_gaze_up": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        174,
+        200,
+        223,
+        242
+      ],
+      "alphaPixels": 1584,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 12
+    },
+    "left_eye_gaze_down": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        169,
+        208,
+        227,
+        233
+      ],
+      "alphaPixels": 1079,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 20
+    },
+    "right_eye_open": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        271,
+        204,
+        322,
+        238
+      ],
+      "alphaPixels": 1099,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 19
+    },
+    "right_eye_half": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        271,
+        224,
+        317,
+        235
+      ],
+      "alphaPixels": 308,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 1
+    },
+    "right_eye_closed": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        272,
+        225,
+        316,
+        234
+      ],
+      "alphaPixels": 217,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "right_eye_gaze_left": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        270,
+        200,
+        323,
+        242
+      ],
+      "alphaPixels": 1731,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 41
+    },
+    "right_eye_gaze_right": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        270,
+        200,
+        323,
+        242
+      ],
+      "alphaPixels": 1740,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 27
+    },
+    "right_eye_gaze_up": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        271,
+        200,
+        321,
+        242
+      ],
+      "alphaPixels": 1603,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 16
+    },
+    "right_eye_gaze_down": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        267,
+        208,
+        325,
+        234
+      ],
+      "alphaPixels": 1105,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 21
+    },
+    "nose": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        240,
+        247,
+        248,
+        262
+      ],
+      "alphaPixels": 29,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 19
+    },
+    "mouth_closed": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        235,
+        281,
+        258,
+        283
+      ],
+      "alphaPixels": 30,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "mouth_small": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        237,
+        275,
+        257,
+        284
+      ],
+      "alphaPixels": 140,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 2
+    },
+    "mouth_medium": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        235,
+        271,
+        259,
+        291
+      ],
+      "alphaPixels": 381,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 3
+    },
+    "mouth_wide": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        234,
+        272,
+        262,
+        290
+      ],
+      "alphaPixels": 411,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "mouth_smile": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        233,
+        280,
+        263,
+        285
+      ],
+      "alphaPixels": 77,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "mouth_angry": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        233,
+        280,
+        263,
+        283
+      ],
+      "alphaPixels": 61,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    },
+    "mouth_sad": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaBbox": [
+        233,
+        280,
+        263,
+        285
+      ],
+      "alphaPixels": 84,
+      "hiddenRgbUnderZeroAlphaPixels": 0,
+      "skinTonePixels": 0
+    }
+  },
+  "attachmentSha256": {
+    "portrait_torso": "33a1e0fa87752ed5e7b6c5cf4f9dd2a64f4e87bc4cd5f61983cddcf4ba23edc3",
+    "portrait_head": "e92590fdf5169b3133a5b6e818ef9e63f1ee6c35a7a078eef580ee51c24f362a",
+    "left_brow": "1b533b56bf0abfff8df5dd774778a991bfcd3974b1c01337d0850eb707b4bb57",
+    "left_brow_raised": "f74757c1a6db6c3004b91251d7616270d76500b7300e403953098bec335c7fd5",
+    "left_brow_frown": "b0f521f8848db5901237ed10d1a2c0b158e74af710e3e3f21697be52ae1fe787",
+    "left_brow_worried": "54478d8b975864a123f9bb49392900b3fb84e63f456852d44c426f719bb11707",
+    "right_brow": "c498e4987982ac71be603f9652c4ce53243c19df1dd0b321b5e2b0226b57c78c",
+    "right_brow_raised": "7124100bf82f6f3c6d2bf887f295c530e983c6ef886b3924d0837d4a9548f628",
+    "right_brow_frown": "6d2e0317cb9acaaf84a7273f0498e7cf8fba8a1d7f4282b8d944251f07d9bf53",
+    "right_brow_worried": "7bd46c150a6a3b3a06134a96a922e25eba7606134904425b852244fcef4ce50a",
+    "left_eye_open": "9f217bd95b520e8e145de788ceb24fcda4452850eb49c5d3ab98e04d095295d4",
+    "left_eye_half": "417247c0eb13b5079fc7be17524cb8aa3148a2d3fcb075a3af627c7e836c12b5",
+    "left_eye_closed": "06f103c7e76648591db57497632ed42580ccc63aed921455a8ee46550f6ac240",
+    "left_eye_gaze_left": "5a69229dbeb274ac32bc65a1dec0a1aa03de7d2494284bdc2ce1d147aa46bca8",
+    "left_eye_gaze_right": "ebbbda4465fb8d675b8e363270808f5cb72f8afef63683493a8a4f5ec8d01de2",
+    "left_eye_gaze_up": "a65184ddd0d19dd85752c2a2d7ff1ffeeb998b13ba888ed57c05cd415db2ca32",
+    "left_eye_gaze_down": "a8240436c2c8da1777032864219fb9b309043c16608516a3b56914ca4dcbcfa4",
+    "right_eye_open": "0ded15f66d3d5c78ad3b401d482711104dc7dc97bb96a53cc39c09baa162a520",
+    "right_eye_half": "0177b068f0076746d335aaecd47896b80c2a270f3074ca327aff6b8635de4099",
+    "right_eye_closed": "99b3e5f1cb6de3383bf6217249337bc31b489baabc77a8114cc302633f1f59f3",
+    "right_eye_gaze_left": "febfd40d61d7e5c44533437f2ab07caf296780c65119227efb6f125e56421ea6",
+    "right_eye_gaze_right": "25bcf0ac64b0987d8930cca121722f752d6529b98fcecb805ae06392220fe22a",
+    "right_eye_gaze_up": "ed522b2eed9fb917715a64626b24f2871d84809e99cb7308df5386e62e6f0a8e",
+    "right_eye_gaze_down": "2c0a6d5d65fd17e5ecc72da6ddb5168b2bd4ebb67a4d89d53e60213a351a32ff",
+    "nose": "3cada2f1ea19aa08ad54a2856dbec20e3ea59a0a1ab66ef07a8fba7398e020dc",
+    "mouth_closed": "6e1b0358764abaa2603019a2c23065dea5280892a960559be15c4ca80c506873",
+    "mouth_small": "f06e3f7785bdd77e4dd3a33aa2fec1fa53e8274c09ddce41d1be3a4f8a80c6cc",
+    "mouth_medium": "50724368cdba6d1b32f17303f1d621aeb473d828f9085df28eafdf67ae772ea0",
+    "mouth_wide": "6eda3313425131bd9cf8dcf0790c20893968e66a0a8f8305c442f84c29c1ddae",
+    "mouth_smile": "6a3b87e4affdcb067f0f36b4c888fa61a653edca69adf5a765d6ac830c22d668",
+    "mouth_angry": "2d5b14b166f7faaa51a1975e68cee2ba08400e160a836f5f2e8476a0b9b6bce4",
+    "mouth_sad": "e42f08ed2abdf002d4bba3808aed0c03d62977c04aede013f51216338728842b"
+  },
+  "checks": {
+    "attachmentCountIs32": true,
+    "slotCountIs8": true,
+    "manifestEqualsSpineSkin": true,
+    "manifestEqualsAtlas": true,
+    "animationNamesMatchSpine": true,
+    "animationNamesMatchLibrary": true,
+    "timelineAttachmentReferencesExist": true,
+    "timelineBoneReferencesExist": true,
+    "allTimelineEndsMatchDuration": true,
+    "allSlotsShareSafePortraitMotion": true,
+    "browserHeadPivotIsExpected": true,
+    "spineHeadPivotMatchesBrowser": true,
+    "allCanvases512Rgba": true,
+    "allAttachmentsHaveNoHiddenRgb": true,
+    "newFeaturesRemainSparse": true,
+    "newFeaturesHaveNoLargeSkinPlate": true,
+    "portraitSplitReconstructsOriginal": true
+  },
+  "pass": true
+}

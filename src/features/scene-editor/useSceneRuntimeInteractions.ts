@@ -16,7 +16,7 @@ import {
   stateMatches,
   stateValueFromText,
 } from "../../domain/scene/sceneModel";
-import { getFrameSize } from "../../domain/sprites/spriteUtils";
+import { getFrameSize, spriteFrameTotal } from "../../domain/sprites/spriteUtils";
 import { clamp } from "../../shared/math";
 import type { AnimationSprite, GameAsset, GameScene, LayerInteractionSettings, SceneLayer } from "../../types";
 import type { SceneVehiclePhase } from "../scene-flow";
@@ -118,6 +118,7 @@ export function useSceneRuntimeInteractions({
   const triggerNearbyInteractionRef = useRef<(entry?: SceneInteractionPromptEntry | null) => void>(() => {});
   const cameraAnimationRef = useRef<number | null>(null);
   const cameraEffectTimerRef = useRef<number | null>(null);
+  const oneShotAnimationTimerRef = useRef<number | null>(null);
   const activeAutoCameraZoneIdRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -377,6 +378,10 @@ export function useSceneRuntimeInteractions({
         targetAsset?.animations?.find(clip => clip.id === targetAsset.defaultAnimationId) ||
         targetAsset?.animations?.[0];
       if (targetClip) {
+        if (oneShotAnimationTimerRef.current !== null) {
+          window.clearTimeout(oneShotAnimationTimerRef.current);
+          oneShotAnimationTimerRef.current = null;
+        }
         setScene(prev => ({
           ...prev,
           layers: prev.layers.map(item => item.id === targetLayerId ? { ...item, activeAnimationId: targetClip.id } : item),
@@ -386,6 +391,25 @@ export function useSceneRuntimeInteractions({
         setIsPlaying(true);
         setInteractionToast(subtitle);
         setNotice(`Played interaction animation: ${targetClip.name}`);
+        if (!targetClip.loop) {
+          const returnClip =
+            targetAsset?.animations?.find(clip => clip.id === targetAsset.defaultAnimationId && clip.id !== targetClip.id) ||
+            targetAsset?.animations?.find(clip => clip.actionName === "idle" && clip.id !== targetClip.id);
+          const frameCount = Math.max(1, spriteFrameTotal(targetClip.sprite));
+          const fps = Math.max(1, targetClip.fps || targetClip.sprite.fps || 8);
+          oneShotAnimationTimerRef.current = window.setTimeout(() => {
+            setScene(prev => ({
+              ...prev,
+              layers: prev.layers.map(item => item.id === targetLayerId
+                ? { ...item, activeAnimationId: returnClip?.id || targetClip.id }
+                : item),
+            }));
+            setActiveSprite(returnClip?.sprite || targetClip.sprite);
+            setIsPlaying(false);
+            window.requestAnimationFrame(() => setActiveFrame(0));
+            oneShotAnimationTimerRef.current = null;
+          }, Math.ceil((frameCount / fps) * 1000));
+        }
         return;
       }
     }
@@ -476,6 +500,7 @@ export function useSceneRuntimeInteractions({
     return () => {
       if (cameraAnimationRef.current !== null) window.cancelAnimationFrame(cameraAnimationRef.current);
       if (cameraEffectTimerRef.current !== null) window.clearTimeout(cameraEffectTimerRef.current);
+      if (oneShotAnimationTimerRef.current !== null) window.clearTimeout(oneShotAnimationTimerRef.current);
     };
   }, []);
 

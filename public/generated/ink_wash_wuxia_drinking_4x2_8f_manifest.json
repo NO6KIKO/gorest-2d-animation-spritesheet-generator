@@ -1,0 +1,188 @@
+{
+  "frameCount": 8,
+  "cellSize": 384,
+  "frameSize": [
+    384,
+    384
+  ],
+  "sheetSize": [
+    1536,
+    768
+  ],
+  "sourceSheetSize": [
+    1774,
+    887
+  ],
+  "sourceCells": [
+    [
+      4,
+      4,
+      440,
+      440
+    ],
+    [
+      448,
+      4,
+      883,
+      440
+    ],
+    [
+      891,
+      4,
+      1326,
+      440
+    ],
+    [
+      1334,
+      4,
+      1770,
+      440
+    ],
+    [
+      4,
+      448,
+      440,
+      883
+    ],
+    [
+      448,
+      448,
+      883,
+      883
+    ],
+    [
+      891,
+      448,
+      1326,
+      883
+    ],
+    [
+      1334,
+      448,
+      1770,
+      883
+    ]
+  ],
+  "globalScale": 0.5949918644275184,
+  "safePadding": 36,
+  "safeFramePolicy": "global_uniform_scale_preserve_anchor_with_minimum_edge_padding",
+  "sourceEdgePolicy": "flag_source_cells_whose_alpha_touches_or_nears_a_detected_cell_edge",
+  "sourceEdgeThreshold": 4,
+  "sourceEdgeRisks": [],
+  "frameBboxes": [
+    [
+      95,
+      40,
+      204,
+      217
+    ],
+    [
+      94,
+      40,
+      205,
+      217
+    ],
+    [
+      94,
+      40,
+      206,
+      217
+    ],
+    [
+      94,
+      40,
+      206,
+      217
+    ],
+    [
+      99,
+      37,
+      210,
+      217
+    ],
+    [
+      92,
+      40,
+      207,
+      217
+    ],
+    [
+      93,
+      40,
+      205,
+      217
+    ],
+    [
+      94,
+      40,
+      205,
+      217
+    ]
+  ],
+  "rootAnchors": [
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ],
+    [
+      192.0,
+      117.12
+    ]
+  ],
+  "gridPolicy": "auto_detect_grid_from_sprite_distances_then_fallback_proportional",
+  "gridDetection": {
+    "mode": "proportional_forced",
+    "xRuns": [],
+    "yRuns": [],
+    "xBounds": [
+      0,
+      444,
+      887,
+      1330,
+      1774
+    ],
+    "yBounds": [
+      0,
+      444,
+      887
+    ]
+  },
+  "proportionPolicy": "uniform_scale_preserve_input_character_proportions",
+  "rootAnchorPolicy": "fixed_upper_body_centroid_anchor_character_position_stable",
+  "normalization": "global_uniform_scale_fixed_root_anchor_auto_grid_no_nonuniform_scaling",
+  "createdTime": "2026-09-09T18:04:21",
+  "frames": [
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 0 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"384 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"768 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>",
+    "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"1152 384 384 384\" width=\"384\" height=\"384\"><image href=\"/generated/ink_wash_wuxia_drinking_4x2_8f_sheet.png\" x=\"0\" y=\"0\" width=\"1536\" height=\"768\" preserveAspectRatio=\"none\"/></svg>"
+  ]
+}

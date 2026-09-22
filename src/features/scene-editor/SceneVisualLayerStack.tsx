@@ -51,6 +51,7 @@ type SceneVisualLayerStackProps = {
     handle: ResizeHandle
   ) => void;
   onLayerContextMenu: (event: MouseEvent<HTMLElement>, layer: SceneLayer) => void;
+  onLayerInteractionClick: (layer: SceneLayer, sprite: AnimationSprite) => void;
   onLayerPointerDown: (event: PointerEvent<HTMLDivElement>, layer: SceneLayer) => void;
   onLayerResizeStart: (
     event: PointerEvent<HTMLSpanElement>,
@@ -87,6 +88,7 @@ export function SceneVisualLayerStack({
   onInteractionZoneDragStart,
   onInteractionZoneResizeStart,
   onLayerContextMenu,
+  onLayerInteractionClick,
   onLayerPointerDown,
   onLayerResizeStart,
   onLayerSelect,
@@ -126,6 +128,7 @@ export function SceneVisualLayerStack({
                 onInteractionZoneDragStart={onInteractionZoneDragStart}
                 onInteractionZoneResizeStart={onInteractionZoneResizeStart}
                 onLayerContextMenu={onLayerContextMenu}
+                onLayerInteractionClick={onLayerInteractionClick}
                 onLayerPointerDown={onLayerPointerDown}
                 onLayerResizeStart={onLayerResizeStart}
                 onLayerSelect={onLayerSelect}

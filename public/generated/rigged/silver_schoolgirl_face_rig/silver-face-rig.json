@@ -1,0 +1,149 @@
+{
+  "skeleton": {
+    "spine": "4.2.22",
+    "x": -256,
+    "y": -256,
+    "width": 512,
+    "height": 512,
+    "images": "./"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "head",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "portrait_base",
+      "bone": "root",
+      "attachment": "portrait_base"
+    },
+    {
+      "name": "eyes",
+      "bone": "head",
+      "attachment": "eyes_open"
+    },
+    {
+      "name": "mouth",
+      "bone": "head",
+      "attachment": "mouth_closed"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "portrait_base": {
+          "portrait_base": {
+            "width": 512,
+            "height": 512
+          }
+        },
+        "eyes": {
+          "eyes_open": {
+            "width": 512,
+            "height": 512
+          },
+          "eyes_half": {
+            "width": 512,
+            "height": 512
+          },
+          "eyes_closed": {
+            "width": 512,
+            "height": 512
+          }
+        },
+        "mouth": {
+          "mouth_closed": {
+            "width": 512,
+            "height": 512
+          },
+          "mouth_small": {
+            "width": 512,
+            "height": 512
+          },
+          "mouth_medium": {
+            "width": 512,
+            "height": 512
+          },
+          "mouth_wide": {
+            "width": 512,
+            "height": 512
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "blink": {
+      "slots": {
+        "eyes": {
+          "attachment": [
+            {
+              "name": "eyes_open"
+            },
+            {
+              "time": 0.58,
+              "name": "eyes_half"
+            },
+            {
+              "time": 0.66,
+              "name": "eyes_closed"
+            },
+            {
+              "time": 0.74,
+              "name": "eyes_half"
+            },
+            {
+              "time": 0.82,
+              "name": "eyes_open"
+            },
+            {
+              "time": 1.4,
+              "name": "eyes_open"
+            }
+          ]
+        }
+      }
+    },
+    "talk": {
+      "slots": {
+        "mouth": {
+          "attachment": [
+            {
+              "name": "mouth_closed"
+            },
+            {
+              "time": 0.14,
+              "name": "mouth_small"
+            },
+            {
+              "time": 0.3,
+              "name": "mouth_medium"
+            },
+            {
+              "time": 0.48,
+              "name": "mouth_wide"
+            },
+            {
+              "time": 0.65,
+              "name": "mouth_medium"
+            },
+            {
+              "time": 0.82,
+              "name": "mouth_small"
+            },
+            {
+              "time": 1.0,
+              "name": "mouth_closed"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

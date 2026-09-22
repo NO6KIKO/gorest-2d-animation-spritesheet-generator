@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "rigs": [
+    {
+      "id": "silver_schoolgirl_face_rig",
+      "name": "Silver Schoolgirl / Expressive Feature Rig",
+      "characterName": "Wei Yang",
+      "description": "32 registered portrait and facial attachments with multi-track gaze, expressions, speech, random blink, and pivoted portrait motion.",
+      "focus": "face-closeup",
+      "thumbnailUrl": "/generated/rigged/silver_schoolgirl_face_rig/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/silver_schoolgirl_face_rig/pure_feature_preview_sheet.png",
+      "rigManifestUrl": "/generated/rigged/silver_schoolgirl_face_rig/rig.json",
+      "spineJsonUrl": "/generated/rigged/silver_schoolgirl_face_rig/silver-face-pure-rig.json",
+      "spineAtlasUrl": "/generated/rigged/silver_schoolgirl_face_rig/silver-face-pure-rig.atlas",
+      "spineTextureUrl": "/generated/rigged/silver_schoolgirl_face_rig/silver-face-pure-rig.png",
+      "frameSize": [
+        512,
+        512
+      ],
+      "frameCount": 16,
+      "fps": 12,
+      "animations": [
+        {
+          "name": "idle_blink",
+          "loop": false
+        },
+        {
+          "name": "talk_soft",
+          "loop": true
+        },
+        {
+          "name": "blink",
+          "loop": false
+        },
+        {
+          "name": "wink_left",
+          "loop": false
+        },
+        {
+          "name": "wink_right",
+          "loop": false
+        },
+        {
+          "name": "talk",
+          "loop": true
+        },
+        {
+          "name": "talk_emphasis",
+          "loop": true
+        },
+        {
+          "name": "gaze_left",
+          "loop": true
+        },
+        {
+          "name": "gaze_right",
+          "loop": true
+        },
+        {
+          "name": "gaze_up",
+          "loop": true
+        },
+        {
+          "name": "gaze_down",
+          "loop": true
+        },
+        {
+          "name": "brow_raise",
+          "loop": true
+        },
+        {
+          "name": "brow_frown",
+          "loop": true
+        },
+        {
+          "name": "brow_worried",
+          "loop": true
+        },
+        {
+          "name": "emotion_happy",
+          "loop": true
+        },
+        {
+          "name": "emotion_surprised",
+          "loop": true
+        },
+        {
+          "name": "emotion_angry",
+          "loop": true
+        },
+        {
+          "name": "emotion_sad",
+          "loop": true
+        },
+        {
+          "name": "head_nod",
+          "loop": false
+        },
+        {
+          "name": "head_shake",
+          "loop": false
+        },
+        {
+          "name": "head_tilt",
+          "loop": false
+        }
+      ],
+      "defaultAnimation": "idle_blink",
+      "updatedTime": "2026-08-16T05:30:00.000Z",
+      "tags": [
+        "silver-hair",
+        "school-uniform",
+        "face-closeup",
+        "pure-features",
+        "expressions",
+        "gaze",
+        "random-blink",
+        "bone-motion",
+        "spine-4.2"
+      ]
+    }
+  ]
+}

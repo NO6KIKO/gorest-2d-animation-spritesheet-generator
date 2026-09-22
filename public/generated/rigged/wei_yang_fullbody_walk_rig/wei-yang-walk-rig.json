@@ -1,0 +1,124 @@
+{
+  "skeleton": {
+    "spine": "4.2.22",
+    "x": -320,
+    "y": -80,
+    "width": 640,
+    "height": 1152,
+    "images": "./"
+  },
+  "bones": [
+    {
+      "name": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "full_body",
+      "bone": "root",
+      "attachment": "walk_right_00"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "full_body": {
+          "walk_right_00": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_01": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_02": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_03": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_04": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_05": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_06": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          },
+          "walk_right_07": {
+            "x": 0,
+            "y": 496.0,
+            "width": 640,
+            "height": 1152
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "walk_right": {
+      "slots": {
+        "full_body": {
+          "attachment": [
+            {
+              "name": "walk_right_00"
+            },
+            {
+              "name": "walk_right_01",
+              "time": 0.083333
+            },
+            {
+              "name": "walk_right_02",
+              "time": 0.166667
+            },
+            {
+              "name": "walk_right_03",
+              "time": 0.25
+            },
+            {
+              "name": "walk_right_04",
+              "time": 0.333333
+            },
+            {
+              "name": "walk_right_05",
+              "time": 0.416667
+            },
+            {
+              "name": "walk_right_06",
+              "time": 0.5
+            },
+            {
+              "name": "walk_right_07",
+              "time": 0.583333
+            },
+            {
+              "name": "walk_right_00",
+              "time": 0.666667
+            }
+          ]
+        }
+      }
+    }
+  }
+}
