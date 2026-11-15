@@ -5,7 +5,7 @@ An open-source, no-UI 2D game and animation generative platform for turning conc
 We open-sourced this 2D platform to make game creation simpler, and we will keep improving it in public. We welcome your support, feedback, and contributions.
 
 > [!TIP]
-> **Don't want to set up a local environment?** Use the hosted version at **[sprite.gorest.ai](https://sprite.gorest.ai/)** — sign in and generate game-ready, transparent spritesheets directly in your browser. No installation, no API keys, no configuration.
+> **Don't want to set up a local environment?** Use the hosted version at **[sprite.gorest.ai](https://sprite.gorest.ai/?utm_source=github&utm_campaign=acc_heroza)** — sign in and generate game-ready, transparent spritesheets directly in your browser. No installation, no API keys, no configuration.
 
 > **Tip for Codex users:** You do not need to connect an extra API to customize this tool. Open this repo in Codex and point it at this document or the codebase, then describe what you want to change. Codex can update the software directly.
 >
