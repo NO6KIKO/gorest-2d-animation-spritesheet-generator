@@ -1,6 +1,38 @@
 {
   "assets": [
     {
+      "id": "asset_wei_yang_side_walk_skeletal_contact",
+      "name": "Wei Yang / Side Walk (Contact Pose)",
+      "role": "npc",
+      "confirmed": false,
+      "savedTime": "2026-11-21T00:00:00-08:00",
+      "sprite": {
+        "id": "sprite_wei_yang_side_walk_skeletal_contact",
+        "characterName": "Wei Yang",
+        "description": "Contact pose from the side walk rig.",
+        "frameCount": 1,
+        "fps": 1,
+        "loop": false,
+        "gridColumns": 1,
+        "frameSize": [
+          760,
+          1152
+        ],
+        "sheetSize": [
+          760,
+          1152
+        ],
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 1152\"><image href=\"/generated/rigged/wei_yang_side_walk_skeletal/walk_contact.png\" width=\"760\" height=\"1152\"/></svg>"
+        ],
+        "spritesheetPng": "/generated/rigged/wei_yang_side_walk_skeletal/walk_contact.png",
+        "rawSpritesheetPng": "/generated/rigged/wei_yang_side_walk_skeletal/walk_contact.png",
+        "generationMode": "spritesheet",
+        "isPreset": false,
+        "createdTime": "2026-11-21T00:00:00-08:00"
+      }
+    },
+    {
       "id": "asset_wei_yang_front_collar_restored",
       "name": "Wei Yang / Front Collar Restored",
       "role": "npc",

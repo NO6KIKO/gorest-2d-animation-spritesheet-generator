@@ -1,0 +1,20 @@
+wei_yang_side_walk.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+arm_far
+bounds: 737, 2, 66, 378
+leg_far
+bounds: 2, 2, 186, 550
+leg_near
+bounds: 196, 2, 186, 550
+satchel
+bounds: 593, 2, 136, 381
+uniform
+bounds: 390, 2, 195, 446
+head
+bounds: 2, 560, 172, 191
+arm_near
+bounds: 811, 2, 66, 378

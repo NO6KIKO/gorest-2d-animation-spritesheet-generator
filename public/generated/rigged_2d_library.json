@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "rigs": [
     {
+      "id": "wei_yang_side_walk_skeletal",
+      "name": "Wei Yang / Side Walk",
+      "characterName": "Wei Yang",
+      "description": "Right-facing skeletal walk with a planted stance, heel roll and opposite arm swing.",
+      "focus": "skeletal-side-walk",
+      "frameSize": [
+        760,
+        1152
+      ],
+      "fps": 60,
+      "frameCount": 1,
+      "thumbnailUrl": "/generated/rigged/wei_yang_side_walk_skeletal/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/wei_yang_side_walk_skeletal/walk_contact.png",
+      "rigManifestUrl": "/generated/rigged/wei_yang_side_walk_skeletal/rig.json",
+      "spineJsonUrl": "/generated/rigged/wei_yang_side_walk_skeletal/wei_yang_side_walk.json",
+      "spineAtlasUrl": "/generated/rigged/wei_yang_side_walk_skeletal/wei_yang_side_walk.atlas",
+      "spineTextureUrl": "/generated/rigged/wei_yang_side_walk_skeletal/wei_yang_side_walk.png",
+      "defaultAnimation": "walk_right",
+      "animations": [
+        {
+          "name": "walk_right",
+          "loop": true
+        }
+      ]
+    },
+    {
       "id": "wei_yang_front_collar_restored",
       "name": "Wei Yang / Front Collar Restored",
       "characterName": "Wei Yang",
