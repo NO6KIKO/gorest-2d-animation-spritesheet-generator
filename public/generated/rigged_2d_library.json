@@ -2,6 +2,48 @@
   "schemaVersion": 1,
   "rigs": [
     {
+      "id": "wei_yang_front_collar_restored",
+      "name": "Wei Yang / Front Collar Restored",
+      "characterName": "Wei Yang",
+      "description": "Restored collar and cutout edges with individually bound limbs and hair.",
+      "focus": "repaired-front",
+      "frameSize": [
+        608,
+        1055
+      ],
+      "fps": 24,
+      "frameCount": 1,
+      "thumbnailUrl": "/generated/rigged/wei_yang_front_collar_restored/thumbnail.png",
+      "previewSheetUrl": "/generated/rigged/wei_yang_front_collar_restored/parts-sheet.png",
+      "rigManifestUrl": "/generated/rigged/wei_yang_front_collar_restored/rig.json",
+      "spineJsonUrl": "/generated/rigged/wei_yang_front_collar_restored/wei_yang.json",
+      "spineAtlasUrl": "/generated/rigged/wei_yang_front_collar_restored/wei_yang.atlas",
+      "spineTextureUrl": "/generated/rigged/wei_yang_front_collar_restored/wei_yang.png",
+      "defaultAnimation": "idle",
+      "animations": [
+        {
+          "name": "setup_pose",
+          "loop": true
+        },
+        {
+          "name": "idle",
+          "loop": true
+        },
+        {
+          "name": "blink",
+          "loop": true
+        },
+        {
+          "name": "talk",
+          "loop": true
+        },
+        {
+          "name": "smile",
+          "loop": true
+        }
+      ]
+    },
+    {
       "id": "silver_schoolgirl_face_rig",
       "name": "Silver Schoolgirl / Expressive Feature Rig",
       "characterName": "Wei Yang",

@@ -1,6 +1,38 @@
 {
   "assets": [
     {
+      "id": "asset_wei_yang_front_collar_restored",
+      "name": "Wei Yang / Front Collar Restored",
+      "role": "npc",
+      "confirmed": false,
+      "savedTime": "2026-11-21T00:00:00-08:00",
+      "sprite": {
+        "id": "sprite_wei_yang_front_collar_restored",
+        "characterName": "Wei Yang",
+        "description": "Restored collar and cutout edges with individually bound limbs and hair.",
+        "frameCount": 1,
+        "fps": 1,
+        "loop": false,
+        "gridColumns": 1,
+        "frameSize": [
+          608,
+          1055
+        ],
+        "sheetSize": [
+          608,
+          1055
+        ],
+        "frames": [
+          "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 608 1055\"><image href=\"/generated/rigged/wei_yang_front_collar_restored/neutral_composite.png\" width=\"608\" height=\"1055\"/></svg>"
+        ],
+        "spritesheetPng": "/generated/rigged/wei_yang_front_collar_restored/neutral_composite.png",
+        "rawSpritesheetPng": "/generated/rigged/wei_yang_front_collar_restored/neutral_composite.png",
+        "generationMode": "spritesheet",
+        "isPreset": false,
+        "createdTime": "2026-11-21T00:00:00-08:00"
+      }
+    },
+    {
       "id": "asset_center_part_black_hair_woman_tie_firelight_closeup_8f",
       "name": "Center-Part Black-Haired Woman / Firelight Close-up 8f",
       "role": "npc",

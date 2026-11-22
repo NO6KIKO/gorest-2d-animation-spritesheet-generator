@@ -1,0 +1,62 @@
+wei_yang.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+thigh_r
+bounds: 416, 2, 79, 194
+shin_r
+bounds: 291, 2, 50, 218
+foot_r
+bounds: 540, 326, 98, 90
+thigh_l
+bounds: 503, 2, 78, 194
+shin_l
+bounds: 349, 2, 59, 218
+foot_l
+bounds: 460, 326, 72, 110
+skirt
+bounds: 2, 326, 239, 156
+arm_r_fill
+bounds: 245, 2, 38, 273
+arm_l_fill
+bounds: 214, 2, 23, 276
+torso
+bounds: 2, 2, 204, 316
+upper_arm_r
+bounds: 808, 2, 48, 160
+forearm_r
+bounds: 920, 2, 44, 157
+hand_r
+bounds: 803, 326, 21, 53
+upper_arm_l
+bounds: 864, 2, 48, 159
+forearm_l
+bounds: 745, 2, 55, 163
+hand_l
+bounds: 646, 326, 38, 66
+hair_back
+bounds: 589, 2, 148, 178
+face
+bounds: 249, 326, 125, 143
+hair_side_r
+bounds: 382, 326, 28, 112
+hair_side_l
+bounds: 418, 326, 34, 111
+hair_fringe
+bounds: 692, 326, 103, 55
+eyes_open
+bounds: 832, 326, 94, 32
+eyes_half
+bounds: 2, 490, 94, 32
+eyes_closed
+bounds: 104, 490, 94, 32
+mouth_rest
+bounds: 206, 490, 30, 23
+mouth_o
+bounds: 244, 490, 30, 23
+mouth_a
+bounds: 282, 490, 30, 23
+mouth_smile
+bounds: 320, 490, 30, 23
