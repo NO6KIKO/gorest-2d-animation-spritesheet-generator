@@ -4,7 +4,7 @@ type ModePickerProps = {
   onOpenSheetOnly: () => void;
 };
 
-const DISCORD_URL = "https://discord.gg/rBS93CV6N";
+const DISCORD_URL = "https://discord.gg/hn85BYTSg";
 const WEBSITE_URL = "https://gorest.ai/";
 
 export function ModePicker({ onOpenGame, onOpenRigged2D, onOpenSheetOnly }: ModePickerProps) {
